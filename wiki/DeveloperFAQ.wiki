@@ -1,0 +1,16 @@
+#summary Frequently asked questions about contributing to Piccolo 2D
+#labels FAQ
+
+= Introduction =
+
+This FAQ is designed to help current or prospective developers understand more about how the Piccolo 2D project is run.
+
+= Frequently Asked Questions =
+
+|| *How do I become a developer?* ||
+
+ Non-developers become developers by contributing issues/patches/wiki content/group discussion and receiving at least two positive votes and no negative votes from existing developers.
+
+|| *What are the requirements prior to checking in?* ||
+
+ All check-ins must be accompanied with an issue # in the commit message and pass all unit tests.
