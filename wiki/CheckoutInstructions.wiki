@@ -1,0 +1,33 @@
+#summary How to check-out the Piccolo 2D code from Subversion
+
+----
+
+|| *Links:* || [http://code.google.com/p/piccolo2d/source/browse Browse Repository] || [http://code.google.com/p/piccolo2d/source/list View Recent Changes] ||
+
+----
+
+=== Command-Line Access ===
+
+==== Developers (read/write) ====
+
+If you plan to make changes, use the following commands to check out the code as yourself using HTTPS:
+
+|| Piccolo 2D Java: || svn checkout _*https*_://piccolo2d.googlecode.com/svn/*piccolo2d.java*/trunk/ *piccolo2d.java* --username _your@user.name_ ||
+|| Piccolo 2D .NET: || svn checkout _*https*_://piccolo2d.googlecode.com/svn/*piccolo2d.net*/trunk/ *piccolo2d.net* --username _your@user.name_ ||
+|| PocketPiccolo 2D: || svn checkout _*https*_://piccolo2d.googlecode.com/svn/*pocketpiccolo2d.net*/trunk/ *pocketpiccolo2d.net* --username _your@user.name_ ||
+
+_When prompted, enter your generated [http://code.google.com/hosting/settings googlecode.com] password._
+
+==== Viewers (read-only) ====
+
+Use the following commands to anonymously check out the latest project source code:
+
+|| Piccolo 2D Java: || svn checkout _*http*_://piccolo2d.googlecode.com/svn/*piccolo2d.java*/trunk/ piccolo2d.java-read-only ||
+|| Piccolo 2D .NET: || svn checkout _*http*_://piccolo2d.googlecode.com/svn/*piccolo2d.net*/trunk/ *piccolo2d.net-read-only* ||
+|| PocketPiccolo 2D: || svn checkout _*http*_://piccolo2d.googlecode.com/svn/*pocketpiccolo2d.net*/trunk/ *pocketpiccolo2d.net-read-only* ||
+
+ 
+
+=== GUI and IDE Access ===
+
+This project's Subversion repository may be accessed using many different [http://subversion.tigris.org/links.html#clients client programs and plug-ins]. See your client's documentation for more information.
