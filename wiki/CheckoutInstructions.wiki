@@ -10,6 +10,8 @@ Recent changes:
 
 || http://code.google.com/p/piccolo2d/source/list ||
 
+ 
+
 = Anonymous access =
 
 The source can be checked out anonymously from SVN with this commands:
@@ -30,6 +32,10 @@ The source can be checked out anonymously from SVN with this commands:
 
 Everyone can access the Subversion repository via HTTPS, but Committers must checkout the Subversion repository via HTTPS.
 
+Your username is the same e-mail address you use to login to Google Code (this can be passed in using the --username parameter).
+
+When prompted, enter your generated [http://code.google.com/hosting/settings googlecode.com] password.
+
 == piccolo.java ==
 
  {{{$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java}}}
@@ -41,6 +47,3 @@ Everyone can access the Subversion repository via HTTPS, but Committers must che
 == pocketpiccolo.net ==
 
  {{{$ svn checkout https://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net}}}
-
-Your username is the same e-mail address you use to login to Google Code (this can be passed in using the --username parameter).
-When prompted, enter your generated [http://code.google.com/hosting/settings googlecode.com] password.
