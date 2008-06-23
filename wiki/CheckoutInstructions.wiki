@@ -1,33 +1,55 @@
 #summary How to check-out the Piccolo 2D code from Subversion
 
-----
+= Web Access =
 
-|| *Links:* || [http://code.google.com/p/piccolo2d/source/browse Browse Repository] || [http://code.google.com/p/piccolo2d/source/list View Recent Changes] ||
+The following is a link to the online source repository:
 
-----
+|| http://code.google.com/p/piccolo2d/source/browse ||
 
-=== Command-Line Access ===
+Recent changes:
 
-==== Developers (read/write) ====
+|| http://code.google.com/p/piccolo2d/source/list ||
 
-If you plan to make changes, use the following commands to check out the code as yourself using HTTPS:
+= Anonymous access =
 
-|| Piccolo 2D Java: || svn checkout _*https*_://piccolo2d.googlecode.com/svn/*piccolo2d.java*/trunk/ *piccolo2d.java* --username _your@user.name_ ||
-|| Piccolo 2D .NET: || svn checkout _*https*_://piccolo2d.googlecode.com/svn/*piccolo2d.net*/trunk/ *piccolo2d.net* --username _your@user.name_ ||
-|| PocketPiccolo 2D: || svn checkout _*https*_://piccolo2d.googlecode.com/svn/*pocketpiccolo2d.net*/trunk/ *pocketpiccolo2d.net* --username _your@user.name_ ||
+The source can be checked out anonymously from SVN with this commands:
 
-_When prompted, enter your generated [http://code.google.com/hosting/settings googlecode.com] password._
+== piccolo.java ==
 
-==== Viewers (read-only) ====
+{{{
+$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java
+}}}
 
-Use the following commands to anonymously check out the latest project source code:
+== piccolo.net ==
 
-|| Piccolo 2D Java: || svn checkout _*http*_://piccolo2d.googlecode.com/svn/*piccolo2d.java*/trunk/ piccolo2d.java-read-only ||
-|| Piccolo 2D .NET: || svn checkout _*http*_://piccolo2d.googlecode.com/svn/*piccolo2d.net*/trunk/ *piccolo2d.net-read-only* ||
-|| PocketPiccolo 2D: || svn checkout _*http*_://piccolo2d.googlecode.com/svn/*pocketpiccolo2d.net*/trunk/ *pocketpiccolo2d.net-read-only* ||
+{{{
+$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo.net/trunk piccolo.net
+}}}
 
- 
+== pocketpiccolo.net ==
 
-=== GUI and IDE Access ===
+{{{
+$ svn checkout http://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net
+}}}
 
-This project's Subversion repository may be accessed using many different [http://subversion.tigris.org/links.html#clients client programs and plug-ins]. See your client's documentation for more information.
+= Developer access =
+
+Everyone can access the Subversion repository via HTTPS, but Committers must checkout the Subversion repository via HTTPS.
+
+== piccolo.java ==
+
+{{{
+$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java
+}}}
+
+== piccolo.net ==
+
+{{{
+$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.net/trunk piccolo.net
+}}}
+
+== pocketpiccolo.net ==
+
+{{{
+$ svn checkout https://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net
+}}}
