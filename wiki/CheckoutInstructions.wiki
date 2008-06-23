@@ -41,3 +41,6 @@ Everyone can access the Subversion repository via HTTPS, but Committers must che
 == pocketpiccolo.net ==
 
  {{{$ svn checkout https://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net}}}
+
+Your username is the same e-mail address you use to login to Google Code (this can be passed in using the --username parameter).
+When prompted, enter your generated [http://code.google.com/hosting/settings googlecode.com] password.
