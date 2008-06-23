@@ -16,21 +16,15 @@ The source can be checked out anonymously from SVN with this commands:
 
 == piccolo.java ==
 
-{{{
-$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java
-}}}
+ {{{$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java}}}
 
 == piccolo.net ==
 
-{{{
-$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo.net/trunk piccolo.net
-}}}
+ {{{$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo.net/trunk piccolo.net}}}
 
 == pocketpiccolo.net ==
 
-{{{
-$ svn checkout http://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net
-}}}
+ {{{$ svn checkout http://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net}}}
 
 = Developer access =
 
@@ -38,18 +32,12 @@ Everyone can access the Subversion repository via HTTPS, but Committers must che
 
 == piccolo.java ==
 
-{{{
-$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java
-}}}
+ {{{$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java}}}
 
 == piccolo.net ==
 
-{{{
-$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.net/trunk piccolo.net
-}}}
+ {{{$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.net/trunk piccolo.net}}}
 
 == pocketpiccolo.net ==
 
-{{{
-$ svn checkout https://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net
-}}}
+ {{{$ svn checkout https://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net}}}
