@@ -47,3 +47,5 @@ When prompted, enter your generated [http://code.google.com/hosting/settings goo
 == pocketpiccolo.net ==
 
  {{{$ svn checkout https://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net}}}
+
+[http://piccolo2d.org http://piccolo2d.googlecode.com/svn/wiki/images/Piccolo2D-Logo-small.png]
