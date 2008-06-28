@@ -14,3 +14,5 @@ This FAQ is designed to help current or prospective developers understand more a
 || *What are the requirements prior to checking in?* ||
 
  All check-ins must be accompanied with an issue # in the commit message and pass all unit tests.
+
+[http://piccolo2d.org http://piccolo2d.googlecode.com/svn/wiki/images/Piccolo2D-Logo-small.png]
