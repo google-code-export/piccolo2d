@@ -1,4 +1,4 @@
-#summary How to check-out the Piccolo 2D code from Subversion
+#summary How to check-out the Piccolo2D code from Subversion
 
 = Web Access =
 
