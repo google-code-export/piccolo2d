@@ -1,9 +1,9 @@
-#summary Frequently asked questions about contributing to Piccolo 2D
+#summary Frequently asked questions about contributing to Piccolo2D
 #labels FAQ
 
 = Introduction =
 
-This FAQ is designed to help current or prospective developers understand more about how the Piccolo 2D project is run.
+This FAQ is designed to help current or prospective developers understand more about how the Piccolo2D project is run.
 
 = Frequently Asked Questions =
 
