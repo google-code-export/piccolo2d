@@ -168,6 +168,10 @@ http://subversion.tigris.org/hacking.html#configury
 == Java ==
 Currently [http://ant.apache.org/ ant] builds Piccolo2D, but within the next weeks we'll switch over to [http://maven.apache.org/ maven].
 
+ * TODO maven snapshot and release repositories?
+ * TODO where goes the maven site (snapshot / release)?
+ * TODO can we set up a continuous build somewhere? (hudson, continuum or cruisecontrol?)
+
 == .Net ==
 
 TODO
@@ -178,8 +182,8 @@ TODO
 
 = Release numbering, compatibility, and deprecation =
 
-TODO
-
+ * TODO who prepares a release?
+ * TODO who publishes a release?
 
 
 
