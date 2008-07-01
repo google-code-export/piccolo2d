@@ -1,0 +1,38 @@
+#summary This is the place to learn about Piccolo. Here you'll find general information on 2D graphics concepts related to Piccolo, an explanation of how Piccolo compares with other graphics toolkits, common programming patterns used with Piccolo, basic and advanced tutorials, and detailed documentation of the Piccolo API.
+
+= Learning Center =
+
+== So what exactly is Piccolo? ==
+
+AboutPiccolo will give you some background information on exactly what Piccolo can help you do.
+
+== Want to learn more about Piccolo? ==
+
+PiccoloPatterns will explain the common programming paradigms associated with Piccolo.
+
+== Ready to start writing code? ==
+
+The GettingStarted section includes basic and advanced tutorials. Here you'll find step by step instructions from setting up Piccolo to building sample applications.
+
+== Looking for more details? ==
+
+The PiccoloAPI includes detailed documentation of every class and method in the toolkit. There are separate APIs for Java and C#.
+
+== Which version should you use? ==
+PiccoloInComparison will explain the differences between Piccolo.Java and Piccolo.NET as well as how Piccolo relates to other Graphics Toolkits.
+
+== Where's the research? ==
+
+If you want to understand what lead to Piccolo, read some of the papers we have published over the years in the PiccoloPublications section.
+
+== Have a technical question about Piccolo? ==
+
+Check out the DevelopersFAQ for answers to frequently asked questions about all three versions of Piccolo.
+
+== Still have questions? ==
+
+If you couldn't find the answer to your question on the Development FAQ, try submitting it to our MailingLists.
+
+== Need to brush up on 2D Graphics? ==
+
+If you feel like you need a refresher in the basic graphics concepts related to Piccolo, check out the GraphicsPrimer section.
