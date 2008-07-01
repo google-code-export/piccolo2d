@@ -1,7 +1,7 @@
 #summary Developer's FAQ
 #labels FAQ
 
-Here you'll find answers to commonly asked questions about all three versions of Piccolo.  If you don't find your answer here, you can always send it to the piccolo-chat mailing list.
+Here you'll find answers to commonly asked questions about all three versions of Piccolo.  If you don't find your answer here, you can always send it to the [http://groups.google.com/group/piccolo2d-users piccolo2d-users] mailing list.
 
 = Is Piccolo thread-safe? =
 
