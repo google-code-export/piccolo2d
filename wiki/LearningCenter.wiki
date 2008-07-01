@@ -1,6 +1,8 @@
-#summary This is the place to learn about Piccolo. Here you'll find general information on 2D graphics concepts related to Piccolo, an explanation of how Piccolo compares with other graphics toolkits, common programming patterns used with Piccolo, basic and advanced tutorials, and detailed documentation of the Piccolo API.
+#summary This is the place to learn about Piccolo.
 
 = Learning Center =
+
+Here you'll find general information on 2D graphics concepts related to Piccolo, an explanation of how Piccolo compares with other graphics toolkits, common programming patterns used with Piccolo, basic and advanced tutorials, and detailed documentation of the Piccolo API.
 
 == So what exactly is Piccolo? ==
 
