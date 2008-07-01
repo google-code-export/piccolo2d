@@ -1,5 +1,3 @@
-
-
 = About Piccolo =
 
 == Welcome to Piccolo! == 
@@ -19,17 +17,9 @@ Piccolo is a layer built on top of a lower level graphics API. There are current
 
 There three versions of Piccolo. They contain the same core functionality with a few differences. We will examine each separately here. For a detailed comparison, see PiccoloInComparison.
 
- * Piccolo.Java
-
-Piccolo.Java is written in 100% java, and the great thing about Java is that it runs on lots of machines including Windows, Mac OS X, Linux and Solaris. It is based on the Java2D API.
-
- * Piccolo.NET
-
-Piccolo.NET is written in 100% C#.  It runs on platforms that support the .NET Framework.  This means mainly Windows machines. Piccolo.NET provides the same functionality as Piccolo.Java, enabling .NET users to easily integrate advanced 2D graphics and zooming with standard Windows application code.  It is a deep port of the  Java version.  The API is very similar,  but there are a few differences to better support .NET style guidelines and constructs.  Piccolo.NET is based on the GDI+ API.
-
-* PocketPiccolo.NET
-
-PocketPiccolo.NET is also written in C#.  It runs on platforms that support the Compact .NET Framework.  This means mainly PDAs.  Current platforms include Pocket PCs, Pocket PC Phones, Smart Phones, and Windows CE.NET devices.
+ * Piccolo.Java is written in 100% java, and the great thing about Java is that it runs on lots of machines including Windows, Mac OS X, Linux and Solaris. It is based on the Java2D API.
+ * Piccolo.NET is written in 100% C#.  It runs on platforms that support the .NET Framework. This means mainly Windows machines. Piccolo.NET provides the same functionality as Piccolo.Java, enabling .NET users to easily integrate advanced 2D graphics and zooming with standard Windows application code.  It is a deep port of the  Java version. The API is very similar,  but there are a few differences to better support .NET style guidelines and constructs. Piccolo.NET is based on the GDI+ API.
+ * PocketPiccolo.NET is also written in C#.  It runs on platforms that support the Compact .NET Framework.  This means mainly PDAs.  Current platforms include Pocket PCs, Pocket PC Phones, Smart Phones, and Windows CE.NET devices.
 
 == What do you mean by "Structured Graphics"? ==
 Piccolo provides support for developers of 2D (+ zooming) object-oriented graphics programs in Java and C#. It uses a "scenegraph" model that is common to 3D environments. Basically, this means that Piccolo keeps a hierarchal structure of objects and cameras. Each node in the hierarchy has a general 2D affine transform which allows every object to be arbitrarily translated, scaled, rotated, and sheared. In addition, the cameras have affine transforms that specify their view into the scene. 
@@ -38,24 +28,26 @@ This simple approach is very powerful because is enables a very decoupled object
 What development directions are you following?
 
 We are continuing to expand and maintain all three versions of Piccolo.  But, internally, most of our new research projects are being implemented in Piccolo.NET.
-How do I get a Piccolo License?
-It's free! Piccolo is completely open source. You can download and use Piccolo however you like. The only restriction is that you must follow the guidelines set forth in the BSD public license.  To read more about using the public license, visit the license page.
+
+== How do I get a Piccolo License? ==
+
+It's free! Piccolo is completely open source. You can download and use Piccolo however you like. The only restriction is that you must follow the guidelines set forth in the [http://opensource.org/licenses/bsd-license.php BSD] public license. To read more about using the public license, visit the LicensePage.
 
 Note that you are not obligated to make your applications open source. You are free to protect your applications in any way you see fit.
 
 == How do I contact the Piccolo team and Piccolo users? ==
 
-There are several ways.  You can subscribe to the mailing lists if you would like to ask technical questions or receive announcements about Piccolo.  You can also contact us directly if you would prefer to do so.  Or, if you find a problem with Piccolo, you can send us a bug report.
+There are several ways.  You can subscribe to the MailingLists if you would like to ask technical questions or receive announcements about Piccolo. Or, if you find a problem with Piccolo, you can send us a [http://code.google.com/p/piccolo2d/issues/entry bug report].
 
 == Where did Piccolo come from? ==
 
-Ken Perlin at New York University came up with the initial zoomable surface concept. He and David Fox implemented the first versions of Pad (described in the 1993 SIGGRAPH paper available here). Perlin and Fox's original work was supported in part originally by NYNEX, and then NSF. 
+Ken Perlin at New York University came up with the initial zoomable surface concept. He and David Fox implemented the first versions of *Pad* (described in the 1993 SIGGRAPH paper available [http://www.cs.umd.edu/hcil/piccolo/learn/publications.shtml here]). Perlin and Fox's original work was supported in part originally by NYNEX, and then NSF. 
 
-The next major step was Pad++, designed by Ben Bederson and Jim Hollan while at Bellcore. They both moved to the University of New Mexico where they developed the bulk of Pad++ in collaboration with Jon Meyer and Ken Perlin at NYU. This was supported largely by a DARPA initiative in HCI. 
+The next major step was *Pad++*, designed by Ben Bederson and Jim Hollan while at Bellcore. They both moved to the University of New Mexico where they developed the bulk of Pad++ in collaboration with Jon Meyer and Ken Perlin at NYU. This was supported largely by a DARPA initiative in HCI. 
 
-Then there was Jazz, a rewrite in Java by Ben Bederson and his team at the University of Maryland. It was a rich toolkit and supported all kinds of features including embedded Swing widgets and SVG. However, it grew too big, and more importantly it had a very general design that actually made it somewhat hard to use because there were so many objects. 
+Then there was *Jazz*, a rewrite in Java by Ben Bederson and his team at the University of Maryland. It was a rich toolkit and supported all kinds of features including embedded Swing widgets and SVG. However, it grew too big, and more importantly it had a very general design that actually made it somewhat hard to use because there were so many objects. 
 
-Piccolo, the current incarnation, is a direct successor to Jazz. Piccolo takes all that we have learned over the years, and rolls it into a lean and mean tiny engine that is very easy to understand, use and extend. It was built by  Jesse Grosjean and then ported to .NET by Aaron Clamage under the direction of Ben Bederson at the University of Maryland.
+*Piccolo*, the current incarnation, is a direct successor to Jazz. Piccolo takes all that we have learned over the years, and rolls it into a lean and mean tiny engine that is very easy to understand, use and extend. It was built by  Jesse Grosjean and then ported to .NET by Aaron Clamage under the direction of Ben Bederson at the University of Maryland.
 
 == What happened to Jazz? ==
 
