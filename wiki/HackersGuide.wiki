@@ -15,7 +15,7 @@ The community exists mainly through mailing lists and a Subversion repository. T
 
 Go to http://code.google.com/p/piccolo2d/ and
 
- * Join the "piccolo2d-dev", "piccolo2d-users", and "piccolo2d-announce" groups. The piccolo2d-dev list, piccolo2d-dev@googlegroups.com, is where almost all discussion takes place. All development questions should go there, though you might want to check the list archives first.
+ * Join the "[http://groups.google.com/group/piccolo2d-dev piccolo2d-dev]", "[http://groups.google.com/group/piccolo2d-users piccolo2d-users]", and "[http://groups.google.com/group/piccolo2d-announce piccolo2d-announce]" groups. The piccolo2d-dev list, piccolo2d-dev@googlegroups.com, is where almost all discussion takes place. All development questions should go there, though you might want to check the list archives first.
  * Get a copy of the latest development sources as described in http://code.google.com/p/piccolo2d/wiki/CheckoutInstructions#Developer_access. 
 New development always takes place on trunk. Bugfixes, enhancements, and new features are backported from there to the various release branches.
 
@@ -36,7 +36,7 @@ Before you can contribute code, you'll need to familiarize yourself with the exi
 
 Check out a copy of Piccolo2D (anonymously, if you don't yet have an account with commit access) — so you can look at the code.
 
-TODO
+Some good places to start are in the examples directory to see how Piccolo is used, and with the core Piccolo classes (PCanvas, PNode, PPath) to see how the graphics pipeline works.
 
 = Directory layout =
 
@@ -85,6 +85,8 @@ Date: Mon, 5 Mar 2001 15:58:46 -0600
 Many of us implementing the filesystem interface have now gotten into
 the habit of writing the test cases (see fs-test.c) *before* writing
 the actual code.  It's really helping us out a lot -- for one thing,
+
+
 it forces one to define the task precisely in advance, and also it
 speedily reveals the bugs in one's first try (and second, and
 third...).
