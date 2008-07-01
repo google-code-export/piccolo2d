@@ -29,7 +29,7 @@ If you want to understand what lead to Piccolo, read some of the papers we have 
 
 == Have a technical question about Piccolo? ==
 
-Check out the DevelopersFAQ for answers to frequently asked questions about all three versions of Piccolo.
+Check out the [DeveloperFAQ] for answers to frequently asked questions about all three versions of Piccolo.
 
 == Still have questions? ==
 
