@@ -41,11 +41,19 @@ Some good places to start are in the examples directory to see how Piccolo is us
 
 = Directory layout =
 
-As Piccolo2D comes in three flavors, there's three different repository roots:
+As Piccolo2D comes in three flavors, there's multiple repository roots:
 
- * {{{piccolo.java/trunk/}}} Java
- * {{{piccolo.net/trunk/}}} .Net
- * {{{pocketpiccolo.net/trunk/}}} .Net targeted at mobile devices
+== Sources ==
+ * {{{piccolo.java/trunk/}}} - Java
+ * {{{piccolo.net/trunk/}}} - .Net
+ * {{{pocketpiccolo.net/trunk/}}} - .Net targeted at mobile devices
+== Documentation and supplementary material ==
+ * {{{wiki/}}} - This wiki
+ * {{{maven2/repository/}}} - decentral [http://maven.apache.org/ maven] (release) repository
+ * {{{site/piccolo.java/release-1.2.1/}}} - documentation website (if any)
+ * {{{site/piccolo.java/release-1.2.1/apidocs/}}} - javadoc output
+ * {{{site/piccolo.net/release-1.2.1/apidocs/}}} - ndoc output
+ * {{{site/pocketpiccolopiccolo.net/release-1.2.1/apidocs/}}} - ndoc output
 
 = Coding style =
 
