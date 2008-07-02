@@ -50,10 +50,10 @@ As Piccolo2D comes in three flavors, there's multiple repository roots:
 == Documentation and supplementary material ==
  * {{{wiki/}}} - This wiki
  * {{{maven2/repository/}}} - decentral [http://maven.apache.org/ maven] (release) repository
- * {{{site/piccolo.java/release-1.2.1/}}} - documentation website (if any)
- * {{{site/piccolo.java/release-1.2.1/apidocs/}}} - javadoc output
- * {{{site/piccolo.net/release-1.2.1/apidocs/}}} - ndoc output
- * {{{site/pocketpiccolopiccolo.net/release-1.2.1/apidocs/}}} - ndoc output
+ * {{{site/piccolo2d.java/release-1.2.1/}}} - documentation website (if any)
+ * {{{site/piccolo2d.java/release-1.2.1/apidocs/}}} - javadoc output
+ * {{{site/piccolo2d.net/release-1.2.1/apidocs/}}} - ndoc output
+ * {{{site/pocketpiccolo2d.net/release-1.2.1/apidocs/}}} - ndoc output
 
 = Coding style =
 
