@@ -125,7 +125,11 @@ more crucial, so let's all get in the habit of using it early.
 
 = Writing log messages =
 
-Every commit needs a log message. 
+Every commit needs a log message. And every log message must start with a reference to the according issue:
+{{{
+Issue 34 ; adding package-level javadoc to extras packages (piccolox.*)
+}}}
+The exact writing of the issue reference is not important, as long as it's reconized by GoogleCode and a link to the issue is created. This works at least for {{{issue#34, issue 34, Issue 34}}}
 
 The intended audience for a log message is a developer who is already familiar with Piccolo2D, but not necessarily familiar with this particular commit. Usually when someone goes back and reads a change, he no longer has in his head all the context around that change. This is true even if he is the author of the change! All the discussions and mailing list threads and everything else may be forgotten; the only clue to what the change is about comes from the log message and the diff itself. People revisit changes with surprising frequency, too: for example, it might be months after the original commit and now the change is being ported to a maintenance branch.
 
