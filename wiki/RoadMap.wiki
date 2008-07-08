@@ -1,0 +1,34 @@
+#summary Releases, when, what, who.
+
+= Upcoming =
+== Release 1.2.1 ==
+
+Maintenance release. Finish the transfer from https://svn.cs.umd.edu/repos/piccolo
+
+ * Flavor: piccolo2d.java only
+ * Schedule: ?
+ * [http://code.google.com/p/piccolo2d/issues/list?sort=+status-priority-id&can=1&q=label:Milestone-1.2.1 Issues]
+ * Release Manager: [http://code.google.com/u/@UBBfSlFQDhBCXAR5Fg%3D%3D/ s...@browsecode.org]
+
+== Release 1.3 ==
+
+Bugfix release.
+
+ * Flavor: piccolo2d.java only
+ * Schedule: ?
+ * [http://code.google.com/p/piccolo2d/issues/list?sort=+status-priority-id&can=1&q=label:Milestone-1.3 Issues]
+ * Release Manager: N.N.
+
+== Release 2.0 ==
+
+Api changes.
+
+ * Flavor: piccolo2d.java only
+ * Schedule: ?
+ * [http://code.google.com/p/piccolo2d/issues/list?sort=+status-priority-id&can=1&q=label:Milestone-2.0 Issues]
+ * Release Manager: N.N.
+
+
+= Past =
+
+Should we refer to 1.2?
