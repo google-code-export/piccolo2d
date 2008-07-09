@@ -1,4 +1,5 @@
 #summary Releases, when, what, who.
+#labels Phase-Requirements
 
 = Upcoming =
 == Release 1.2.1 ==
