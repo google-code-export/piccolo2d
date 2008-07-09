@@ -1,4 +1,4 @@
-#summary Releases, when, what, who.
+#summary Releases: what, when, who.
 #labels Phase-Requirements
 
 = Upcoming =
@@ -8,7 +8,7 @@ Maintenance release. Finish the transfer from https://svn.cs.umd.edu/repos/picco
 
  * Flavor: piccolo2d.java only
  * Schedule: ?
- * [http://code.google.com/p/piccolo2d/issues/list?sort=status+type+-priority+-id&can=1&q=label:Milestone-1.2.1 Issues]
+ * Issues [http://code.google.com/p/piccolo2d/issues/list?sort=status+type+-priority+-id&can=1&q=label:Milestone-1.2.1 List] or [http://code.google.com/p/piccolo2d/issues/list?can=1&x=type&y=status&mode=grid&cells=tiles&q=label%3AMilestone-1.3 Grid]
  * Release Manager: [http://code.google.com/u/@UBBfSlFQDhBCXAR5Fg%3D%3D/ s...@browsecode.org]
 
 == Release 1.3 ==
