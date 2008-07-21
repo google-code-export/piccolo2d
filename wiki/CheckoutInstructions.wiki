@@ -16,17 +16,17 @@ Recent changes:
 
 The source can be checked out anonymously from SVN with this commands:
 
-== piccolo.java ==
+== piccolo2d.java ==
 
- {{{$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java}}}
+ {{{$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk piccolo2d.java}}}
 
-== piccolo.net ==
+== piccolo2d.net ==
 
- {{{$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo.net/trunk piccolo.net}}}
+ {{{$ svn checkout http://piccolo2d.googlecode.com/svn/piccolo2d.net/trunk piccolo2d.net}}}
 
-== pocketpiccolo.net ==
+== pocketpiccolo2d.net ==
 
- {{{$ svn checkout http://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net}}}
+ {{{$ svn checkout http://piccolo2d.googlecode.com/svn/pocketpiccolo2d.net/trunk pocketpiccolo2d.net}}}
 
 = Developer access =
 
@@ -36,16 +36,16 @@ Your username is the same e-mail address you use to login to Google Code (this c
 
 When prompted, enter your generated [http://code.google.com/hosting/settings googlecode.com] password.
 
-== piccolo.java ==
+== piccolo2d.java ==
 
- {{{$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.java/trunk piccolo.java}}}
+ {{{$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk piccolo2d.java}}}
 
-== piccolo.net ==
+== piccolo2d.net ==
 
- {{{$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo.net/trunk piccolo.net}}}
+ {{{$ svn checkout https://piccolo2d.googlecode.com/svn/piccolo2d.net/trunk piccolo2d.net}}}
 
-== pocketpiccolo.net ==
+== pocketpiccolo2d.net ==
 
- {{{$ svn checkout https://piccolo2d.googlecode.com/svn/pocketpiccolo.net/trunk pocketpiccolo.net}}}
+ {{{$ svn checkout https://piccolo2d.googlecode.com/svn/pocketpiccolo2d.net/trunk pocketpiccolo2d.net}}}
 
 [http://piccolo2d.org http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png]
