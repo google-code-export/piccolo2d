@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.2" timestamp="2008-07-30T16:17:42.414">
+<pmd version="4.2.2" timestamp="2008-07-30T19:27:38.271">
 <file name="/home/m/work/piccolo2d/piccolo2d.java/extras/src/main/java/edu/umd/cs/piccolox/PFrame.java">
 <violation beginline="36" endline="36" begincolumn="1" endcolumn="39" rule="UnusedImports" ruleset="Import Statement Rules" package="edu.umd.cs.piccolox" externalInfoUrl="http://pmd.sourceforge.net/rules/imports.html#UnusedImports" priority="4">
 Avoid unused imports such as 'java.awt.event.ComponentAdapter'

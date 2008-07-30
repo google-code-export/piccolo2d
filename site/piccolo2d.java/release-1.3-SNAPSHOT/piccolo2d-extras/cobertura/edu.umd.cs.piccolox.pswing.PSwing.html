@@ -334,7 +334,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment"> * 3-23-2007 edited to automatically detect PCamera/PSwingCanvas to allow single-arg constructor usage</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;157</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment"> */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;158</td>  <td class="nbHitsCovered">&nbsp;49</td>  <td class="src"><pre class="src">&nbsp;<span class="keyword">public</span> <span class="keyword">class</span> PSwing <span class="keyword">extends</span> PNode <span class="keyword">implements</span> Serializable, PropertyChangeListener {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;158</td>  <td class="nbHitsCovered">&nbsp;98</td>  <td class="src"><pre class="src">&nbsp;<span class="keyword">public</span> <span class="keyword">class</span> PSwing <span class="keyword">extends</span> PNode <span class="keyword">implements</span> Serializable, PropertyChangeListener {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;159</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;160</td>  <td class="nbHits">&nbsp;</td>
@@ -349,8 +349,8 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;165</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String PSWING_PROPERTY = <span class="string">"PSwing"</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;166</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> AffineTransform IDENTITY_TRANSFORM = <span class="keyword">new</span> AffineTransform();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;167</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> PBounds TEMP_REPAINT_BOUNDS2 = <span class="keyword">new</span> PBounds();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;166</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> AffineTransform IDENTITY_TRANSFORM = <span class="keyword">new</span> AffineTransform();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;167</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> PBounds TEMP_REPAINT_BOUNDS2 = <span class="keyword">new</span> PBounds();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;168</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;169</td>  <td class="nbHits">&nbsp;</td>
@@ -359,14 +359,14 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     * The cutoff at which the Swing component is rendered greek</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;171</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;172</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">double</span> renderCutoff = 0.3;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;173</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> JComponent component = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;174</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">double</span> minFontSize = Double.MAX_VALUE;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;175</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> Stroke defaultStroke = <span class="keyword">new</span> BasicStroke();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;176</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> Font defaultFont = <span class="keyword">new</span> Font( <span class="string">"Serif"</span>, Font.PLAIN, 12 );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;172</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">double</span> renderCutoff = 0.3;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;173</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> JComponent component = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;174</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">double</span> minFontSize = Double.MAX_VALUE;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;175</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> Stroke defaultStroke = <span class="keyword">new</span> BasicStroke();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;176</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> Font defaultFont = <span class="keyword">new</span> Font( <span class="string">"Serif"</span>, Font.PLAIN, 12 );</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;177</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> BufferedImage buffer;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;178</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Color BUFFER_BACKGROUND_COLOR = <span class="keyword">new</span> Color( 0, 0, 0, 0 );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;178</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Color BUFFER_BACKGROUND_COLOR = <span class="keyword">new</span> Color( 0, 0, 0, 0 );</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;179</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> PSwingCanvas canvas;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;180</td>  <td class="nbHits">&nbsp;</td>
@@ -379,22 +379,22 @@
   <td class="src"><pre class="src">&nbsp;    <span class="comment">////////////////////////////////////////////////////////////</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;184</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="comment">/*/</span>keep track of which nodes we<span class="string">'ve attached listeners to since no built in support in PNode*/</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;185</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    private ArrayList listeningTo = new ArrayList();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;185</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    private ArrayList listeningTo = new ArrayList();</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;186</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;187</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">    /*The parent listener for camera/canvas changes*/</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;188</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    private PropertyChangeListener parentListener = new PropertyChangeListener() {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;189</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        public void propertyChange( PropertyChangeEvent evt ) {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;190</td>  <td class="nbHitsCovered">&nbsp;51</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            PNode source = (PNode)evt.getSource();</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;191</td>  <td class="nbHitsCovered">&nbsp;51</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            PNode parent = source.getParent();</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;192</td>  <td class="nbHitsCovered"><a title="Line 192: Conditional coverage 100% (2/2).">&nbsp;51</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 192: Conditional coverage 100% (2/2)."><span class="string">            if( parent != null ) {</span></a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;193</td>  <td class="nbHitsCovered">&nbsp;49</td>  <td class="src"><pre class="src">&nbsp;<span class="string">                listenForCanvas( parent );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;188</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    private PropertyChangeListener parentListener = new PropertyChangeListener() {</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;189</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        public void propertyChange( PropertyChangeEvent evt ) {</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;190</td>  <td class="nbHitsCovered">&nbsp;102</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            PNode source = (PNode)evt.getSource();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;191</td>  <td class="nbHitsCovered">&nbsp;102</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            PNode parent = source.getParent();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;192</td>  <td class="nbHitsCovered"><a title="Line 192: Conditional coverage 100% (2/2).">&nbsp;102</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 192: Conditional coverage 100% (2/2)."><span class="string">            if( parent != null ) {</span></a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;193</td>  <td class="nbHitsCovered">&nbsp;98</td>  <td class="src"><pre class="src">&nbsp;<span class="string">                listenForCanvas( parent );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;194</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">            }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;195</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;196</td>  <td class="nbHitsCovered">&nbsp;51</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;196</td>  <td class="nbHitsCovered">&nbsp;102</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;197</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">    };</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;198</td>  <td class="nbHits">&nbsp;</td>
@@ -409,20 +409,20 @@
   <td class="src"><pre class="src">&nbsp;<span class="string">     * @param component The swing component to be wrapped</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;203</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">     */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;204</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    public PSwing(JComponent component) {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;205</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        this.component = component;</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;206</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.putClientProperty( PSWING_PROPERTY, this );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;207</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        init( component );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;208</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.revalidate();</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;209</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.addPropertyChangeListener( new PropertyChangeListener() {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;210</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            public void propertyChange( PropertyChangeEvent evt ) {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;211</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;<span class="string">                reshape();</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;212</td>  <td class="nbHitsCovered">&nbsp;18</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            }</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;204</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    public PSwing(JComponent component) {</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;205</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        this.component = component;</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;206</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.putClientProperty( PSWING_PROPERTY, this );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;207</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        init( component );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;208</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.revalidate();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;209</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.addPropertyChangeListener( new PropertyChangeListener() {</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;210</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            public void propertyChange( PropertyChangeEvent evt ) {</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;211</td>  <td class="nbHitsCovered">&nbsp;36</td>  <td class="src"><pre class="src">&nbsp;<span class="string">                reshape();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;212</td>  <td class="nbHitsCovered">&nbsp;36</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;213</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        } );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;214</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        reshape();</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;215</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        listenForCanvas( this );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;216</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    }</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;214</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        reshape();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;215</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        listenForCanvas( this );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;216</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;217</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;218</td>  <td class="nbHits">&nbsp;</td>
@@ -451,9 +451,9 @@
   <td class="src"><pre class="src">&nbsp;<span class="string">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;231</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">    void reshape() {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;232</td>  <td class="nbHitsCovered">&nbsp;113</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.setBounds( 0, 0, component.getPreferredSize().width, component.getPreferredSize().height );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;233</td>  <td class="nbHitsCovered">&nbsp;113</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        setBounds( 0, 0, component.getPreferredSize().width, component.getPreferredSize().height );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;234</td>  <td class="nbHitsCovered">&nbsp;113</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    }</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;232</td>  <td class="nbHitsCovered">&nbsp;226</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.setBounds( 0, 0, component.getPreferredSize().width, component.getPreferredSize().height );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;233</td>  <td class="nbHitsCovered">&nbsp;226</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        setBounds( 0, 0, component.getPreferredSize().width, component.getPreferredSize().height );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;234</td>  <td class="nbHitsCovered">&nbsp;226</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;235</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;236</td>  <td class="nbHits">&nbsp;</td>
@@ -482,26 +482,26 @@
   <td class="src"><pre class="src">&nbsp;<span class="string">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;248</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">    public void paint( PPaintContext renderContext ) {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;249</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        Graphics2D g2 = renderContext.getGraphics();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;249</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        Graphics2D g2 = renderContext.getGraphics();</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;250</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;251</td>  <td class="nbHitsUncovered"><a title="Line 251: Conditional coverage 50% (1/2).">&nbsp;56</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 251: Conditional coverage 50% (1/2)."><span class="string">        if( defaultStroke == null ) {</span></a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;251</td>  <td class="nbHitsUncovered"><a title="Line 251: Conditional coverage 50% (1/2).">&nbsp;91</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 251: Conditional coverage 50% (1/2)."><span class="string">        if( defaultStroke == null ) {</span></a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;252</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="string">            defaultStroke = new BasicStroke();</span></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;253</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;254</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        g2.setStroke( defaultStroke );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;254</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        g2.setStroke( defaultStroke );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;255</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;256</td>  <td class="nbHitsUncovered"><a title="Line 256: Conditional coverage 50% (1/2).">&nbsp;56</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 256: Conditional coverage 50% (1/2)."><span class="string">        if( defaultFont == null ) {</span></a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;256</td>  <td class="nbHitsUncovered"><a title="Line 256: Conditional coverage 50% (1/2).">&nbsp;91</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 256: Conditional coverage 50% (1/2)."><span class="string">        if( defaultFont == null ) {</span></a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;257</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="string">            defaultFont = new Font( "Serif", Font.PLAIN, 12 );</span></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;258</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;259</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;260</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        g2.setFont( defaultFont );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;260</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        g2.setFont( defaultFont );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;261</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;262</td>  <td class="nbHitsUncovered"><a title="Line 262: Conditional coverage 50% (1/2).">&nbsp;56</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 262: Conditional coverage 50% (1/2)."><span class="string">        if( component.getParent() == null ) {</span></a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;262</td>  <td class="nbHitsUncovered"><a title="Line 262: Conditional coverage 50% (1/2).">&nbsp;91</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 262: Conditional coverage 50% (1/2)."><span class="string">        if( component.getParent() == null ) {</span></a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;263</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">//            pSwingCanvas.getSwingWrapper().add( component );</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;264</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="string">            component.revalidate();</span></span></pre></td></tr>
@@ -509,23 +509,23 @@
   <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;266</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;267</td>  <td class="nbHitsUncovered"><a title="Line 267: Conditional coverage 50% (1/2).">&nbsp;56</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 267: Conditional coverage 50% (1/2)."><span class="string">        if( shouldRenderGreek( renderContext ) ) {</span></a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;267</td>  <td class="nbHitsUncovered"><a title="Line 267: Conditional coverage 50% (1/2).">&nbsp;91</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 267: Conditional coverage 50% (1/2)."><span class="string">        if( shouldRenderGreek( renderContext ) ) {</span></a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;268</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="string">            paintAsGreek( g2 );</span></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;269</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;270</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        else {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;271</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            paint( g2 );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;271</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            paint( g2 );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;272</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;273</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;274</td>  <td class="nbHitsCovered">&nbsp;55</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    }</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;274</td>  <td class="nbHitsCovered">&nbsp;89</td>  <td class="src"><pre class="src">&nbsp;<span class="string">    }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;275</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;276</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">    protected boolean shouldRenderGreek( PPaintContext renderContext ) {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;277</td>  <td class="nbHitsUncovered"><a title="Line 277: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;56</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 277: Conditional coverage 50% (2/4) [each condition: 50%, 50%]."><span class="string">        return ( renderContext.getScale() &lt; renderCutoff</span></a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;277</td>  <td class="nbHitsUncovered"><a title="Line 277: Conditional coverage 50% (2/4) [each condition: 50%, 50%].">&nbsp;91</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 277: Conditional coverage 50% (2/4) [each condition: 50%, 50%]."><span class="string">        return ( renderContext.getScale() &lt; renderCutoff</span></a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;278</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">//                 &amp;&amp; pSwingCanvas.getInteracting()</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;279</td>  <td class="nbHits">&nbsp;</td>
@@ -597,7 +597,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="string">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;319</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">    public void paint( Graphics2D g2 ) {</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;320</td>  <td class="nbHitsUncovered"><a title="Line 320: Conditional coverage 50% (1/2).">&nbsp;56</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 320: Conditional coverage 50% (1/2)."><span class="string">        if( component.getBounds().isEmpty() ) {</span></a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;320</td>  <td class="nbHitsUncovered"><a title="Line 320: Conditional coverage 50% (1/2).">&nbsp;91</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 320: Conditional coverage 50% (1/2)."><span class="string">        if( component.getBounds().isEmpty() ) {</span></a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;321</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">            // The component has not been initialized yet.</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;322</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<span class="string">            return;</span></span></pre></td></tr>
@@ -605,55 +605,55 @@
   <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;324</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;325</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        PSwingRepaintManager manager = (PSwingRepaintManager)RepaintManager.currentManager( component );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;326</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        manager.lockRepaint( component );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;325</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        PSwingRepaintManager manager = (PSwingRepaintManager)RepaintManager.currentManager( component );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;326</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        manager.lockRepaint( component );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;327</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;328</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        Graphics2D bufferedGraphics = null;</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;329</td>  <td class="nbHitsCovered"><a title="Line 329: Conditional coverage 100% (2/2).">&nbsp;56</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 329: Conditional coverage 100% (2/2)."><span class="string">        if( !isBufferValid() ) {</span></a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;328</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        Graphics2D bufferedGraphics = null;</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;329</td>  <td class="nbHitsCovered"><a title="Line 329: Conditional coverage 100% (2/2).">&nbsp;91</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 329: Conditional coverage 100% (2/2)."><span class="string">        if( !isBufferValid() ) {</span></a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;330</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">            // Get the graphics context associated with a new buffered image.</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;331</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">            // Use TYPE_INT_ARGB_PRE so that transparent components look good on Windows.</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;332</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            buffer = new BufferedImage( component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_ARGB_PRE );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;333</td>  <td class="nbHitsCovered">&nbsp;7</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            bufferedGraphics = buffer.createGraphics();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;332</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            buffer = new BufferedImage( component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_ARGB_PRE );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;333</td>  <td class="nbHitsCovered">&nbsp;14</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            bufferedGraphics = buffer.createGraphics();</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;334</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;335</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        else {</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;336</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">            // Use the graphics context associated with the existing buffered image</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;337</td>  <td class="nbHitsCovered">&nbsp;49</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            bufferedGraphics = buffer.createGraphics();</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;337</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            bufferedGraphics = buffer.createGraphics();</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;338</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">            // Clear the buffered image to prevent artifacts on Macintosh</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;339</td>  <td class="nbHitsCovered">&nbsp;49</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            bufferedGraphics.setBackground( BUFFER_BACKGROUND_COLOR );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;340</td>  <td class="nbHitsCovered">&nbsp;49</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            bufferedGraphics.clearRect( 0, 0, component.getWidth(), component.getHeight() );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;339</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            bufferedGraphics.setBackground( BUFFER_BACKGROUND_COLOR );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;340</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;<span class="string">            bufferedGraphics.clearRect( 0, 0, component.getWidth(), component.getHeight() );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;341</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;342</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;343</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        // Start with the rendering hints from the provided graphics context</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;344</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        bufferedGraphics.setRenderingHints( g2.getRenderingHints() );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;344</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        bufferedGraphics.setRenderingHints( g2.getRenderingHints() );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;345</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;346</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        //PSwing sometimes causes JComponent text to render with "..." when fractional font metrics are enabled.  These are now always disabled for the offscreen buffer.</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;347</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        bufferedGraphics.setRenderingHint( RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;347</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        bufferedGraphics.setRenderingHint( RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;348</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;349</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        // Draw the component to the buffer</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;350</td>  <td class="nbHitsCovered">&nbsp;56</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.paint( bufferedGraphics );</span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;350</td>  <td class="nbHitsCovered">&nbsp;91</td>  <td class="src"><pre class="src">&nbsp;<span class="string">        component.paint( bufferedGraphics );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;351</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;352</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="string">        // Draw the buffer to g2'</span>s associated drawing surface</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;353</td>  <td class="nbHitsCovered">&nbsp;55</td>  <td class="src"><pre class="src">&nbsp;        g2.drawRenderedImage( buffer, IDENTITY_TRANSFORM );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;353</td>  <td class="nbHitsCovered">&nbsp;90</td>  <td class="src"><pre class="src">&nbsp;        g2.drawRenderedImage( buffer, IDENTITY_TRANSFORM );</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;354</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;355</td>  <td class="nbHitsCovered">&nbsp;55</td>  <td class="src"><pre class="src">&nbsp;        manager.unlockRepaint( component );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;356</td>  <td class="nbHitsCovered">&nbsp;55</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;355</td>  <td class="nbHitsCovered">&nbsp;89</td>  <td class="src"><pre class="src">&nbsp;        manager.unlockRepaint( component );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;356</td>  <td class="nbHitsCovered">&nbsp;89</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;357</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;358</td>  <td class="nbHits">&nbsp;</td>
@@ -670,7 +670,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;364</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">boolean</span> isBufferValid() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;365</td>  <td class="nbHitsUncovered"><a title="Line 365: Conditional coverage 67% (4/6) [each condition: 100%, 50%, 50%].">&nbsp;56</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 365: Conditional coverage 67% (4/6) [each condition: 100%, 50%, 50%].">        <span class="keyword">return</span> !( buffer == <span class="keyword">null</span> || buffer.getWidth() != component.getWidth() || buffer.getHeight() != component.getHeight() );</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;365</td>  <td class="nbHitsUncovered"><a title="Line 365: Conditional coverage 67% (4/6) [each condition: 100%, 50%, 50%].">&nbsp;91</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 365: Conditional coverage 67% (4/6) [each condition: 100%, 50%, 50%].">        <span class="keyword">return</span> !( buffer == <span class="keyword">null</span> || buffer.getWidth() != component.getWidth() || buffer.getHeight() != component.getHeight() );</a></span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;366</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;367</td>  <td class="nbHits">&nbsp;</td>
@@ -689,10 +689,10 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;374</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> repaint( PBounds repaintBounds ) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;375</td>  <td class="nbHitsCovered">&nbsp;109</td>  <td class="src"><pre class="src">&nbsp;        Shape sh = getTransform().createTransformedShape( repaintBounds );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;376</td>  <td class="nbHitsCovered">&nbsp;109</td>  <td class="src"><pre class="src">&nbsp;        TEMP_REPAINT_BOUNDS2.setRect( sh.getBounds2D() );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;377</td>  <td class="nbHitsCovered">&nbsp;109</td>  <td class="src"><pre class="src">&nbsp;        repaintFrom( TEMP_REPAINT_BOUNDS2, <span class="keyword">this</span> );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;378</td>  <td class="nbHitsCovered">&nbsp;109</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;375</td>  <td class="nbHitsCovered">&nbsp;215</td>  <td class="src"><pre class="src">&nbsp;        Shape sh = getTransform().createTransformedShape( repaintBounds );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;376</td>  <td class="nbHitsCovered">&nbsp;215</td>  <td class="src"><pre class="src">&nbsp;        TEMP_REPAINT_BOUNDS2.setRect( sh.getBounds2D() );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;377</td>  <td class="nbHitsCovered">&nbsp;215</td>  <td class="src"><pre class="src">&nbsp;        repaintFrom( TEMP_REPAINT_BOUNDS2, <span class="keyword">this</span> );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;378</td>  <td class="nbHitsCovered">&nbsp;215</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;379</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;380</td>  <td class="nbHits">&nbsp;</td>
@@ -707,7 +707,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;385</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> <span class="keyword">void</span> computeBounds() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;386</td>  <td class="nbHitsCovered">&nbsp;63</td>  <td class="src"><pre class="src">&nbsp;        reshape();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;386</td>  <td class="nbHitsCovered">&nbsp;126</td>  <td class="src"><pre class="src">&nbsp;        reshape();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;387</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">//        if( !component.getBounds().isEmpty() ) {</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;388</td>  <td class="nbHits">&nbsp;</td>
@@ -722,7 +722,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">//            }</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;393</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">//        }</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;394</td>  <td class="nbHitsCovered">&nbsp;63</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;394</td>  <td class="nbHitsCovered">&nbsp;126</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;395</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;396</td>  <td class="nbHits">&nbsp;</td>
@@ -737,7 +737,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;401</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> JComponent getComponent() {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;402</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> component;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;402</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> component;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;403</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;404</td>  <td class="nbHits">&nbsp;</td>
@@ -768,46 +768,46 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;417</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">void</span> init( Component c ) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;418</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;        Component[] children = <span class="keyword">null</span>;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;419</td>  <td class="nbHitsUncovered"><a title="Line 419: Conditional coverage 50% (1/2).">&nbsp;77</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 419: Conditional coverage 50% (1/2).">        <span class="keyword">if</span>( c <span class="keyword">instanceof</span> Container ) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;420</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;            children = ( (Container)c ).getComponents();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;418</td>  <td class="nbHitsCovered">&nbsp;154</td>  <td class="src"><pre class="src">&nbsp;        Component[] children = <span class="keyword">null</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;419</td>  <td class="nbHitsUncovered"><a title="Line 419: Conditional coverage 50% (1/2).">&nbsp;154</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 419: Conditional coverage 50% (1/2).">        <span class="keyword">if</span>( c <span class="keyword">instanceof</span> Container ) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;420</td>  <td class="nbHitsCovered">&nbsp;154</td>  <td class="src"><pre class="src">&nbsp;            children = ( (Container)c ).getComponents();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;421</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;422</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;423</td>  <td class="nbHitsCovered"><a title="Line 423: Conditional coverage 100% (2/2).">&nbsp;77</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 423: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>( c.getFont() != <span class="keyword">null</span> ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;424</td>  <td class="nbHitsCovered">&nbsp;73</td>  <td class="src"><pre class="src">&nbsp;            minFontSize = Math.min( minFontSize, c.getFont().getSize() );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;423</td>  <td class="nbHitsCovered"><a title="Line 423: Conditional coverage 100% (2/2).">&nbsp;154</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 423: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>( c.getFont() != <span class="keyword">null</span> ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;424</td>  <td class="nbHitsCovered">&nbsp;146</td>  <td class="src"><pre class="src">&nbsp;            minFontSize = Math.min( minFontSize, c.getFont().getSize() );</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;425</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;426</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;427</td>  <td class="nbHitsUncovered"><a title="Line 427: Conditional coverage 50% (1/2).">&nbsp;77</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 427: Conditional coverage 50% (1/2).">        <span class="keyword">if</span>( children != <span class="keyword">null</span> ) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;428</td>  <td class="nbHitsCovered"><a title="Line 428: Conditional coverage 100% (2/2).">&nbsp;139</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 428: Conditional coverage 100% (2/2).">            <span class="keyword">for</span>( <span class="keyword">int</span> j = 0; j &lt; children.length; j++ ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;429</td>  <td class="nbHitsCovered">&nbsp;62</td>  <td class="src"><pre class="src">&nbsp;                init( children[j] );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;427</td>  <td class="nbHitsUncovered"><a title="Line 427: Conditional coverage 50% (1/2).">&nbsp;154</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 427: Conditional coverage 50% (1/2).">        <span class="keyword">if</span>( children != <span class="keyword">null</span> ) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;428</td>  <td class="nbHitsCovered"><a title="Line 428: Conditional coverage 100% (2/2).">&nbsp;278</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 428: Conditional coverage 100% (2/2).">            <span class="keyword">for</span>( <span class="keyword">int</span> j = 0; j &lt; children.length; j++ ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;429</td>  <td class="nbHitsCovered">&nbsp;124</td>  <td class="src"><pre class="src">&nbsp;                init( children[j] );</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;430</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;431</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;432</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;433</td>  <td class="nbHitsCovered"><a title="Line 433: Conditional coverage 100% (2/2).">&nbsp;77</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 433: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>( c <span class="keyword">instanceof</span> JComponent ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;434</td>  <td class="nbHitsCovered">&nbsp;73</td>  <td class="src"><pre class="src">&nbsp;            ( (JComponent)c ).setDoubleBuffered( <span class="keyword">false</span> );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;435</td>  <td class="nbHitsCovered">&nbsp;73</td>  <td class="src"><pre class="src">&nbsp;            c.addPropertyChangeListener( <span class="string">"font"</span>, <span class="keyword">this</span> );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;436</td>  <td class="nbHitsCovered">&nbsp;73</td>  <td class="src"><pre class="src">&nbsp;            c.addComponentListener( <span class="keyword">new</span> ComponentAdapter() {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;433</td>  <td class="nbHitsCovered"><a title="Line 433: Conditional coverage 100% (2/2).">&nbsp;154</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 433: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>( c <span class="keyword">instanceof</span> JComponent ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;434</td>  <td class="nbHitsCovered">&nbsp;146</td>  <td class="src"><pre class="src">&nbsp;            ( (JComponent)c ).setDoubleBuffered( <span class="keyword">false</span> );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;435</td>  <td class="nbHitsCovered">&nbsp;146</td>  <td class="src"><pre class="src">&nbsp;            c.addPropertyChangeListener( <span class="string">"font"</span>, <span class="keyword">this</span> );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;436</td>  <td class="nbHitsCovered">&nbsp;146</td>  <td class="src"><pre class="src">&nbsp;            c.addComponentListener( <span class="keyword">new</span> ComponentAdapter() {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;437</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">public</span> <span class="keyword">void</span> componentResized( ComponentEvent e ) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;438</td>  <td class="nbHitsCovered">&nbsp;62</td>  <td class="src"><pre class="src">&nbsp;                    computeBounds();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;439</td>  <td class="nbHitsCovered">&nbsp;62</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;438</td>  <td class="nbHitsCovered">&nbsp;124</td>  <td class="src"><pre class="src">&nbsp;                    computeBounds();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;439</td>  <td class="nbHitsCovered">&nbsp;124</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;440</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;441</td>  <td class="nbHitsCovered">&nbsp;73</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">public</span> <span class="keyword">void</span> componentShown( ComponentEvent e ) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;442</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;                    computeBounds();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;443</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;441</td>  <td class="nbHitsCovered">&nbsp;146</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">public</span> <span class="keyword">void</span> componentShown( ComponentEvent e ) {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;442</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                    computeBounds();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;443</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;444</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            } );</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;445</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;446</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;446</td>  <td class="nbHitsCovered">&nbsp;154</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;447</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;448</td>  <td class="nbHits">&nbsp;</td>
@@ -858,32 +858,32 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">void</span> listenForCanvas( PNode node ) {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;474</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        <span class="comment">//need to get the full tree for this node</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;475</td>  <td class="nbHitsCovered">&nbsp;64</td>  <td class="src"><pre class="src">&nbsp;        PNode p = node;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;476</td>  <td class="nbHitsCovered"><a title="Line 476: Conditional coverage 100% (2/2).">&nbsp;145</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 476: Conditional coverage 100% (2/2).">        <span class="keyword">while</span>( p != <span class="keyword">null</span> ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;477</td>  <td class="nbHitsCovered">&nbsp;81</td>  <td class="src"><pre class="src">&nbsp;            listenToNode( p );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;475</td>  <td class="nbHitsCovered">&nbsp;128</td>  <td class="src"><pre class="src">&nbsp;        PNode p = node;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;476</td>  <td class="nbHitsCovered"><a title="Line 476: Conditional coverage 100% (2/2).">&nbsp;290</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 476: Conditional coverage 100% (2/2).">        <span class="keyword">while</span>( p != <span class="keyword">null</span> ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;477</td>  <td class="nbHitsCovered">&nbsp;162</td>  <td class="src"><pre class="src">&nbsp;            listenToNode( p );</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;478</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;479</td>  <td class="nbHitsCovered">&nbsp;81</td>  <td class="src"><pre class="src">&nbsp;            PNode parent = p;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;479</td>  <td class="nbHitsCovered">&nbsp;162</td>  <td class="src"><pre class="src">&nbsp;            PNode parent = p;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;480</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">//            System.out.println( "parent = " + parent.getClass() );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;481</td>  <td class="nbHitsCovered"><a title="Line 481: Conditional coverage 100% (2/2).">&nbsp;81</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 481: Conditional coverage 100% (2/2).">            <span class="keyword">if</span>( parent <span class="keyword">instanceof</span> PLayer ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;482</td>  <td class="nbHitsCovered">&nbsp;17</td>  <td class="src"><pre class="src">&nbsp;                PLayer player = (PLayer)parent;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;481</td>  <td class="nbHitsCovered"><a title="Line 481: Conditional coverage 100% (2/2).">&nbsp;162</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 481: Conditional coverage 100% (2/2).">            <span class="keyword">if</span>( parent <span class="keyword">instanceof</span> PLayer ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;482</td>  <td class="nbHitsCovered">&nbsp;34</td>  <td class="src"><pre class="src">&nbsp;                PLayer player = (PLayer)parent;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;483</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">//                System.out.println( "Found player: with " + player.getCameraCount() + " cameras" );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;484</td>  <td class="nbHitsUncovered"><a title="Line 484: Conditional coverage 50% (1/2).">&nbsp;17</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 484: Conditional coverage 50% (1/2).">                <span class="keyword">for</span>( <span class="keyword">int</span> i = 0; i &lt; player.getCameraCount(); i++ ) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;485</td>  <td class="nbHitsCovered">&nbsp;17</td>  <td class="src"><pre class="src">&nbsp;                    PCamera cam = player.getCamera( i );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;486</td>  <td class="nbHitsUncovered"><a title="Line 486: Conditional coverage 50% (1/2).">&nbsp;17</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 486: Conditional coverage 50% (1/2).">                    <span class="keyword">if</span>( cam.getComponent() <span class="keyword">instanceof</span> PSwingCanvas ) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;487</td>  <td class="nbHitsCovered">&nbsp;17</td>  <td class="src"><pre class="src">&nbsp;                        updateCanvas( (PSwingCanvas)cam.getComponent() );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;488</td>  <td class="nbHitsCovered">&nbsp;17</td>  <td class="src"><pre class="src">&nbsp;                        <span class="keyword">break</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;484</td>  <td class="nbHitsUncovered"><a title="Line 484: Conditional coverage 50% (1/2).">&nbsp;34</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 484: Conditional coverage 50% (1/2).">                <span class="keyword">for</span>( <span class="keyword">int</span> i = 0; i &lt; player.getCameraCount(); i++ ) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;485</td>  <td class="nbHitsCovered">&nbsp;34</td>  <td class="src"><pre class="src">&nbsp;                    PCamera cam = player.getCamera( i );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;486</td>  <td class="nbHitsUncovered"><a title="Line 486: Conditional coverage 50% (1/2).">&nbsp;34</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 486: Conditional coverage 50% (1/2).">                    <span class="keyword">if</span>( cam.getComponent() <span class="keyword">instanceof</span> PSwingCanvas ) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;487</td>  <td class="nbHitsCovered">&nbsp;34</td>  <td class="src"><pre class="src">&nbsp;                        updateCanvas( (PSwingCanvas)cam.getComponent() );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;488</td>  <td class="nbHitsCovered">&nbsp;34</td>  <td class="src"><pre class="src">&nbsp;                        <span class="keyword">break</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;489</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;490</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;491</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;492</td>  <td class="nbHitsCovered">&nbsp;81</td>  <td class="src"><pre class="src">&nbsp;            p = p.getParent();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;493</td>  <td class="nbHitsCovered">&nbsp;81</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;494</td>  <td class="nbHitsCovered">&nbsp;64</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;492</td>  <td class="nbHitsCovered">&nbsp;162</td>  <td class="src"><pre class="src">&nbsp;            p = p.getParent();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;493</td>  <td class="nbHitsCovered">&nbsp;162</td>  <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;494</td>  <td class="nbHitsCovered">&nbsp;128</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;495</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;496</td>  <td class="nbHits">&nbsp;</td>
@@ -898,12 +898,12 @@
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">void</span> listenToNode( PNode node ) {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;501</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">//        System.out.println( "listeningTo.size() = " + listeningTo.size() );</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;502</td>  <td class="nbHitsCovered"><a title="Line 502: Conditional coverage 100% (2/2).">&nbsp;81</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 502: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>( !listeningTo( node ) ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;503</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;            listeningTo.add( node );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;504</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;            node.addPropertyChangeListener( PNode.PROPERTY_PARENT, parentListener );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;502</td>  <td class="nbHitsCovered"><a title="Line 502: Conditional coverage 100% (2/2).">&nbsp;162</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 502: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>( !listeningTo( node ) ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;503</td>  <td class="nbHitsCovered">&nbsp;154</td>  <td class="src"><pre class="src">&nbsp;            listeningTo.add( node );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;504</td>  <td class="nbHitsCovered">&nbsp;154</td>  <td class="src"><pre class="src">&nbsp;            node.addPropertyChangeListener( PNode.PROPERTY_PARENT, parentListener );</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;505</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;506</td>  <td class="nbHitsCovered">&nbsp;81</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;506</td>  <td class="nbHitsCovered">&nbsp;162</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;507</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;508</td>  <td class="nbHits">&nbsp;</td>
@@ -918,15 +918,15 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;513</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">boolean</span> listeningTo( PNode node ) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;514</td>  <td class="nbHitsCovered"><a title="Line 514: Conditional coverage 100% (2/2).">&nbsp;260</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 514: Conditional coverage 100% (2/2).">        <span class="keyword">for</span>( <span class="keyword">int</span> i = 0; i &lt; listeningTo.size(); i++ ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;515</td>  <td class="nbHitsCovered">&nbsp;183</td>  <td class="src"><pre class="src">&nbsp;            PNode pNode = (PNode)listeningTo.get( i );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;516</td>  <td class="nbHitsCovered"><a title="Line 516: Conditional coverage 100% (2/2).">&nbsp;183</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 516: Conditional coverage 100% (2/2).">            <span class="keyword">if</span>( pNode == node ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;517</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;514</td>  <td class="nbHitsCovered"><a title="Line 514: Conditional coverage 100% (2/2).">&nbsp;520</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 514: Conditional coverage 100% (2/2).">        <span class="keyword">for</span>( <span class="keyword">int</span> i = 0; i &lt; listeningTo.size(); i++ ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;515</td>  <td class="nbHitsCovered">&nbsp;366</td>  <td class="src"><pre class="src">&nbsp;            PNode pNode = (PNode)listeningTo.get( i );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;516</td>  <td class="nbHitsCovered"><a title="Line 516: Conditional coverage 100% (2/2).">&nbsp;366</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 516: Conditional coverage 100% (2/2).">            <span class="keyword">if</span>( pNode == node ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;517</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;518</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;519</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;520</td>  <td class="nbHitsCovered">&nbsp;77</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;520</td>  <td class="nbHitsCovered">&nbsp;154</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;521</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;522</td>  <td class="nbHits">&nbsp;</td>
@@ -941,24 +941,24 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;527</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">void</span> updateCanvas( PSwingCanvas newCanvas ) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;528</td>  <td class="nbHitsCovered"><a title="Line 528: Conditional coverage 100% (2/2).">&nbsp;17</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 528: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>( newCanvas != canvas ) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;529</td>  <td class="nbHitsUncovered"><a title="Line 529: Conditional coverage 50% (1/2).">&nbsp;15</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 529: Conditional coverage 50% (1/2).">            <span class="keyword">if</span>( canvas != <span class="keyword">null</span> ) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;528</td>  <td class="nbHitsCovered"><a title="Line 528: Conditional coverage 100% (2/2).">&nbsp;34</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 528: Conditional coverage 100% (2/2).">        <span class="keyword">if</span>( newCanvas != canvas ) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;529</td>  <td class="nbHitsUncovered"><a title="Line 529: Conditional coverage 50% (1/2).">&nbsp;30</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 529: Conditional coverage 50% (1/2).">            <span class="keyword">if</span>( canvas != <span class="keyword">null</span> ) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;530</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                canvas.removePSwing( <span class="keyword">this</span> );</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;531</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;532</td>  <td class="nbHitsUncovered"><a title="Line 532: Conditional coverage 50% (1/2).">&nbsp;15</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 532: Conditional coverage 50% (1/2).">            <span class="keyword">if</span>( newCanvas != <span class="keyword">null</span> ) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;533</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;                canvas = newCanvas;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;534</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;                canvas.addPSwing( <span class="keyword">this</span> );</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;535</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;                reshape();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;536</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;                repaint();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;537</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;                canvas.invalidate();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;538</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;                canvas.revalidate();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;539</td>  <td class="nbHitsCovered">&nbsp;15</td>  <td class="src"><pre class="src">&nbsp;                canvas.repaint();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;532</td>  <td class="nbHitsUncovered"><a title="Line 532: Conditional coverage 50% (1/2).">&nbsp;30</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 532: Conditional coverage 50% (1/2).">            <span class="keyword">if</span>( newCanvas != <span class="keyword">null</span> ) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;533</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;                canvas = newCanvas;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;534</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;                canvas.addPSwing( <span class="keyword">this</span> );</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;535</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;                reshape();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;536</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;                repaint();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;537</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;                canvas.invalidate();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;538</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;                canvas.revalidate();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;539</td>  <td class="nbHitsCovered">&nbsp;30</td>  <td class="src"><pre class="src">&nbsp;                canvas.repaint();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;540</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;541</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;542</td>  <td class="nbHitsCovered">&nbsp;17</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;542</td>  <td class="nbHitsCovered">&nbsp;34</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;543</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="comment">////////////////////////////////////////////////////////////</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;544</td>  <td class="nbHits">&nbsp;</td>
@@ -969,6 +969,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 1.9 on 30.07.08 16:17.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 1.9 on 30.07.08 19:27.</div>
 </body>
 </html>
