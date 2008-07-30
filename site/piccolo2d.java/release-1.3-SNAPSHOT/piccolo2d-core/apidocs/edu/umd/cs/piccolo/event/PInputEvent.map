@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" href="../util/PDimension.html" title="&lt;TABLE&gt;" alt="" coords="16,1269,131,1394"/>
+<area shape="rect" href="../util/PPickPath.html" title="&lt;TABLE&gt;" alt="" coords="299,1592,469,1906"/>
+<area shape="rect" href="../PCamera.html" title="&lt;TABLE&gt;" alt="" coords="315,4701,517,5413"/>
+<area shape="rect" href="../PNode.html" title="&lt;TABLE&gt;" alt="" coords="93,1965,320,4642"/>
+<area shape="rect" href="../PComponent.html" title="&lt;TABLE&gt;" alt="" coords="452,5472,583,5626"/>
+<area shape="rect" href="../PInputManager.html" title="&lt;TABLE&gt;" alt="" coords="301,1130,520,1533"/>
+<area shape="rect" href="./PDragSequenceEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="223,10,428,344"/>
+<area shape="rect" href="./PInputEvent.html" title="&lt;TABLE&gt;" alt="" coords="221,402,429,1072"/>
+</map>
