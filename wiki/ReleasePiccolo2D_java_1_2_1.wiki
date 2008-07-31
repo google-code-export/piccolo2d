@@ -4,14 +4,13 @@
 
 =Piccolo2D 1.2.1 Release Notes=
 
-Move the Piccolo2D project from UMD to Google Code.
-
-|| *Date* || 2008-07-21 ||
-|| *Flavour* || Java ||
-|| *Release Manager* || [http://code.google.com/u/@UBBfSlFQDhBCXAR5Fg%3D%3D/ s...@browsecode.org] ||
-|| *Download* || http://piccolo2d.googlecode.com/files/Piccolo2D.Java-1.2.1-compiled.zip ||
-|| *Documentation* || http://piccolo2d.googlecode.com/svn/site/piccolo2d.java/release-1.2.1/apidocs/index.html ||
-|| *Issues* || [http://code.google.com/p/piccolo2d/issues/list?sort=status+type+-priority+-id&can=1&q=label:Milestone-1.2.1 List] or [http://code.google.com/p/piccolo2d/issues/list?can=1&x=type&y=status&mode=grid&cells=tiles&q=label%3AMilestone-1.2.1 Grid] ||
+|| Reason || Move the Piccolo2D project from UMD to Google Code. ||
+|| Date || 2008-07-21 ||
+|| Flavour || Java ||
+|| Release Manager || [http://code.google.com/u/@UBBfSlFQDhBCXAR5Fg%3D%3D/ s...@browsecode.org] ||
+|| Download || http://piccolo2d.googlecode.com/files/Piccolo2D.Java-1.2.1-compiled.zip ||
+|| Documentation || http://piccolo2d.googlecode.com/svn/site/piccolo2d.java/release-1.2.1/apidocs/index.html ||
+|| Issues || [http://code.google.com/p/piccolo2d/issues/list?sort=status+type+-priority+-id&can=1&q=label:Milestone-1.2.1 List] or [http://code.google.com/p/piccolo2d/issues/list?can=1&x=type&y=status&mode=grid&cells=tiles&q=label%3AMilestone-1.2.1 Grid] ||
 
 == Changelog ==
 
