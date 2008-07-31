@@ -52,7 +52,7 @@ http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png
 = Listed II =
 
 || *Date*     || *Toolkit* || *Java* || *.Net* || *PDA* || *Version* || *Details* ||
-|| yyyy-mm-dd || piccolo2d || x ||   ||   || 1.2.1 || [ReleasePiccolo2D_java_1_2_1 Lorem Ipsum] ||
+|| yyyy-mm-dd || piccolo2d || x ||   ||   || 1.2.1 || [ReleasePiccolo2D_java_1_2_1 Move the Piccolo2D project from UMD to Google Code.] ||
 || yyyy-mm-dd || piccolo || x ||   ||   || 1.2 || [ReleasePiccolo_1_2  Lorem Ipsum] ||
 || yyyy-mm-dd || piccolo ||   || x ||   || 1.2 || [ReleasePiccolo_net_1_2  Lorem Ipsum] ||
 || yyyy-mm-dd || piccolo || x ||   ||   || 1.1 || [ReleasePiccolo_1_1  Lorem Ipsum] ||
