@@ -22,6 +22,8 @@ Which style is best - matrixoid, listed I, listed II or sectioned?
 || jazz || 0.4 || ReleaseJazz-0_4 || - || - ||
 || jazz || 0.3 || ReleaseJazz-0_3 || - || - ||
 
+http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png
+
 = Listed I =
 
 || *Date*     || *Toolkit* || *Flavor* || *Version* || *Details* ||
@@ -45,6 +47,8 @@ Which style is best - matrixoid, listed I, listed II or sectioned?
 || yyyy-mm-dd || jazz || java || 0.4 || [ReleaseJazz_0_4  Lorem Ipsum] ||
 || yyyy-mm-dd || jazz || java || 0.3 || [ReleaseJazz_0_3  Lorem Ipsum] ||
 
+http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png
+
 = Listed II =
 
 || *Date*     || *Toolkit* || *Java* || *.Net* || *PDA* || *Version* || *Details* ||
@@ -67,6 +71,8 @@ Which style is best - matrixoid, listed I, listed II or sectioned?
 || yyyy-mm-dd || jazz || x ||   ||   || 0.5 || [ReleaseJazz_0_5  Lorem Ipsum] ||
 || yyyy-mm-dd || jazz || x ||   ||   || 0.4 || [ReleaseJazz_0_4  Lorem Ipsum] ||
 || yyyy-mm-dd || jazz || x ||   ||   || 0.3 || [ReleaseJazz_0_3  Lorem Ipsum] ||
+
+http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png
 
 = Sectioned = 
 
@@ -98,3 +104,5 @@ Which style is best - matrixoid, listed I, listed II or sectioned?
 === jazz-0.6 ===
 === jazz-0.5 ===
 === jazz-0.4 ===
+
+http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png
