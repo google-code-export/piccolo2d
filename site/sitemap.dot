@@ -11,7 +11,7 @@ render: $ dot -Tsvg -o sitemap.svg sitemap.dot
 digraph "Piccolo2D Site Map" {
 graph [	rankdir=LR,
 	fontname = "sans-serif",
-	label="Piccolo2D Site Map",
+	label="Piccolo2D Site Map\n(main roads only)",
 	labelloc=t,
 	size = "12,12" ];
 node [	style=filled,
@@ -55,7 +55,7 @@ primer [URL="http://www.cs.umd.edu/hcil/jazz/learn/graphics.shtml"];
 /* wiki */
 node [fillcolor="#c3d9ff",group="wiki"];
 
-DeveloperFAQ [URL="http://code.google.com/p/piccolo2d/wiki/DeveloperFAQ"];
+/* DeveloperFAQ [URL="http://code.google.com/p/piccolo2d/wiki/DeveloperFAQ"]; */
 Download [URL="http://code.google.com/p/piccolo2d/downloads/list"];
 GoogleCodeHome [URL="http://code.google.com/p/piccolo2d/"];
 HackersGuide [URL="http://code.google.com/p/piccolo2d/wiki/HackersGuide"];
@@ -79,25 +79,26 @@ node [fillcolor="#dddddd",group="autogen"];
 
 
 GoogleCodeHome -> about;
-GoogleCodeHome -> Download;
-GoogleCodeHome -> Issues;
 GoogleCodeHome -> learn;
 GoogleCodeHome -> ReleaseNotes;
-GoogleCodeHome -> Sources;
 HackersGuide -> Sources;
+Issues -> Sources;
+ReleaseNotes -> api;
 ReleaseNotes -> Issues;
-ReleaseNotes -> "p2d.java-1.3";
+ReleaseNotes -> Download;
 RoadMap -> Issues;
-RoadMap -> "p2d.java-1.3";
 RoadMap -> ReleaseNotes;
+Sources -> Issues;
 
+"jazz-1.0" -> ReleaseNotes;
+"p2d.java-1.2.1" -> ReleaseNotes;
+"p2d.java-1.2" -> ReleaseNotes;
 "p2d.java-1.3" -> "Core-1.3";
 "p2d.java-1.3" -> "Examples-1.3";
 "p2d.java-1.3" -> "Extras-1.3";
-"p2d.java-1.3" -> GoogleCodeHome;
-"p2d.java-1.3" -> Issues; 
-"p2d.java-1.3" -> learn;
-"p2d.java-1.3" -> Sources; 
+"p2d.java-1.3" -> ReleaseNotes;
+"p2d.net-1.2" -> ReleaseNotes;
+"pp2d.net-1.2" -> ReleaseNotes;
 
 about -> applications;
 about -> comparison;
@@ -109,14 +110,13 @@ about -> play;
 about -> press;
 about -> publications;
 about -> sponsors;
-api -> "p2d.java-1.3";
-api -> "p2d.java-1.2.1";
+api -> "jazz-1.0";
 api -> "p2d.java-1.2";
+api -> "p2d.java-1.2.1";
+api -> "p2d.java-1.3";
 api -> "p2d.net-1.2";
 api -> "pp2d.net-1.2";
-api -> "jazz-1.0";
 contribute -> HackersGuide;
-faq -> DeveloperFAQ;
 gettingstarted -> effects;
 gettingstarted -> fisheye;
 gettingstarted -> grapheditor;
