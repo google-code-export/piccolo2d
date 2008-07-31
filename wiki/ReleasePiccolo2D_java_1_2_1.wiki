@@ -4,7 +4,8 @@
 
 =Piccolo2D 1.2.1 Release Notes=
 
-|| Reason || Move the Piccolo2D project from UMD to Google Code. ||
+Move the Piccolo2D project from UMD to Google Code. 
+
 || Date || 2008-07-21 ||
 || Flavour || Java ||
 || Release Manager || [http://code.google.com/u/@UBBfSlFQDhBCXAR5Fg%3D%3D/ s...@browsecode.org] ||
