@@ -1,0 +1,42 @@
+body {
+  color: black; background-color: white;
+  font-size: 115%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#navigation {
+/*  font-size: 0.91em; */
+  float: left; width: 13em;
+  margin: 0.5em; padding: 0 0.5em;
+  background-color: white;
+/*  border: 1px dashed silver; */
+}
+
+#main {
+  margin: 0; padding: 0 0.5em;
+  margin-left: 14.5em;
+/*  border: 1px dashed silver; */
+  background-color: #FFFD9C;
+  min-width: 16em; /* Mindestbreite (der Ueberschrift) verhindert Anzeigefehler in modernen Browsern */
+}
+
+#main-head {
+ background-color: #D6D583;
+ margin: 0 -0.5em; padding: 0.5em;
+}
+
+ul.nav {
+	margin: 0; padding: 0 1em;
+}
+ul.nav li {
+	list-style: none;
+    	margin: 0; padding: 0;
+}
+
+dt {
+  font-weight: bold;
+}
+
+em {
+  color: blue;
+}
