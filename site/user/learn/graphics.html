@@ -1,672 +1,931 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
-        "http://www.w3.org/TR/REC-html40/loose.dtd">
-
-<html>
-
-<head>
-<meta http-equiv="Content-Type"
-content="text/html; charset=iso-8859-1">
-<meta name="description"
-content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
-<meta name="format" content="text/html">
-<meta name="keywords"
-content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
-<meta name="publisher"
-content="Human-Computer Interaction Lab, University of Maryland">
-<meta name="relation"
-content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
-<meta name="rights statement"
-content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
-<title>Piccolo Home Page</title>
-<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
-<link rel=stylesheet href="../style.css" type="text/css">
-<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
-</script>
-</head>
-
-<body bgcolor="#FFFFFF" text="#000000" link="#000080"
-vlink="#390764" alink="#FFB926">
-
-<!--#include virtual="/hcil/research/banner.html"-->
-
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-
-	<tr>
-	<td valign="top" width="165" nowrap>
-	<table border="0" cellpadding="10" cellspacing="0" width="165">
-
-
-	<tr>
-
-        <td valign="top" nowrap>
-		<a href="../index.shtml" class="heading">Piccolo</a><br><br>
-        <a href="index.shtml" class="side_pane">Learn</a>
-        <br>
-
-        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="patterns.shtml">Piccolo Patterns</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="get-started.shtml">Getting Started</a>
-	    <br>
-	    &nbsp;&nbsp;<a class="side_pane_small" href="api.shtml">API Documentation</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="comparison.shtml">Piccolo&nbsp;in&nbsp;Comparison</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="dev-faq.shtml">Developer FAQ</a>
-        <br>        
-        &nbsp;&nbsp;<a class="side_pane_small" href="maillists.shtml">Mailing Lists</a>
-        <br>
-        &nbsp;&nbsp;<span class="curr_page_link_small">Graphics Primer</span><br>        
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Basics">Basics</a>
-        <br>
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Drawing">Drawing Abstraction</a><br>
-				
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Coordinates">Coordinates</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Models">Description 
-		Models</a><br>
-
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Shapes">Drawing 
-		Shapes</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Rendering">Rendering</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Text">Text</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Color">Color</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Clipping">Clipping</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Efficiency">Efficiency</a><br>
-
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#equations">Geometric Equations</a>
-		<br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Implicit">Implicit Forms</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Explicit">Explicit Forms</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Parametric">Parametric Forms</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Control">Control Points</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#transformations">Geometric Transformations</a>
-		<br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Matrix">Matrix Transformations</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Scaling">Scaling</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Rotation">Rotation</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Translation">Translation</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Homogeneous">Homogeneous Coordinates</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Affine">Affine Transformations</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Composition">Matrix Composition</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Coordinate">Coordinate Systems</a><br>
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Piccolo">Piccolo</a>
-		<br>
-        
-	<a href="../play/index.shtml" class="side_pane">Play</a>
-        <br>
-
-	<a href="../team/index.shtml" class="side_pane">Team</a>
-        <br>
-
-	<a href="../press/index.shtml" class="side_pane">Press</a>
-        <br>
-
-	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
-        <br>
-
-	<a href="../applications/index.shtml" class="side_pane">Applications</a>
-        <br>
-
-	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
-        <br><br>
-
-	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
-	<tr><td>
-	<a href="../download/index.shtml" class="side_pane">Download</a>
-        <br>
-        </td></tr>
-	</table>
-
-	</td></tr>
-
-	</table>
-	</td>
-		
-        <td valign="top">
-		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
-		<tr>
-			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
-			<b class="dark_heading">2D Graphics Primer</b><br><br>
-			<span class="262274018-12092005">This section contains an overview 
-			of various 2D graphics concepts related to Piccolo. This is a huge 
-			topic which cannot be covered in depth here.&nbsp;&nbsp;But the basics are 
-			presented below.&nbsp; In many cases these lower level details are 
-			handled for you by Piccolo.&nbsp; But, understanding them will help you 
-			to use the framework more efficiently, especially when extending 
-			functionality and creating your own types.</span><br><br>
-			</td>
-		</tr>
-
-		<tr>
-		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
-
-			<p><b class="dark_heading_two"><a name="Basics"></a>Basics</b><p><i>Everything on the 
-			screen is graphics.&nbsp; Toolkits, like Java Swing and the .NET 
-			Windows Forms library provide ready-made standard widgets, like 
-			scrollbars and buttons, that you can add to yo</i><i>ur</i><i> GUI.&nbsp; 
-			But, if you want to create a custom component, you have to do 
-			your own drawing!</i><br><br>
-			<div align="center">
-				<table border="0" id="table1" cellpadding="5">
-				<tr>
-					<td valign="bottom">
-			<img height="31" src="http://www.cs.umd.edu/~bederson/classes/dui/lecture-notes/graphics1/button1.gif" width="63" border="0"></td>
-					<td valign="bottom"> <img height="155" src="http://www.cs.umd.edu/~bederson/classes/dui/lecture-notes/graphics1/button2.gif" width="315" border="0"></td>
-				</tr>
-				<tr>
-					<td valign="bottom"><img height="29" src="http://www.cs.umd.edu/~bederson/classes/dui/lecture-notes/graphics1/button3.gif" width="61" border="0"></td>
-					<td valign="bottom"> <img height="145" src="http://www.cs.umd.edu/~bederson/classes/dui/lecture-notes/graphics1/button4.gif" width="305" border="0"></td>
-				</tr>
-			</table>
-			</div>
-			<p><b><a name="Drawing"></a>Drawing Abstraction</b><p>Every computer 
-			graphics system (i.e., operating system) offers some notion of a 
-			canvas to draw onto.<p>Usually, the canvases are separated into 
-			windows that are distinct from each other, which provide a relative 
-			coordinate system and isolation. This abstraction allows the same 
-			binary-level application to render onto different kinds of surfaces 
-			such as screens, off-screen buffers (i.e., clipboards), and 
-			printers, plotters, and direct neural implants...<p>Most current 
-			systems offer a a resolution-independent (or device-independent) 
-			API. This is crucial. If all rendering was done in pixels, a 100 
-			pixel rectangle would be about an inch big on most displays, but 
-			would be less than 1/10th of an inch big on some printers.<p>Java 
-			offers the Graphics/Graphics2D classes that present this 
-			abstraction, and C# offers the System.Drawing.Graphics class.<p><b>
-			<a name="Coordinates"></a>Coordinates</b><br><br><i>Device coordinates</i> - Coordinates of the physical 
-			device:<ul>
-				<li>Usually has origin (0, 0) at upper left </li>
-				<li>X increases to the right</li>
-				<li>Y increases down</li>
-				<li>Integral coordinates always has X in&nbsp; [0, width] and Y in 
-				[0, height]</li>
-				<li>Coordinates correspond to pixels</li>
-				<li>Need to know pixel density (DPI - dots per inch) to create a 
-				specific-sized object</li>
-				</ul>
-				<p><i>Window coordinates</i> - Coordinates within an operating system 
-				window</p>
-				<ul>
-					<li>Similar to device coordinates</li>
-					<li>Can have out of bounds coordinates which are <i>clipped</i> 
-					by the OS </li>
-					<li>If there is a frame around the window (&quot;window 
-					dressing&quot;), that is <i>outside</i> the dimensions of the 
-					window </li>
-					</ul>
-					<p><i>Physical coordinates</i> (&quot;device-independent coordinates&quot;) - 
-					correspond to physical measurements</p>
-					<ul>
-						<li>Defined in universal measurements - inches, 
-						millimeters, points (1/72 of an inch) </li>
-						<li>Necessary to make graphics the same size independent 
-						of device </li>
-						</ul>
-						<p><i>Model (&quot;local&quot;) coordinates</i> - correspond to the 
-						object you are defining</p>
-			<ul>
-				<li>You may want to define an application-specific coordinate 
-				system<br>(i.e. Origin at the center of screen with one &quot;unit&quot; per 
-				inch)</li>
-				<li>Need to convert between coordinate systems </li>
-							</ul>
-							<p><i>Transformations</i></p>
-			<ul>
-				<li>A &quot;transform&quot; object encapsulates a coordinate system </li>
-				<li>A sequence of transforms can efficiently switch coordinate 
-				systems </li>
-			</ul>
-			<p><b>
-			<a name="Models"></a>Graphics Description Models</b></p><i>Stroke Model</i> - 
-			describes images with strokes of specified color and thickness.&nbsp; 
-			There are also several other parameters, such as how the line 
-			segments are connected, and whether the line is drawn solid, or with 
-			dashes.&nbsp; In addition, strokes can be anti-aliased.<br><br>
-
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="stroke-model">			
-			<div style="padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="inner-stroke-model">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">Line from (4,5) to (9,7) in red with a thickness of 5
-Circle centered at (19,8) in blue with a radius of 8 and a thickness of 3
-...</pre>
-			</div>	
-			</div>
-			<br><br>
-			<div align="center">
-			<table border="0" id="table2" cellpadding="5">
-				<tr>
-					<td valign="bottom" align="center"><img height="190" src="images/line-dashes.gif" width="240" border="0"><br>Dash Styles</td>
-					<td valign="bottom" align="center">
-			<img height="168" src="images/line-caps.gif" width="192" border="0"><br>End 
-			Cap Styles</td>
-				</tr>
-			</table>
-			</div>
-			<p>&nbsp;
-			<div align="center">
-				<table border="0" id="table3" cellpadding="5">
-					<tr>
-						<td valign="bottom" align="center">
-			<img height="174" src="images/line-join-miter.gif" width="230" border="0"><br>Miter Join</td>
-						<td valign="bottom" align="center">
-			<img height="147" src="images/line-join-round.gif" width="178" border="0"><br>Round Join</td>
-						<td valign="bottom" align="center">
-			<img height="133" src="images/line-join-bevel.gif" width="159" border="0"><br>Bevel Join</td>
-					</tr>
-				</table>
-				<p>&nbsp;</div>
-			<div align="center">
-				<table border="0" id="table4" cellpadding="5" cellspacing="6">
-					<tr>
-						<td valign="bottom" align="center">
-			<img height="100" src="images/line1.gif" width="100" border="0">&nbsp;&nbsp; <img height="158" src="images/line2.gif" width="158" border="0"><br>Unantialiased Line</td>
-						<td valign="bottom" align="center">
-			<img height="100" src="images/line3.gif" width="100" border="0">&nbsp;&nbsp; <img height="187" src="images/line4.gif" width="191" border="0"><br>Antialiased Line</td>
-					</tr>
-				</table>
-			</div>
-			<br><hr>
-			<p>
-			<i>Region Model</i> - describes images with filled areas such as 
-			arcs, text, splines, and other shapes - often other stroke objects.&nbsp; 
-			The area may be filled with a color, or a more complex fill such as 
-			a gradient or texture (known as a <i>paint</i> in Java or a <i>Brush</i> 
-			in C#).<br><br>
-			
-						<div style="position: relative; background-color: #D6D583; width: 100%;" id="stroke-model">			
-			<div style="padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="inner-stroke-model">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
-...</pre>
-			</div>	
-			</div>
-
-			<div align="center"><br>
-
-			<table border="0" id="table5" cellpadding="5">
-				<tr>
-					<td align="center">
-					<img height="100" src="images/fill-solid.gif" width="100" border="0"><br>Solid Fill</td>
-					<td align="center">
-					<img height="100" src="images/fill-gradient.jpg" width="100" border="0"><br>Gradient Fill</td>
-				</tr>
-			</table>
-			</div>
-			<br><hr><br>
-			<i>Pixel Model</i> - describes images as a discrete number of 
-			pixels. Each pixel is specified by a color from one of several 
-			possible color models.<p align="center">
-			<img height="202" src="images/pixel-model.gif" width="202" border="0"></p>
-			<font color="#FF0000">NOTE</font>: In practice, graphics are 
-			described with a combination of stroke, region, and pixel 
-			descriptions.<p><b>
-			<a name="Shapes"></a>Drawing Shapes</b></p>
-					<p>Java has a generic <i>Shape</i> 
-					class with g2.draw() and g2.fill() methods.&nbsp; See 
-					java.awt.geom. Including <i>GeneralPath</i> which connects 
-					points with lines or curves.&nbsp; It can be rendered 
-					resolution-independent, or can be flattened with <i>
-					FlatteningPathIterator</i></p>
-					<p>C# has fixed shapes rather than a generic Shape class.&nbsp; 
-					See Graphics.DrawEllipse, DrawBezier, DrawCurve, etc.&nbsp; C# 
-					also has a generic path called Drawing2D.GraphicsPath, 
-					rendered with Graphics.DrawPath.
-			<p><b>
-			<a name="Rendering"></a>Rendering Damage/Redraw</b></p>In most graphics systems, you 
-			override a window's paint method and put all your rendering code 
-			there, but you don't actually call that method directly.&nbsp; 
-			Instead you will request a render by telling the OS that a portion 
-			of the screen is &quot;damaged.&quot;&nbsp; It is out of date and needs to be 
-			repainted.&nbsp; The OS will collect and merge all the damaged 
-			regions and at some point later it will call the window's paint 
-			method passing it the full region that needs to be repainted.<p>In 
-			java, you can request that a window be rendered with JComponent.repaint().&nbsp; 
-					In C#, you would use Control.Invalidate. Or, you could just 
-			damage a portion of the canvas with repaint(x, y, w, h) in Java or&nbsp;Invalidate(Rectangle) 
-			in C#.&nbsp; Remember that these methods only 
-					request repaints to happen in the future, they do not happen 
-					immediately.</p>
-			<p><b>
-			<a name="Text"></a>Text</b></p>Text is a special kind of graphics 
-					for both performance and human reasons.&nbsp; Characters in 
-			any font can be represented either as bitmaps or curves.<p>In some 
-			systems, characters are defined as the set of pixels (bitmap) that 
-			form each character.&nbsp; This approach is efficient since we need 
-			the set of pixels that make up the characters in order to draw them.&nbsp; 
-			But, for large font sizes the space required to store all the 
-			bitmaps becomes problematic. </p>
-			<p>Another approach is to store only the outlines of the characters 
-			as closed shapes.&nbsp; These character definitions can easily be 
-			scaled to any size and converted to bitmaps when necessary.&nbsp; 
-			Plus, drawing packages can treat characters as geometric shapes that 
-			can be manipulated like other graphical elements.</p>
-					<p>Typically you will allocate fonts up front, and then use them on 
-					demand.&nbsp; See the Font classes in Java and C#.&nbsp; Fonts get measured with Ascent, Descent, Height, Leading, 
-					Width, and Kerning.&nbsp; Higher quality text can be drawn with anti-aliasing or 
-					more recently, sub-pixel anti-aliasing (e.g., Microsoft 
-					Cleartype) </p>
-			<p><b>
-			<a name="Color"></a>Color</b></p>
-			<p>There are various color models, which are not reflected in the 
-			API.&nbsp; Rather the API needs to support the color representation 
-			of the hardware.&nbsp; There are two basic kinds, <i>Indexed Color</i> (8 bit) and <i>True Color</i> (16, 24, 32 bit).</p>
-			<p>Indexed color uses an array of color values as a palette.&nbsp; 
-			An index into the color table is assigned to each pixel.&nbsp; Using 8 
-			bits per pixel allows only 256 colors.</p>
-			<p>Models that can represent a large number of colors are called 
-			true color.&nbsp; Examples are RGB, HSV, and CMYK.&nbsp; The common 8-bit RGB model assigns a 3 byte value to each pixel, one byte per channel 
-			(red, green and blue). This model can represent up to 2<sup>8</sup>
-			<font face="Times New Roman">× </font>2<sup>8 </sup>
-			<font face="Times New Roman">×</font><sup> </sup>2<sup>8 </sup>or 
-			16,777,216 colors.</p>
-			<p><b>
-			<a name="Clipping"></a>Clipping</b></p>Clipping, or limiting drawing to a particular 
-			area of the screen, is crucial for a window 
-					manager.&nbsp; Displayed objects need to be clipped to the 
-			bounds of the window in which they are displayed.&nbsp; But, 
-			clipping is also necessary for application efficiency and high-end 
-			graphics.<p>Regions, analytical descriptions of shape, are used for 
-			the basis of clipping.&nbsp; Regions include algebra for 
-			adding/subtracting, manipulating shape and there are various types 
-			(rectangular, rectilinear, rectilinear with holes).</p>
-					<p align="center"><img border="0" src="images/clip.gif"><p>
-			Java has the Area class (made of Shapes) and C# has the Region 
-			class.<p><b>
-			<a name="Efficiency"></a>Efficiency</b></p>There are various efficiency 
-			considerations that must be made when working with 2D computer 
-			graphics.&nbsp; Some common mechanisms/considerations include region management (partial 
-					redraws), high-level descriptions for networked displays, display lists for complex objects that are redrawn many 
-					times, space-time trade-offs (i.e. pre-allocate thumb image 
-			and store it, or render it each time).<p>
-			<b>
-			<a name="Equations"></a></b><b class="dark_heading_two">Geometric Equations</b><br><br>
-			<i>In a drawing 
-			program, there are some common problems such as determining what 
-			object a user clicked on, finding the nearest 
-						object to where the user clicked, or snapping a line to the nearest object.&nbsp; 
-			It turns out we can use a few simple geometric equations to aid with 
-			these tasks.&nbsp; And, there are different forms of these equations 
-			for different uses.</i>
-			<p><b>
-			<a name="Implicit"></a>Implicit Forms</b>: F(x, y) = 0</p>
-					<p>i.e.: Ax + By + c = 0</p>
-			<p>This type of equation defines a half-space.&nbsp; And, 
-			intersecting multiple half-spaces defines polygons.&nbsp; So, this 
-			kind of equation can be used to 
-			determining if a point is within a region or finding the distance 
-			from a line.</p>
-
-					<p><b>
-			<a name="Explicit"></a>Explicit Forms</b>: y = F(x)</p>
-
-					i.e. y = Mx + B<p>Explicit functions are not good for 
-					graphics operations, since they don't plug a point in.</p>
-
-					<p><b>
-			<a name="Parametric"></a>Parametric Forms</b>: x = G(t), y = H(t)</p>
-					<p>i.e.: x = cos(t), y = sin(t)</p>
-					<p>or, </p>
-
-						<p>x = x<sub>1</sub> + t * (x<sub>2</sub> - x<sub>1</sub>)<br>
-						y = y<sub>1</sub> + t * (y<sub>2</sub> - y<sub>1</sub>)</p>
-			<p>Here, both x and y are functions of an independent variable.&nbsp; 
-			If you plug in some value for t, you can plot a point on the line.&nbsp; 
-			The functions x(t) and y(t) vary along the line, as t varies so you 
-			can interpolate along a line.</p>
-						
-					<p>More generally, this is known in the computer graphics 
-					world as LERP (linear interpolation):</p>
-			<p><i>p = p<sub>1</sub> + t * (p<sub>2</sub> - p<sub>1</sub>)</i></p>
-			<p>The LERP equation bounds t between 0 and 1.&nbsp; It directly 
-			supports animation, computing intersections, scales to multiple 
-			dimensions and can be applied to many domains (points, colors, 
-			etc.).</p>
-					<p><b>
-			<a name="Control"></a>Control Points</b>: Used to specify geometry - often 
-					accessed through &quot;handles&quot; in an interface<br><br><div align="center">
-				<table border="0" id="table6" cellpadding="5">
-					<tr>
-						<td align="center"><img border="0" src="images/graphi1.gif"><br>Cubic Bezier Curve</td>
-						<td align="center"><img border="0" src="images/graphi2.gif"><br>Quad Bezier Curve</td>
-					</tr>
-				</table>
-			</div>
-			<p><br><b>
-			<a name="Transformations"></a></b><b class="dark_heading_two">Geometric Transformations</b><p>
-			<i>Often an application will need to translate (move), scale, 
-			rotate, or shear it's graphical elements.&nbsp; This is necessary 
-			for almost any animation and many interactions. One way to achieve this 
-			would be to modify all of the points in the original object.&nbsp; 
-			For example, in a game of asteroids, to move the triangular ship 
-			down ten units, you could add 10 to each point in the triangle. The 
-			problem with this approach is that it forces you to modify your 
-			original object.&nbsp; You will no longer have a copy of the original to revert back to.&nbsp; And for 
-			some transformations, it's worse.&nbsp; What if you scale all the 
-			points by zero? Then you've lost your data altogether. A better 
-			approach would be to save your original object and somehow transform 
-			it when you render.&nbsp; This is commonly done in computer graphics 
-			with matrices.</i><p>
-			<b>
-			<a name="Matrix"></a>Matrix Transformations</b><p>
-			We can represent some transformations as 2x2 matrices of the 
-			following form.<p align="center">
-			<img border="0" src="images/matrix.gif"><p align="left">
-			We
-			can then multiply the matrix by a column vector to apply the 
-			transformation to a point.<p align="center">
-			&nbsp;<img border="0" src="images/matrix-mult.gif"><p align="center">
-			x<font face="Times New Roman">&#8242;</font> = Ax
-			<font face="Times New Roman">+ By<br>y&#8242;</font> = 
-			Cx <font face="Times New Roman">+</font> Dy<p>
-			Matrices also allow as to represent a sequence of transformations.<p align="center">
-			<img border="0" src="images/matrix-comb.gif"><p>
-			Multiplying two matrices of the same size yields another matrix of 
-			the same size.&nbsp; So, the three transformations above can 
-			actually be represented as a single matrix.&nbsp; As long as we can 
-			represent transformations as 2x2 matrices, we can multiple them 
-			together to create one representative matrix.<p>
-			<b>
-			<a name="Scaling"></a>Scaling</b><p>
-			One common transformation involves scaling around the origin (0, 0).&nbsp; 
-			Here, we multiply all the x-coordinates by some scale factor S<sub>x </sub>and 
-			we multiply the y-coordinates by some scale factor S<sub>y</sub>.<p>
-			&nbsp;<div align="center">
-				<table border="0" id="table9" cellpadding="5">
-					<tr>
-						<td>
-			<img src="images/scale.gif" align="bottom" border="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-						<td>x<font face="Times New Roman">&#8242;</font> = x
-			<font face="Times New Roman">×</font> S<sub>x</sub><br>
-						y<font face="Times New Roman">&#8242;</font> = y
-			<font face="Times New Roman">×</font> S<sub>y</sub></td>
-					</tr>
-				</table>
-				<p align="left">If we define P as a point [x, y], we can combine 
-				the equations above to get the following representation.</p>
-				<p align="left">P<font face="Times New Roman">&#8242;</font> = S
-				<font face="Times New Roman">&#8729;</font> P or,</p>
-				<p>
-				&nbsp;<img border="0" src="images/scale-formula.gif"></div>
-			<p>We can then represent the scale vector as 2x2 matrix.<p align="center">
-			<img border="0" src="images/scale-matrix.gif"><p><b>
-			<a name="Rotation"></a>Rotation</b><p>Another common type of transformation is rotation, where we rotate 
-			the points by some angle <font face="Times New Roman">&#952;.</font><div align="center">
-				&nbsp;<table border="0" id="table10" cellpadding="5">
-					<tr>
-						<td>
-			&nbsp;<img height="185" alt="\includegraphics[width=2.0in]{math-rotate.eps}" src="images/rotate.gif" width="225" align="bottom" border="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-						<td>x<font face="Times New Roman">&#8242;</font> 
-			= x <font face="Times New Roman">×</font> cos(<font face="Times New Roman">&#952;</font>) 
-			- y <font face="Times New Roman">× sin(&#952;)</font><br>
-			y<font face="Times New Roman">&#8242;</font> = x
-			<font face="Times New Roman">× sin(&#952;) + y × cos(&#952;)</font></td>
-					</tr>
-				</table>
-			</div>
-			<p>Again, we can represent rotation as a 2x2 matrix.<p>P<font face="Times New Roman">&#8242;</font> = 
-			R <font face="Times New Roman">&#8729;</font> P or,<p align="center">
-			<img border="0" src="images/rotate-matrix.gif"><p><b>
-			<a name="Translation"></a>Translation</b><p>
-			A simple transformation involves adding some offset T<sub>x </sub>to 
-			all the x-coordinates, and adding some offset T<sub>y </sub>to all 
-			the y-coordinates.&nbsp; This is known as a translation.<p>&nbsp;<div align="center">
-				<table border="0" id="table7" cellpadding="5">
-					<tr>
-						<td>
-			<img src="images/translate.gif" align="bottom" border="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-						<td>x<font face="Times New Roman">&#8242;</font> = x + T<sub>x</sub><br>
-			y<font face="Times New Roman">&#8242;</font> = 
-			y + T<sub>y</sub></td>
-					</tr>
-				</table>
-			</div>
-			<br>If we define P as a point [x, 
-			y], we can combine the equations above to get the following  
-			representation:<p>P<font face="Times New Roman">&#8242;</font> = P + 
-			T or,</p>
-			<p align="center">
-			<img border="0" src="images/translate-formula.gif" width="385" height="65"></p>
-			<p align="left">
-			But, we cannot represent translation as a 2x2 matrix!&nbsp; This 
-			means we won't be able to combine it with rotation and scaling 
-			transformations through matrix multiplication.&nbsp; The solution is 
-			to use homogeneous coordinates.</p>
-			<p align="left">
-			<b>
-			<a name="Homogeneous"></a>Homogeneous Coordinates</b></p>
-			<p align="left">
-			We can take a 2-dimensional point and represent it as a 3-vector.</p>
-			<p align="center">
-			<img border="0" src="images/homogeneous.gif"></p>
-			<p align="left">
-			We add a third coordinate <i>h</i> to every 2D point, where (x, y, 
-			h) represents the point at location (x/h, y/h).
-			We can now represent translation as a 3x3 matrix of the following 
-			form.</p><p>P<font face="Times New Roman">&#8242;</font> =&nbsp; T<font face="Times New Roman"> &#8729;</font> P or,</p>
-			<p align="center">
-			<img border="0" src="images/translate-homog.gif"></p>
-			<p align="left">
-			We can then change our scale and rotation matrices into 3x3 matrices 
-			as well.</p><p>P<font face="Times New Roman">&#8242;</font> =&nbsp; 
-			S<font face="Times New Roman"> &#8729;</font> P or,</p>
-			<p align="center">
-			<img border="0" src="images/scale-homog.gif"></p><p>P<font face="Times New Roman">&#8242;</font> 
-			=&nbsp; R<font face="Times New Roman"> &#8729;</font> P or,</p>
-			<p align="center">
-			<img border="0" src="images/rotate-homog.gif"></p>
-			<p>This may not seem intuitive or exciting. But, it is quite useful 
-			for graphics operations because it allows us to combine translation, 
-			scale and rotation transformations, simply by using matrix 
-			multiplication.<p><b>
-			<a name="Affine"></a>Affine Transformations</b><p>The 3x3 matrix 
-			that we derived above is called an Affine Transform. It can 
-			encapsulate translate, rotate scale, shear and flip transformations.&nbsp; 
-			Affine Transformations have various properties.<ul>
-				<li>Origin may not map to the (0,0)</li>
-				<li>Lines map to lines</li>
-				<li>Parallell lines remain parallel</li>
-				<li>Ratios are preserved</li>
-				<li>Closed under composition</li>
-			</ul>
-			<p><b>
-			<a name="Composition"></a>Matrix Composition</b></p>
-			<p>As we discussed above, we can multiply various matrices together, 
-			each of which represent a transformation, in order get one general representation. For example, if we scale, rotate and 
-			then translate, we will have done the following.</p>
-			<p>P<font face="Times New Roman">&#8242;</font> = ( T<font face="Times New Roman"> &#8729;</font> 
-			(R<font face="Times New Roman"> &#8729;</font> (S<font face="Times New Roman"> &#8729;</font> P)))</p>
-			<p>We can then separate out our matrix.</p>
-			<p>P<font face="Times New Roman">&#8242;</font> = ( T<font face="Times New Roman"> 
-			&#8729;</font> R<font face="Times New Roman"> &#8729;</font> S<font face="Times New Roman">) &#8729;</font> P</p>
-			<p>M = TRS</p>
-			<p>However, matrix multiplication is not commutative.</p>
-			<p>M<sub>1</sub> <font face="Times New Roman">&#8729;</font> M<sub>2</sub> != M<sub>2</sub>
-			<font face="Times New Roman">&#8729; M<sub>1</sub></font></p>To
-			apply a transformation after the current one, we post-multiply the 
-			matrix.<p>P<font face="Times New Roman">&#8242;</font> = 
-			M<sub>new</sub> <font face="Times New Roman">&#8729;</font> 
-			M<sub>current</sub> P</p>
-			<p>To apply a transformation first, we pre-multiply.</p>
-			<p>P<font face="Times New Roman">&#8242;</font> = 
-			M<sub>current</sub> <font face="Times New Roman">&#8729;</font> 
-			M<sub>new</sub> P</p>
-			<p><b>
-			<a name="Coordinate"></a>Coordinate Systems</b></p>
-			<p>Transforms can manipulate objects or views.&nbsp; If we 
-			transform, draw an object, and then transform back, we are 
-			manipulating objects.&nbsp; But, if we set a transform once at the 
-			beginning and then draw the whole model we are manipulating the 
-			view.&nbsp; Actually, we are defining a new coordinate system.</p>
-			<p>It turns out an affine transform actually defines a coordinate 
-			system.&nbsp; Imagine we apply a rotation, followed by a 
-			translation.&nbsp; We can think of this as creating a rotated, 
-			translated coordinate system, with a new origin.</p>
-			<p align="center">
-			<img border="0" src="images/coord1.gif"></p>
-			<p align="left">
-			We can now draw objects as normal using the <i>local</i> coordinates 
-			of this new coordinate system.&nbsp; So, if we draw an object a (0, 
-			0), it will appear at the new origin of the new coordinate system.&nbsp; 
-			Thinking of things this way is often simpler than thinking about 
-			transforming individual objects.</p>
-			<p align="left">
-			<b>
-			<a name="Piccolo"></a></b><b class="dark_heading_two">What about Piccolo?</b></p>
-			<p align="left">
-			For the most part, Piccolo handles doing things efficiently for you.&nbsp; 
-			The framework implements region management (only repainting the part 
-			of the screen that has changed) as well as efficient picking 
-			(determining which object the mouse is over).&nbsp; Piccolo's 
-			activities make it very easy to implement interpolated animations.&nbsp; 
-			And, in many cases, you can use convenience methods to transform 
-			nodes rather than interacting directly with matrices.</p>
-			<p align="left">
-			Piccolo also has a higher-level model of drawing than the one 
-			described above.&nbsp; Rather than drawing lots of shapes to the 
-			screen in a one large paint method and then worrying about 
-			repainting and picking them, piccolo uses an object-oriented 
-			approach.&nbsp; You simply add nodes to the scene-graph.&nbsp; Each 
-			node knows how to render and pick itself.&nbsp; Instead of 
-			invalidating a rectangle and then drawing in the window's paint 
-			method, you will change the node's model.&nbsp; For example, you may 
-			change its fill color (paint in Java, Brush in C#).&nbsp; Then the 
-			node will handle repainting itself with the new color.</p>
-			<p align="left">
-			Each node also has an affine transform that defines a local 
-			coordinate system for that node.&nbsp; Nodes can be arranged 
-			hierarchically, where the local coordinate system of a node is 
-			product of all the matrices from the root to the given node.&nbsp; 
-			So, changing a parent node's transform, will affect the child as well.&nbsp; For more details about coordinate systems, see
-			<a href="patterns.shtml#Coordinate Systems" class="main_pane">Piccolo Patterns</a>.<br><br></p></td>
-		</tr>
-
-		</table>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="HTML Tidy for Linux/x86 (vers 1st December 2002), see www.w3.org"
+    name="generator" />
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <meta name="description"
+    content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab." />
+    <meta name="format" content="text/html" />
+    <meta name="keywords"
+    content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education" />
+    <meta name="publisher" content="Human-Computer Interaction Lab, University of Maryland" />
+    <meta name="relation" content="(contained in)=http://www.cs.umd.edu/hcil/piccolo" />
+    <meta name="rights statement"
+    content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved." />
+    <title>
+      Piccolo Home Page
+    </title>
+    <link rel="StyleSheet" href="http://www.cs.umd.edu/hcil/style.css" type="text/css" />
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+    //<![CDATA[
+    //]]>
+    </script>
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000" link="#000080" vlink="#390764" alink="#FFB926">
+    <!--#include virtual="/hcil/research/banner.html"-->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td valign="top" width="165" nowrap="nowrap">
+          <table border="0" cellpadding="10" cellspacing="0" width="165">
+            <tr>
+              <td valign="top" nowrap="nowrap">
+                <a href="../index.shtml" class="heading">Piccolo</a><br />
+                <br />
+                 <a href="index.shtml" class="side_pane">Learn</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="about.shtml">About Piccolo</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="patterns.shtml">Piccolo
+                Patterns</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="get-started.shtml">Getting
+                Started</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="api.shtml">API
+                Documentation</a><br />
+                 &#160;&#160;<a class="side_pane_small"
+                href="comparison.shtml">Piccolo&#160;in&#160;Comparison</a><br />
+                 &#160;&#160;<a class="side_pane_small"
+                href="publications.shtml">Publications</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="dev-faq.shtml">Developer
+                FAQ</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="maillists.shtml">Mailing
+                Lists</a><br />
+                 &#160;&#160;<span class="curr_page_link_small">Graphics Primer</span><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Basics">Basics</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Drawing">Drawing Abstraction</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Coordinates">Coordinates</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Models">Description Models</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Shapes">Drawing Shapes</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Rendering">Rendering</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Text">Text</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Color">Color</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Clipping">Clipping</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Efficiency">Efficiency</a><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#equations">Geometric Equations</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Implicit">Implicit Forms</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Explicit">Explicit Forms</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Parametric">Parametric Forms</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Control">Control Points</a><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#transformations">Geometric Transformations</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Matrix">Matrix Transformations</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Scaling">Scaling</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Rotation">Rotation</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Translation">Translation</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Homogeneous">Homogeneous Coordinates</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Affine">Affine Transformations</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Composition">Matrix Composition</a><br />
+                 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Coordinate">Coordinate Systems</a><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="#Piccolo">Piccolo</a><br />
+                 <a href="../play/index.shtml" class="side_pane">Play</a><br />
+                 <a href="../team/index.shtml" class="side_pane">Team</a><br />
+                 <a href="../press/index.shtml" class="side_pane">Press</a><br />
+                 <a href="../contribute/index.shtml" class="side_pane">Contribute</a><br />
+                 <a href="../applications/index.shtml" class="side_pane">Applications</a><br />
+                 <a href="../contact/index.shtml" class="side_pane">Contact Us</a><br />
+                <br />
+                 
+                <table border="1" cellpadding="5" cellspacing="0" width="120"
+                bordercolor="#FF0000">
+                  <tr>
+                    <td>
+                      <a href="../download/index.shtml" class="side_pane">Download</a><br />
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
         </td>
-    </tr>
-</table>
-
-</body>
+        <td valign="top">
+          <table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+            <tr>
+              <td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+                <b class="dark_heading">2D Graphics Primer</b><br />
+                <br />
+                 <span class="262274018-12092005">This section contains an overview of various 2D
+                graphics concepts related to Piccolo. This is a huge topic which cannot be covered
+                in depth here.&#160;&#160;But the basics are presented below.&#160; In many cases
+                these lower level details are handled for you by Piccolo.&#160; But, understanding
+                them will help you to use the framework more efficiently, especially when extending
+                functionality and creating your own types.</span><br />
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+                <p>
+                  <b class="dark_heading_two"><a name="Basics" id="Basics"></a>Basics</b>
+                </p>
+                <p>
+                  <i>Everything on the screen is graphics.&#160; Toolkits, like Java Swing and the
+                  .NET Windows Forms library provide ready-made standard widgets, like scrollbars
+                  and buttons, that you can add to yo</i><i>ur</i> <i>GUI.&#160; But, if you want
+                  to create a custom component, you have to do your own drawing!</i>
+                </p><br />
+                 
+                <div align="center">
+                  <table border="0" id="table1" cellpadding="5">
+                    <tr>
+                      <td valign="bottom">
+                        <img height="31"
+                        src="http://www.cs.umd.edu/~bederson/classes/dui/lecture-notes/graphics1/button1.gif"
+                            width="63" border="0" />
+                      </td>
+                      <td valign="bottom">
+                        <img height="155"
+                        src="http://www.cs.umd.edu/~bederson/classes/dui/lecture-notes/graphics1/button2.gif"
+                            width="315" border="0" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="bottom">
+                        <img height="29"
+                        src="http://www.cs.umd.edu/~bederson/classes/dui/lecture-notes/graphics1/button3.gif"
+                            width="61" border="0" />
+                      </td>
+                      <td valign="bottom">
+                        <img height="145"
+                        src="http://www.cs.umd.edu/~bederson/classes/dui/lecture-notes/graphics1/button4.gif"
+                            width="305" border="0" />
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <p>
+                  <b><a name="Drawing" id="Drawing"></a>Drawing Abstraction</b>
+                </p>
+                <p>
+                  Every computer graphics system (i.e., operating system) offers some notion of a
+                  canvas to draw onto.
+                </p>
+                <p>
+                  Usually, the canvases are separated into windows that are distinct from each
+                  other, which provide a relative coordinate system and isolation. This abstraction
+                  allows the same binary-level application to render onto different kinds of
+                  surfaces such as screens, off-screen buffers (i.e., clipboards), and printers,
+                  plotters, and direct neural implants...
+                </p>
+                <p>
+                  Most current systems offer a a resolution-independent (or device-independent)
+                  API. This is crucial. If all rendering was done in pixels, a 100 pixel rectangle
+                  would be about an inch big on most displays, but would be less than 1/10th of an
+                  inch big on some printers.
+                </p>
+                <p>
+                  Java offers the Graphics/Graphics2D classes that present this abstraction, and C#
+                  offers the System.Drawing.Graphics class.
+                </p>
+                <p>
+                  <b><a name="Coordinates" id="Coordinates"></a>Coordinates</b><br />
+                  <br />
+                   <i>Device coordinates</i> - Coordinates of the physical device:
+                </p>
+                <ul>
+                  <li>
+                    Usually has origin (0, 0) at upper left
+                  </li>
+                  <li>
+                    X increases to the right
+                  </li>
+                  <li>
+                    Y increases down
+                  </li>
+                  <li>
+                    Integral coordinates always has X in&#160; [0, width] and Y in [0, height]
+                  </li>
+                  <li>
+                    Coordinates correspond to pixels
+                  </li>
+                  <li>
+                    Need to know pixel density (DPI - dots per inch) to create a specific-sized
+                    object
+                  </li>
+                </ul>
+                <p>
+                  <i>Window coordinates</i> - Coordinates within an operating system window
+                </p>
+                <ul>
+                  <li>
+                    Similar to device coordinates
+                  </li>
+                  <li>
+                    Can have out of bounds coordinates which are <i>clipped</i> by the OS
+                  </li>
+                  <li>
+                    If there is a frame around the window ("window dressing"), that is
+                    <i>outside</i> the dimensions of the window
+                  </li>
+                </ul>
+                <p>
+                  <i>Physical coordinates</i> ("device-independent coordinates") - correspond to
+                  physical measurements
+                </p>
+                <ul>
+                  <li>
+                    Defined in universal measurements - inches, millimeters, points (1/72 of an
+                    inch)
+                  </li>
+                  <li>
+                    Necessary to make graphics the same size independent of device
+                  </li>
+                </ul>
+                <p>
+                  <i>Model ("local") coordinates</i> - correspond to the object you are defining
+                </p>
+                <ul>
+                  <li>
+                    You may want to define an application-specific coordinate system<br />
+                     (i.e. Origin at the center of screen with one "unit" per inch)
+                  </li>
+                  <li>
+                    Need to convert between coordinate systems
+                  </li>
+                </ul>
+                <p>
+                  <i>Transformations</i>
+                </p>
+                <ul>
+                  <li>
+                    A "transform" object encapsulates a coordinate system
+                  </li>
+                  <li>
+                    A sequence of transforms can efficiently switch coordinate systems
+                  </li>
+                </ul>
+                <p>
+                  <b><a name="Models" id="Models"></a>Graphics Description Models</b>
+                </p><i>Stroke Model</i> - describes images with strokes of specified color and
+                thickness.&#160; There are also several other parameters, such as how the line
+                segments are connected, and whether the line is drawn solid, or with dashes.&#160;
+                In addition, strokes can be anti-aliased.<br />
+                <br />
+                 
+                <div style="position: relative; background-color: #D6D583; width: 100%;"
+                id="stroke-model">
+                  <div style="padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
+                       id="inner-stroke-model">
+                    <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+Line from (4,5) to (9,7) in red with a thickness of 5
+Circle centered at (19,8) in blue with a radius of 8 and a thickness of 3
+...
+</pre>
+                  </div>
+                </div><br />
+                <br />
+                 
+                <div align="center">
+                  <table border="0" id="table2" cellpadding="5">
+                    <tr>
+                      <td valign="bottom" align="center">
+                        <img height="190" src="images/line-dashes.gif" width="240"
+                        border="0" /><br />
+                         Dash Styles
+                      </td>
+                      <td valign="bottom" align="center">
+                        <img height="168" src="images/line-caps.gif" width="192"
+                        border="0" /><br />
+                         End Cap Styles
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <p>
+                  &#160;
+                </p>
+                <div align="center">
+                  <table border="0" id="table3" cellpadding="5">
+                    <tr>
+                      <td valign="bottom" align="center">
+                        <img height="174" src="images/line-join-miter.gif" width="230"
+                        border="0" /><br />
+                         Miter Join
+                      </td>
+                      <td valign="bottom" align="center">
+                        <img height="147" src="images/line-join-round.gif" width="178"
+                        border="0" /><br />
+                         Round Join
+                      </td>
+                      <td valign="bottom" align="center">
+                        <img height="133" src="images/line-join-bevel.gif" width="159"
+                        border="0" /><br />
+                         Bevel Join
+                      </td>
+                    </tr>
+                  </table>
+                  <p>
+                    &#160;
+                  </p>
+                </div>
+                <div align="center">
+                  <table border="0" id="table4" cellpadding="5" cellspacing="6">
+                    <tr>
+                      <td valign="bottom" align="center">
+                        <img height="100" src="images/line1.gif" width="100"
+                        border="0" />&#160;&#160; <img height="158" src="images/line2.gif"
+                        width="158" border="0" /><br />
+                         Unantialiased Line
+                      </td>
+                      <td valign="bottom" align="center">
+                        <img height="100" src="images/line3.gif" width="100"
+                        border="0" />&#160;&#160; <img height="187" src="images/line4.gif"
+                        width="191" border="0" /><br />
+                         Antialiased Line
+                      </td>
+                    </tr>
+                  </table>
+                </div><br />
+                 
+                <hr />
+                <p>
+                  <i>Region Model</i> - describes images with filled areas such as arcs, text,
+                  splines, and other shapes - often other stroke objects.&#160; The area may be
+                  filled with a color, or a more complex fill such as a gradient or texture (known
+                  as a <i>paint</i> in Java or a <i>Brush</i> in C#).
+                </p><br />
+                 
+                <div style="position: relative; background-color: #D6D583; width: 100%;"
+                id="stroke-model">
+                  <div style="padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
+                       id="inner-stroke-model">
+                    <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
+...
+</pre>
+                  </div>
+                </div>
+                <div align="center">
+                  <br />
+                  <table border="0" id="table5" cellpadding="5">
+                    <tr>
+                      <td align="center">
+                        <img height="100" src="images/fill-solid.gif" width="100"
+                        border="0" /><br />
+                         Solid Fill
+                      </td>
+                      <td align="center">
+                        <img height="100" src="images/fill-gradient.jpg" width="100"
+                        border="0" /><br />
+                         Gradient Fill
+                      </td>
+                    </tr>
+                  </table>
+                </div><br />
+                 
+                <hr />
+                <br />
+                 <i>Pixel Model</i> - describes images as a discrete number of pixels. Each pixel
+                is specified by a color from one of several possible color models. 
+                <p align="center">
+                  <img height="202" src="images/pixel-model.gif" width="202" border="0" />
+                </p><font color="#FF0000">NOTE</font>: In practice, graphics are described with a
+                combination of stroke, region, and pixel descriptions. 
+                <p>
+                  <b><a name="Shapes" id="Shapes"></a>Drawing Shapes</b>
+                </p>
+                <p>
+                  Java has a generic <i>Shape</i> class with g2.draw() and g2.fill() methods.&#160;
+                  See java.awt.geom. Including <i>GeneralPath</i> which connects points with lines
+                  or curves.&#160; It can be rendered resolution-independent, or can be flattened
+                  with <i>FlatteningPathIterator</i>
+                </p>
+                <p>
+                  C# has fixed shapes rather than a generic Shape class.&#160; See
+                  Graphics.DrawEllipse, DrawBezier, DrawCurve, etc.&#160; C# also has a generic
+                  path called Drawing2D.GraphicsPath, rendered with Graphics.DrawPath.
+                </p>
+                <p>
+                  <b><a name="Rendering" id="Rendering"></a>Rendering Damage/Redraw</b>
+                </p>In most graphics systems, you override a window's paint method and put all your
+                rendering code there, but you don't actually call that method directly.&#160;
+                Instead you will request a render by telling the OS that a portion of the screen is
+                "damaged."&#160; It is out of date and needs to be repainted.&#160; The OS will
+                collect and merge all the damaged regions and at some point later it will call the
+                window's paint method passing it the full region that needs to be repainted. 
+                <p>
+                  In java, you can request that a window be rendered with
+                  JComponent.repaint().&#160; In C#, you would use Control.Invalidate. Or, you
+                  could just damage a portion of the canvas with repaint(x, y, w, h) in Java
+                  or&#160;Invalidate(Rectangle) in C#.&#160; Remember that these methods only
+                  request repaints to happen in the future, they do not happen immediately.
+                </p>
+                <p>
+                  <b><a name="Text" id="Text"></a>Text</b>
+                </p>Text is a special kind of graphics for both performance and human
+                reasons.&#160; Characters in any font can be represented either as bitmaps or
+                curves. 
+                <p>
+                  In some systems, characters are defined as the set of pixels (bitmap) that form
+                  each character.&#160; This approach is efficient since we need the set of pixels
+                  that make up the characters in order to draw them.&#160; But, for large font
+                  sizes the space required to store all the bitmaps becomes problematic.
+                </p>
+                <p>
+                  Another approach is to store only the outlines of the characters as closed
+                  shapes.&#160; These character definitions can easily be scaled to any size and
+                  converted to bitmaps when necessary.&#160; Plus, drawing packages can treat
+                  characters as geometric shapes that can be manipulated like other graphical
+                  elements.
+                </p>
+                <p>
+                  Typically you will allocate fonts up front, and then use them on demand.&#160;
+                  See the Font classes in Java and C#.&#160; Fonts get measured with Ascent,
+                  Descent, Height, Leading, Width, and Kerning.&#160; Higher quality text can be
+                  drawn with anti-aliasing or more recently, sub-pixel anti-aliasing (e.g.,
+                  Microsoft Cleartype)
+                </p>
+                <p>
+                  <b><a name="Color" id="Color"></a>Color</b>
+                </p>
+                <p>
+                  There are various color models, which are not reflected in the API.&#160; Rather
+                  the API needs to support the color representation of the hardware.&#160; There
+                  are two basic kinds, <i>Indexed Color</i> (8 bit) and <i>True Color</i> (16, 24,
+                  32 bit).
+                </p>
+                <p>
+                  Indexed color uses an array of color values as a palette.&#160; An index into the
+                  color table is assigned to each pixel.&#160; Using 8 bits per pixel allows only
+                  256 colors.
+                </p>
+                <p>
+                  Models that can represent a large number of colors are called true color.&#160;
+                  Examples are RGB, HSV, and CMYK.&#160; The common 8-bit RGB model assigns a 3
+                  byte value to each pixel, one byte per channel (red, green and blue). This model
+                  can represent up to 2<sup>8</sup> <font face="Times New Roman">&#215;</font>
+                  2<sup>8</sup> <font face="Times New Roman">&#215;</font> 2<sup>8</sup> or
+                  16,777,216 colors.
+                </p>
+                <p>
+                  <b><a name="Clipping" id="Clipping"></a>Clipping</b>
+                </p>Clipping, or limiting drawing to a particular area of the screen, is crucial
+                for a window manager.&#160; Displayed objects need to be clipped to the bounds of
+                the window in which they are displayed.&#160; But, clipping is also necessary for
+                application efficiency and high-end graphics. 
+                <p>
+                  Regions, analytical descriptions of shape, are used for the basis of
+                  clipping.&#160; Regions include algebra for adding/subtracting, manipulating
+                  shape and there are various types (rectangular, rectilinear, rectilinear with
+                  holes).
+                </p>
+                <p align="center">
+                  <img border="0" src="images/clip.gif" />
+                </p>
+                <p>
+                  Java has the Area class (made of Shapes) and C# has the Region class.
+                </p>
+                <p>
+                  <b><a name="Efficiency" id="Efficiency"></a>Efficiency</b>
+                </p>There are various efficiency considerations that must be made when working with
+                2D computer graphics.&#160; Some common mechanisms/considerations include region
+                management (partial redraws), high-level descriptions for networked displays,
+                display lists for complex objects that are redrawn many times, space-time
+                trade-offs (i.e. pre-allocate thumb image and store it, or render it each time). 
+                <p>
+                  <b><a name="Equations"
+                  id="Equations"></a></b><b class="dark_heading_two">Geometric Equations</b><br />
+                  <br />
+                   <i>In a drawing program, there are some common problems such as determining what
+                  object a user clicked on, finding the nearest object to where the user clicked,
+                  or snapping a line to the nearest object.&#160; It turns out we can use a few
+                  simple geometric equations to aid with these tasks.&#160; And, there are
+                  different forms of these equations for different uses.</i>
+                </p>
+                <p>
+                  <b><a name="Implicit" id="Implicit"></a>Implicit Forms</b>: F(x, y) = 0
+                </p>
+                <p>
+                  i.e.: Ax + By + c = 0
+                </p>
+                <p>
+                  This type of equation defines a half-space.&#160; And, intersecting multiple
+                  half-spaces defines polygons.&#160; So, this kind of equation can be used to
+                  determining if a point is within a region or finding the distance from a line.
+                </p>
+                <p>
+                  <b><a name="Explicit" id="Explicit"></a>Explicit Forms</b>: y = F(x)
+                </p>i.e. y = Mx + B 
+                <p>
+                  Explicit functions are not good for graphics operations, since they don't plug a
+                  point in.
+                </p>
+                <p>
+                  <b><a name="Parametric" id="Parametric"></a>Parametric Forms</b>: x = G(t), y =
+                  H(t)
+                </p>
+                <p>
+                  i.e.: x = cos(t), y = sin(t)
+                </p>
+                <p>
+                  or,
+                </p>
+                <p>
+                  x = x<sub>1</sub> + t * (x<sub>2</sub> - x<sub>1</sub>)<br />
+                   y = y<sub>1</sub> + t * (y<sub>2</sub> - y<sub>1</sub>)
+                </p>
+                <p>
+                  Here, both x and y are functions of an independent variable.&#160; If you plug in
+                  some value for t, you can plot a point on the line.&#160; The functions x(t) and
+                  y(t) vary along the line, as t varies so you can interpolate along a line.
+                </p>
+                <p>
+                  More generally, this is known in the computer graphics world as LERP (linear
+                  interpolation):
+                </p>
+                <p>
+                  <i>p = p<sub>1</sub> + t * (p<sub>2</sub> - p<sub>1</sub>)</i>
+                </p>
+                <p>
+                  The LERP equation bounds t between 0 and 1.&#160; It directly supports animation,
+                  computing intersections, scales to multiple dimensions and can be applied to many
+                  domains (points, colors, etc.).
+                </p>
+                <p>
+                  <b><a name="Control" id="Control"></a>Control Points</b>: Used to specify
+                  geometry - often accessed through "handles" in an interface
+                </p><br />
+                 
+                <div align="center">
+                  <table border="0" id="table6" cellpadding="5">
+                    <tr>
+                      <td align="center">
+                        <img border="0" src="images/graphi1.gif" /><br />
+                         Cubic Bezier Curve
+                      </td>
+                      <td align="center">
+                        <img border="0" src="images/graphi2.gif" /><br />
+                         Quad Bezier Curve
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <p>
+                  <br />
+                   <b><a name="Transformations"
+                  id="Transformations"></a></b><b class="dark_heading_two">Geometric
+                  Transformations</b>
+                </p>
+                <p>
+                  <i>Often an application will need to translate (move), scale, rotate, or shear
+                  it's graphical elements.&#160; This is necessary for almost any animation and
+                  many interactions. One way to achieve this would be to modify all of the points
+                  in the original object.&#160; For example, in a game of asteroids, to move the
+                  triangular ship down ten units, you could add 10 to each point in the triangle.
+                  The problem with this approach is that it forces you to modify your original
+                  object.&#160; You will no longer have a copy of the original to revert back
+                  to.&#160; And for some transformations, it's worse.&#160; What if you scale all
+                  the points by zero? Then you've lost your data altogether. A better approach
+                  would be to save your original object and somehow transform it when you
+                  render.&#160; This is commonly done in computer graphics with matrices.</i>
+                </p>
+                <p>
+                  <b><a name="Matrix" id="Matrix"></a>Matrix Transformations</b>
+                </p>
+                <p>
+                  We can represent some transformations as 2x2 matrices of the following form.
+                </p>
+                <p align="center">
+                  <img border="0" src="images/matrix.gif" />
+                </p>
+                <p align="left">
+                  We can then multiply the matrix by a column vector to apply the transformation to
+                  a point.
+                </p>
+                <p align="center">
+                  &#160;<img border="0" src="images/matrix-mult.gif" />
+                </p>
+                <p align="center">
+                  x<font face="Times New Roman">&#8242;</font> = Ax <font face="Times New Roman">+
+                  By<br />
+                   y&#8242;</font> = Cx <font face="Times New Roman">+</font> Dy
+                </p>
+                <p>
+                  Matrices also allow as to represent a sequence of transformations.
+                </p>
+                <p align="center">
+                  <img border="0" src="images/matrix-comb.gif" />
+                </p>
+                <p>
+                  Multiplying two matrices of the same size yields another matrix of the same
+                  size.&#160; So, the three transformations above can actually be represented as a
+                  single matrix.&#160; As long as we can represent transformations as 2x2 matrices,
+                  we can multiple them together to create one representative matrix.
+                </p>
+                <p>
+                  <b><a name="Scaling" id="Scaling"></a>Scaling</b>
+                </p>
+                <p>
+                  One common transformation involves scaling around the origin (0, 0).&#160; Here,
+                  we multiply all the x-coordinates by some scale factor S<sub>x</sub> and we
+                  multiply the y-coordinates by some scale factor S<sub>y</sub>.
+                </p>
+                <p>
+                  &#160;
+                </p>
+                <div align="center">
+                  <table border="0" id="table9" cellpadding="5">
+                    <tr>
+                      <td>
+                        <img src="images/scale.gif" align="bottom"
+                        border="0" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                      </td>
+                      <td>
+                        x<font face="Times New Roman">&#8242;</font> = x
+                        <font face="Times New Roman">&#215;</font> S<sub>x</sub><br />
+                         y<font face="Times New Roman">&#8242;</font> = y
+                        <font face="Times New Roman">&#215;</font> S<sub>y</sub>
+                      </td>
+                    </tr>
+                  </table>
+                  <p align="left">
+                    If we define P as a point [x, y], we can combine the equations above to get the
+                    following representation.
+                  </p>
+                  <p align="left">
+                    P<font face="Times New Roman">&#8242;</font> = S
+                    <font face="Times New Roman">&#8729;</font> P or,
+                  </p>
+                  <p>
+                    &#160;<img border="0" src="images/scale-formula.gif" />
+                  </p>
+                </div>
+                <p>
+                  We can then represent the scale vector as 2x2 matrix.
+                </p>
+                <p align="center">
+                  <img border="0" src="images/scale-matrix.gif" />
+                </p>
+                <p>
+                  <b><a name="Rotation" id="Rotation"></a>Rotation</b>
+                </p>
+                <p>
+                  Another common type of transformation is rotation, where we rotate the points by
+                  some angle <font face="Times New Roman">&#952;.</font>
+                </p>
+                <div align="center">
+                  &#160; 
+                  <table border="0" id="table10" cellpadding="5">
+                    <tr>
+                      <td>
+                        &#160;<img height="185"
+                        alt="\includegraphics[width=2.0in]{math-rotate.eps}"
+                        src="images/rotate.gif" width="225" align="bottom"
+                        border="0" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                      </td>
+                      <td>
+                        x<font face="Times New Roman">&#8242;</font> = x
+                        <font face="Times New Roman">&#215;</font>
+                        cos(<font face="Times New Roman">&#952;</font>) - y
+                        <font face="Times New Roman">&#215; sin(&#952;)</font><br />
+                         y<font face="Times New Roman">&#8242;</font> = x
+                        <font face="Times New Roman">&#215; sin(&#952;) + y &#215;
+                        cos(&#952;)</font>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <p>
+                  Again, we can represent rotation as a 2x2 matrix.
+                </p>
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> = R
+                  <font face="Times New Roman">&#8729;</font> P or,
+                </p>
+                <p align="center">
+                  <img border="0" src="images/rotate-matrix.gif" />
+                </p>
+                <p>
+                  <b><a name="Translation" id="Translation"></a>Translation</b>
+                </p>
+                <p>
+                  A simple transformation involves adding some offset T<sub>x</sub> to all the
+                  x-coordinates, and adding some offset T<sub>y</sub> to all the
+                  y-coordinates.&#160; This is known as a translation.
+                </p>
+                <p>
+                  &#160;
+                </p>
+                <div align="center">
+                  <table border="0" id="table7" cellpadding="5">
+                    <tr>
+                      <td>
+                        <img src="images/translate.gif" align="bottom"
+                        border="0" />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                      </td>
+                      <td>
+                        x<font face="Times New Roman">&#8242;</font> = x + T<sub>x</sub><br />
+                         y<font face="Times New Roman">&#8242;</font> = y + T<sub>y</sub>
+                      </td>
+                    </tr>
+                  </table>
+                </div><br />
+                 If we define P as a point [x, y], we can combine the equations above to get the
+                following representation: 
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> = P + T or,
+                </p>
+                <p align="center">
+                  <img border="0" src="images/translate-formula.gif" width="385" height="65" />
+                </p>
+                <p align="left">
+                  But, we cannot represent translation as a 2x2 matrix!&#160; This means we won't
+                  be able to combine it with rotation and scaling transformations through matrix
+                  multiplication.&#160; The solution is to use homogeneous coordinates.
+                </p>
+                <p align="left">
+                  <b><a name="Homogeneous" id="Homogeneous"></a>Homogeneous Coordinates</b>
+                </p>
+                <p align="left">
+                  We can take a 2-dimensional point and represent it as a 3-vector.
+                </p>
+                <p align="center">
+                  <img border="0" src="images/homogeneous.gif" />
+                </p>
+                <p align="left">
+                  We add a third coordinate <i>h</i> to every 2D point, where (x, y, h) represents
+                  the point at location (x/h, y/h). We can now represent translation as a 3x3
+                  matrix of the following form.
+                </p>
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> =&#160; T
+                  <font face="Times New Roman">&#8729;</font> P or,
+                </p>
+                <p align="center">
+                  <img border="0" src="images/translate-homog.gif" />
+                </p>
+                <p align="left">
+                  We can then change our scale and rotation matrices into 3x3 matrices as well.
+                </p>
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> =&#160; S
+                  <font face="Times New Roman">&#8729;</font> P or,
+                </p>
+                <p align="center">
+                  <img border="0" src="images/scale-homog.gif" />
+                </p>
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> =&#160; R
+                  <font face="Times New Roman">&#8729;</font> P or,
+                </p>
+                <p align="center">
+                  <img border="0" src="images/rotate-homog.gif" />
+                </p>
+                <p>
+                  This may not seem intuitive or exciting. But, it is quite useful for graphics
+                  operations because it allows us to combine translation, scale and rotation
+                  transformations, simply by using matrix multiplication.
+                </p>
+                <p>
+                  <b><a name="Affine" id="Affine"></a>Affine Transformations</b>
+                </p>
+                <p>
+                  The 3x3 matrix that we derived above is called an Affine Transform. It can
+                  encapsulate translate, rotate scale, shear and flip transformations.&#160; Affine
+                  Transformations have various properties.
+                </p>
+                <ul>
+                  <li>
+                    Origin may not map to the (0,0)
+                  </li>
+                  <li>
+                    Lines map to lines
+                  </li>
+                  <li>
+                    Parallell lines remain parallel
+                  </li>
+                  <li>
+                    Ratios are preserved
+                  </li>
+                  <li>
+                    Closed under composition
+                  </li>
+                </ul>
+                <p>
+                  <b><a name="Composition" id="Composition"></a>Matrix Composition</b>
+                </p>
+                <p>
+                  As we discussed above, we can multiply various matrices together, each of which
+                  represent a transformation, in order get one general representation. For example,
+                  if we scale, rotate and then translate, we will have done the following.
+                </p>
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> = ( T
+                  <font face="Times New Roman">&#8729;</font> (R
+                  <font face="Times New Roman">&#8729;</font> (S
+                  <font face="Times New Roman">&#8729;</font> P)))
+                </p>
+                <p>
+                  We can then separate out our matrix.
+                </p>
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> = ( T
+                  <font face="Times New Roman">&#8729;</font> R
+                  <font face="Times New Roman">&#8729;</font> S<font face="Times New Roman">)
+                  &#8729;</font> P
+                </p>
+                <p>
+                  M = TRS
+                </p>
+                <p>
+                  However, matrix multiplication is not commutative.
+                </p>
+                <p>
+                  M<sub>1</sub> <font face="Times New Roman">&#8729;</font> M<sub>2</sub> !=
+                  M<sub>2</sub> <font face="Times New Roman">&#8729; M<sub>1</sub></font>
+                </p>To apply a transformation after the current one, we post-multiply the matrix. 
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> = M<sub>new</sub>
+                  <font face="Times New Roman">&#8729;</font> M<sub>current</sub> P
+                </p>
+                <p>
+                  To apply a transformation first, we pre-multiply.
+                </p>
+                <p>
+                  P<font face="Times New Roman">&#8242;</font> = M<sub>current</sub>
+                  <font face="Times New Roman">&#8729;</font> M<sub>new</sub> P
+                </p>
+                <p>
+                  <b><a name="Coordinate" id="Coordinate"></a>Coordinate Systems</b>
+                </p>
+                <p>
+                  Transforms can manipulate objects or views.&#160; If we transform, draw an
+                  object, and then transform back, we are manipulating objects.&#160; But, if we
+                  set a transform once at the beginning and then draw the whole model we are
+                  manipulating the view.&#160; Actually, we are defining a new coordinate system.
+                </p>
+                <p>
+                  It turns out an affine transform actually defines a coordinate system.&#160;
+                  Imagine we apply a rotation, followed by a translation.&#160; We can think of
+                  this as creating a rotated, translated coordinate system, with a new origin.
+                </p>
+                <p align="center">
+                  <img border="0" src="images/coord1.gif" />
+                </p>
+                <p align="left">
+                  We can now draw objects as normal using the <i>local</i> coordinates of this new
+                  coordinate system.&#160; So, if we draw an object a (0, 0), it will appear at the
+                  new origin of the new coordinate system.&#160; Thinking of things this way is
+                  often simpler than thinking about transforming individual objects.
+                </p>
+                <p align="left">
+                  <b><a name="Piccolo" id="Piccolo"></a></b><b class="dark_heading_two">What about
+                  Piccolo?</b>
+                </p>
+                <p align="left">
+                  For the most part, Piccolo handles doing things efficiently for you.&#160; The
+                  framework implements region management (only repainting the part of the screen
+                  that has changed) as well as efficient picking (determining which object the
+                  mouse is over).&#160; Piccolo's activities make it very easy to implement
+                  interpolated animations.&#160; And, in many cases, you can use convenience
+                  methods to transform nodes rather than interacting directly with matrices.
+                </p>
+                <p align="left">
+                  Piccolo also has a higher-level model of drawing than the one described
+                  above.&#160; Rather than drawing lots of shapes to the screen in a one large
+                  paint method and then worrying about repainting and picking them, piccolo uses an
+                  object-oriented approach.&#160; You simply add nodes to the scene-graph.&#160;
+                  Each node knows how to render and pick itself.&#160; Instead of invalidating a
+                  rectangle and then drawing in the window's paint method, you will change the
+                  node's model.&#160; For example, you may change its fill color (paint in Java,
+                  Brush in C#).&#160; Then the node will handle repainting itself with the new
+                  color.
+                </p>
+                <p align="left">
+                  Each node also has an affine transform that defines a local coordinate system for
+                  that node.&#160; Nodes can be arranged hierarchically, where the local coordinate
+                  system of a node is product of all the matrices from the root to the given
+                  node.&#160; So, changing a parent node's transform, will affect the child as
+                  well.&#160; For more details about coordinate systems, see
+                  <a href="patterns.shtml#Coordinate%20Systems" class="main_pane">Piccolo
+                  Patterns</a>.
+                </p><br />
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>

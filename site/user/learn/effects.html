@@ -1,478 +1,623 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
-        "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html>
-
-<head>
-<meta http-equiv="Content-Type"
-content="text/html; charset=iso-8859-1">
-<meta name="description"
-content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
-<meta name="format" content="text/html">
-<meta name="keywords"
-content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
-<meta name="publisher"
-content="Human-Computer Interaction Lab, University of Maryland">
-<meta name="relation"
-content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
-<meta name="rights statement"
-content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
-<title>Piccolo Home Page</title>
-<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
-<link rel=stylesheet href="../style.css" type="text/css">
-<script language="JavaScript" type="text/javascript" src="snippets.js">
-</script>
-<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
-</script>
-</head>
-
-<body bgcolor="#FFFFFF" text="#000000" link="#000080"
-vlink="#390764" alink="#FFB926">
-
-<!--#include virtual="/hcil/research/banner.html"-->
-
-<table border="0" cellpadding="0" cellspacing="0" width="100%">
-
-	<tr>
-	<td valign="top" width="165" nowrap>
-	<table border="0" cellpadding="10" cellspacing="0" width="165">
-
-
-	<tr>
-
-        <td valign="top" nowrap>
-		<a href="../index.shtml" class="heading">Piccolo</a><br><br>
-        <a href="index.shtml" class="side_pane">Learn</a>
-        <br>
-
-        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="patterns.shtml">Piccolo Patterns</a>
-        <br>
-        &nbsp;&nbsp;<a href="get-started.shtml" class="side_pane_small">Getting Started</a><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="out-of-box-java.shtml">.Java: Out of the Box</a>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="out-of-box-dotnet.shtml" class="side_pane_small">.NET: Out of the Box</a>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interface.shtml">The Interface</a>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interaction.shtml">User Interaction</a>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="curr_page_link_small">Special Effects</span>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="fisheye.shtml">Fisheye Calendar</a>
-        <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="grapheditor.shtml">Graph Editor</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="api.shtml">API Documentation</a>
-        <br>
-        &nbsp;&nbsp;<a href="comparison.shtml" class="side_pane_small">Piccolo&nbsp;in&nbsp;Comparison</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" href="dev-faq.shtml">Developer FAQ</a>
-        <br>        
-        &nbsp;&nbsp;<a href="maillists.shtml" class="side_pane_small">Mailing Lists</a>
-        <br>
-
-	<a href="../play/index.shtml" class="side_pane">Play</a>
-        <br>
-
-	<a href="../team/index.shtml" class="side_pane">Team</a>
-        <br>
-
-	<a href="../press/index.shtml" class="side_pane">Press</a>
-        <br>
-
-	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
-        <br>
-
-	<a href="../applications/index.shtml" class="side_pane">Applications</a>
-        <br>
-
-	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
-        <br><br>
-
-	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
-	<tr><td>
-	<a href="../download/index.shtml" class="side_pane">Download</a>
-        <br>
-        </td></tr>
-	</table>
-
-	</td></tr>
-
-	</table>
-	</td>
-		
-        <td valign="top">
-		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
-		<tr>
-			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
-			<b class="dark_heading">Getting Started</b><br><br>
-			Here you will find both basic and advanced tutorials to help you get 
-			started using Piccolo.&nbsp; All tutorials provide examples in both 
-			Java and C#.&nbsp; This section assumes you have read 
-			<a href="patterns.shtml" class="main_pane">Piccolo 
-			Patterns</a> and have a basic understanding of the concepts 
-			presented there.<p></p>
-			</td>
-		</tr>
-
-		<tr>
-		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
-			<table border="0" width="100%" id="table1">
-				<tr>
-					<td>
-					<b class="dark_heading_two">
-					Adding Special Effects</b><p><i>This tutorial will show you 
-					how to use activities to control animation and other 
-					scheduled behaviors.&nbsp; It will cover how to extend 
-					existing activities, how to use PNode's animation methods, 
-					how to set an activity's delegate, and how to schedule activities to occur 
-					in a specific sequence.</i></td>
-					<td valign="top">
-					<div style="border:thin solid blue; position: relative; width: 123px; height: 70px; z-index: 3; float: right" id="language">
-						&nbsp;Show examples in<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img border="0" src="images/check.gif" width="15" height="15" id="java0">
-						<a id = "jlink0" class="main_content" style="color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">
-						Java</a><br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img style="visibility: hidden" border="0" src="images/check.gif" width="15" height="15" id="csharp0">
-						<a id = "clink0" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">
-						C#</a></div>
-					</td>
-				</tr>
-			</table>
-			<p></p>
-			
-			<center>
-			<img border="0" src="images/effects.gif" width="300" height="300"><br>Download the complete code sample in 
-					<a class="main_pane" href="codesamples/SpecialEffects.Java.zip">Java</a> or 
-					<a class="main_pane" href="codesamples/SpecialEffects.NET.zip">C#</a>.</center>
-			
-			<p>&nbsp;<a name="step1"></a><span class="dark_heading_two"><font color="#0000FF">1.</font> 
-					Setup</span></p>
-			</p>
-			</p>
-			<p>
-					<i>We need to create a window with a Piccolo canvas, so that 
-					we can add the interface components to the canvas.</i></p>
-			<ol type="a">
-				<li>First you will need to reference the appropriate 
-				packages/namespaces.&nbsp; Add the following lines to the top of 
-				your code file:<br><br>
-				
-			<a id="jlink1" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink1" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet0">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java1">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_include.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp1">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_include.html"--></pre>
-			</div>
-			</div><br>
-				The first line adds the base Piccolo types, such as <code>PNode</code>.&nbsp; 
-				The second line includes the activity classes.&nbsp; The third 
-				line includes the default node types that Piccolo 
-				provides, all of which extend <code>PNode</code>.&nbsp; The 
-				fourth line (for the C# sample) includes several utility classes.&nbsp; And the last 
-				line includes various &quot;extras,&quot; such as <code>PForm</code> in .NET and 
-				<code>PFrame</code> in Java, which will be used below.<br><br>
-			
-				</li>
-				<li>Next we will extend the <code>PForm</code> class in .NET or the <code>PFrame</code> 
-				class in Java. This is a convenience class that adds a <code>PCanvas</code>
-				to a window. When you extend this class, you should NOT add your Piccolo code 
-				to the constructor. Instead, you should 
-				override the 
-				<code>initialize</code> method and add all of your Piccolo code 
-				there.&nbsp; See the 
-				<a class="main_pane" href="dev-faq.shtml">FAQ</a> for more details.<br><br>
-				
-			<a id="jlink2" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink2" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet1">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java2">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_window.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp2">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_window.html"--></pre>
-			</div>
-			</div><br>
-				</li>
-		</ol>
-			<p>
-					<a name="step2"></a><span class="dark_heading_two"><font color="#0000FF">2.</font> 
-					Create the Target for our Activities</span></p>
-			<p><i>An activity defines a time-dependent behavior.&nbsp; You 
-			can perform any operation you want each time the activity steps.&nbsp; 
-			Typically, you will modify a node in some way.&nbsp; For example, to 
-			animate a node, you would move the node each time the activity 
-			steps.&nbsp; Here we will define a new node that will be the target 
-			of our activities.</i></p>
-			<ol type="a">
-				<p>We will create a new node and position it at the bottom right 
-				corner of the screen.&nbsp; Add the following lines of code to 
-				the <code>initialize</code> method.<br><br>
-				
-			<a id="jlink3" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink3" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet2">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java3">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_target.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp3">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_target.html"--></pre>
-			</div>
-			</div>
-			</ol>
-			<p>
-					<a name="step3"></a><span class="dark_heading_two">
-					<font color="#0000FF">3.</font> Extend PActivity</span></p>
-			<p>
-					<i>Here we will explore how to create a new activity to act 
-					on our node by extending one of the activity 
-					classes.</i></p>
-			<ol type="a">
-				<li>First, we will design a new flash activity that will toggle 
-				our node's color between red and green continuously without terminating.&nbsp; To do this, we will extend <code>PActivity</code>, the base 
-				activity type.&nbsp; Add the following internal class beneath 
-				the <code>initialize</code> method.<br><br>
-				
-			<a id="jlink4" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink4" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet3">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java4">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_flash.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp4">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_flash.html"--></pre>
-			</div>
-			</div><br>
-				<code>PActivity</code> is the top-level activity class that all 
-				activities descend from.&nbsp; It will run for a 
-				predetermined time, specified by its duration, and it will step a number of times, specified by its step 
-				interval.&nbsp; <code>PActivity</code> provides three methods that you can 
-				override to be notified when an activity starts, each time it 
-				steps, and when it finishes.&nbsp; In Piccolo.NET these methods 
-				are <code>OnActivityStarted()</code>, <code>OnActivityStep()</code>, and <code>OnActivityFinished()</code>.&nbsp; 
-				In Piccolo.Java, they are <code>activityStarted()</code>, <code>activityStep()</code>, 
-				and 
-				<code>activityFinished()</code>.&nbsp; By default, nothing will happen when 
-				a PActivity steps.&nbsp; Typically, you will extend PActivity and 
-				override <code>activityStep()</code> or <code>OnActivityStep()</code> so that you can perform 
-				some operation for each step of the activity.<p>In the above 
-				example, we create a new constructor that will take in the node 
-				whose fill color we wish to flash.&nbsp; The constructor also 
-				takes in the duration, step interval and start time for the 
-				activity.&nbsp; We pass these millisecond values to the base 
-				activity.</p>
-				<p>We also override the <code>activityStep()</code> method in java and 
-				the <code>OnActiviytStep()</code> method in .NET.&nbsp; For each step of the 
-				interval we toggle our target node's color between red and 
-				green.<br><br>
-				
-				</li>
-				<li>Next, we will create a new flash activity and schedule it 
-				with the root.&nbsp; Add the following lines of code to the <code>initialize</code> method.<br><br>
-				
-			<a id="jlink5" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink5" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet4">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java5">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_scheduleflash.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px" id="csharp5">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_scheduleflash.html"--></pre>
-			</div>
-			</div><br>
-				First, we store the current time in milliseconds, so that we can 
-				use it with our activities below.<p>Next, we create a flash 
-				activity, passing it the node we created above as the target.&nbsp; 
-				We specify a duration of -1, which will cause the activity to 
-				run continuously, and a step interval of 500ms.&nbsp; Finally, 
-				we set the start time to be <code>currentTime</code> + 5000ms, indicating 
-				that we want our activity to start stepping five seconds from 
-				now.</p>
-				<p>Finally, we schedule the activity with the root.&nbsp; An 
-				activity will not run until it has been scheduled to do so.</p>
-				<p>Note, for clarity, this example uses a full static class to 
-				define the Flash activity.&nbsp; But, Piccolo does provide a few 
-				shortcuts.&nbsp; In Piccolo.Java, you could use an anonymous 
-				inner class to inline the Flash activity.&nbsp; The .NET 
-				Framework does not support anonymous inner classes.&nbsp; 
-				However, with Piccolo.NET, you could still instantiate a 
-				<code>PActivity</code> and set its <code>ActivityStepped</code> delegate, rather than 
-				creating a new class.&nbsp; You would then move the code in the 
-				<code>OnActivityStep()</code> method to your new delegate method.&nbsp; For an 
-				example of how to define a flash activity in this way, see the
-				<a class="main_pane" href="patterns.shtml#activities">Activities</a> 
-				section of the patterns document.&nbsp; Activity delegates will 
-				be described in detail later.</li>
-			</ol>
-			<p>
-					<a name="step4"></a><span class="dark_heading_two">
-					<font color="#0000FF">4.</font> Use PNode's Animation 
-					Methods</span></p>
-			<p>
-					<i>Now, let's add some animation.&nbsp; It turns out we 
-					don't have to create any activities to do this.&nbsp; PNode 
-					provides several convenience methods that will animate a 
-					node in various ways.&nbsp; Internally, these methods will 
-					of course create activities.&nbsp; Note, if you want to 
-					create animation activities from scratch, you should extend 
-					<code>PInterpolatingActivity</code>.</i></p>
-			<ol type="a">
-				<li>We will use <code>PNode's</code> <code>AnimateToPositionScaleRotation()</code> method to 
-				move the node across the screen, rotating it and scaling it 
-				along the way.&nbsp; Add the following lines of code to the <code>initialize</code> method.<br><br>
-				
-			<a id="jlink6" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink6" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet5">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java6">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_animate.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px" id="csharp6">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_animate.html"--></pre>
-			</div>
-			</div><br>
-				The <code>AnimateToPositionScaleRotation()</code> method will animate a node 
-				from its current transform to a new transform specified by the 
-				given position, scale and rotation.&nbsp; The first two 
-				arguments to this method specify the new position.&nbsp; The 
-				third argument specifies the new scale.&nbsp; The fourth 
-				argument specifies the new rotation.&nbsp; And, the final 
-				argument specifies the duration of the animation.&nbsp; This 
-				method will also return the newly scheduled activity.<p>First, we 
-				will animate the node to the position (0, 0) and scale it down 
-				to .5.&nbsp; We will not rotate the node at all.&nbsp; This 
-				animation will occur over a period of five seconds.</p>
-				<p>Next, we will&nbsp; animate the node to the position (100, 
-				0), scale it up to 1.5, and rotate it 110 degrees.&nbsp; This 
-				animation will occur over a period of five seconds.</p>
-				<p>Finally, we will animate the node to the position (200, 100), 
-				scale it back down to its natural size, and rotate it back to 0 
-				degrees.&nbsp; This animation will occur over a period of five 
-				seconds.<br><br>
-				
-				</li>
-				<li>Now, we need to specify the order in which these animations 
-				will occur.&nbsp; Add the following lines of code to the <code>initialize</code> method.<br><br>
-				
-			<a id="jlink7" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink7" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet6">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java7">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_scheduleanimate.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp7">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_scheduleanimate.html"--></pre>
-			</div>
-			</div><br>
-			<code>PNode's</code> animation methods will always schedule the activities they 
-				create to start running immediately.&nbsp; We don't want these 
-				activities to run at the same time, since they would conflict 
-				with each other.&nbsp; So, we need to specify when they should 
-				occur.<p>We set the first activity's start time to be <code>currentTime</code>.&nbsp; We use <code>PActivity's</code> <code>StartAfter()</code> method to 
-				specify that the second activity should start after the first 
-				one and that the third activity should start after the second 
-				one.&nbsp; We could have also achieved the same effect by 
-				setting the start time on all three activities.&nbsp; Since our 
-				flash activity starts five seconds from <code>currentTime</code>, it 
-				should begin as soon as the first activity ends.</li>
-			</ol>
-			<p>
-					<a name="step5"></a><span class="dark_heading_two">
-					<font color="#0000FF">5.</font> Set the Activity Delegate</span></p>
-			<p>
-					<i>Sometimes you will want to be notified when an Activity 
-					goes through different states, such as starting and 
-					stopping.&nbsp; Of course, you could extend PActivity and 
-					override the appropriate methods to be notified of these 
-					state changes, as we did with the flash activity above.&nbsp; 
-					But, what if you want to keep track of an activity that has 
-					already been defined elsewhere.&nbsp; For example what if 
-					you want something to happen at the end of an activity that 
-					was created using one of PNode's animate methods.&nbsp; In 
-					this situation you should use the activity delegate.&nbsp; 
-					Below we will use the activity delegate to get notified when 
-					an activity starts and stops.</i></p>
-			<ol type="a">
-				<li>We will print out a message when our first animation activity starts and stops.&nbsp; 
-				Add the following lines of code to the project.&nbsp; The java 
-				snippet should be added directly to the <code>initialize</code> 
-				method.&nbsp; The .NET snippet should be added beneath <code>
-				initialize</code>.<br>
-				<br>
-				
-			<a id="jlink8" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink8" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet7">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java8">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_delegate.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp8">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_delegate.html"--></pre>
-			</div>
-			</div><br>
-				The Java version of this snippet implements the 
-				PActivityDelegate interface, which includes three methods (<code>activityStarted()</code>, 
-				<code>activityStepped()</code> and <code>activityFinished()</code>).&nbsp; 
-				The <code>activityStepped()</code> method is simply left empty, 
-				since we are not interested in doing anything when the activity steps.<p>The C# version 
-				could have been written the same way.&nbsp; 
-				But, since .NET has language support for delegates, Piccolo.NET 
-				provides a separate delegate for each of these methods, allowing 
-				you to set them individually.&nbsp;&nbsp; That way you don't 
-				have to implement the whole interface if you don't need to.&nbsp; 
-				In this case, we provide delegate methods that will get called 
-				when the activity starts and stops.</p>
-				<p>In both versions, when the activity starts, we print out a message that 
-				says &quot;a1 started&quot; and when it ends, we print a message that says 
-				&quot;a1 finished&quot;.<br><br>
-				</li>
-				<li>Now that we have implemented the activity delegate methods 
-				we need to register them with the activity.&nbsp; Add the 
-				following lines of code to the <code>initialize</code> method.<br><br>
-				
-			<a id="jlink9" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
-			<a id="clink9" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
-		
-			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet8">
-			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java9">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_setdelegate.html"--></pre>
-			</div>
-			
-			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px" id="csharp9">
-			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_setdelegate.html"--></pre>
-			</div>
-			</div><br>In the Java version, we set the activity delegate to our 
-				implementation of <code>PActivityDelegate</code>.&nbsp; In the C# version, we 
-				set each of the delegate methods individually.</li>
-			</ol>
-			</td>
-		</tr>
-
-		</table>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta content="HTML Tidy for Linux/x86 (vers 1st December 2002), see www.w3.org"
+    name="generator" />
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <meta name="description"
+    content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab." />
+    <meta name="format" content="text/html" />
+    <meta name="keywords"
+    content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education" />
+    <meta name="publisher" content="Human-Computer Interaction Lab, University of Maryland" />
+    <meta name="relation" content="(contained in)=http://www.cs.umd.edu/hcil/piccolo" />
+    <meta name="rights statement"
+    content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved." />
+    <title>
+      Piccolo Home Page
+    </title>
+    <link rel="StyleSheet" href="http://www.cs.umd.edu/hcil/style.css" type="text/css" />
+    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <script language="JavaScript" type="text/javascript" src="snippets.js">
+    //<![CDATA[
+    //]]>
+    </script>
+    <script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+    //<![CDATA[
+    //]]>
+    </script>
+  </head>
+  <body bgcolor="#FFFFFF" text="#000000" link="#000080" vlink="#390764" alink="#FFB926">
+    <!--#include virtual="/hcil/research/banner.html"-->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr>
+        <td valign="top" width="165" nowrap="nowrap">
+          <table border="0" cellpadding="10" cellspacing="0" width="165">
+            <tr>
+              <td valign="top" nowrap="nowrap">
+                <a href="../index.shtml" class="heading">Piccolo</a><br />
+                <br />
+                 <a href="index.shtml" class="side_pane">Learn</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="about.shtml">About Piccolo</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="patterns.shtml">Piccolo
+                Patterns</a><br />
+                 &#160;&#160;<a href="get-started.shtml" class="side_pane_small">Getting
+                Started</a><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="out-of-box-java.shtml">.Java: Out of the Box</a><br />
+                 &#160;&#160;&#160;&#160;&#160;<a href="out-of-box-dotnet.shtml"
+                class="side_pane_small">.NET: Out of the Box</a><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="interface.shtml">The Interface</a><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="interaction.shtml">User Interaction</a><br />
+                 &#160;&#160;&#160;&#160;&#160; <span class="curr_page_link_small">Special
+                Effects</span><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="fisheye.shtml">Fisheye Calendar</a><br />
+                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
+                href="grapheditor.shtml">Graph Editor</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="api.shtml">API
+                Documentation</a><br />
+                 &#160;&#160;<a href="comparison.shtml"
+                class="side_pane_small">Piccolo&#160;in&#160;Comparison</a><br />
+                 &#160;&#160;<a class="side_pane_small"
+                href="publications.shtml">Publications</a><br />
+                 &#160;&#160;<a class="side_pane_small" href="dev-faq.shtml">Developer
+                FAQ</a><br />
+                 &#160;&#160;<a href="maillists.shtml" class="side_pane_small">Mailing
+                Lists</a><br />
+                 <a href="../play/index.shtml" class="side_pane">Play</a><br />
+                 <a href="../team/index.shtml" class="side_pane">Team</a><br />
+                 <a href="../press/index.shtml" class="side_pane">Press</a><br />
+                 <a href="../contribute/index.shtml" class="side_pane">Contribute</a><br />
+                 <a href="../applications/index.shtml" class="side_pane">Applications</a><br />
+                 <a href="../contact/index.shtml" class="side_pane">Contact Us</a><br />
+                <br />
+                 
+                <table border="1" cellpadding="5" cellspacing="0" width="120"
+                bordercolor="#FF0000">
+                  <tr>
+                    <td>
+                      <a href="../download/index.shtml" class="side_pane">Download</a><br />
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
         </td>
-    </tr>
-</table>
+        <td valign="top">
+          <table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+            <tr>
+              <td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+                <b class="dark_heading">Getting Started</b><br />
+                <br />
+                 Here you will find both basic and advanced tutorials to help you get started using
+                Piccolo.&#160; All tutorials provide examples in both Java and C#.&#160; This
+                section assumes you have read <a href="patterns.shtml" class="main_pane">Piccolo
+                Patterns</a> and have a basic understanding of the concepts presented there.
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+                <table border="0" width="100%" id="table1">
+                  <tr>
+                    <td>
+                      <b class="dark_heading_two">Adding Special Effects</b> 
+                      <p>
+                        <i>This tutorial will show you how to use activities to control animation
+                        and other scheduled behaviors.&#160; It will cover how to extend existing
+                        activities, how to use PNode's animation methods, how to set an activity's
+                        delegate, and how to schedule activities to occur in a specific
+                        sequence.</i>
+                      </p>
+                    </td>
+                    <td valign="top">
+                      <div style="border:thin solid blue; position: relative; width: 123px; height: 70px; z-index: 3; float: right"
+                           id="language">
+                        &#160;Show examples in<br />
+                         &#160;&#160;&#160;&#160;&#160;<img border="0" src="images/check.gif"
+                        width="15" height="15" id="java0" /> <a id="jlink0" class="main_content"
+                        style="color: #000000; text-decoration: none"
+                        onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                        href="javascript:void(0);">Java</a><br />
+                         &#160;&#160;&#160;&#160;&#160;<img style="visibility: hidden" border="0"
+                        src="images/check.gif" width="15" height="15" id="csharp0" />
+                        <a id="clink0" class="main_content"
+                        onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                        href="javascript:void(0);">C#</a>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+                <center>
+                  <img border="0" src="images/effects.gif" width="300" height="300" /><br />
+                   Download the complete code sample in <a class="main_pane"
+                  href="codesamples/SpecialEffects.Java.zip">Java</a> or <a class="main_pane"
+                  href="codesamples/SpecialEffects.NET.zip">C#</a>.
+                </center>
+                <p>
+                  &#160;<a name="step1"
+                  id="step1"></a><span class="dark_heading_two"><font color="#0000FF">1.</font>
+                  Setup</span>
+                </p><br />
+                <br />
+                <br />
+                <br />
+                 
+                <p>
+                  <i>We need to create a window with a Piccolo canvas, so that we can add the
+                  interface components to the canvas.</i>
+                </p>
+                <ol type="a">
+                  <li>
+                    First you will need to reference the appropriate packages/namespaces.&#160; Add
+                    the following lines to the top of your code file:<br />
+                    <br />
+                     <a id="jlink1" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink1" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a><br />
+                     
+                    <div style="position: relative; background-color: #D6D583; width: 100%;"
+                    id="snippet0">
+                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
+                           id="java1">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
 
-</body>
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_include.html"-->
+                       
+</pre>
+                      </div>
+                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
+                           id="csharp1">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_include.html"-->
+                       
+</pre>
+                      </div>
+                    </div><br />
+                     The first line adds the base Piccolo types, such as <code>PNode</code>.&#160;
+                    The second line includes the activity classes.&#160; The third line includes
+                    the default node types that Piccolo provides, all of which extend
+                    <code>PNode</code>.&#160; The fourth line (for the C# sample) includes several
+                    utility classes.&#160; And the last line includes various "extras," such as
+                    <code>PForm</code> in .NET and <code>PFrame</code> in Java, which will be used
+                    below.<br />
+                    <br />
+                  </li>
+                  <li>
+                    Next we will extend the <code>PForm</code> class in .NET or the
+                    <code>PFrame</code> class in Java. This is a convenience class that adds a
+                    <code>PCanvas</code> to a window. When you extend this class, you should NOT
+                    add your Piccolo code to the constructor. Instead, you should override the
+                    <code>initialize</code> method and add all of your Piccolo code there.&#160;
+                    See the <a class="main_pane" href="dev-faq.shtml">FAQ</a> for more
+                    details.<br />
+                    <br />
+                     <a id="jlink2" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink2" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a><br />
+                     
+                    <div style="position: relative; background-color: #D6D583; width: 100%;"
+                    id="snippet1">
+                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
+                           id="java2">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_window.html"-->
+                       
+</pre>
+                      </div>
+                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
+                           id="csharp2">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_window.html"-->
+                       
+</pre>
+                      </div>
+                    </div><br />
+                  </li>
+                </ol>
+                <p>
+                  <a name="step2"
+                  id="step2"></a><span class="dark_heading_two"><font color="#0000FF">2.</font>
+                  Create the Target for our Activities</span>
+                </p>
+                <p>
+                  <i>An activity defines a time-dependent behavior.&#160; You can perform any
+                  operation you want each time the activity steps.&#160; Typically, you will modify
+                  a node in some way.&#160; For example, to animate a node, you would move the node
+                  each time the activity steps.&#160; Here we will define a new node that will be
+                  the target of our activities.</i>
+                </p>
+                <div type="a" style="margin-left: 2em">
+                  <p>
+                    We will create a new node and position it at the bottom right corner of the
+                    screen.&#160; Add the following lines of code to the <code>initialize</code>
+                    method.<br />
+                    <br />
+                     <a id="jlink3" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink3" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a>
+                  </p>
+                  <div style="position: relative; background-color: #D6D583; width: 100%;"
+                  id="snippet2">
+                    <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
+                         id="java3">
+                      <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_target.html"-->
+                     
+</pre>
+                    </div>
+                    <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
+                         id="csharp3">
+                      <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_target.html"-->
+                     
+</pre>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <a name="step3" id="step3"></a>
+                  <span class="dark_heading_two"><font color="#0000FF">3.</font> Extend
+                  PActivity</span>
+                </p>
+                <p>
+                  <i>Here we will explore how to create a new activity to act on our node by
+                  extending one of the activity classes.</i>
+                </p>
+                <ol type="a">
+                  <li>
+                    First, we will design a new flash activity that will toggle our node's color
+                    between red and green continuously without terminating.&#160; To do this, we
+                    will extend <code>PActivity</code>, the base activity type.&#160; Add the
+                    following internal class beneath the <code>initialize</code> method.<br />
+                    <br />
+                     <a id="jlink4" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink4" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a><br />
+                     
+                    <div style="position: relative; background-color: #D6D583; width: 100%;"
+                    id="snippet3">
+                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
+                           id="java4">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_flash.html"-->
+                       
+</pre>
+                      </div>
+                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
+                           id="csharp4">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_flash.html"-->
+                       
+</pre>
+                      </div>
+                    </div><br />
+                    <code>PActivity</code> is the top-level activity class that all activities
+                    descend from.&#160; It will run for a predetermined time, specified by its
+                    duration, and it will step a number of times, specified by its step
+                    interval.&#160; <code>PActivity</code> provides three methods that you can
+                    override to be notified when an activity starts, each time it steps, and when
+                    it finishes.&#160; In Piccolo.NET these methods are
+                    <code>OnActivityStarted()</code>, <code>OnActivityStep()</code>, and
+                    <code>OnActivityFinished()</code>.&#160; In Piccolo.Java, they are
+                    <code>activityStarted()</code>, <code>activityStep()</code>, and
+                    <code>activityFinished()</code>.&#160; By default, nothing will happen when a
+                    PActivity steps.&#160; Typically, you will extend PActivity and override
+                    <code>activityStep()</code> or <code>OnActivityStep()</code> so that you can
+                    perform some operation for each step of the activity. 
+                    <p>
+                      In the above example, we create a new constructor that will take in the node
+                      whose fill color we wish to flash.&#160; The constructor also takes in the
+                      duration, step interval and start time for the activity.&#160; We pass these
+                      millisecond values to the base activity.
+                    </p>
+                    <p>
+                      We also override the <code>activityStep()</code> method in java and the
+                      <code>OnActiviytStep()</code> method in .NET.&#160; For each step of the
+                      interval we toggle our target node's color between red and green.
+                    </p><br />
+                  </li>
+                  <li>
+                    Next, we will create a new flash activity and schedule it with the root.&#160;
+                    Add the following lines of code to the <code>initialize</code> method.<br />
+                    <br />
+                     <a id="jlink5" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink5" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a><br />
+                     
+                    <div style="position: relative; background-color: #D6D583; width: 100%;"
+                    id="snippet4">
+                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px"
+                           id="java5">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_scheduleflash.html"-->
+                       
+</pre>
+                      </div>
+                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px"
+                           id="csharp5">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_scheduleflash.html"-->
+                       
+</pre>
+                      </div>
+                    </div><br />
+                     First, we store the current time in milliseconds, so that we can use it with
+                    our activities below. 
+                    <p>
+                      Next, we create a flash activity, passing it the node we created above as the
+                      target.&#160; We specify a duration of -1, which will cause the activity to
+                      run continuously, and a step interval of 500ms.&#160; Finally, we set the
+                      start time to be <code>currentTime</code> + 5000ms, indicating that we want
+                      our activity to start stepping five seconds from now.
+                    </p>
+                    <p>
+                      Finally, we schedule the activity with the root.&#160; An activity will not
+                      run until it has been scheduled to do so.
+                    </p>
+                    <p>
+                      Note, for clarity, this example uses a full static class to define the Flash
+                      activity.&#160; But, Piccolo does provide a few shortcuts.&#160; In
+                      Piccolo.Java, you could use an anonymous inner class to inline the Flash
+                      activity.&#160; The .NET Framework does not support anonymous inner
+                      classes.&#160; However, with Piccolo.NET, you could still instantiate a
+                      <code>PActivity</code> and set its <code>ActivityStepped</code> delegate,
+                      rather than creating a new class.&#160; You would then move the code in the
+                      <code>OnActivityStep()</code> method to your new delegate method.&#160; For
+                      an example of how to define a flash activity in this way, see the
+                      <a class="main_pane" href="patterns.shtml#activities">Activities</a> section
+                      of the patterns document.&#160; Activity delegates will be described in
+                      detail later.
+                    </p>
+                  </li>
+                </ol>
+                <p>
+                  <a name="step4" id="step4"></a>
+                  <span class="dark_heading_two"><font color="#0000FF">4.</font> Use PNode's
+                  Animation Methods</span>
+                </p>
+                <p>
+                  <i>Now, let's add some animation.&#160; It turns out we don't have to create any
+                  activities to do this.&#160; PNode provides several convenience methods that will
+                  animate a node in various ways.&#160; Internally, these methods will of course
+                  create activities.&#160; Note, if you want to create animation activities from
+                  scratch, you should extend <code>PInterpolatingActivity</code>.</i>
+                </p>
+                <ol type="a">
+                  <li>
+                    We will use <code>PNode's</code> <code>AnimateToPositionScaleRotation()</code>
+                    method to move the node across the screen, rotating it and scaling it along the
+                    way.&#160; Add the following lines of code to the <code>initialize</code>
+                    method.<br />
+                    <br />
+                     <a id="jlink6" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink6" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a><br />
+                     
+                    <div style="position: relative; background-color: #D6D583; width: 100%;"
+                    id="snippet5">
+                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px"
+                           id="java6">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_animate.html"-->
+                       
+</pre>
+                      </div>
+                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px"
+                           id="csharp6">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_animate.html"-->
+                       
+</pre>
+                      </div>
+                    </div><br />
+                     The <code>AnimateToPositionScaleRotation()</code> method will animate a node
+                    from its current transform to a new transform specified by the given position,
+                    scale and rotation.&#160; The first two arguments to this method specify the
+                    new position.&#160; The third argument specifies the new scale.&#160; The
+                    fourth argument specifies the new rotation.&#160; And, the final argument
+                    specifies the duration of the animation.&#160; This method will also return the
+                    newly scheduled activity. 
+                    <p>
+                      First, we will animate the node to the position (0, 0) and scale it down to
+                      .5.&#160; We will not rotate the node at all.&#160; This animation will occur
+                      over a period of five seconds.
+                    </p>
+                    <p>
+                      Next, we will&#160; animate the node to the position (100, 0), scale it up to
+                      1.5, and rotate it 110 degrees.&#160; This animation will occur over a period
+                      of five seconds.
+                    </p>
+                    <p>
+                      Finally, we will animate the node to the position (200, 100), scale it back
+                      down to its natural size, and rotate it back to 0 degrees.&#160; This
+                      animation will occur over a period of five seconds.
+                    </p><br />
+                  </li>
+                  <li>
+                    Now, we need to specify the order in which these animations will occur.&#160;
+                    Add the following lines of code to the <code>initialize</code> method.<br />
+                    <br />
+                     <a id="jlink7" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink7" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a><br />
+                     
+                    <div style="position: relative; background-color: #D6D583; width: 100%;"
+                    id="snippet6">
+                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
+                           id="java7">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_scheduleanimate.html"-->
+                       
+</pre>
+                      </div>
+                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
+                           id="csharp7">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_scheduleanimate.html"-->
+                       
+</pre>
+                      </div>
+                    </div><br />
+                    <code>PNode's</code> animation methods will always schedule the activities they
+                    create to start running immediately.&#160; We don't want these activities to
+                    run at the same time, since they would conflict with each other.&#160; So, we
+                    need to specify when they should occur. 
+                    <p>
+                      We set the first activity's start time to be <code>currentTime</code>.&#160;
+                      We use <code>PActivity's</code> <code>StartAfter()</code> method to specify
+                      that the second activity should start after the first one and that the third
+                      activity should start after the second one.&#160; We could have also achieved
+                      the same effect by setting the start time on all three activities.&#160;
+                      Since our flash activity starts five seconds from <code>currentTime</code>,
+                      it should begin as soon as the first activity ends.
+                    </p>
+                  </li>
+                </ol>
+                <p>
+                  <a name="step5" id="step5"></a>
+                  <span class="dark_heading_two"><font color="#0000FF">5.</font> Set the Activity
+                  Delegate</span>
+                </p>
+                <p>
+                  <i>Sometimes you will want to be notified when an Activity goes through different
+                  states, such as starting and stopping.&#160; Of course, you could extend
+                  PActivity and override the appropriate methods to be notified of these state
+                  changes, as we did with the flash activity above.&#160; But, what if you want to
+                  keep track of an activity that has already been defined elsewhere.&#160; For
+                  example what if you want something to happen at the end of an activity that was
+                  created using one of PNode's animate methods.&#160; In this situation you should
+                  use the activity delegate.&#160; Below we will use the activity delegate to get
+                  notified when an activity starts and stops.</i>
+                </p>
+                <ol type="a">
+                  <li>
+                    We will print out a message when our first animation activity starts and
+                    stops.&#160; Add the following lines of code to the project.&#160; The java
+                    snippet should be added directly to the <code>initialize</code> method.&#160;
+                    The .NET snippet should be added beneath <code>initialize</code>.<br />
+                    <br />
+                     <a id="jlink8" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink8" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a><br />
+                     
+                    <div style="position: relative; background-color: #D6D583; width: 100%;"
+                    id="snippet7">
+                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
+                           id="java8">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_delegate.html"-->
+                       
+</pre>
+                      </div>
+                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
+                           id="csharp8">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_delegate.html"-->
+                       
+</pre>
+                      </div>
+                    </div><br />
+                     The Java version of this snippet implements the PActivityDelegate interface,
+                    which includes three methods (<code>activityStarted()</code>,
+                    <code>activityStepped()</code> and <code>activityFinished()</code>).&#160; The
+                    <code>activityStepped()</code> method is simply left empty, since we are not
+                    interested in doing anything when the activity steps. 
+                    <p>
+                      The C# version could have been written the same way.&#160; But, since .NET
+                      has language support for delegates, Piccolo.NET provides a separate delegate
+                      for each of these methods, allowing you to set them individually.&#160;&#160;
+                      That way you don't have to implement the whole interface if you don't need
+                      to.&#160; In this case, we provide delegate methods that will get called when
+                      the activity starts and stops.
+                    </p>
+                    <p>
+                      In both versions, when the activity starts, we print out a message that says
+                      "a1 started" and when it ends, we print a message that says "a1 finished".
+                    </p><br />
+                  </li>
+                  <li>
+                    Now that we have implemented the activity delegate methods we need to register
+                    them with the activity.&#160; Add the following lines of code to the
+                    <code>initialize</code> method.<br />
+                    <br />
+                     <a id="jlink9" class="main_content"
+                    style="color: #000000; text-decoration: none"
+                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+                    href="javascript:void(0);">Java</a> | <a id="clink9" class="main_content"
+                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+                    href="javascript:void(0);">C#</a><br />
+                     
+                    <div style="position: relative; background-color: #D6D583; width: 100%;"
+                    id="snippet8">
+                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px"
+                           id="java9">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/java_setdelegate.html"-->
+                       
+</pre>
+                      </div>
+                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px"
+                           id="csharp9">
+                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+
+<!--#include virtual="/hcil/piccolo/learn/snippets/t3_effects/csharp_setdelegate.html"-->
+                       
+</pre>
+                      </div>
+                    </div><br />
+                     In the Java version, we set the activity delegate to our implementation of
+                    <code>PActivityDelegate</code>.&#160; In the C# version, we set each of the
+                    delegate methods individually.
+                  </li>
+                </ol>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>
