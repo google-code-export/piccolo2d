@@ -1,8 +1,8 @@
-#summary Piccolo2D 1.2.1 Release Notes
+#summary Piccolo2D 1.2.1 Release
 
 [ReleaseList#Listed_II Browse all Releases]
 
-=Piccolo2D 1.2.1 Release Notes=
+=Piccolo2D 1.2.1 Release=
 
 Move the Piccolo2D project from UMD to Google Code. 
 
