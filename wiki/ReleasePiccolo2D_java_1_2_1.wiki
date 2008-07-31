@@ -6,7 +6,7 @@
 
 Move the Piccolo2D project from UMD to Google Code. 
 
-See also the [http://groups.google.com/group/piccolo2d-announce/t/2a04eb810571ce00 Announcement].
+See also the [http://groups.google.com/group/piccolo2d-announce/t/2a04eb810571ce00 Announcement] and [http://piccolo2d.googlecode.com/svn/piccolo.java/tags/release-1.2.1/ReleaseNotes.txt Release Notes].
 
 || Date || 2008-07-21 ||
 || Flavour || Java ||
