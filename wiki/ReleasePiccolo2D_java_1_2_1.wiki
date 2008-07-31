@@ -1,6 +1,6 @@
 #summary Piccolo2D 1.2.1 Release Notes
 
-[ReleaseList Browse all Releases]
+[ReleaseList#Listed_II Browse all Releases]
 
 =Piccolo2D 1.2.1 Release Notes=
 
