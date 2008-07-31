@@ -48,9 +48,9 @@ digraph G {
 	c1426:p -> c1426:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PTransformActivity
 	c1426:p -> c1448:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PInterpolatingActivity
-	c1426:p -> c1445:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PActivity
 	c1426:p -> c1451:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PInterpolatingActivity
+	c1426:p -> c1445:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

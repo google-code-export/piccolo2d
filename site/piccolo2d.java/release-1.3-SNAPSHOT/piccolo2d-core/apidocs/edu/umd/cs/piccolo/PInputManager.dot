@@ -97,10 +97,10 @@ digraph G {
 	c860:p -> c870:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PInputManager DEPEND edu.umd.cs.piccolo.util.PPickPath
 	c860:p -> c851:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PInputManager
-	c868:p -> c860:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PCamera
 	c868:p -> c855:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PInputManager
+	c868:p -> c860:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.util.PPickPath
 	c868:p -> c851:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }

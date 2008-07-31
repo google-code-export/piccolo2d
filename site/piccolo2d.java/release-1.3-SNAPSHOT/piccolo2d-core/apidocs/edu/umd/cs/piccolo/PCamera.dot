@@ -131,34 +131,34 @@ digraph G {
 	c661:p -> c666:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.util.PUtil DEPEND edu.umd.cs.piccolo.PCamera
 	c662:p -> c665:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.PCamera DEPEND edu.umd.cs.piccolo.activities.PTransformActivity
-	c665:p -> c688:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PCamera DEPEND edu.umd.cs.piccolo.util.PBounds
 	c665:p -> c660:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PCamera DEPEND edu.umd.cs.piccolo.util.PAffineTransform
 	c665:p -> c659:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.PCamera DEPEND edu.umd.cs.piccolo.activities.PTransformActivity
+	c665:p -> c688:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.util.PBounds
 	c666:p -> c660:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.util.PAffineTransform
-	c666:p -> c659:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.util.PPaintContext
-	c666:p -> c657:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PTransformActivity
 	c666:p -> c688:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.util.PPaintContext
+	c666:p -> c657:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.util.PAffineTransform
+	c666:p -> c659:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PInputManager DEPEND edu.umd.cs.piccolo.util.PPickPath
 	c670:p -> c661:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PComponent DEPEND edu.umd.cs.piccolo.util.PBounds
 	c671:p -> c660:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PCanvas DEPEND edu.umd.cs.piccolo.util.PBounds
 	c673:p -> c660:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PInputManager
-	c678:p -> c670:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PCamera
 	c678:p -> c665:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.util.PPickPath
-	c678:p -> c661:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PInputManager
+	c678:p -> c670:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PComponent
 	c678:p -> c671:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.util.PPickPath
+	c678:p -> c661:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PNode
 	c678:p -> c666:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
