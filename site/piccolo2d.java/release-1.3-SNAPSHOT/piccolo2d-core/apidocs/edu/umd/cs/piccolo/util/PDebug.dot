@@ -12,25 +12,6 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PDebug </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getDebugPaintColor() </td></tr>
-			<tr><td align="left"> + scheduleProcessInputs() </td></tr>
-			<tr><td align="left"> + processRepaint() </td></tr>
-			<tr><td align="left"> + getProcessingOutput() </td></tr>
-			<tr><td align="left"> + startProcessingOutput() </td></tr>
-			<tr><td align="left"> + endProcessingOutput() </td></tr>
-			<tr><td align="left"> + startProcessingInput() </td></tr>
-			<tr><td align="left"> + endProcessingInput() </td></tr>
-			<tr><td align="left"> + getTotalFPS() </td></tr>
-			<tr><td align="left"> + getInputFPS() </td></tr>
-			<tr><td align="left"> + getOutputFPS() </td></tr>
-			<tr><td align="left"> + getFramesProcessed() </td></tr>
-			<tr><td align="left"> + resetFPSTiming() </td></tr>
-			<tr><td align="left"> + getApproximateUsedMemory() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }
 

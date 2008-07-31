@@ -12,79 +12,11 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PInputEventFilter </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + acceptsEvent() </td></tr>
-			<tr><td align="left"> + acceptAllClickCounts() </td></tr>
-			<tr><td align="left"> + acceptAllEventTypes() </td></tr>
-			<tr><td align="left"> + acceptEverything() </td></tr>
-			<tr><td align="left"> + getAcceptsKeyPressed() </td></tr>
-			<tr><td align="left"> + getAcceptsKeyReleased() </td></tr>
-			<tr><td align="left"> + getAcceptsKeyTyped() </td></tr>
-			<tr><td align="left"> + getAcceptsMouseClicked() </td></tr>
-			<tr><td align="left"> + getAcceptsMouseDragged() </td></tr>
-			<tr><td align="left"> + getAcceptsMouseEntered() </td></tr>
-			<tr><td align="left"> + getAcceptsMouseExited() </td></tr>
-			<tr><td align="left"> + getAcceptsMouseMoved() </td></tr>
-			<tr><td align="left"> + getAcceptsMousePressed() </td></tr>
-			<tr><td align="left"> + getAcceptsMouseReleased() </td></tr>
-			<tr><td align="left"> + getAcceptsMouseWheelRotated() </td></tr>
-			<tr><td align="left"> + getAcceptsFocusEvents() </td></tr>
-			<tr><td align="left"> + getAcceptsAlreadyHandledEvents() </td></tr>
-			<tr><td align="left"> + getMarksAcceptedEventsAsHandled() </td></tr>
-			<tr><td align="left"> + rejectAllClickCounts() </td></tr>
-			<tr><td align="left"> + rejectAllEventTypes() </td></tr>
-			<tr><td align="left"> + setAcceptClickCount() </td></tr>
-			<tr><td align="left"> + setAcceptsKeyPressed() </td></tr>
-			<tr><td align="left"> + setAcceptsKeyReleased() </td></tr>
-			<tr><td align="left"> + setAcceptsKeyTyped() </td></tr>
-			<tr><td align="left"> + setAcceptsMouseClicked() </td></tr>
-			<tr><td align="left"> + setAcceptsMouseDragged() </td></tr>
-			<tr><td align="left"> + setAcceptsMouseEntered() </td></tr>
-			<tr><td align="left"> + setAcceptsMouseExited() </td></tr>
-			<tr><td align="left"> + setAcceptsMouseMoved() </td></tr>
-			<tr><td align="left"> + setAcceptsMousePressed() </td></tr>
-			<tr><td align="left"> + setAcceptsMouseReleased() </td></tr>
-			<tr><td align="left"> + setAcceptsMouseWheelRotated() </td></tr>
-			<tr><td align="left"> + setAcceptsFocusEvents() </td></tr>
-			<tr><td align="left"> + setAndMask() </td></tr>
-			<tr><td align="left"> + setAcceptsAlreadyHandledEvents() </td></tr>
-			<tr><td align="left"> + setMarksAcceptedEventsAsHandled() </td></tr>
-			<tr><td align="left"> + setNotMask() </td></tr>
-			<tr><td align="left"> + setOrMask() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.event.PBasicInputEventHandler
 	c1061 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PBasicInputEventHandler.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PBasicInputEventHandler </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + processEvent() </td></tr>
-			<tr><td align="left"> + acceptsEvent() </td></tr>
-			<tr><td align="left"> + getEventFilter() </td></tr>
-			<tr><td align="left"> + setEventFilter() </td></tr>
-			<tr><td align="left"> + keyPressed() </td></tr>
-			<tr><td align="left"> + keyReleased() </td></tr>
-			<tr><td align="left"> + keyTyped() </td></tr>
-			<tr><td align="left"> + mouseClicked() </td></tr>
-			<tr><td align="left"> + mousePressed() </td></tr>
-			<tr><td align="left"> + mouseDragged() </td></tr>
-			<tr><td align="left"> + mouseEntered() </td></tr>
-			<tr><td align="left"> + mouseExited() </td></tr>
-			<tr><td align="left"> + mouseMoved() </td></tr>
-			<tr><td align="left"> + mouseReleased() </td></tr>
-			<tr><td align="left"> + mouseWheelRotated() </td></tr>
-			<tr><td align="left"> + mouseWheelRotatedByBlock() </td></tr>
-			<tr><td align="left"> + keyboardFocusGained() </td></tr>
-			<tr><td align="left"> + keyboardFocusLost() </td></tr>
-			<tr><td align="left"> + toString() </td></tr>
-			<tr><td align="left"> # paramString() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.event.PBasicInputEventHandler NAVASSOC edu.umd.cs.piccolo.event.PInputEventFilter

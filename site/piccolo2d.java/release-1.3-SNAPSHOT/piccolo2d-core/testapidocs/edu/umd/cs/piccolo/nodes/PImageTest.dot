@@ -12,13 +12,6 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PImageTest </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + testCopy() </td></tr>
-			<tr><td align="left"> + testToString() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//edu.umd.cs.piccolo.nodes.PImageTest extends junit.framework.TestCase
 	c166:p -> c158:p [dir=back,arrowtail=empty];
@@ -27,22 +20,6 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="Helvetica-Oblique"> TestCase </font></td></tr>
 			<tr><td><font point-size="7.0"> junit.framework </font></td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + countTestCases() </td></tr>
-			<tr><td align="left"> # createResult() </td></tr>
-			<tr><td align="left"> + run() </td></tr>
-			<tr><td align="left"> + run() </td></tr>
-			<tr><td align="left"> + runBare() </td></tr>
-			<tr><td align="left"> # runTest() </td></tr>
-			<tr><td align="left"> # setUp() </td></tr>
-			<tr><td align="left"> # tearDown() </td></tr>
-			<tr><td align="left"> + toString() </td></tr>
-			<tr><td align="left"> + getName() </td></tr>
-			<tr><td align="left"> + setName() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

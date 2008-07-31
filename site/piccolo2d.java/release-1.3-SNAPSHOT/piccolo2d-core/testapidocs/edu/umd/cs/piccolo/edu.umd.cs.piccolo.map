@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" href="./SerializationTest.html" title="&lt;TABLE&gt;" alt="" coords="16,91,123,160"/>
-<area shape="rect" href="./PCameraTest.html" title="&lt;TABLE&gt;" alt="" coords="168,91,261,160"/>
-<area shape="rect" href="./PerformanceLog.html" title="&lt;TABLE&gt;" alt="" coords="307,62,416,190"/>
-<area shape="rect" href="./PerformanceLog.ZLogEntry.html" title="&lt;TABLE&gt;" alt="" coords="461,114,533,138"/>
-<area shape="rect" href="./PNodeTest.html" title="&lt;TABLE&gt;" alt="" coords="579,11,789,240"/>
-<area shape="rect" href="./PerformanceTests.html" title="&lt;TABLE&gt;" alt="" coords="835,18,1013,234"/>
+<area shape="rect" href="./SerializationTest.html" title="&lt;TABLE&gt;" alt="" coords="16,18,123,42"/>
+<area shape="rect" href="./PCameraTest.html" title="&lt;TABLE&gt;" alt="" coords="168,18,261,42"/>
+<area shape="rect" href="./PerformanceLog.html" title="&lt;TABLE&gt;" alt="" coords="307,18,416,42"/>
+<area shape="rect" href="./PerformanceLog.ZLogEntry.html" title="&lt;TABLE&gt;" alt="" coords="461,18,533,42"/>
+<area shape="rect" href="./PNodeTest.html" title="&lt;TABLE&gt;" alt="" coords="579,18,656,42"/>
+<area shape="rect" href="./PerformanceTests.html" title="&lt;TABLE&gt;" alt="" coords="701,18,819,42"/>
 </map>

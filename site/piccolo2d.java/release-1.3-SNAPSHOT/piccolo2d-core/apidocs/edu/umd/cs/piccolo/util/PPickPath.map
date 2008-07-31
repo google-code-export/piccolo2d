@@ -1,9 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" href="./PStack.html" title="&lt;TABLE&gt;" alt="" coords="235,2866,299,2964"/>
-<area shape="rect" href="./PPickPath.html" title="&lt;TABLE&gt;" alt="" coords="180,1214,351,1518"/>
-<area shape="rect" href="../PCamera.html" title="&lt;TABLE&gt;" alt="" coords="61,4312,264,5024"/>
-<area shape="rect" href="../PNode.html" title="&lt;TABLE&gt;" alt="" coords="445,1576,672,4254"/>
-<area shape="rect" href="../event/PInputEventListener.html" title="&lt;TABLE&gt;" alt="" coords="593,4620,721,4716"/>
-<area shape="rect" href="../PInputManager.html" title="&lt;TABLE&gt;" alt="" coords="249,752,468,1155"/>
-<area shape="rect" href="../event/PInputEvent.html" title="&lt;TABLE&gt;" alt="" coords="169,11,377,694"/>
+<area shape="rect" href="./PStack.html" title="&lt;TABLE&gt;" alt="" coords="137,305,193,329"/>
+<area shape="rect" href="./PPickPath.html" title="&lt;TABLE&gt;" alt="" coords="128,209,203,233"/>
+<area shape="rect" href="../PCamera.html" title="&lt;TABLE&gt;" alt="" coords="16,403,115,437"/>
+<area shape="rect" href="../PNode.html" title="&lt;TABLE&gt;" alt="" coords="340,300,439,335"/>
+<area shape="rect" href="../event/PInputEventListener.html" title="&lt;TABLE&gt;" alt="" coords="392,395,520,445"/>
+<area shape="rect" href="../PInputManager.html" title="&lt;TABLE&gt;" alt="" coords="165,108,267,143"/>
+<area shape="rect" href="../event/PInputEvent.html" title="&lt;TABLE&gt;" alt="" coords="97,12,223,47"/>
 </map>

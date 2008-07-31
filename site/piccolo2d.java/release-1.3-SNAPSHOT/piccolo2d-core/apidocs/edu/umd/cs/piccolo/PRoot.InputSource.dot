@@ -13,45 +13,11 @@ digraph G {
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> InputSource </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + processInput() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.PInputManager
 	c822 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PInputManager.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PInputManager </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getKeyboardFocus() </td></tr>
-			<tr><td align="left"> + setKeyboardFocus() </td></tr>
-			<tr><td align="left"> + getMouseFocus() </td></tr>
-			<tr><td align="left"> + setMouseFocus() </td></tr>
-			<tr><td align="left"> + getMouseOver() </td></tr>
-			<tr><td align="left"> + setMouseOver() </td></tr>
-			<tr><td align="left"> + getLastCanvasPosition() </td></tr>
-			<tr><td align="left"> + getCurrentCanvasPosition() </td></tr>
-			<tr><td align="left"> + keyPressed() </td></tr>
-			<tr><td align="left"> + keyReleased() </td></tr>
-			<tr><td align="left"> + keyTyped() </td></tr>
-			<tr><td align="left"> + mouseClicked() </td></tr>
-			<tr><td align="left"> + mouseWheelRotated() </td></tr>
-			<tr><td align="left"> + mouseWheelRotatedByBlock() </td></tr>
-			<tr><td align="left"> + mouseDragged() </td></tr>
-			<tr><td align="left"> + mouseEntered() </td></tr>
-			<tr><td align="left"> + mouseExited() </td></tr>
-			<tr><td align="left"> + mouseMoved() </td></tr>
-			<tr><td align="left"> + mousePressed() </td></tr>
-			<tr><td align="left"> + mouseReleased() </td></tr>
-			<tr><td align="left"> # checkForMouseEnteredAndExited() </td></tr>
-			<tr><td align="left"> + processInput() </td></tr>
-			<tr><td align="left"> + processEventFromCamera() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//edu.umd.cs.piccolo.PInputManager implements edu.umd.cs.piccolo.PRoot.InputSource

@@ -12,16 +12,6 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PerformanceLog </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + startTest() </td></tr>
-			<tr><td align="left"> + endTest() </td></tr>
-			<tr><td align="left"> + addEntry() </td></tr>
-			<tr><td align="left"> + clear() </td></tr>
-			<tr><td align="left"> + writeLog() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }
 

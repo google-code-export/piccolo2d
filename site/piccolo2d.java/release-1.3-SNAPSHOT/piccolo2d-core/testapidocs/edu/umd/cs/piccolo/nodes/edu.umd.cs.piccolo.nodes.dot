@@ -12,40 +12,17 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PTextTest </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + testCopy() </td></tr>
-			<tr><td align="left"> + testEmptyString() </td></tr>
-			<tr><td align="left"> + testBoundsOfEmptyString() </td></tr>
-			<tr><td align="left"> + testToString() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.nodes.PPathTest
 	c30 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PPathTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PPathTest </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + testCopy() </td></tr>
-			<tr><td align="left"> + testSaveToFile() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.nodes.PImageTest
 	c31 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PImageTest.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PImageTest </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + testCopy() </td></tr>
-			<tr><td align="left"> + testToString() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 }

@@ -12,28 +12,11 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PStack </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + push() </td></tr>
-			<tr><td align="left"> + peek() </td></tr>
-			<tr><td align="left"> + pop() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PDimension
 	c1 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PDimension.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PDimension </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getHeight() </td></tr>
-			<tr><td align="left"> + getWidth() </td></tr>
-			<tr><td align="left"> + setSize() </td></tr>
-			<tr><td align="left"> + toString() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PPaintContext
@@ -41,40 +24,11 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PPaintContext </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getGraphics() </td></tr>
-			<tr><td align="left"> + getLocalClip() </td></tr>
-			<tr><td align="left"> + getScale() </td></tr>
-			<tr><td align="left"> + pushCamera() </td></tr>
-			<tr><td align="left"> + popCamera() </td></tr>
-			<tr><td align="left"> + getCamera() </td></tr>
-			<tr><td align="left"> + pushClip() </td></tr>
-			<tr><td align="left"> + popClip() </td></tr>
-			<tr><td align="left"> + pushTransparency() </td></tr>
-			<tr><td align="left"> + popTransparency() </td></tr>
-			<tr><td align="left"> + pushTransform() </td></tr>
-			<tr><td align="left"> + popTransform() </td></tr>
-			<tr><td align="left"> + getRenderQuality() </td></tr>
-			<tr><td align="left"> + setRenderQuality() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PObjectOutputStream
 	c3 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PObjectOutputStream.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PObjectOutputStream </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + toByteArray() </td></tr>
-			<tr><td align="left"> + writeObjectTree() </td></tr>
-			<tr><td align="left"> + writeConditionalObject() </td></tr>
-			<tr><td align="left"> + reset() </td></tr>
-			<tr><td align="left"> # recordUnconditionallyWritten() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PAffineTransform
@@ -82,52 +36,11 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PAffineTransform </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + scaleAboutPoint() </td></tr>
-			<tr><td align="left"> + getScale() </td></tr>
-			<tr><td align="left"> + setScale() </td></tr>
-			<tr><td align="left"> + setOffset() </td></tr>
-			<tr><td align="left"> + getRotation() </td></tr>
-			<tr><td align="left"> + setRotation() </td></tr>
-			<tr><td align="left"> + transform() </td></tr>
-			<tr><td align="left"> + inverseTransform() </td></tr>
-			<tr><td align="left"> + transform() </td></tr>
-			<tr><td align="left"> + inverseTransform() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PBounds
 	c5 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PBounds.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PBounds </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + clone() </td></tr>
-			<tr><td align="left"> + isEmpty() </td></tr>
-			<tr><td align="left"> + reset() </td></tr>
-			<tr><td align="left"> + resetToZero() </td></tr>
-			<tr><td align="left"> + setRect() </td></tr>
-			<tr><td align="left"> + setRect() </td></tr>
-			<tr><td align="left"> + setRect() </td></tr>
-			<tr><td align="left"> + add() </td></tr>
-			<tr><td align="left"> + add() </td></tr>
-			<tr><td align="left"> + add() </td></tr>
-			<tr><td align="left"> + getOrigin() </td></tr>
-			<tr><td align="left"> + setOrigin() </td></tr>
-			<tr><td align="left"> + getSize() </td></tr>
-			<tr><td align="left"> + setSize() </td></tr>
-			<tr><td align="left"> + getCenter2D() </td></tr>
-			<tr><td align="left"> + moveBy() </td></tr>
-			<tr><td align="left"> + expandNearestIntegerDimensions() </td></tr>
-			<tr><td align="left"> + inset() </td></tr>
-			<tr><td align="left"> + deltaRequiredToCenter() </td></tr>
-			<tr><td align="left"> + deltaRequiredToContain() </td></tr>
-			<tr><td align="left"> + toString() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PPickPath
@@ -135,43 +48,11 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PPickPath </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getPickBounds() </td></tr>
-			<tr><td align="left"> + acceptsNode() </td></tr>
-			<tr><td align="left"> + pushNode() </td></tr>
-			<tr><td align="left"> + popNode() </td></tr>
-			<tr><td align="left"> + getPickedNode() </td></tr>
-			<tr><td align="left"> + nextPickedNode() </td></tr>
-			<tr><td align="left"> + getTopCamera() </td></tr>
-			<tr><td align="left"> + getBottomCamera() </td></tr>
-			<tr><td align="left"> + getNodeStackReference() </td></tr>
-			<tr><td align="left"> + getScale() </td></tr>
-			<tr><td align="left"> + pushTransform() </td></tr>
-			<tr><td align="left"> + popTransform() </td></tr>
-			<tr><td align="left"> + getPathTransformTo() </td></tr>
-			<tr><td align="left"> + processEvent() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PUtil
 	c7 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PUtil.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PUtil </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + createBasicScenegraph() </td></tr>
-			<tr><td align="left"> + writeStroke() </td></tr>
-			<tr><td align="left"> + readStroke() </td></tr>
-			<tr><td align="left"> + readPath() </td></tr>
-			<tr><td align="left"> + writePath() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PNodeFilter
@@ -180,37 +61,11 @@ digraph G {
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> PNodeFilter </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + accept() </td></tr>
-			<tr><td align="left"> + acceptChildrenOf() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PDebug
 	c9 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PDebug.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PDebug </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getDebugPaintColor() </td></tr>
-			<tr><td align="left"> + scheduleProcessInputs() </td></tr>
-			<tr><td align="left"> + processRepaint() </td></tr>
-			<tr><td align="left"> + getProcessingOutput() </td></tr>
-			<tr><td align="left"> + startProcessingOutput() </td></tr>
-			<tr><td align="left"> + endProcessingOutput() </td></tr>
-			<tr><td align="left"> + startProcessingInput() </td></tr>
-			<tr><td align="left"> + endProcessingInput() </td></tr>
-			<tr><td align="left"> + getTotalFPS() </td></tr>
-			<tr><td align="left"> + getInputFPS() </td></tr>
-			<tr><td align="left"> + getOutputFPS() </td></tr>
-			<tr><td align="left"> + getFramesProcessed() </td></tr>
-			<tr><td align="left"> + resetFPSTiming() </td></tr>
-			<tr><td align="left"> + getApproximateUsedMemory() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PPaintContext NAVASSOC edu.umd.cs.piccolo.util.PStack

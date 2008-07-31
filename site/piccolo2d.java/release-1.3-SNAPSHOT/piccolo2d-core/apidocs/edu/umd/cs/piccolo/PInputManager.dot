@@ -13,108 +13,17 @@ digraph G {
 			<tr><td> PPickPath </td></tr>
 			<tr><td><font point-size="7.0"> edu.umd.cs.piccolo.util </font></td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getPickBounds() </td></tr>
-			<tr><td align="left"> + acceptsNode() </td></tr>
-			<tr><td align="left"> + pushNode() </td></tr>
-			<tr><td align="left"> + popNode() </td></tr>
-			<tr><td align="left"> + getPickedNode() </td></tr>
-			<tr><td align="left"> + nextPickedNode() </td></tr>
-			<tr><td align="left"> + getTopCamera() </td></tr>
-			<tr><td align="left"> + getBottomCamera() </td></tr>
-			<tr><td align="left"> + getNodeStackReference() </td></tr>
-			<tr><td align="left"> + getScale() </td></tr>
-			<tr><td align="left"> + pushTransform() </td></tr>
-			<tr><td align="left"> + popTransform() </td></tr>
-			<tr><td align="left"> + getPathTransformTo() </td></tr>
-			<tr><td align="left"> + processEvent() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.PCamera
 	c855 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PCamera.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PCamera </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getComponent() </td></tr>
-			<tr><td align="left"> + setComponent() </td></tr>
-			<tr><td align="left"> + repaintFrom() </td></tr>
-			<tr><td align="left"> + repaintFromLayer() </td></tr>
-			<tr><td align="left"> + getLayersReference() </td></tr>
-			<tr><td align="left"> + getLayerCount() </td></tr>
-			<tr><td align="left"> + getLayer() </td></tr>
-			<tr><td align="left"> + indexOfLayer() </td></tr>
-			<tr><td align="left"> + addLayer() </td></tr>
-			<tr><td align="left"> + addLayer() </td></tr>
-			<tr><td align="left"> + removeLayer() </td></tr>
-			<tr><td align="left"> + removeLayer() </td></tr>
-			<tr><td align="left"> + getUnionOfLayerFullBounds() </td></tr>
-			<tr><td align="left"> # paint() </td></tr>
-			<tr><td align="left"> # paintCameraView() </td></tr>
-			<tr><td align="left"> # paintDebugInfo() </td></tr>
-			<tr><td align="left"> + fullPaint() </td></tr>
-			<tr><td align="left"> + pick() </td></tr>
-			<tr><td align="left"> # pickAfterChildren() </td></tr>
-			<tr><td align="left"> # pickCameraView() </td></tr>
-			<tr><td align="left"> + getViewBounds() </td></tr>
-			<tr><td align="left"> + setViewBounds() </td></tr>
-			<tr><td align="left"> + getViewScale() </td></tr>
-			<tr><td align="left"> + scaleView() </td></tr>
-			<tr><td align="left"> + scaleViewAboutPoint() </td></tr>
-			<tr><td align="left"> + setViewScale() </td></tr>
-			<tr><td align="left"> + translateView() </td></tr>
-			<tr><td align="left"> + setViewOffset() </td></tr>
-			<tr><td align="left"> + getViewTransform() </td></tr>
-			<tr><td align="left"> + getViewTransformReference() </td></tr>
-			<tr><td align="left"> + setViewTransform() </td></tr>
-			<tr><td align="left"> + animateViewToCenterBounds() </td></tr>
-			<tr><td align="left"> + animateViewToPanToBounds() </td></tr>
-			<tr><td align="left"> + animateViewToIncludeBounds() </td></tr>
-			<tr><td align="left"> + animateViewToTransform() </td></tr>
-			<tr><td align="left"> + getViewConstraint() </td></tr>
-			<tr><td align="left"> + setViewConstraint() </td></tr>
-			<tr><td align="left"> # applyViewConstraints() </td></tr>
-			<tr><td align="left"> + viewToLocal() </td></tr>
-			<tr><td align="left"> + viewToLocal() </td></tr>
-			<tr><td align="left"> + viewToLocal() </td></tr>
-			<tr><td align="left"> + localToView() </td></tr>
-			<tr><td align="left"> + localToView() </td></tr>
-			<tr><td align="left"> + localToView() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.PRoot
 	c858 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PRoot.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PRoot </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + addActivity() </td></tr>
-			<tr><td align="left"> + getActivityScheduler() </td></tr>
-			<tr><td align="left"> + waitForActivities() </td></tr>
-			<tr><td align="left"> + getRoot() </td></tr>
-			<tr><td align="left"> + getDefaultInputManager() </td></tr>
-			<tr><td align="left"> + addInputSource() </td></tr>
-			<tr><td align="left"> + removeInputSource() </td></tr>
-			<tr><td align="left"> + createTimer() </td></tr>
-			<tr><td align="left"> + getGlobalTime() </td></tr>
-			<tr><td align="left"> + processInputs() </td></tr>
-			<tr><td align="left"> + setFullBoundsInvalid() </td></tr>
-			<tr><td align="left"> + setChildBoundsInvalid() </td></tr>
-			<tr><td align="left"> + setPaintInvalid() </td></tr>
-			<tr><td align="left"> + setChildPaintInvalid() </td></tr>
-			<tr><td align="left"> + scheduleProcessInputsIfNeeded() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.PRoot.InputSource
@@ -123,45 +32,11 @@ digraph G {
 			<tr><td> &laquo;interface&raquo; </td></tr>
 			<tr><td> InputSource </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + processInput() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.PInputManager
 	c860 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PInputManager.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PInputManager </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getKeyboardFocus() </td></tr>
-			<tr><td align="left"> + setKeyboardFocus() </td></tr>
-			<tr><td align="left"> + getMouseFocus() </td></tr>
-			<tr><td align="left"> + setMouseFocus() </td></tr>
-			<tr><td align="left"> + getMouseOver() </td></tr>
-			<tr><td align="left"> + setMouseOver() </td></tr>
-			<tr><td align="left"> + getLastCanvasPosition() </td></tr>
-			<tr><td align="left"> + getCurrentCanvasPosition() </td></tr>
-			<tr><td align="left"> + keyPressed() </td></tr>
-			<tr><td align="left"> + keyReleased() </td></tr>
-			<tr><td align="left"> + keyTyped() </td></tr>
-			<tr><td align="left"> + mouseClicked() </td></tr>
-			<tr><td align="left"> + mouseWheelRotated() </td></tr>
-			<tr><td align="left"> + mouseWheelRotatedByBlock() </td></tr>
-			<tr><td align="left"> + mouseDragged() </td></tr>
-			<tr><td align="left"> + mouseEntered() </td></tr>
-			<tr><td align="left"> + mouseExited() </td></tr>
-			<tr><td align="left"> + mouseMoved() </td></tr>
-			<tr><td align="left"> + mousePressed() </td></tr>
-			<tr><td align="left"> + mouseReleased() </td></tr>
-			<tr><td align="left"> # checkForMouseEnteredAndExited() </td></tr>
-			<tr><td align="left"> + processInput() </td></tr>
-			<tr><td align="left"> + processEventFromCamera() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.event.PInputEvent
@@ -169,53 +44,6 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PInputEvent </td></tr>
 			<tr><td><font point-size="7.0"> edu.umd.cs.piccolo.event </font></td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + pushCursor() </td></tr>
-			<tr><td align="left"> + popCursor() </td></tr>
-			<tr><td align="left"> + getCamera() </td></tr>
-			<tr><td align="left"> + getTopCamera() </td></tr>
-			<tr><td align="left"> + getComponent() </td></tr>
-			<tr><td align="left"> + getInputManager() </td></tr>
-			<tr><td align="left"> + getPath() </td></tr>
-			<tr><td align="left"> + setPath() </td></tr>
-			<tr><td align="left"> + getPickedNode() </td></tr>
-			<tr><td align="left"> + getKeyCode() </td></tr>
-			<tr><td align="left"> + getKeyChar() </td></tr>
-			<tr><td align="left"> + getKeyLocation() </td></tr>
-			<tr><td align="left"> + isActionKey() </td></tr>
-			<tr><td align="left"> + getModifiers() </td></tr>
-			<tr><td align="left"> + getModifiersEx() </td></tr>
-			<tr><td align="left"> + getClickCount() </td></tr>
-			<tr><td align="left"> + getWhen() </td></tr>
-			<tr><td align="left"> + isAltDown() </td></tr>
-			<tr><td align="left"> + isControlDown() </td></tr>
-			<tr><td align="left"> + isMetaDown() </td></tr>
-			<tr><td align="left"> + isShiftDown() </td></tr>
-			<tr><td align="left"> + isLeftMouseButton() </td></tr>
-			<tr><td align="left"> + isMiddleMouseButton() </td></tr>
-			<tr><td align="left"> + isRightMouseButton() </td></tr>
-			<tr><td align="left"> + isHandled() </td></tr>
-			<tr><td align="left"> + setHandled() </td></tr>
-			<tr><td align="left"> + getButton() </td></tr>
-			<tr><td align="left"> + getWheelRotation() </td></tr>
-			<tr><td align="left"> + getSourceSwingEvent() </td></tr>
-			<tr><td align="left"> + isKeyEvent() </td></tr>
-			<tr><td align="left"> + isMouseEvent() </td></tr>
-			<tr><td align="left"> + isMouseWheelEvent() </td></tr>
-			<tr><td align="left"> + isFocusEvent() </td></tr>
-			<tr><td align="left"> + isMouseEnteredOrMouseExited() </td></tr>
-			<tr><td align="left"> + isPopupTrigger() </td></tr>
-			<tr><td align="left"> + getCanvasPosition() </td></tr>
-			<tr><td align="left"> + getCanvasDelta() </td></tr>
-			<tr><td align="left"> + getPositionRelativeTo() </td></tr>
-			<tr><td align="left"> + getDeltaRelativeTo() </td></tr>
-			<tr><td align="left"> + getPosition() </td></tr>
-			<tr><td align="left"> + getDelta() </td></tr>
-			<tr><td align="left"> + toString() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.event.PInputEventListener
@@ -225,43 +53,12 @@ digraph G {
 			<tr><td> PInputEventListener </td></tr>
 			<tr><td><font point-size="7.0"> edu.umd.cs.piccolo.event </font></td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + processEvent() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.event.PBasicInputEventHandler
 	c871 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./event/PBasicInputEventHandler.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PBasicInputEventHandler </td></tr>
 			<tr><td><font point-size="7.0"> edu.umd.cs.piccolo.event </font></td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + processEvent() </td></tr>
-			<tr><td align="left"> + acceptsEvent() </td></tr>
-			<tr><td align="left"> + getEventFilter() </td></tr>
-			<tr><td align="left"> + setEventFilter() </td></tr>
-			<tr><td align="left"> + keyPressed() </td></tr>
-			<tr><td align="left"> + keyReleased() </td></tr>
-			<tr><td align="left"> + keyTyped() </td></tr>
-			<tr><td align="left"> + mouseClicked() </td></tr>
-			<tr><td align="left"> + mousePressed() </td></tr>
-			<tr><td align="left"> + mouseDragged() </td></tr>
-			<tr><td align="left"> + mouseEntered() </td></tr>
-			<tr><td align="left"> + mouseExited() </td></tr>
-			<tr><td align="left"> + mouseMoved() </td></tr>
-			<tr><td align="left"> + mouseReleased() </td></tr>
-			<tr><td align="left"> + mouseWheelRotated() </td></tr>
-			<tr><td align="left"> + mouseWheelRotatedByBlock() </td></tr>
-			<tr><td align="left"> + keyboardFocusGained() </td></tr>
-			<tr><td align="left"> + keyboardFocusLost() </td></tr>
-			<tr><td align="left"> + toString() </td></tr>
-			<tr><td align="left"> # paramString() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//edu.umd.cs.piccolo.util.PPickPath implements edu.umd.cs.piccolo.event.PInputEventListener
@@ -296,15 +93,15 @@ digraph G {
 	c868:p -> c860:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// edu.umd.cs.piccolo.util.PPickPath DEPEND edu.umd.cs.piccolo.PCamera
 	c851:p -> c855:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.PInputManager DEPEND edu.umd.cs.piccolo.util.PPickPath
-	c860:p -> c851:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PInputManager DEPEND edu.umd.cs.piccolo.event.PInputEventListener
 	c860:p -> c870:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.util.PPickPath
-	c868:p -> c851:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.PInputManager DEPEND edu.umd.cs.piccolo.util.PPickPath
+	c860:p -> c851:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PInputManager
 	c868:p -> c860:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.PCamera
 	c868:p -> c855:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.event.PInputEvent DEPEND edu.umd.cs.piccolo.util.PPickPath
+	c868:p -> c851:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

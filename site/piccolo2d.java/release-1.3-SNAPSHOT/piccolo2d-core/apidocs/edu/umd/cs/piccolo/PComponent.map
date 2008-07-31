@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" href="./util/PBounds.html" title="&lt;TABLE&gt;" alt="" coords="77,2232,304,2605"/>
-<area shape="rect" href="./PCamera.html" title="&lt;TABLE&gt;" alt="" coords="29,752,232,1451"/>
-<area shape="rect" href="./PComponent.html" title="&lt;TABLE&gt;" alt="" coords="197,1509,328,1651"/>
-<area shape="rect" href="./PCanvas.html" title="&lt;TABLE&gt;" alt="" coords="87,1709,295,2173"/>
-<area shape="rect" href="./event/PInputEvent.html" title="&lt;TABLE&gt;" alt="" coords="101,11,309,693"/>
+<area shape="rect" href="./util/PBounds.html" title="&lt;TABLE&gt;" alt="" coords="29,396,144,431"/>
+<area shape="rect" href="./PCamera.html" title="&lt;TABLE&gt;" alt="" coords="33,114,103,138"/>
+<area shape="rect" href="./PComponent.html" title="&lt;TABLE&gt;" alt="" coords="113,203,204,240"/>
+<area shape="rect" href="./PCanvas.html" title="&lt;TABLE&gt;" alt="" coords="53,306,120,330"/>
+<area shape="rect" href="./event/PInputEvent.html" title="&lt;TABLE&gt;" alt="" coords="47,12,172,47"/>
 </map>

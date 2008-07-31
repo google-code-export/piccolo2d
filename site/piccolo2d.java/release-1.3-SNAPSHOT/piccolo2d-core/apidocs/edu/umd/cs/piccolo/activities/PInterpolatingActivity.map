@@ -1,7 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" href="../PNode.html" title="&lt;TABLE&gt;" alt="" coords="109,11,336,2688"/>
-<area shape="rect" href="./PInterpolatingActivity.html" title="&lt;TABLE&gt;" alt="" coords="16,3197,277,3501"/>
-<area shape="rect" href="./PTransformActivity.html" title="&lt;TABLE&gt;" alt="" coords="256,3560,429,3701"/>
-<area shape="rect" href="./PActivity.html" title="&lt;TABLE&gt;" alt="" coords="151,2747,295,3139"/>
-<area shape="rect" href="./PColorActivity.html" title="&lt;TABLE&gt;" alt="" coords="48,3560,211,3701"/>
+<area shape="rect" href="../PNode.html" title="&lt;TABLE&gt;" alt="" coords="83,12,181,47"/>
+<area shape="rect" href="./PInterpolatingActivity.html" title="&lt;TABLE&gt;" alt="" coords="16,210,144,234"/>
+<area shape="rect" href="./PTransformActivity.html" title="&lt;TABLE&gt;" alt="" coords="152,306,269,330"/>
+<area shape="rect" href="./PActivity.html" title="&lt;TABLE&gt;" alt="" coords="101,114,163,138"/>
+<area shape="rect" href="./PColorActivity.html" title="&lt;TABLE&gt;" alt="" coords="16,306,107,330"/>
 </map>

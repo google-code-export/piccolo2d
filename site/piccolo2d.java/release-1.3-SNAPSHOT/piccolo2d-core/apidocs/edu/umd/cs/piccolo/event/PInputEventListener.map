@@ -1,8 +1,8 @@
 <map id="G" name="G">
-<area shape="rect" href="../util/PPickPath.html" title="&lt;TABLE&gt;" alt="" coords="581,11,752,325"/>
-<area shape="rect" href="../PNode.html" title="&lt;TABLE&gt;" alt="" coords="16,384,243,3061"/>
-<area shape="rect" href="./PInputEventListener.html" title="&lt;TABLE&gt;" alt="" coords="252,3120,380,3203"/>
-<area shape="rect" href="../PInputManager.html" title="&lt;TABLE&gt;" alt="" coords="557,3667,776,4069"/>
-<area shape="rect" href="../PCanvas.html" title="&lt;TABLE&gt;" alt="" coords="363,1484,571,1961"/>
-<area shape="rect" href="./PBasicInputEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="376,3261,571,3608"/>
+<area shape="rect" href="../util/PPickPath.html" title="&lt;TABLE&gt;" alt="" coords="372,12,487,47"/>
+<area shape="rect" href="../PNode.html" title="&lt;TABLE&gt;" alt="" coords="16,108,115,143"/>
+<area shape="rect" href="./PInputEventListener.html" title="&lt;TABLE&gt;" alt="" coords="87,203,215,240"/>
+<area shape="rect" href="../PInputManager.html" title="&lt;TABLE&gt;" alt="" coords="379,396,480,431"/>
+<area shape="rect" href="../PCanvas.html" title="&lt;TABLE&gt;" alt="" coords="235,108,333,143"/>
+<area shape="rect" href="./PBasicInputEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="176,306,333,330"/>
 </map>

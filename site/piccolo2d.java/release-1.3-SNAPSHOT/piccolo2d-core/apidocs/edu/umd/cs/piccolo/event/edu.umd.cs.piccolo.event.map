@@ -1,10 +1,10 @@
 <map id="G" name="G">
-<area shape="rect" href="./PDragSequenceEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="301,696,507,1030"/>
-<area shape="rect" href="./PPanEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="16,1468,176,1655"/>
-<area shape="rect" href="./PZoomEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="221,1483,365,1640"/>
-<area shape="rect" href="./PInputEvent.html" title="&lt;TABLE&gt;" alt="" coords="411,1227,619,1896"/>
-<area shape="rect" href="./PDragEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="664,1468,845,1655"/>
-<area shape="rect" href="./PInputEventFilter.html" title="&lt;TABLE&gt;" alt="" coords="552,558,787,1168"/>
-<area shape="rect" href="./PInputEventListener.html" title="&lt;TABLE&gt;" alt="" coords="472,11,600,94"/>
-<area shape="rect" href="./PBasicInputEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="439,152,633,499"/>
+<area shape="rect" href="./PDragSequenceEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="233,210,417,234"/>
+<area shape="rect" href="./PPanEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="16,306,139,330"/>
+<area shape="rect" href="./PZoomEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="184,306,315,330"/>
+<area shape="rect" href="./PInputEvent.html" title="&lt;TABLE&gt;" alt="" coords="360,306,443,330"/>
+<area shape="rect" href="./PDragEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="488,306,613,330"/>
+<area shape="rect" href="./PInputEventFilter.html" title="&lt;TABLE&gt;" alt="" coords="463,210,572,234"/>
+<area shape="rect" href="./PInputEventListener.html" title="&lt;TABLE&gt;" alt="" coords="357,11,485,48"/>
+<area shape="rect" href="./PBasicInputEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="343,114,500,138"/>
 </map>

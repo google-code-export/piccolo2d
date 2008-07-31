@@ -13,86 +13,17 @@ digraph G {
 			<tr><td> PCanvas </td></tr>
 			<tr><td><font point-size="7.0"> edu.umd.cs.piccolo </font></td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> # createDefaultCamera() </td></tr>
-			<tr><td align="left"> + getPanEventHandler() </td></tr>
-			<tr><td align="left"> + setPanEventHandler() </td></tr>
-			<tr><td align="left"> + getZoomEventHandler() </td></tr>
-			<tr><td align="left"> + setZoomEventHandler() </td></tr>
-			<tr><td align="left"> + getCamera() </td></tr>
-			<tr><td align="left"> + setCamera() </td></tr>
-			<tr><td align="left"> + getRoot() </td></tr>
-			<tr><td align="left"> + getLayer() </td></tr>
-			<tr><td align="left"> + addInputEventListener() </td></tr>
-			<tr><td align="left"> + removeInputEventListener() </td></tr>
-			<tr><td align="left"> + getInteracting() </td></tr>
-			<tr><td align="left"> + getAnimating() </td></tr>
-			<tr><td align="left"> + setInteracting() </td></tr>
-			<tr><td align="left"> + setDefaultRenderQuality() </td></tr>
-			<tr><td align="left"> + setAnimatingRenderQuality() </td></tr>
-			<tr><td align="left"> + setInteractingRenderQuality() </td></tr>
-			<tr><td align="left"> + pushCursor() </td></tr>
-			<tr><td align="left"> + popCursor() </td></tr>
-			<tr><td align="left"> + setEnabled() </td></tr>
-			<tr><td align="left"> # installInputSources() </td></tr>
-			<tr><td align="left"> # removeInputSources() </td></tr>
-			<tr><td align="left"> # sendInputEventToInputManager() </td></tr>
-			<tr><td align="left"> + setBounds() </td></tr>
-			<tr><td align="left"> + repaint() </td></tr>
-			<tr><td align="left"> + paintComponent() </td></tr>
-			<tr><td align="left"> + paintImmediately() </td></tr>
-			<tr><td align="left"> + createTimer() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.event.PDragSequenceEventHandler
 	c1130 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PDragSequenceEventHandler.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td><font face="Helvetica-Oblique"> PDragSequenceEventHandler </font></td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + isDragging() </td></tr>
-			<tr><td align="left"> + setIsDragging() </td></tr>
-			<tr><td align="left"> + getMinDragStartDistance() </td></tr>
-			<tr><td align="left"> + setMinDragStartDistance() </td></tr>
-			<tr><td align="left"> + getMousePressedCanvasPoint() </td></tr>
-			<tr><td align="left"> # startDrag() </td></tr>
-			<tr><td align="left"> # drag() </td></tr>
-			<tr><td align="left"> # endDrag() </td></tr>
-			<tr><td align="left"> # shouldStartDragInteraction() </td></tr>
-			<tr><td align="left"> # getDragActivity() </td></tr>
-			<tr><td align="left"> # startDragActivity() </td></tr>
-			<tr><td align="left"> # stopDragActivity() </td></tr>
-			<tr><td align="left"> # dragActivityFirstStep() </td></tr>
-			<tr><td align="left"> # dragActivityStep() </td></tr>
-			<tr><td align="left"> # dragActivityFinalStep() </td></tr>
-			<tr><td align="left"> + mousePressed() </td></tr>
-			<tr><td align="left"> + mouseDragged() </td></tr>
-			<tr><td align="left"> + mouseReleased() </td></tr>
-			<tr><td align="left"> # paramString() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.event.PZoomEventHandler
 	c1133 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" bgcolor="lemonChiffon" href="./PZoomEventHandler.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PZoomEventHandler </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getMinScale() </td></tr>
-			<tr><td align="left"> + setMinScale() </td></tr>
-			<tr><td align="left"> + getMaxScale() </td></tr>
-			<tr><td align="left"> + setMaxScale() </td></tr>
-			<tr><td align="left"> # dragActivityFirstStep() </td></tr>
-			<tr><td align="left"> # dragActivityStep() </td></tr>
-			<tr><td align="left"> # paramString() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	//edu.umd.cs.piccolo.event.PZoomEventHandler extends edu.umd.cs.piccolo.event.PDragSequenceEventHandler

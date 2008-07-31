@@ -12,38 +12,11 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PStack </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + push() </td></tr>
-			<tr><td align="left"> + peek() </td></tr>
-			<tr><td align="left"> + pop() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PPaintContext
 	c204 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="./PPaintContext.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PPaintContext </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getGraphics() </td></tr>
-			<tr><td align="left"> + getLocalClip() </td></tr>
-			<tr><td align="left"> + getScale() </td></tr>
-			<tr><td align="left"> + pushCamera() </td></tr>
-			<tr><td align="left"> + popCamera() </td></tr>
-			<tr><td align="left"> + getCamera() </td></tr>
-			<tr><td align="left"> + pushClip() </td></tr>
-			<tr><td align="left"> + popClip() </td></tr>
-			<tr><td align="left"> + pushTransparency() </td></tr>
-			<tr><td align="left"> + popTransparency() </td></tr>
-			<tr><td align="left"> + pushTransform() </td></tr>
-			<tr><td align="left"> + popTransform() </td></tr>
-			<tr><td align="left"> + getRenderQuality() </td></tr>
-			<tr><td align="left"> + setRenderQuality() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PPickPath
@@ -51,67 +24,12 @@ digraph G {
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PPickPath </td></tr>
 		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> + getPickBounds() </td></tr>
-			<tr><td align="left"> + acceptsNode() </td></tr>
-			<tr><td align="left"> + pushNode() </td></tr>
-			<tr><td align="left"> + popNode() </td></tr>
-			<tr><td align="left"> + getPickedNode() </td></tr>
-			<tr><td align="left"> + nextPickedNode() </td></tr>
-			<tr><td align="left"> + getTopCamera() </td></tr>
-			<tr><td align="left"> + getBottomCamera() </td></tr>
-			<tr><td align="left"> + getNodeStackReference() </td></tr>
-			<tr><td align="left"> + getScale() </td></tr>
-			<tr><td align="left"> + pushTransform() </td></tr>
-			<tr><td align="left"> + popTransform() </td></tr>
-			<tr><td align="left"> + getPathTransformTo() </td></tr>
-			<tr><td align="left"> + processEvent() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-			<tr><td align="left"> + canvasToLocal() </td></tr>
-		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.PCanvas
 	c279 [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="2" port="p" href="../PCanvas.html">
 		<tr><td><table border="0" cellspacing="0" cellpadding="1">
 			<tr><td> PCanvas </td></tr>
 			<tr><td><font point-size="7.0"> edu.umd.cs.piccolo </font></td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left">  </td></tr>
-		</table></td></tr>
-		<tr><td><table border="0" cellspacing="0" cellpadding="1">
-			<tr><td align="left"> # createDefaultCamera() </td></tr>
-			<tr><td align="left"> + getPanEventHandler() </td></tr>
-			<tr><td align="left"> + setPanEventHandler() </td></tr>
-			<tr><td align="left"> + getZoomEventHandler() </td></tr>
-			<tr><td align="left"> + setZoomEventHandler() </td></tr>
-			<tr><td align="left"> + getCamera() </td></tr>
-			<tr><td align="left"> + setCamera() </td></tr>
-			<tr><td align="left"> + getRoot() </td></tr>
-			<tr><td align="left"> + getLayer() </td></tr>
-			<tr><td align="left"> + addInputEventListener() </td></tr>
-			<tr><td align="left"> + removeInputEventListener() </td></tr>
-			<tr><td align="left"> + getInteracting() </td></tr>
-			<tr><td align="left"> + getAnimating() </td></tr>
-			<tr><td align="left"> + setInteracting() </td></tr>
-			<tr><td align="left"> + setDefaultRenderQuality() </td></tr>
-			<tr><td align="left"> + setAnimatingRenderQuality() </td></tr>
-			<tr><td align="left"> + setInteractingRenderQuality() </td></tr>
-			<tr><td align="left"> + pushCursor() </td></tr>
-			<tr><td align="left"> + popCursor() </td></tr>
-			<tr><td align="left"> + setEnabled() </td></tr>
-			<tr><td align="left"> # installInputSources() </td></tr>
-			<tr><td align="left"> # removeInputSources() </td></tr>
-			<tr><td align="left"> # sendInputEventToInputManager() </td></tr>
-			<tr><td align="left"> + setBounds() </td></tr>
-			<tr><td align="left"> + repaint() </td></tr>
-			<tr><td align="left"> + paintComponent() </td></tr>
-			<tr><td align="left"> + paintImmediately() </td></tr>
-			<tr><td align="left"> + createTimer() </td></tr>
 		</table></td></tr>
 		</table>>, fontname="Helvetica", fontcolor="black", fontsize=9.0];
 	// edu.umd.cs.piccolo.util.PPaintContext NAVASSOC edu.umd.cs.piccolo.util.PStack

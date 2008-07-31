@@ -1,10 +1,10 @@
 <map id="G" name="G">
-<area shape="rect" href="./PInterpolatingActivity.html" title="&lt;TABLE&gt;" alt="" coords="73,461,335,765"/>
-<area shape="rect" href="./PColorActivity.html" title="&lt;TABLE&gt;" alt="" coords="16,824,179,965"/>
-<area shape="rect" href="./PTransformActivity.html" title="&lt;TABLE&gt;" alt="" coords="224,824,397,965"/>
-<area shape="rect" href="./PColorActivity.Target.html" title="&lt;TABLE&gt;" alt="" coords="56,1024,139,1122"/>
-<area shape="rect" href="./PTransformActivity.Target.html" title="&lt;TABLE&gt;" alt="" coords="249,1024,372,1122"/>
-<area shape="rect" href="./PActivityScheduler.html" title="&lt;TABLE&gt;" alt="" coords="380,505,537,721"/>
-<area shape="rect" href="./PActivity.html" title="&lt;TABLE&gt;" alt="" coords="387,10,531,402"/>
-<area shape="rect" href="./PActivity.PActivityDelegate.html" title="&lt;TABLE&gt;" alt="" coords="583,557,700,669"/>
+<area shape="rect" href="./PInterpolatingActivity.html" title="&lt;TABLE&gt;" alt="" coords="72,114,200,138"/>
+<area shape="rect" href="./PColorActivity.html" title="&lt;TABLE&gt;" alt="" coords="16,210,107,234"/>
+<area shape="rect" href="./PTransformActivity.html" title="&lt;TABLE&gt;" alt="" coords="152,210,269,234"/>
+<area shape="rect" href="./PColorActivity.Target.html" title="&lt;TABLE&gt;" alt="" coords="23,299,100,336"/>
+<area shape="rect" href="./PTransformActivity.Target.html" title="&lt;TABLE&gt;" alt="" coords="172,299,249,336"/>
+<area shape="rect" href="./PActivityScheduler.html" title="&lt;TABLE&gt;" alt="" coords="245,114,363,138"/>
+<area shape="rect" href="./PActivity.html" title="&lt;TABLE&gt;" alt="" coords="273,18,335,42"/>
+<area shape="rect" href="./PActivity.PActivityDelegate.html" title="&lt;TABLE&gt;" alt="" coords="408,107,517,144"/>
 </map>
