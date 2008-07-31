@@ -35,3 +35,5 @@ Maintenance release. Finish the transfer from https://svn.cs.umd.edu/repos/picco
  * Release Manager: [http://code.google.com/u/@UBBfSlFQDhBCXAR5Fg%3D%3D/ s...@browsecode.org]
 
 Should we refer to 1.2?
+
+http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png
