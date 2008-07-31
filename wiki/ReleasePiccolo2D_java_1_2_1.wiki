@@ -1,0 +1,97 @@
+#summary Piccolo2D 1.2.1 Release Notes
+
+[ReleaseList Browse all Releases]
+
+=Piccolo2D 1.2.1 Release Notes=
+
+Move the Piccolo2D project from UMD to Google Code.
+
+|| *Date* || 2008-07-21 ||
+|| *Flavour* || Java ||
+|| *Release Manager* || [http://code.google.com/u/@UBBfSlFQDhBCXAR5Fg%3D%3D/ s...@browsecode.org] ||
+|| *Download* || http://piccolo2d.googlecode.com/files/Piccolo2D.Java-1.2.1-compiled.zip ||
+|| *Documentation* || http://piccolo2d.googlecode.com/svn/site/piccolo2d.java/release-1.2.1/apidocs/index.html ||
+|| *Issues* || [http://code.google.com/p/piccolo2d/issues/list?sort=status+type+-priority+-id&can=1&q=label:Milestone-1.2.1 List] or [http://code.google.com/p/piccolo2d/issues/list?can=1&x=type&y=status&mode=grid&cells=tiles&q=label%3AMilestone-1.2.1 Grid] ||
+
+== Changelog ==
+
+piccolo/src
+
+PPickPath
+	* Fixed incorrect comment on nextPickedNode method
+
+piccolo/extras
+	* Added PSwing support for embedding Swing components (experimental)
+	* Added package level javadoc comments
+
+Specific PSwing fixes:
+	* PSwingEventHandler: Applied patch from Maarten Billemont that fixes the issue by not applying the camera's transform to input events when the node is not a descendant of a PLayer object.
+	* PSwing: Sam Reid - API improvement (so that PSwing can be constructed without the destination PSwingCanvas as constructor arg). Old constructor is deprecated for compatibility with existing code.
+	* PSwingCanvas: Sam Reid - minor change to facilitate adding/removal of pswing from canvas.
+
+PFrame
+	* Fixed bug in PFrame where canvas size didn't follow containing PFrame size
+
+PNavigationEventHandler
+	* Made PNavigationEventHandler.directCameraViewToFocus set the focus to the specified focus node
+
+PFixedWidthStroke
+	* Added fix to PFixedWidthStroke to make dashes also fixed to go along with the width.
+
+LineShape
+	* Fixed bug in intersects - accessed X instead of Y. Contributed by Sebastian Graca
+
+http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png
+
+----------------
+Alternative Layout
+----------------
+
+=Piccolo2D 1.2.1 Release Notes=
+
+2008-07-21, [http://code.google.com/u/@UBBfSlFQDhBCXAR5Fg%3D%3D/ s...@browsecode.org]
+
+== Abstract == 
+
+Move the Piccolo2D project from UMD to Google Code.
+
+== Download ==
+http://piccolo2d.googlecode.com/files/Piccolo2D.Java-1.2.1-compiled.zip
+
+== Documentation ==
+http://piccolo2d.googlecode.com/svn/site/piccolo2d.java/release-1.2.1/apidocs/index.html
+
+== Issues ==
+[http://code.google.com/p/piccolo2d/issues/list?sort=status+type+-priority+-id&can=1&q=label:Milestone-1.2.1 List] 
+or 
+[http://code.google.com/p/piccolo2d/issues/list?can=1&x=type&y=status&mode=grid&cells=tiles&q=label%3AMilestone-1.2.1 Grid]
+
+== Changelog ==
+
+piccolo/src
+
+PPickPath
+	* Fixed incorrect comment on nextPickedNode method
+
+piccolo/extras
+	* Added PSwing support for embedding Swing components (experimental)
+	* Added package level javadoc comments
+
+Specific PSwing fixes:
+	* PSwingEventHandler: Applied patch from Maarten Billemont that fixes the issue by not applying the camera's transform to input events when the node is not a descendant of a PLayer object.
+	* PSwing: Sam Reid - API improvement (so that PSwing can be constructed without the destination PSwingCanvas as constructor arg). Old constructor is deprecated for compatibility with existing code.
+	* PSwingCanvas: Sam Reid - minor change to facilitate adding/removal of pswing from canvas.
+
+PFrame
+	* Fixed bug in PFrame where canvas size didn't follow containing PFrame size
+
+PNavigationEventHandler
+	* Made PNavigationEventHandler.directCameraViewToFocus set the focus to the specified focus node
+
+PFixedWidthStroke
+	* Added fix to PFixedWidthStroke to make dashes also fixed to go along with the width.
+
+LineShape
+	* Fixed bug in intersects - accessed X instead of Y. Contributed by Sebastian Graca
+
+http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo-small.png
