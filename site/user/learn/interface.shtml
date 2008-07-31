@@ -1,0 +1,410 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="../style.css" type="text/css">
+<script language="JavaScript" type="text/javascript" src="snippets.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr>
+	<td valign="top" width="165" nowrap>
+	<table border="0" cellpadding="10" cellspacing="0" width="165">
+
+	<tr>
+
+        <td valign="top" nowrap>
+		<a href="../index.shtml" class="heading">Piccolo</a><br><br>
+        <a href="index.shtml" class="side_pane">Learn</a>
+        <br>
+
+        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="patterns.shtml">Piccolo Patterns</a>
+        <br>
+        &nbsp;&nbsp;<a href="get-started.shtml" class="side_pane_small">Getting Started</a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="out-of-box-java.shtml">.Java: Out of the Box</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="out-of-box-dotnet.shtml" class="side_pane_small">.NET: Out of the Box</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="curr_page_link_small">The Interface</span>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interaction.shtml">User Interaction</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="effects.shtml">Special Effects</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="fisheye.shtml">Fisheye Calendar</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="grapheditor.shtml">Graph Editor</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="api.shtml">API Documentation</a>
+        <br>
+        &nbsp;&nbsp;<a href="comparison.shtml" class="side_pane_small">Piccolo&nbsp;in&nbsp;Comparison</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="dev-faq.shtml">Developer FAQ</a>
+        <br>        
+        &nbsp;&nbsp;<a href="maillists.shtml" class="side_pane_small">Mailing Lists</a>
+        <br>
+
+	<a href="../play/index.shtml" class="side_pane">Play</a>
+        <br>
+
+	<a href="../team/index.shtml" class="side_pane">Team</a>
+        <br>
+
+	<a href="../press/index.shtml" class="side_pane">Press</a>
+        <br>
+
+	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+
+	<a href="../applications/index.shtml" class="side_pane">Applications</a>
+        <br>
+
+	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
+        <br><br>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="../download/index.shtml" class="side_pane">Download</a>
+        <br>
+        </td></tr>
+	</table>
+
+	</td></tr>
+
+	</table>
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+		<tr>
+			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+			<b class="dark_heading">Getting Started</b><br><br>
+			Here you will find both basic and advanced tutorials to help you get 
+			started using Piccolo.&nbsp; All tutorials provide examples in both 
+			Java and C#.&nbsp; This section assumes you have read 
+			<a href="patterns.shtml" class="main_pane">Piccolo 
+			Patterns</a> and have a basic understanding of the concepts 
+			presented there.<p></p>
+			</td>
+		</tr>
+
+		<tr>
+		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+			<table border="0" width="100%" id="table1">
+				<tr>
+					<td>
+					<b class="dark_heading_two">
+					Building the Interface</b><p><i>This tutorial will show you 
+					how to build a Piccolo interface.&nbsp; It will cover how to 
+					use the default nodes, how to create new nodes through 
+					composition and how to create new nodes using inheritance.</i></td>
+					<td valign="top">
+					<div style="border:thin solid blue; position: relative; width: 123px; height: 70px; z-index: 3; float: right" id="language">
+						&nbsp;Show examples in<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img border="0" src="images/check.gif" width="15" height="15" id="java0">
+						<a id = "jlink0" class="main_content" style="color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">
+						Java</a><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img style="visibility: hidden" border="0" src="images/check.gif" width="15" height="15" id="csharp0">
+						<a id = "clink0" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">
+						C#</a></div>
+					</td>
+				</tr>
+			</table>
+			<p></p>
+			
+			<center>
+			<img border="0" src="images/interface.jpg" width="300" height="300"><br>Download the complete code sample in 
+					<a class="main_pane" href="codesamples/BuildingInterface.Java.zip">Java</a> or 
+					<a class="main_pane" href="codesamples/BuildingInterface.NET.zip">C#</a>.</center>
+			
+			<p>&nbsp;<a name="step1"></a><span class="dark_heading_two"><font color="#0000FF">1.</font> 
+					Setup</span></p>
+			</p>
+			</p>
+			<p>
+					<i>We need to create a window with a Piccolo canvas, so that 
+					we can add the interface components to the canvas.</i></p>
+			<ol type="a">
+				<li>First you will need to reference the appropriate 
+				packages/namespaces.&nbsp; Add the following lines to the top of 
+				your code file:<br><br>
+				
+			<a id="jlink1" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink1" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet0">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java1">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/java_include.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp1">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/csharp_include.html"--></pre>
+			</div>
+			</div><br>
+				The first line adds the base Piccolo types, such as <code>PNode</code>. The 
+				second line includes the basic event types.&nbsp; The third line 
+				includes the default node types that Piccolo provides, all of 
+				which extend <code>PNode</code>.&nbsp; The fourth line 
+				includes several utility classes.&nbsp; And the last line 
+				includes various &quot;extras,&quot; such as <code>PForm</code> in .NET and 
+				<code>PFrame</code> in Java, which will be used below.<br><br>
+			
+				</li>
+				<li>Next we will extend the <code>PForm</code> class in .NET or the <code>PFrame</code> 
+				class in Java. This is a convenience class that adds a <code>PCanvas</code>
+				to a window. When you extend this class, you should NOT add your Piccolo code 
+				to the constructor. Instead, you should 
+				override the 
+				<code>initialize</code> method and add all of your Piccolo code 
+				there.&nbsp; See the 
+				<a class="main_pane" href="dev-faq.shtml">FAQ</a> for more details.<br><br>
+				
+			<a id="jlink2" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink2" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet1">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java2">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/java_window.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp2">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/csharp_window.html"--></pre>
+			</div>
+			</div><br>
+				</li>
+		</ol>
+			<p>
+					<a name="step2"></a><span class="dark_heading_two"><font color="#0000FF">2.</font> 
+					Add a Drag Event Handler.</span></p>
+			<p>
+					<i>Now lets define some interaction for the nodes that we 
+					will add below.</i></p>
+			<ol type="a">
+			
+			By default, the pan and zoom event handlers are installed.&nbsp; We 
+			will remove the pan event handler and add a drag event handler 
+			instead so that the individual nodes can be dragged around.&nbsp; 
+			Add the following lines of code to the <code>initialize</code> method.<br><br>
+			
+			<a id="jlink3" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink3" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet2">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java3">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/java_drag.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp3">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/csharp_drag.html"--></pre>
+			</div>
+			</div>
+
+			</ol>
+			<p>
+					<a name="step3"></a><span class="dark_heading_two"><font color="#0000FF">3.</font> 
+					Add Some Default Nodes</span></p>
+			<p>
+					<i>Now we will add a few nodes to the interface.&nbsp; 
+					In addition to PNode, Piccolo comes with three basic types of nodes (PPath, PText 
+					and PImage), plus a few in the extras package.&nbsp; We will 
+					add each of the basic types below.</i></p>
+			<ol type="a">
+				<li>First we will use PNode directly.&nbsp; PNode is a 
+				concrete class and can be added to the scene.&nbsp; By default, 
+				a PNode will just fill its bounds with its brush.&nbsp; Add the 
+				following lines of code to the <code>initialize</code> method.<br><br>
+				<a id="jlink4" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+				<a id="clink4" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+				<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet3">
+					<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java4">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/java_node.html"--></pre>
+					</div>
+					<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp4">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/csharp_node.html"--></pre>
+					</div></div>
+				<p>This snippet illustrates how to create a node and add it to 
+				the scene.&nbsp; Typically you will add nodes to the main layer.&nbsp; 
+				It also shows that there are two ways to affect the position and 
+				size of a node, by changing its bounds or its transform.&nbsp; 
+				The first approach does not affect the node's children, while 
+				the second does.&nbsp; You can think of modifying a node's 
+				transform as defining a new coordinate system for that node and 
+				all of its children.<br><br></li>
+				<li>PNode itself is not very 
+				interesting.&nbsp; So, lets try some more advanced nodes.&nbsp; 
+				Add the following lines of code to the <code>initialize</code> method.<br>
+				<br>
+				<a id="jlink5" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+				<a id="clink5" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+				<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet4">
+					<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java5">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/java_advnode.html"--></pre>
+					</div>
+					<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp5">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/csharp_advnode.html"--></pre>
+					</div></div>
+				<p>In the first two lines, we add a couple of path nodes.&nbsp; 
+				<code>PPath</code> 
+				represents a general path.&nbsp; You can create arbitrary paths by adding 
+				line segments and arcs or you can use one of the static <code>CreateXXX</code> 
+				methods to create a common shape.&nbsp; The <code>Pen</code> property in .NET 
+				and <code>the setStroke()</code> and <code>setStrokePaint()</code> methods in java 
+				define how the edge of a path is drawn, while the 
+				<code>Brush</code> property in .NET and the <code>setPaint()</code> method in Java will define how the path is filled.</p>
+				<p>Next, we add a text 
+				node.&nbsp; PText is a multi-line text node that will wrap its 
+				text based on the width of the node's bounds.</p>
+				<p>Finally, we add an image node.&nbsp; PImage wraps an image so 
+				that it can be added to the Piccolo hierarchy.&nbsp; Above, we 
+				take advantage of the <code>PNode.ToImage()</code> method, which can be used to 
+				get a thumbnail of any node.</li>
+		</ol>
+		<p>
+					<a name="step4"></a><span class="dark_heading_two">
+					<font color="#0000FF">4.</font> Create a New Node using 
+					Composition</span></p>
+			<p>
+					<i>The real power of Piccolo is the ability to make new 
+					kinds of interface components.&nbsp; There are various way 
+					to make new types of nodes.&nbsp; Here we will examine how 
+					to create new nodes by combining several pre-existing nodes 
+					together.</i></p>
+			<ol type="a">
+				We will create a face node by adding the eyes and mouth as 
+				the children of another node.&nbsp; Add the following lines of 
+				code to the <code>initialize</code> method.<br><br>
+				
+			<a id="jlink6" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink6" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet5">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java6">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/java_compose.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp6">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/csharp_compose.html"--></pre>
+			</div>
+			</div><br>
+				This works because of the hierarchical nature of Piccolo.&nbsp; 
+				However, by default any node is pickable.&nbsp; &quot;Picking&quot; refers 
+				to the process that determines which node is under the mouse 
+				cursor.&nbsp; Events will be dispatched to the&nbsp; picked node 
+				and passed to each ancestor that also intersects that point (see 
+				the <a class="main_pane" href="interaction.shtml">Defining User Interaction</a> 
+				tutorial).&nbsp; Typically event handlers will modify the picked 
+				node in some way.&nbsp; For example the drag event handler, will 
+				move the picked node, which means that the children can be 
+				dragged around without moving the parent.&nbsp; In this case, we 
+				only want to be able to drag the face as whole.&nbsp; So we make 
+				the face's children not pickable.&nbsp; This means if you click 
+				on an eye, the face will be picked instead.&nbsp; The drag event 
+				handler moves the picked node by modifying its transform so the 
+				eyes and the mouth will also be moved.<br>
+		</ol>
+		<p>
+					<a name="step5"></a><span class="dark_heading_two">
+					<font color="#0000FF">5.</font> Create a New Node using 
+					Inheritance</span></p>
+			<p>
+					<i>Of course, the ultimate creative control comes from 
+					extending the existing node types to create new kinds of 
+					nodes.&nbsp; Here we will use inheritance to build a new 
+					kind of node.</i></p>
+			<ol type="a">
+				<li>We will create a new node that will draw itself as an 
+				ellipse by default and as a rectangle when the mouse is pressed 
+				over the node.&nbsp; We will implement this class by extending 
+				PPath so we don't have to create the ellipse code from scratch.&nbsp; 
+				For an example of how you could create an ellipse node from 
+				scratch see the
+				<a class="main_pane" href="patterns.shtml#Creating Nodes">
+				Creating Nodes Pattern</a>.&nbsp; Add the following internal class beneath 
+				the <code>initialize</code> method.<br><br>
+				<a id="jlink7" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+				<a id="clink7" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+				<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet6">
+					<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java7">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/java_toggle.html"--></pre>
+					</div>
+					<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp7">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/csharp_toggle.html"--></pre>
+					</div></div>
+				<p>
+				In the constructor we use the <code>PPath</code> to create 
+				the ellipse.&nbsp; We store the fIsPressed 
+				field to indicate whether or not the mouse is currently down 
+				over the node.&nbsp; Notice that the set accessor for fIsPressed 
+				sets the value and then calls <code>InvalidatePaint()</code>.&nbsp; 
+				This method notifies the framework that the node needs to be 
+				repainted.&nbsp; Piccolo will then invalidate the child 
+				paint of all the ancestors of this node.&nbsp; Later the screen 
+				damage will be collected for all the nodes with invalid paint 
+				and eventually the <code>Paint()</code> method of those nodes will get 
+				called.&nbsp; Notice that we override the <code>Paint()</code> method to 
+				modify how the node will be drawn when it is repainted.&nbsp; When fIsPressed is 
+				true, we will fill the bounds of the node.&nbsp; Otherwise, we 
+				will just use the base implementation, which will only fill the 
+				ellipse. 
+				<p>
+				Finally, we also use event handlers to set fIsPressed to true 
+				when the mouse is down over the node, and back to false, when 
+				the mouse is released.&nbsp; For more about events, see the <a class="main_pane" href="interaction.shtml">Defining User Interaction</a> 
+				tutorial.<br><br>
+				</li>
+				<li>Now that we've created the new type, we have to actually add 
+				the node to the interface.&nbsp; Add the following lines of code 
+				to the <code>initialize</code> method.<br><br>
+				
+			<a id="jlink8" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink8" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet7">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java8">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/java_inherit.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp8">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t1_interface/csharp_inherit.html"--></pre>
+			</div>
+			</div>
+				</li>
+		</ol>
+		</td>
+		</tr>
+
+		</table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+        
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="Documents%20and%20Settings/Ben%20Bederson/Application%20Data/SSH/style.css" type="text/css">
+<script language="JavaScript" type="text/javascript" src="Documents%20and%20Settings/Ben%20Bederson/Application%20Data/SSH/scrollsidebar.js">
+</script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr>
+	<td valign="top" width="165" nowrap>
+
+	<table border="0" cellpadding="10" cellspacing="0" width="165">
+
+
+	<tr>
+
+        <td valign="top" nowrap>
+			<a href="../index.shtml" class="heading">Piccolo</a><br><br>
+        <a href="../learn/index.shtml" class="side_pane">Learn</a>
+        <br>
+
+	<a href="../play/index.shtml" class="side_pane">Play</a>
+        <br>
+
+	<a href="../team/index.shtml" class="side_pane">Team</a>
+        <br>
+
+	<a href="../press/index.shtml" class="side_pane">Press</a>
+        <br>
+
+	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+
+	<b class="curr_page_link">Applications</b>
+	<br>
+        &nbsp;&nbsp;<a href="#piccolo_net" class="side_pane_small">Piccolo.NET</a>
+        <br>
+        &nbsp;&nbsp;<a href="#pocketpiccolo_net" class="side_pane_small">PocketPiccolo.NET</a>
+        <br>
+        &nbsp;&nbsp;<a href="#java_piccolo" class="side_pane_small">Piccolo.Java</a>
+        <br>
+
+	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
+        <br><br>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="../download/index.shtml" class="side_pane">Download</a>
+        <br>
+        </td></tr>
+	</table>
+
+	</td></tr>
+
+	</table>
+
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+		<tr>
+			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+			<b class="dark_heading">Applications Built on Piccolo</b><br><br>
+
+			Piccolo has been designed from the bottom up for use in robust, 
+			commercial software development.&nbsp; This page shows several 
+			real-world applications that have been built on Piccolo.<p>
+			As you browse through this section and see ongoing work or potential ideas for applications,
+			please let us know if you're interested in pursuing some of your own. We
+			can connect you with additional resources, talk about interface concepts,
+			brainstorm about potential implementations.
+			<p>We'd like to post examples of this work for the broader Piccolo community.
+			If you have something that you can share, please
+			<a href="../contact/index.shtml" class="main_pane">contact
+			us</a>, and we'd be happy to add it to this pages.<br>&nbsp;</td>
+		</tr>
+		<tr>
+			<td bgcolor="#FFFD9C" width="640" height="550" valign="top" class="dark_text">
+			
+
+			<br><a name="piccolo_net"></a><b class="dark_heading_two">Piccolo.NET Applications</b><br><br>
+
+			<table BORDER=0 cellpadding="0" cellspacing="10" id="table2" >
+			<tr VALIGN=BASELINE>
+
+			<td WIDTH="200">
+			<a class="main_pane" href="http://www.photomesa.com">
+			<img border="2" SRC="photomesa3.png"  width=180 height="132"><br>
+			PhotoMesa<br>University of Maryland</a></td>
+
+			<td WIDTH="200">
+			<a class="main_pane" href="http://www.cs.umd.edu/hcil/saphari/">
+			<img border="2" SRC="saphari.png" width=180 height="145"><br>
+			Saphari<br>University of Maryland</a></td>
+
+			<td WIDTH="200">
+			<a class="main_pane" href="http://www.cs.umd.edu/hcil/biodiversity/">
+			<img border="2" SRC="treeplus.png" width=180 height="136"><br>
+			TreePlus<br>University of Maryland</a></td>
+
+			</tr>
+			<tr>
+
+			<td WIDTH="200">
+			<a class="main_pane" href="http://www.cs.umd.edu/~bongshin/projects/PaperLens/">
+			<img border="2" SRC="paperlens.png" width=180 height="140"><br>
+			PaperLens<br>University of Maryland</a></td>
+
+			<td WIDTH="200">
+			<a class="main_pane" href="http://www.cs.umd.edu/hcil/piccolo/play/applet/presentation.shtml">
+			<img border="2" SRC="piccolo-presentation.png" width=180 height="146"><br>
+			Presentation Tool<br>University of Maryland</a></td>
+
+			<td WIDTH="200"><a href="http://www.childrenslibrary.org" class="main_pane">
+			<img border="2" src="bookbuilder_sm.png" width="180"><br>
+			ICDL Communities<br>University of Maryland</a></td>
+
+				</tr>
+			<tr>
+
+			<td WIDTH="200">
+			<a href="http://www.cs.umd.edu/hcil/netlens/" class="main_pane">
+			<img border="2" src="NetLens.jpg"><br>
+			NetLens<br>University of Maryland</a></td>
+
+			<td WIDTH="200">
+			<a href="http://www.k-sketch.org" class="main_pane">
+			<img border="2" src="ksketch.gif"><br>
+			K-Sketch<br>University of California, Berkeley</a></td>
+
+			<td WIDTH="200">&nbsp;</td>
+
+			</tr>
+			</table>
+
+
+			<br><a name="pocketpiccolo_net"></a>
+			<b class="dark_heading_two">PocketPiccolo.NET Applications</b><br><br>
+
+			<table BORDER=0 cellpadding="0" cellspacing="10" id="table3" >
+			<tr VALIGN=BASELINE>
+
+			<td WIDTH="200">
+			<a class="main_pane" href="../learn/papers/chi-applens-launchtile.pdf">
+			<img border="2" SRC="applens.png" width=180 height="240"><br>
+			AppLens<br>University of Maryland<br>Microsoft Research</a></td>
+
+			<td WIDTH="200">
+			<a class="main_pane" href="../learn/papers/chi-applens-launchtile.pdf">
+			<img border="2" SRC="launchtile.png" width=180 height="240"><br>
+			LaunchTile<br>University of Maryland<br>Microsoft Research</a></td>
+
+			</tr>
+			</table>
+
+
+			<br><A NAME="java_piccolo"></A><b class="dark_heading_two">Piccolo.Java Applications</b><br><br>
+
+			<table BORDER=0 cellpadding="0" cellspacing="10" >
+			<tr>
+
+			<td WIDTH="200" height="189">
+			<a class="main_pane" href="http://www.thechiselgroup.org/creole" class="main_pane">
+			<img border="2" SRC="creole/creole.gif" height=121 width=176>
+			<br>Creole<br>University of Victoria</a></td>
+
+			<td WIDTH="200" height="189">
+			<a class="main_pane" href="http://www.thechiselgroup.org/shrimp" class="main_pane">
+			<img border="2" SRC="shrimp/shrimp_sm.gif" height=138 width=190>
+			<br>SHriMP Views
+			<br>University of Victoria</a></td>
+
+			<td WIDTH="200" height="189">
+			<a class="main_pane" href="http://www.thechiselgroup.org/jambalaya" class="main_pane">
+			<img border="2" SRC="jambalaya/jambalaya.gif" height=139 width=187>
+			<br>Jambalaya<br>University of Victoria</a></td>
+			</tr>
+			<tr VALIGN=BASELINE>
+
+			<td WIDTH="200"><a href="http://hisee.sourceforge.net/" class="main_pane">
+			<img border="2" src="HiSee/hisee.gif" width="170"><br>
+			HiSee
+			<br>visualizing high-dimensional datasets
+			<br>hisee.sourcefourge.net</a></td>
+
+			<td WIDTH="200">
+			<a class="main_pane" NAME="java_piccolo" href="http://www.cytoscape.org">
+			<img border="2" src="cytoscape.gif" width="200" height="172"><br>
+			Cytoscape<br>Visualizing molecular interaction networks</a></td>
+
+			<A NAME="java_piccolo">
+
+			<td WIDTH="200"><a href="http://www.jdai.dk/" class="main_pane">
+			<img border="2" src="jdai/jdai.jpeg" width="161" height="129"><br>
+			  Java Digital Album Infrastructure</a></td>
+			</tr>
+			<tr VALIGN=BASELINE>
+			<td WIDTH="200"><a href="http://www.gentleware.com" class="main_pane">
+			<img border="2" src="poseidon-small.jpg" width="197" height="154"><br>
+			Poseidon UML CASE tool<br>
+			Gentleware</a></td>
+			<td WIDTH="200"><a href="http://simbrain.sourceforge.net/" class="main_pane"><img SRC="simbrain/simbrain.jpg" width="172" height="154"><br>
+			Simbrain<br>simbrain.sourceforge.net</a></td>
+			<td WIDTH="200"><a href="http://www.cs.umd.edu/hcil/spacetree/" class="main_pane"><img SRC="spacetree.jpg" height=78 width=200><br>
+			SpaceTree<br>University of Maryland</a></td>
+			</tr>
+
+			<tr>
+			<td WIDTH="200">
+			<a class="main_pane" NAME="java_piccolo" href="http://graphexploration.cond.org/">
+			<img border="2" SRC="guess/guess_sm.jpg" width="200" height="150">
+			Guess<br>Visualizing Zoomable Data Driven Graphs
+			<br>Hewlett-Packard</a></td>
+			<td WIDTH="200">
+			<a class="main_pane" NAME="java_piccolo6" href="http://goodle.org/niagara.html">
+			<img border="2" SRC="niagra.jpg" width="180" height="144">
+			Niagara<br>University of Maryland</a></td>
+			<td WIDTH="200">
+			<a class="main_pane" NAME="java_piccolo8" href="http://www.parc.com/research/publications/details.php?id=5175">
+			<img border="2" SRC="ibookplex.png" width="180" height="161">
+			Instant Bookplex<br>PARC</a></td>
+			</tr>
+
+			<tr>
+			<td WIDTH="200">
+
+			<a class="main_pane" NAME="java_piccolo10" href="http://www-2.cs.cmu.edu/~jernst/stem/">
+			<img border="2" SRC="stem2.png" width="197">
+			STEM<br>Carnegie Mellon</a></td>
+			<td WIDTH="200">
+			
+			<a class="main_pane" NAME="java_piccolo12" href="http://www.cc.gatech.edu/gvu/ii/dnm">
+			<img border="2" SRC="dnm-small.jpg" ><br>Dust &amp; Magnet<br>
+			Georgia Tech</a></td>
+			<td WIDTH="200">
+
+			<a class="main_pane" NAME="java_piccolo14" href="http://www.kerika.com">
+			<img border="2" SRC="kerika.gif" ><br>Kerika<br>
+			Kerika, Inc.</a></td>
+			</tr>
+
+			<tr VALIGN=BASELINE>
+			<td WIDTH="200">
+
+			<a class="main_pane" NAME="java_piccolo16" href="http://csbi.sourceforge.net/">
+			<img border="2" SRC="gini.png" width="197">
+			Gini<br>Institute for Systems Biology</a></td>
+			<td WIDTH="200">
+			
+			<a class="main_pane" NAME="java_piccolo18" href="http://www.wavedna.com/">
+			<img border="2" SRC="wavedna.jpg" width="197">
+			WaveDNA<br>The WaveDNA Project</a></td>
+			<td WIDTH="200">
+
+			<a class="main_pane" NAME="java_piccolo20" href="http://flexo.cismet.de/gadgets/cismap-ogc-client-editor-api/">
+			<img border="2" SRC="cismap.png" width="197">
+			Cismap<br>Cismet Gadgets</a></td>
+			</tr>
+                        <tr VALIGN=BASELINE>
+
+                        <td WIDTH="200" height="189"> 
+                        <a class="main_pane" href="http://www.rimey.com/ray/projects.html#anlan"> 
+                        <img border="2" SRC="anlan.jpg" height=150 width=200> 
+                        <br>Analytic Landscape (Anlan)<br>Lockheed Martin Corporation</a></td>
+
+			<td WIDTH="200">
+			<a href="http://phet.colorado.edu" class="main_pane">
+			<img border="2" src="phet.gif" width="172" height="120"><br>
+			Physics Education Technology<br>University of Colorado</a></td>
+
+			<td WIDTH="200">
+			<a href="http://andrea.l.vitali.googlepages.com/" class="main_pane">
+			<img border="2" src="zdesktop.png" width="200" height="126"><br>
+			ZDesktop<br>Andrea Lorenzo Vitali</a></td>
+
+                        </tr>
+
+			</table>
+
+			&nbsp;</td>
+		</tr>
+		</table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

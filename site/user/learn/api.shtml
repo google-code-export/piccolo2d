@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="../style.css" type="text/css">
+<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr>
+	<td valign="top" width="165" nowrap>
+	<table border="0" cellpadding="10" cellspacing="0" width="165">
+
+
+	<tr>
+
+        <td valign="top" nowrap>
+		<a href="../index.shtml" class="heading">Piccolo</a><br><br>
+        <a href="index.shtml" class="side_pane">Learn</a>
+        <br>
+
+        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="patterns.shtml">Piccolo Patterns</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="get-started.shtml">Getting Started</a>
+  	    <br>
+  	    &nbsp;&nbsp;<span class="curr_page_link_small">API Documentation</span>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="comparison.shtml">Piccolo&nbsp;in&nbsp;Comparison</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="dev-faq.shtml">Developer FAQ</a>
+        <br>        
+        &nbsp;&nbsp;<a href="maillists.shtml" class="side_pane_small">Mailing Lists</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="graphics.shtml">Graphics Primer</a>
+        <br>
+
+	<a href="../play/index.shtml" class="side_pane">Play</a>
+        <br>
+
+	<a href="../team/index.shtml" class="side_pane">Team</a>
+        <br>
+
+	<a href="../press/index.shtml" class="side_pane">Press</a>
+        <br>
+	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+
+	<a href="../applications/index.shtml" class="side_pane">Applications</a>
+        <br>
+
+	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
+        <br><br>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="../download/index.shtml" class="side_pane">Download</a>
+        <br>
+        </td></tr>
+	</table>
+
+	</td></tr>
+
+	</table>
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+		<tr>
+			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+			<b class="dark_heading">API Documentation</b><br><br>
+			Here you'll find detailed documentation of the Piccolo.Java and 
+			Piccolo.NET toolkits.&nbsp; Currently there is no API documentation 
+			for PocketPiccolo.NET.&nbsp; But, the Piccolo.NET API can be used, 
+			since PocketPiccolo.NET is essentially a subset of Piccolo.NET.&nbsp; 
+			We will eventually update the Piccolo.NET API docs to say which 
+			methods are supported in PocketPiccolo.NET.<p></p>
+			</td>
+		</tr>
+
+		<tr>
+		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+			
+			<b class="dark_heading_two">Online Docs</b><p>The online 
+			documentation pertains to the latest release versions of the code.&nbsp; 
+			If you need an earlier snapshot, you can
+			<a href="../download/index.shtml" class="main_pane">download</a> an older distribution 
+			of the code, which includes the documentation.</p>
+			<ul>
+				<li><a href="piccolo/doc-1.2/api/" class="main_pane">Piccolo.Java API</a></li>
+				<li><a href="piccolo.net/doc-1.2/api/" class="main_pane">Piccolo.NET API</a></li>
+			</ul>
+			<b class="dark_heading_two">Integrated Help</b><p>For Piccolo.NET, 
+			we provide a setup file that will integrate the Piccolo 
+			documentation into Visual Studio.NET (versions 2002 or 2003 only).&nbsp; 
+			This allows you to search the documentation within Visual Studio, 
+			just like the standard .NET documentation.&nbsp; This also enables 
+			context sensitive help.&nbsp; For example, if you move the cursor 
+			over a class name like <code>PNode</code> and press <code>F1</code>,
+			you will see the documentation for the PNode class.&nbsp; Download the setup
+			file and double click on it.&nbsp; The next time you run Visual Studio, the 
+			help will be updated.<ul>
+				<li><a href="../download/piccolo.net/Piccolo-Help-1.2.zip" class="main_pane">VS.NET 
+				Integrated Help</a></li>
+				</ul>
+			</td>
+		</tr>
+
+		</table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="../style.css" type="text/css">
+<script language="JavaScript" type="text/javascript" src="snippets.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr>
+	<td valign="top" width="165" nowrap>
+	<table border="0" cellpadding="10" cellspacing="0" width="165">
+
+	<tr>
+
+        <td valign="top" nowrap>
+  	    <a href="../index.shtml" class="heading">Piccolo</a><br><br>
+        <a href="index.shtml" class="side_pane">Learn</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="patterns.shtml">Piccolo Patterns</a>
+        <br>
+        &nbsp;&nbsp;<a href="get-started.shtml" class="side_pane_small">Getting Started</a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="out-of-box-java.shtml">.Java: Out of the Box</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="out-of-box-dotnet.shtml" class="side_pane_small">.NET: Out of the Box</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interface.shtml">The Interface</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interaction.shtml">User Interaction</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="effects.shtml">Special Effects</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="curr_page_link_small">Fisheye Calendar</span>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="grapheditor.shtml">Graph Editor</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="api.shtml">API Documentation</a>
+        <br>
+        &nbsp;&nbsp;<a href="comparison.shtml" class="side_pane_small">Piccolo&nbsp;in&nbsp;Comparison</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="dev-faq.shtml">Developer FAQ</a>
+        <br>        
+        &nbsp;&nbsp;<a href="maillists.shtml" class="side_pane_small">Mailing Lists</a>
+        <br>
+
+	<a href="../play/index.shtml" class="side_pane">Play</a>
+        <br>
+
+	<a href="../team/index.shtml" class="side_pane">Team</a>
+        <br>
+
+	<a href="../press/index.shtml" class="side_pane">Press</a>
+        <br>
+
+	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+
+	<a href="../applications/index.shtml" class="side_pane">Applications</a>
+        <br>
+
+	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
+        <br><br>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="../download/index.shtml" class="side_pane">Download</a>
+        <br>
+        </td></tr>
+	</table>
+
+	</td></tr>
+
+	</table>
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+		<tr><p>
+			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+			<b class="dark_heading">Getting Started</b><br><br>
+			Here you will find both basic and advanced tutorials to help you get 
+			started using Piccolo.&nbsp; All tutorials provide examples in both 
+			Java and C#.&nbsp; This section assumes you have read 
+			<a href="patterns.shtml" class="main_pane">Piccolo 
+			Patterns</a> and have a basic understanding of the concepts 
+			presented there.<p>
+			</td>
+		</tr>
+
+		<tr>
+		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+			<table border="0" width="100%" id="table1">
+				<tr>
+					<td>
+					<b class="dark_heading_two">
+					Fisheye Calendar</b><p><i>This tutorial will 
+					illustrate how you 
+					might build a tabular fisheye interface using Piccolo.&nbsp; 
+					Clicking on one cell will give that cell the fisheye focus 
+					while shrinking the surrounding cells.&nbsp; Such an 
+					interface might be useful when you don't have much screen 
+					real estate to deal with.</i></td>
+					<td valign="top">
+					<div style="border:thin solid blue; position: relative; width: 123px; height: 70px; z-index: 3; float: right" id="language">
+						&nbsp;Show examples in<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img border="0" src="images/check.gif" width="15" height="15" id="java0">
+						<a id = "jlink0" class="main_content" style="color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">
+						Java</a><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img style="visibility: hidden" border="0" src="images/check.gif" width="15" height="15" id="csharp0">
+						<a id = "clink0" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">
+						C#</a></div>
+					</td>
+				</tr>
+			</table>
+			<p></p>
+			
+			<center>
+			<img border="0" src="images/fisheye.jpg"><br>Download the complete code sample in 
+					<a class="main_pane" href="codesamples/TabularFisheye.Java.zip">Java</a> or 
+					<a class="main_pane" href="codesamples/TabularFisheye.NET.zip">C#</a>.<br>
+					<a class="main_pane" href="../play/applet/fisheyecalendar.shtml">
+			Play</a> with the interface.</center>
+			
+			<p><span class="dark_heading_two">Overall Architecture</span></p>
+			In this example, we will create two custom nodes, a <code>DayNode</code> and 
+			a <code>CalendarNode</code>.&nbsp; The <code>DayNode</code> will be responsible 
+			for rendering the contents of a single cell within the calendar.&nbsp; 
+			This node will use <i>semantic zooming</i> to control how a day is 
+			rendered, depending on whether or not that day is focused.<p>The 
+			<code>CalendarNode</code> will be responsible for laying out all of the <code>DayNodes</code> 
+			in a tabular fashion.&nbsp; Every <code>DayNode</code> will be added as a child 
+			to the <code>CalendarNode</code>.&nbsp; This node will also handle the user 
+			interaction, focusing on a cell in response to a click, and 
+			animating transitions when requested to do so.</p>
+			<p>We will then create a reusable <code>TabularFisheye</code> component that extends <code>PCanvas</code>.&nbsp; 
+			This component will add the calendar node to the scene-graph and resize it when 
+			the component is resized.&nbsp; Finally, we will create a wrapper 
+			window called <code>TabularFisheyeTester</code> and add our new component to the window.</p>
+			<p>&nbsp;<a name="step1"></a><span class="dark_heading_two"><font color="#0000FF">1.</font> 
+			Create a Day Node</span></p>
+			</p>
+			</p>
+			<p>
+					<i>We will create a node that will be responsible for 
+					rendering the contents of a single cell within in the 
+					calendar.&nbsp; This node will use semantic zooming to 
+					control how each day is rendered depending on whether or not 
+					the day has the fisheye focus.&nbsp; The day that is 
+					expanded both vertically and horizontally has the focus.</i></p>
+			<ol type="a">
+				Here, we will create the day node.&nbsp; Add the following 
+				class to your project.<br><br>
+				<a id="jlink1" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+				<a id="clink1" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+				<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet0">
+					<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java1">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/java_daynode.html"--></pre>
+					</div>
+					<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px" id="csharp1">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/csharp_daynode.html"--></pre>
+					</div></div>
+				<p>This node stores two boolean values that indicate whether it 
+				should be expanded vertically and horizontally, a list of appointments, two integer values for 
+				the week and the day that the cell lies on, and a string 
+				representation of the day of the month.</p>
+				<p>The paint method draws the day of the month in the upper left 
+				corner.&nbsp; And, when the cell has the focus, it also renders 
+				the list of appointments, since there will be more space for 
+				this information.&nbsp; A cell has the focus when it is expanded 
+				both vertically and horizontally.&nbsp; See the picture above.<br>
+		</ol>
+			<p>
+					<a name="step2"></a><span class="dark_heading_two"><font color="#0000FF">2.</font> 
+					Create a Calendar Node</span></p>
+			<p>
+					<i>We will create a node that will be responsible for laying 
+					out all of the day nodes within the tabular calendar.</i></p>
+			<ol type="a">
+			
+			<li>Here, we will create the calendar node.&nbsp; Add the following 
+			class to your project.<br><br>
+			
+			<a id="jlink2" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink2" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet1">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java2">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/java_calnode.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp2">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/csharp_calnode.html"--></pre>
+			</div>
+			</div>
+			<p>The constructor adds all of the day nodes as children to the 
+			calendar node.&nbsp; The 
+			actual number of days in the calendar is determined by the <code>numDays</code> 
+			and <code>numWeeks</code> fields.&nbsp; The <code>GetDay</code> 
+			method retrieves a particular day node.</p>
+			
+			<p>The most interesting part 
+			of the class is the <code>LayoutChildren</code> method.&nbsp; This 
+			is where all of the day nodes are sized and arranged in a tabular 
+			fashion.&nbsp; Days that are expanded vertically receive a certain 
+			percentage of the overall height and days expanded horizontally 
+			receive a certain percentage of the overall width.&nbsp; The remaining 
+			space is divided equally among the unexpanded days.<p>This method 
+			should not be confused with <code>PNode</code>'s <code>LayoutChildren</code> method, 
+			which gets called whenever a node's bounds or one of its desendent's 
+			bounds change.&nbsp; We could have overridden that method to do our 
+			layout.&nbsp; But, since we want the option to animate the layout we 
+			create a custom method, which takes an <code>animate</code> flag to 
+			indicate if the children should be animated to their new positions.&nbsp; 
+			When the user clicks on a node, we will 
+			call this method with animate set to 
+			true.&nbsp; And when the calendar node is resized, we will call this 
+			method 
+			with animate set to false.<br><br>
+			</li>
+			<li>Next we will add the interaction.&nbsp; Add this code to your the <code>CalendarNode</code> defined 
+							above.&nbsp; For the Java version, you should add 
+			the anonymous event listener class to the constructor.<br><br>
+			<a id="jlink3" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink3" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+			</p>
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet2">
+				<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java3">
+					<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/java_calevent.html"--></pre>
+				</div>
+				<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px" id="csharp3">
+					<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/csharp_calevent.html"--></pre>
+				</div></div>
+			<p>When the mouse is released, and the picked day is unfocused, we 
+			will set the focus to that day.&nbsp; If the picked day already has 
+			the focus, we will remove the focus from that day.&nbsp; The <code>SetFocusDay</code> method 
+			will determine whether or not each day in the calendar should be 
+			expanded vertically or horizontally and set that's node's focus properties accordingly.&nbsp; 
+			Then <code>LayoutChildren</code> will be called to animate the nodes 
+			to their new layout.</p>
+			</li>
+			
+			</ol>
+			<p>
+					<a name="step3"></a><span class="dark_heading_two"><font color="#0000FF">3.</font> 
+					Create a Fisheye Canvas</span></p>
+			<p>
+					<i>Unlike the previous tutorials, we are not going to extend 
+					PForm or PFrame in this example.&nbsp; Instead we will make 
+					a reusable component that extends PCanvas and we will add 
+					that component to our Java or .NET window.</i></p>
+			<ol type="a">
+				We extend PCanvas and add the calendar 
+				node to the scene-graph.<br><br>
+				<a id="jlink4" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+				<a id="clink4" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+				<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet3">
+					<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java4">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/java_canvas.html"--></pre>
+					</div>
+					<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp4">
+						<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/csharp_canvas.html"--></pre>
+					</div></div>
+					<br>We turn off the default pan and zoom handlers.&nbsp; And 
+				we listen to resize events to
+				set the bounds of the calendar node and lay out its children.
+		</ol>
+		<p>
+					<a name="step4"></a><span class="dark_heading_two">
+					<font color="#0000FF">4.</font> Add the Canvas to a Window</span></p>
+			<p>
+					<i>Now we are ready to add our new component to the window.</i></p>
+			<ol type="a">
+				We create a <code>JFrame</code> in Java or a <code>Form</code> in .NET as a wrapper for our 
+				component.&nbsp; Add the 
+				following class to your project.<br><br>
+				
+			<a id="jlink5" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink5" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet4">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java5">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/java_window.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px" id="csharp5">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/t4_fisheye/csharp_window.html"--></pre>
+			</div>
+			</div>
+			<br>First, we create an instance of our TabularFisheye component and add it 
+				to the window.&nbsp; In the .NET version, we anchor our new 
+				component, so that it will get resized as the window is resized.&nbsp; Java handles this for 
+				us.</ol>
+		</td>
+		</tr>
+
+		</table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

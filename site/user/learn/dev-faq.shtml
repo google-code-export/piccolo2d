@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="../style.css" type="text/css">
+<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr>
+	<td valign="top" width="165" nowrap>
+	<table border="0" cellpadding="10" cellspacing="0" width="165">
+
+
+	<tr>
+
+        <td valign="top" nowrap>
+		<a href="../index.shtml" class="heading">Piccolo</a><br><br>
+        <a href="index.shtml" class="side_pane">Learn</a>
+        <br>
+
+        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="patterns.shtml">Piccolo Patterns</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="get-started.shtml">Getting Started</a>
+	    <br>
+	    &nbsp;&nbsp;<a class="side_pane_small" href="api.shtml">API Documentation</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="comparison.shtml">Piccolo&nbsp;in&nbsp;Comparison</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
+        <br>
+        &nbsp;&nbsp;<span class="curr_page_link_small">Developer FAQ</span>
+        <br>        
+        &nbsp;&nbsp;<a class="side_pane_small" href="maillists.shtml">Mailing Lists</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="graphics.shtml">Graphics Primer</a>
+        <br>
+
+	<a href="../play/index.shtml" class="side_pane">Play</a>
+        <br>
+
+	<a href="../team/index.shtml" class="side_pane">Team</a>
+        <br>
+
+	<a href="../press/index.shtml" class="side_pane">Press</a>
+        <br>
+
+	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+
+	<a href="../applications/index.shtml" class="side_pane">Applications</a>
+        <br>
+
+	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
+        <br><br>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="../download/index.shtml" class="side_pane">Download</a>
+        <br>
+        </td></tr>
+	</table>
+
+	</td></tr>
+
+	</table>
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+		<tr>
+			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+			<b class="dark_heading">Developer's FAQ</b><br><br>
+			Here you'll find answers to commonly asked questions about all three 
+			versions of Piccolo.&nbsp; If you don't find your answer here, you 
+			can always send it to the <a href="maillists.shtml" class="main_pane">piccolo-chat</a> 
+			mailing list.<p></p>
+			</td>
+		</tr>
+
+		<tr>
+		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+			
+			<ul>
+				<li><a class="main_pane" href="#q1">Is Piccolo thread-safe?</a></li>
+				<li>
+			<a class="main_pane" href="#q2">Why is my app so slow?</a></a></li>
+				<li>
+			<a class="main_pane" href="#q3">Why are the bounds of my nodes 
+			incorrect?</a></li>
+				<li>
+			<a class="main_pane" href="#q4">Why don't PPath's bounds match the points in the path?</a></li>
+				<li>
+			<a class="main_pane" href="#q5">How do I compare bounds in different 
+			coordinate systems?</a></li>
+				<li>
+			<a class="main_pane" href="#q6">How do I deploy Piccolo on the Web?</a></li>
+				<li>
+			<a class="main_pane" href="#q7">Why do I get unpredictable results when 
+			I create two activities that act on the same object?</a></li>
+				<li>
+			<a class="main_pane" href="#q8">How do I control the order of activities?</a></li>
+				<li>
+			<a class="main_pane" href="#q9">Why is it safe to modify an activity after I 
+			create it?</a>&nbsp;</li>
+			</ul>
+			<p><b class="dark_heading_two"><a name = "q1"></a>Is Piccolo thread-safe?</b><p>No. 
+			Piccolo is <b>not</b> thread-safe. Piccolo has been designed from 
+			the start to run <b>only</b> in a single thread (usually the event 
+			dispatch thread). This constrains the way Piccolo applications can 
+			be built, but we feel that overall, it increases usability by 
+			simplifying code, and eliminating thread-debugging issues.<p>Of 
+			course, you can still build multi-threaded applications.&nbsp; The 
+			key is to invoke any updates on the main event dispatch thread.&nbsp; 
+			For java, use the <code>invokeLater()</code> method and for .NET use
+			<code>BeginInvoke()</code>.
+			<br><br><b class="dark_heading_two"><a name = "q2"></a>Why is my app so slow?</b><br>
+			<p>
+			The best way to see what's taking so long is to run your code in a 
+			profiler. Often the results will surprise you. If you can't get a 
+			profiler, then you might try commenting out parts of you application 
+			and seeing how that affects performance.</p>
+			<p>
+			If you are drawing a large number of nodes, rendering may be the 
+			bottleneck. There two ways to tackle this problem: make the 
+			individual nodes draw faster, or draw fewer nodes. Drawing strokes 
+			that have a width of more then one pixel seems to be a fairly 
+			expensive operation. If you are using PPath, try setting the stroke 
+			paint or pen to null and see how that affects performance. If you 
+			need to render the strokes, you could try setting the stroke width 
+			to zero, which has the effect of always drawing a one-pixel wide 
+			stroke. For PImage nodes, you might try using lower resolution 
+			images during animated transitions. Drawing fewer nodes is more 
+			difficult. You could try a 
+			<a class="main_pane" href="patterns.shtml#Semantic Zooming">semantic zooming</a> pattern, where you 
+			decide what to draw based on the scale that a node is being viewed 
+			at. For instance, you might have one large parent node that contains 
+			many smaller child &quot;detail&quot; nodes. To improve performance, you could 
+			only draw those detail nodes when you are zoomed in on them.</p>
+			<p>
+			If you try the above approaches and things are still slow, your application may be caught in a soft infinite loop. This loop is 
+			created when you change an attribute in your scene that requires a 
+			repaint, while you are in the process of painting your scene. It 
+			will create a problem where you CPU will be active even when your 
+			not interacting with the scene graph. You can check if you are in 
+			this situation by setting the <code>PDebug.debugPaintCalls</code> flag.&nbsp; 
+			It will print a warning to <code>System.err</code> in Java and 
+			<code>System.Console.Error</code> in .NET if repaint is called when the 
+			canvas is getting painted.&nbsp; Note this might happen occasionally 
+			when the application is loaded and initialized, but if it turns into 
+			a recursive process something is going wrong.</p>
+			<b class="dark_heading_two"><a name = "q3"></a>Why are the bounds of my nodes 
+			incorrect?</b><br><br>You may be confused between bounds 
+			and transforms.&nbsp; There are two ways to modify the position and size of a node. You 
+			can modify the node's <i>bounds</i> or you can modify the <i>affine 
+			transform</i> that is applied to that node.<p>Each node has an 
+			affine transform that defines a local coordinate system for that 
+			node.&nbsp; If you're not sure what that means, check out the
+			<a class="main_pane" href="graphics.shtml#Transformations">Geometric 
+			Transformations</a> section of the Graphics Primer.&nbsp; If you 
+			position a node by calling a method like <code>TranslateBy()</code>, <code>RotateBy()</code>, 
+			<code>ScaleBy()</code>, <code>OffsetBy()</code>, and many others, you are modifying the node's 
+			transform.&nbsp; Each transformation you apply defines a new 
+			coordinate system, with a new origin.&nbsp; For example, if you set 
+			a node's bounds to (0, 0) and then translate node by (10, 10) you will 
+			define a new coordinate system for that node with an origin at (10, 
+			10).&nbsp; See the
+			<a class="main_pane" href="graphics.shtml#coordinate">Coordinate 
+			Systems</a> section of the Graphics Primer.&nbsp; The bounds however 
+			will still be at location (0, 0) because they are stored in the 
+			local coordinate system of the node.&nbsp; That is (0, 0) now refers 
+			to the new origin at (10, 10) in global coordinates.<p align="center">
+			<img border="0" src="images/faq-coord1.gif"><p>Transforms are also hierarchical.&nbsp; 
+			That means if you modify a node's transform, it will affect that 
+			node and all of its children.&nbsp; Let's suppose you add a child to 
+			the node described above and set its bounds to (0, 0).&nbsp; The new 
+			node will appear at (10, 10) because the transform of the parent is 
+			applied down the hierarchy.&nbsp; Now, let's suppose you translate 
+			the new node by (10, 10).&nbsp; Where will it appear?&nbsp; At (20, 
+			20).&nbsp; You have now defined a new local coordinate system for 
+			the child node with an origin at&nbsp;(20, 20).&nbsp; Remember the 
+			bounds will still be at (0, 0) with respect to the new local 
+			coordinate system.&nbsp; Check out the
+			<a class="main_pane" href="graphics.shtml#Matrix">Matrix 
+			Transformations</a> section of the Graphics Primer to see what's 
+			really going on here.<p>So, what exactly are bounds then?&nbsp; 
+			You can think of a node's bounds as a rectangular bounding box that 
+			is guaranteed to be large enough to contain whatever a node renders, 
+			which also happen to be stored in the local coordinate system of the node.&nbsp; If you position a node by setting the <code>X</code>, <code>Y</code>, <code>Width</code>, 
+			<code>Height</code>, or <code>Bounds</code> properties, you are 
+			setting the node's bounds.&nbsp; Bounds are used by framework for 
+			efficient rendering and picking and can be useful to Piccolo users as well.&nbsp; 
+			Bounds are not hierarchical.&nbsp; In the above example if we set 
+			the parent node's bounds to (10, 10), the parent will move to (10, 
+			10), but the child will not be affected since modifying a node's 
+			bounds will <b>not</b> change it's coordinate system.<p>Setting a 
+			node's bounds will have different effects on different types of nodes, 
+			depending on how they are implemented.&nbsp; But, in general, nodes 
+			will change how the render to accommodate the new bounds.&nbsp; For example, setting 
+			the bounds of a PImage will simply scale the rendered image to the 
+			new bounds.&nbsp; Setting the bounds of a PText will clip the text.&nbsp; 
+			But, if the <code>ConstrainWidthToTextWidth</code> or <code>ConstrainHeightToTextHeight</code> 
+			flags are set, setting the width or height respectively will have no 
+			effect.&nbsp; Finally, setting the bounds of a PPath will scale the 
+			points to fit within the new bounds.<p><b class="dark_heading_two">
+			<a name = "q4"></a>Why don't PPath's bounds match the points in the path?</b><p>PPath contains a set of points that are 
+			rendered with a pen.&nbsp; But, the bounds will not be exactly equal 
+			to the bounding box of the points in the path.&nbsp; Remember, the 
+			bounds are at least as big as the object, they are <b>not</b> a 
+			representation of the object.&nbsp; Since paths have a pen with a 
+			default width of 1, the bounds will be the bounding box of the 
+			points in the path, plus half the pen width on all sides (.5).&nbsp; 
+			So, what happens when you set the bounds of a path?&nbsp; Piccolo 
+			will scale the points to fit within the new bounds.&nbsp; So, if you 
+			set the width to 60, the rectangle will have a width of 59, with the 
+			pen extending .5 on either side. 
+			<p>
+			<b class="dark_heading_two"><a name = "q5"></a>How do I compare bounds in different 
+			coordinate systems?</b><p>
+			With potentially thousands of different coordinate systems in a 
+			single piccolo interface, how do you compare the bounds of two 
+			nodes?&nbsp; Luckily there are several methods to help you convert 
+			between coordinate systems.&nbsp; 
+			See the
+			<a class="main_pane" href="patterns.shtml#Coordinate Systems">Coordinate 
+			Systems</a> section of Piccolo Patterns for details.<p>
+			<b class="dark_heading_two"><a name = "q6"></a>How do I deploy Piccolo on the Web?</b><p>
+			<i>In Piccolo.Java,</i><p>
+			You can deploy applets that use Piccolo.&nbsp; However, the Java 
+			Runtime will need to be installed on the client machine and the 
+			applets are subject to the browser's 
+			security settings.&nbsp; To create a Java applet that uses piccolo 
+			do the following:<ol>
+				<li>Extend the  <code>PApplet</code> class<code>, located in the 
+				extras package, and </code>add your piccolo code to the <code>initialize</code> method. </li>
+				<li>Compile your applet with piccolo.</li>
+				<li>Copy the Piccolo JARs and class files to a location on the webserver.</li>
+				<li>Finally create an html file with an applet tag to load the 
+				applet.&nbsp; If your applet class was called MyApplet, the 
+				applet tag might look something like this:<br></li>
+			</ol>
+<pre>     &lt;applet archive=&quot;piccolo.jar, piccolox.jar&quot; code=&quot;MyApplet.class&quot;
+     width=200 height=100&gt;&lt;/applet&gt;</pre>
+			<i>In Piccolo.NET,</i><p>
+			You can embed a .NET control, that uses piccolo, in Internet Explorer.&nbsp; 
+			The .NET Runtime will need to be installed on the client machine.&nbsp; 
+			In practice, this will limit you to windows-based clients.&nbsp; 
+			And, this approach will not work with browsers other than Internet 
+			Explorer.<p>
+			The .<a class="main_pane" href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnnetsec/html/netframesecover.asp">NET 
+			security model</a> places additional restrictions on embedding 
+			controls in Internet Explorer.&nbsp; If you are deploying your control locally, you 
+			won't have too much trouble.&nbsp; But, if you are deploying it over 
+			the web, you might run into some roadblocks.&nbsp; The default 
+			Internet Zone security settings on most machines will not allow you 
+			to load external dlls, which will be a problem if your applet 
+			references Piccolo.&nbsp; The default security settings 
+			also restrict some of Piccolo's keyboard input code from running.&nbsp; 
+			To solve this problem, you could have the client fully trust your site, 
+			or decrease their security settings.&nbsp; But, that might not be 
+			desirable.&nbsp; Alternatively, you can do a couple of hacks to get 
+			your control to work for most of the world.&nbsp; This approach is 
+			described below.<ol>
+				<li>Uncomment the line &quot;#define WEB_DEPLOY&quot; from PCanvas and recompile 
+			Piccolo.NET.&nbsp; This will exclude any code that violates the 
+				default Internet Zone settings.</li>
+				<li>Create a new class library project that references the DLLs 
+				created in 
+				step 1.</li>
+				<li>Extend PCanvas to create a new control.</li>
+				<li>Compile your project to create a new DLL that contains your control.</li>
+				<li>Merge your DLL with the Piccolo DLLs using a tool like
+				<a class="main_pane" href="http://research.microsoft.com/~mbarnett/ilmerge.aspx">ILMerge</a>.</li>
+				<li>Copy the DLL created in step 5 to a location on the webserver.</li>
+				<li>Finally, create an html file with an object tag to load the 
+				control.&nbsp; If your control class was called MyControl and 
+				you named the merged DLL Lib.dll, then the object tag might look 
+				something like this:</li>
+			</ol>
+			<p>
+			<pre>     &lt;object classid=&quot;Lib.dll#MyControl&quot; height=&quot;400&quot; width=&quot;300&quot;&gt;&lt;/object&gt;</pre>
+			<p>
+			<b class="dark_heading_two"><a name = "q7"></a>Why do I get unpredictable results when 
+			I create two activities that act on the same object?</b><p>
+			Each activity has a start time, which by default is set to the current 
+			time.&nbsp; Suppose you call one of PNode's animate methods 
+			multiple times:<p>
+			<code>
+			node.AnimateToPositionScaleRotation(0, 150, 1, 0, 1000);<br>
+			node.AnimateToPositionScaleRotation(150, 0, 1, 0, 2000);
+			</code>
+			<p>
+			You might think the node will first animate to (0, 150) and then 
+			animate to (150, 0).&nbsp; Instead, both activities occur 
+			simultaneously.&nbsp; Each time piccolo processes activities, it 
+			will give both animations a chance to step.&nbsp; It will move the 
+			node a bit in one direction and then a bit in the other direction.&nbsp; 
+			But, since updates are merged, it will appear as if only the first 
+			activity is executing.&nbsp; Then, since the second activity has a 
+			longer duration, the node will jump to the middle of the second 
+			animation and continue.&nbsp; This is probably not the intended 
+			behavior.&nbsp; The solution is to set the start time.<p>
+			<code>
+			PActivity a1 = n.AnimateToPositionScaleRotation(0, 150, 1, 0, 1400);<br>
+			PActivity a2 = n.AnimateToPositionScaleRotation(150, 0, 1, 0, 2000);<br>
+			a2.StartTime = a1.StartTime + a1.Duration;</code><p>
+			Now, the node will animate all the way to (0, 150) and then to (150, 
+			0), as expected.<p>
+			<b class="dark_heading_two"><a name = "q8"></a>How do I control the order 
+			of activities?</b><p>
+			You can control the order of activities by setting each activity's 
+			start time.&nbsp; And, you can use the root node's global time as 
+			the 
+			current time.&nbsp; So, if you want an activity to start four seconds 
+			from now, you could do the following:<p>
+			<code>activity.StartTime = Canvas.Root.GlobalTime + 4000;</code><p>
+			PActivity also has a convenience method to schedule an activity to 
+			start after another activity:<p>
+			<code>secondActivity.StartAfter(firstActivity);</code><p>
+			Internally, this just sets the start time of <code>secondActivity</code> to be 
+			<code>firstActivity's</code> start time plus its duration.<p>
+			<b class="dark_heading_two"><a name = "q9"></a>Why is it safe to modify an activity after I 
+			create it?</b><p>
+			You might wonder why you can schedule an activity and then set its 
+			start time, or any of its properties for that matter.&nbsp; The 
+			reason is because the activity does not start running &quot;immediately,&quot; 
+			even if its start time is set to the current time.&nbsp; When you schedule 
+			an activity with the root or call an animate method, the activity is 
+			added to an internal list stored in the <code>PActivityScheduler</code> class.&nbsp; 
+			<code>PActivityScheduler</code> also stores a windows timer.&nbsp; The scheduled 
+			activity will be given its first chance to step the next time the 
+			timer fires, which will be some time after the current method ends.<p>
+			<br></td>
+		</tr>
+
+		</table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

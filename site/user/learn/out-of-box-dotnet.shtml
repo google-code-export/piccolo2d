@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="../style.css" type="text/css">
+<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr>
+	<td valign="top" width="165" nowrap>
+	<table border="0" cellpadding="10" cellspacing="0" width="165">
+
+	<tr>
+
+        <td valign="top" nowrap>
+		<a href="../index.shtml" class="heading">Piccolo</a><br><br>
+        <a href="index.shtml" class="side_pane">Learn</a>
+        <br>
+
+        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="patterns.shtml">Piccolo Patterns</a>
+        <br>
+        &nbsp;&nbsp;<a href="get-started.shtml" class="side_pane_small">Getting Started</a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="out-of-box-java.shtml">.Java: Out of the Box</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="curr_page_link_small">.NET: Out of the Box</span>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interface.shtml">The Interface</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interaction.shtml">User Interaction</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="effects.shtml">Special Effects</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="fisheye.shtml">Fisheye Calendar</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="grapheditor.shtml">Graph Editor</a>
+        <br>        
+        &nbsp;&nbsp;<a class="side_pane_small" href="api.shtml">API Documentation</a>
+        <br>
+        &nbsp;&nbsp;<a href="comparison.shtml" class="side_pane_small">Piccolo&nbsp;in&nbsp;Comparison</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="dev-faq.shtml">Developer FAQ</a>
+        <br>        
+        &nbsp;&nbsp;<a href="maillists.shtml" class="side_pane_small">Mailing Lists</a>
+        <br>
+
+	<a href="../play/index.shtml" class="side_pane">Play</a>
+        <br>
+
+	<a href="../team/index.shtml" class="side_pane">Team</a>
+        <br>
+
+	<a href="../press/index.shtml" class="side_pane">Press</a>
+        <br>
+
+	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+
+	<a href="../applications/index.shtml" class="side_pane">Applications</a>
+        <br>
+
+	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
+        <br><br>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="../download/index.shtml" class="side_pane">Download</a>
+        <br>
+        </td></tr>
+	</table>
+
+	</td></tr>
+
+	</table>
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+		<tr>
+			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+			<b class="dark_heading">Getting Started</b><br><br>
+			Here you will find both basic and advanced tutorials to help you get 
+			started using Piccolo.&nbsp; All tutorials provide examples in both 
+			Java and C#.&nbsp; This section assumes you have read 
+			<a href="patterns.shtml" class="main_pane">Piccolo 
+			Patterns</a> and have a basic understanding of the concepts 
+			presented there.<p></p>
+			</td>
+		</tr>
+
+		<tr>
+		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+			
+			<b class="dark_heading_two">Piccolo.NET: Out of the Box</b><p><i>This tutorial 
+			will help you figure out where to begin.&nbsp; It will guide you from 
+			downloading Piccolo to writing and compiling your first zoomable 
+			user interface.</i></p>
+			<p><a name="step1"></a><span class="dark_heading_two"><font color="#0000FF">1.</font> 
+			Get the Pre-Requisites</span></p>
+			<p><i>In order to write your first Piccolo.NET application, you will 
+			need to make sure that you have the following:</i></p>
+			<ul>
+				<li><i>Visual Studio .NET</li> -</i> This tutorial assumes that 
+				you are using Visual Studio .NET as your development environment.&nbsp; 
+				Visual Studio is not required to write Piccolo.NET applications, 
+				but we do recommend using it.&nbsp; If you do not already have 
+				Visual Studio, you can purchase 
+				it from Microsoft.<br><br>
+				<li><i>The .NET Framework</i></li> - To run any Piccolo.NET 
+				code, you must have the .NET Framework (version 1.1)&nbsp; 
+				installed on your machine.&nbsp; The .NET Framework SDK comes 
+				with Visual Studio.&nbsp; If you do not have Visual Studio, you 
+				can download the 
+				<a class="main_pane" href="http://www.microsoft.com/downloads/details.aspx?FamilyId=9B3A2CA6-3647-4070-9F41-A333C6B9181D&displaylang=en">
+				.NET SDK</a> directly.<br><br>
+
+				<li><i>Piccolo.NET DLLs</i> - Of course, you will need 
+				Piccolo.NET.&nbsp; You can download the DLLs or the full source 
+				code from the
+				<a class="main_pane" href="../download/index.shtml">download 
+				page</a>.</li><br><br>
+				<li><i>Piccolo.NET Documentation</i> - Optionally, you may 
+				want to download Piccolo.NET's
+				<a class="main_pane" href="api.shtml">integrated help</a>.&nbsp; 
+				This will enable context sensitive help within 
+				the development environment.</li>
+			</ul>
+			
+			<p><a name="Environment"></a><b class = "dark_heading_two">Setting up the Environment</b></p>
+			<p><i>These steps will help you setup the Visual Studio environment 
+			to improve the Piccolo.NET development experience.</i></p>
+
+			<p><a name="step2"></a><span class="dark_heading_two"><font color="#0000FF">2.</font> 
+			Install the Documentation</span></p>
+			<p><i>It will guide you through 
+			installing the Piccolo.NET API documentation directly 
+				into Visual Studio and will enable context sensitive help within 
+				the development environment.&nbsp; If you do not want to install Piccolo.NET's integrated help, you 
+			can skip to <a class="main_pane" href="#step3">step 3</a>.</i></p>
+			<ol type="a">
+				<li>Make sure Visual Studio is closed.<br><br></li>
+				<li>Locate the file &quot;Piccolo-Help-1.0.zip,&quot; which you downloaded 
+				in step 1.&nbsp; Extract the zipped package using WinZip or 
+				another compression utility.<br><br></li>
+				<li>Open the folder where you extracted the file and 
+				double click on the &quot;Piccolo Help Setup.msi&quot; file.<br><br></li>
+				<li>Follow the on-screen directions of the setup program.<br><br></li>
+				<li>Open Visual Studio and click on the &quot;Contents&quot; option 
+				of the &quot;Help&quot; menu, to display contents.&nbsp; You 
+				will probably receive a message that &quot;help is updating to reflect 
+				your recent changes.&quot;&nbsp; It can take several 
+				minutes to add all of the Piccolo.NET documentation to Visual 
+				Studio.&nbsp; There should be an entry in the help contents called 
+				&quot;Piccolo.NET.&quot;&nbsp; You can now browse the documentation 
+				through the contents or search it using the Index.&nbsp; You can 
+				also use context sensitive help.&nbsp; For example, if you move 
+				the cursor over the name of a Piccolo type, such as PNode, and 
+				press <code>F1</code>, you will get the documentation for that 
+				type.</li>
+			</ol>
+
+			<p><a name="step3"></a><span class="dark_heading_two"><font color="#0000FF">3.</font> Add 
+			PCanvas to the Toolbox</span></p>
+			<p><i>All Piccolo interfaces need to be placed in the piccolo 
+			canvas, <code>PCanvas,</code> 
+			so that they may be viewed and interacted with by the user. This step will show you how to add the 
+			<code>PCanvas</code> to the Visual Studio Toolbox.&nbsp; This will 
+			enable you to drag the canvas directly to a form using the Visual 
+			Designer, rather than adding the canvas programmatically.</i></p>
+			
+			<div style="width: 100px; height: 100px; float: right" id="layer1">
+			<img border="0" src="images/toolbox.gif" width="181" height="317"></div>
+			
+			</div>
+
+			<ol type="a">
+				<li>Open Visual Studio, if it is not already open<br><br></li>
+				<li>Make sure the Toolbox is showing.&nbsp; If it is not, click 
+				on the &quot;View&quot; drop down menu and select the item named 
+				&quot;Toolbox&quot;.<br><br></li>
+				<li>If you do not see a &quot;Windows Forms&quot; button on the Toolbox, 
+				right click on the Toolbox and select &quot;Show All Tabs&quot;.<br><br></li>
+				<li>Press the &quot;Windows Forms&quot; button to show the windows forms 
+				tools.<br><br></li>
+				<li>Right click anywhere on the Toolbox and select &quot;Add/Remove Items...&quot; 
+				from the popup menu.<br><br></li>
+				<li>When the &quot;Customize Toolbox&quot; window pops up, click on the &quot;Browse&quot; button.<br>
+				<br></li>
+				<li>Look in the folder where you downloaded the Piccolo Source or 
+				Binaries.&nbsp; If you downloaded the source code, select the 
+				&quot;/Piccolo.NET/Bin/UMD.HCIL.Piccolo.dll&quot;.&nbsp; If you downloaded 
+				the compiled source, select &quot;/Bin/UMD.HCIL.Piccolo.dll&quot;.&nbsp; 
+				Press the &quot;Open&quot; button.<br><br></li>
+				<li>Press the &quot;OK&quot; button in the &quot;Customize Toolbox&quot; window.<br><br></li>
+				<li>You should now see PCanvas at the bottom of the windows 
+				forms tools.&nbsp; You may have to scroll down with the down 
+				arrow to find it.</li>
+			</ol>
+			<p><a name="ZUI"></a><b class = "dark_heading_two">Building Your First ZUI</b></p>
+			<p><i>These steps will guide you through writing your first zoomable 
+			user interface with Piccolo.NET.</i></p>
+			<p><a name="step4"></a><span class="dark_heading_two"><font color="#0000FF">4.</font> 
+			Create a new C# Windows Application Project</span></p>
+			<p><i>Here you will create a new Windows project.</i></p>
+			<ol type="a">
+				<li>Open Visual Studio, if it is not already open.</li>
+				<li> Select &quot;New&quot; from the &quot;File&quot; menu and choose &quot;Project&quot; from 
+				the popup menu.</li>
+				<li> Select File New ProjectCreate a new C# project</li>
+				<li> Click the &quot;Visual C# Projects&quot; folder in the &quot;Project 
+				Types&quot; window of the dialog box and choose &quot;Windows Application&quot; 
+				in the &quot;Templates&quot; window.</li>
+				<li> Enter a name and location for the project and click the 
+				&quot;OK&quot; button.</li>
+			</ol>
+			<p><a name="step5"></a><span class="dark_heading_two">
+			<font color="#0000FF">5.</font> Add References to Piccolo DLLs</span></p>
+			<p><i>These steps will add references to the Piccolo libraries so 
+			that you can access the namespaces.</i></p>
+			<ol type="a">
+				<li>Right click on the References folder in the Solution 
+				Explorer and click &quot;Add Reference.&quot;</li>
+				<li>Click Browse</li>
+				<li>Look in the folder where you downloaded the Piccolo Source or 
+				Binaries.&nbsp; Look in the /Bin directory.&nbsp; Select both &quot;UMD.HCIL.Piccolo.dll&quot; 
+				and UMD.HCIL.PiccoloX.dll&quot; and click &quot;Open&quot;.</li>
+				<li>Click &quot;OK&quot; to add the references.</li>
+			</ol>
+			<p><a name="step6"></a><span class="dark_heading_two">
+			<font color="#0000FF">6.</font> Add the Canvas</span></p>
+			<p><i>Next we will add the PCanvas the form in 
+			the designer.</i></p>
+			<ol>
+				<li type="a">Drag the PCanvas from the Toolbox to the Form in 
+				the Visual Designer.</li>
+				<li type="a">In the Properties Window, click on the &quot;Name&quot; field 
+				and type &quot;canvas.&quot;</li>
+				<li type="a">Drag the handles on the Canvas to resize it to cover the entire Form</li>
+				<li type="a">Click on the &quot;Anchor&quot; field in the Properties 
+				window, and click the down arrow to the right.&nbsp; When the 
+				little box pops up, select the rectangles to the right and 
+				bottom of the middle square.&nbsp; This will make the canvas 
+				grow when the window is resized.</li>
+			</ol>
+			<p>NOTE:&nbsp; As a shortcut, we could have just extended <code>PForm</code>, 
+			a utility class in the UMD.HCIL.PiccoloX namespace that 
+			automatically adds a PCanvas to a form and resizes the canvas when 
+			the form is resized.&nbsp; See the tutorials that follow this one 
+			for an example of how to do that.</p>
+			<p><a name="step7"></a><span class="dark_heading_two">
+			<font color="#0000FF">7.</font>
+			Write the Code</span></p>
+			<p><i>Now we will write our first Piccolo code.</i></p>
+
+			<ol>
+				<li type="a">If the Designer is showing, press F7 to enter the 
+				code view.</li>
+				<li type="a">At the top of the screen, under the using 
+				statements, add the following:
+<pre>
+using UMD.HCIL.Piccolo;
+using UMD.HCIL.Piccolo.Nodes;
+</pre>
+These lines reference the main Piccolo namespace and the Nodes namespace, 
+				which contains the PText node that we will use below.</li>
+			<li type = a>In the Constructor after the call to 
+			InitializeComponent(), add the following code:
+<pre>
+PText text = new PText("Hello World");
+canvas.Layer.AddChild(text);</pre>
+
+				That's it! You've just written your first zooming application.&nbsp;
+
+			The first line creates a new PText node and initializes it to the 
+			string &quot;Hello World&quot;. And, the second line adds the new node to the 
+			main layer of the canvas.&nbsp; Zooming and panning are there for 
+				free.</li>
+			</ol>
+				<a name="step8"></a><span class="dark_heading_two">
+				<font color="#0000FF">8.</font> Run the Code</span>
+			<p><i>Now let's see Piccolo in Action</i></p>
+			
+			<ol>
+				<li type="a">Press F5 to run the project</li>
+				<li type="a">You should see the text &quot;Hello World&quot;</li>
+				<li type="a">Click anywhere in the window with the left mouse 
+				button and drag to pan the camera around.</li>
+				<li type="a">Click anywhere in the window with the right mouse 
+				button and drag to the right to zoom in on the point.&nbsp; Drag 
+				to the left to zoom out.</li>
+			</ol>
+			<center><img border="0" src="images/helloworld.gif"></center>
+			<p>The reason this works is because the zoom and pan event handlers 
+			are installed by default.&nbsp; See the
+			<a class="main_pane" href="interaction.shtml">Defining User Interaction</a> tutorial 
+			for more details.</p>
+			<p></p>
+				</td>
+		</tr>
+		</table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

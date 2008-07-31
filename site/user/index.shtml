@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="style.css" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+    <tr>
+	<td valign="top" width="285" nowrap>
+
+	<table border="0" cellpadding="4" cellspacing="0" width="285">
+
+	<tr>
+        <td colspan="2" valign="center" width="145" height="50" nowrap>
+	<b class="dark_heading">Piccolo&nbsp;Toolkit</b>
+	</td>
+	</tr>
+
+	<tr>
+
+        <td valign="top" width="145" nowrap>
+
+        <a href="learn/index.shtml" class="side_pane">Learn</a><br>
+        <a class="side_pane_small" href="learn/about.shtml">About Piccolo</a><br>
+        <a class="side_pane_small" href="learn/patterns.shtml">Piccolo Patterns</a><br>
+        <a class="side_pane_small" href="learn/get-started.shtml">Getting Started</a><br>        
+        <a class="side_pane_small" href="learn/api.shtml">API Documentation</a><br>        
+        <a class="side_pane_small" href="learn/comparison.shtml">Piccolo&nbsp;in&nbsp;Comparison</a><br>
+        <a class="side_pane_small" href="learn/publications.shtml">Publications</a><br>
+        <a class="side_pane_small" href="learn/dev-faq.shtml">Developer FAQ</a><br>
+        <a class="side_pane_small" href="learn/maillists.shtml">Mailing Lists</a><br>
+        <a class="side_pane_small" href="learn/graphics.shtml">Graphics Primer</a><br>
+	<p>
+
+
+	<a href="play/index.shtml" class="side_pane">Play</a>
+        <br>
+        <a class="side_pane_small" href="play/applet/fisheyecalendar.shtml">Fisheye Calendar</a>
+        <br>
+        <a class="side_pane_small" href="play/applet/grapheditor.shtml">Graph Editor</a>
+        <br>
+        <a class="side_pane_small" href="play/applet/presentation.shtml">Presentation Tool</a>
+	<p>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="download/index.shtml" class="side_pane">Download</a>
+        <br>
+    <a href="download/index.shtml#source" class="side_pane_small">Source / Binaries</a>
+	<a href="download/svn.shtml" class="side_pane_small">SVN</a>
+        <br>
+	    <a href="download/open-source.shtml" class="side_pane_small">License</a>
+	<br>
+        </td></tr>
+	</table><p>
+
+	</td>
+
+	<td valign="top" width="140" nowrap>
+	<a href="team/index.shtml" class="side_pane">Team</a>
+        <br>
+        <a href="team/sponsors.shtml" class="side_pane_small">Sponsors</a>
+	<p>
+
+	<a href="press/index.shtml" class="side_pane">Press</a>
+        <br>
+	<p>
+
+	<a href="contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+        <a href="mailto:piccolo-bug@cs.umd.edu" class="side_pane_small">Send Bug Report</a>
+        <br>
+        <a href="mailto:piccolo-chat@cs.umd.edu" class="side_pane_small">Send Code</a>
+	<p>
+
+	<a href="applications/index.shtml" class="side_pane">Applications</a>
+        <br>  
+	<a href="applications/index.shtml#piccolo_net" class="side_pane_small">Piccolo.NET</a>
+        <br>
+   	<a href="applications/index.shtml#pocketpiccolo_net" class="side_pane_small">PocketPiccolo.NET</a>
+        <br>
+	<a href="applications/index.shtml#java_piccolo" class="side_pane_small">
+	Piccolo.Java</a>
+	<p>
+
+        <a href="contact/index.shtml" class="side_pane">Contact Us</a><br>
+        </td>
+
+	</tr>
+
+	
+	<tr>
+		<td valign="bottom" colspan="2">
+			<br><img src="images/giny-small.jpg" width="213" height="228">
+		</td>
+	</tr>
+
+	</table>
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellsapcing="0" bgcolor="#D6D583" cols="1" height="100%" width="100%">
+
+		<tr>
+			<td valign="top" class="dark_text">
+			<b class="dark_heading">A&nbsp;Structured&nbsp;2D&nbsp;Graphics&nbsp;Framework</b><p>
+			<em>Welcome to Piccolo!</em> A revolutionary way to create robust, 
+			full-featured <em>graphical applications</em> in Java and C#, with 
+			striking visual effects such as <em>zooming, animation</em> and <em>
+			multiple representations</em>.</p>
+			<p>Piccolo is a toolkit that supports the development of 2D 
+			structured graphics programs, in general, and Zoomable User 
+			Interfaces (ZUIs), in particular. A ZUI is a new kind of interface 
+			that presents a huge canvas of information on a traditional computer 
+			display by letting the user smoothly zoom in, to get more detailed 
+			information, and zoom out for an overview. We use a &quot;scene-graph&quot; 
+			model that is common to 3D environments. Basically, this means that 
+			Piccolo maintains a hierarchal structure of objects and cameras, 
+			allowing the application developer to orient, group and manipulate 
+			objects in meaningful ways. <br><br>
+
+			Why use Piccolo? It will allow you to build structured graphical 
+			applications without worrying so much about the low level details. 
+			The infrastructure provides efficient repainting of the screen, 
+			bounds management, event handling and dispatch, picking (determining 
+			which visual object the mouse is over), animation, layout, and more. 
+			Normally, you would have to write all of this code from scratch. 
+			Additionally, if you want to build an application with zooming, 
+			that&#8217;s built right into the framework too.</p>
+			<p>What exactly is it? Piccolo is a layer built on top of a lower 
+			level graphics API. There are currently three versions of the 
+			toolkit: Piccolo.Java, Piccolo.NET and PocketPiccolo.NET (for the 
+			.NET Compact Framework). The java version is built on Java 2 and 
+			relies on the Java2D API to do its graphics rendering. The .NET 
+			version is built on the .NET Framework and relies on the GDI+ API to 
+			do its graphics rendering. This makes it easy for Java and C# 
+			programmers, even those targeting PDAs, to build their own animated 
+			graphical applications. And best of all, Piccolo is <em>free</em> 
+			and <em>open source!</em> </p>
+			<p>
+			</td>
+		</tr>
+		<tr height=100%>
+			<td class="dark_text" bgcolor="#FFFD9C"><b class="dark_heading_two">Announcements</b>
+<p><b>Reduced effort on Piccolo</b> (Nov 1, 2006): We are reducing public support of Piccolo.  We continue to use it internally and are aware of a number of external research and commercial uses of Piccolo. We will continue to distribute it open source and maintain the mailing lists, but we no longer have funds for continued development or help for others using Piccolo.  We will be happy to continue to fold in external distributions, and do our best to maintain Piccolo, but with significantly reduced resources.</p>
+			<p><a class="announce_pane" href="download/svn.shtml">
+			Switching from CVS to Subversion (SVN)</a> (Oct 5, 2006)</p>
+			<p><a class="announce_pane" href="download/index.shtml#source">
+			Piccolo.NET 1.2
+			now available!</a> (Dec 6, 2005)<br><i>Includes Direct3D 
+			Implementation</I></p>
+			<p><a class="announce_pane" href="download/index.shtml#source">Piccolo.Java 1.2
+			now available!</a> (Dec 6, 2005)</p>
+			<hr>
+			<p>The primary paper describing and analyzing the Piccolo architecture:
+			Bederson, B. B., Grosjean, J., &amp; Meyer, J. (2004).
+			<a class="announce_pane" href="http://www.cs.umd.edu/hcil/piccolo/learn/Toolkit_Design_2004.pdf">Toolkit Design for Interactive Structured Graphics</a>,
+			IEEE Transactions on Software Engineering, 30 (8), pp. 535-546.</p>
+			<p>
+			<a class="announce_pane" href="http://www.cs.umd.edu/hcil/piccolo/learn/Piccolo.NET.ppt">PowerPoint presentation about Piccolo.NET</a> [4.5 MB] - given 
+			by Ben Bederson at Microsoft Faculty Summit - Aug 2, 2004.</p>
+			<p>&nbsp;</p>
+			</td>
+		</tr>
+
+		</table>
+        </td>
+    </tr>
+</table>
+
+<table border="0" cellpadding="5" cellsapcing="0"cols="4" width="100%">
+	<tr>
+	<td width="265"><img src="images/spacetree.jpg"></td>
+	<td><img src="images/icdl-small.png"></td>
+	<td><img src="images/photomesa-small.JPG"></td>
+	<td><img src="images/kidpad.jpg"></td>
+	</tr>
+</table>
+
+</body>
+</html>

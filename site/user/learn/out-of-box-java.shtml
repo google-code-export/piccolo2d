@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo research project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.java, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="../style.css" type="text/css">
+<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080"
+vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr>
+	<td valign="top" width="165" nowrap>
+	<table border="0" cellpadding="10" cellspacing="0" width="165">
+
+	<tr>
+
+        <td valign="top" nowrap>
+		<a href="../index.shtml" class="heading">Piccolo</a><br><br>
+        <a href="index.shtml" class="side_pane">Learn</a>
+        <br>
+
+        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="patterns.shtml">Piccolo Patterns</a>
+        <br>
+        &nbsp;&nbsp;<a href="get-started.shtml" class="side_pane_small">Getting Started</a><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="curr_page_link_small">.Java: Out of the Box</span>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="out-of-box-dotnet.shtml">.NET: Out of the Box</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interface.shtml">The Interface</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="interaction.shtml">User Interaction</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="effects.shtml">Special Effects</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="fisheye.shtml">Fisheye Calendar</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="grapheditor.shtml">Graph Editor</a>
+        <br>        
+        &nbsp;&nbsp;<a class="side_pane_small" href="api.shtml">API Documentation</a>
+        <br>
+        &nbsp;&nbsp;<a href="comparison.shtml" class="side_pane_small">Piccolo&nbsp;in&nbsp;Comparison</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="dev-faq.shtml">Developer FAQ</a>
+        <br>        
+        &nbsp;&nbsp;<a href="maillists.shtml" class="side_pane_small">Mailing Lists</a>
+        <br>
+
+
+	<a href="../play/index.shtml" class="side_pane">Play</a>
+        <br>
+
+	<a href="../team/index.shtml" class="side_pane">Team</a>
+        <br>
+
+	<a href="../press/index.shtml" class="side_pane">Press</a>
+        <br>
+
+	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+
+	<a href="../applications/index.shtml" class="side_pane">Applications</a>
+        <br>
+
+	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
+        <br><br>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="../download/index.shtml" class="side_pane">Download</a>
+        <br>
+        </td></tr>
+	</table>
+
+	</td></tr>
+
+	</table>
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+		<tr>
+			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+			<b class="dark_heading">Getting Started</b><br><br>
+			Here you will find both basic and advanced tutorials to help you get 
+			started using Piccolo.&nbsp; All tutorials provide examples in both 
+			Java and C#.&nbsp; This section assumes you have read 
+			<a href="patterns.shtml" class="main_pane">Piccolo 
+			Patterns</a> and have a basic understanding of the concepts 
+			presented there.<p></p>
+			</td>
+		</tr>
+
+		<tr>
+		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+			
+			<b class="dark_heading_two">Piccolo.Java: Out of the Box</b><p><i>This tutorial 
+			will help you figure out where to begin.&nbsp; It will guide you from 
+			downloading Piccolo to writing and compiling your first zoomable 
+			user interface.</i></p>
+			<p><a name="step1"></a><span class="dark_heading_two"><font color="#0000FF">1.</font> 
+			Get the Pre-Requisites</span></p>
+			<p><i>In order to write your first Piccolo.Java application, you will 
+			need to make sure that you have the following:</i></p>
+			<ul>
+				<li><i>Java 2 Platform, Standard Edition (J2SE)</i></li> - To run any Piccolo.Java 
+				code, you must have the Java 2 Platform&nbsp; 
+				installed on your machine.&nbsp;If you do not have the Java 2 Platform, you 
+				should first download the
+				<a class="main_pane" href="http://java.sun.com/downloads/index.html">
+				J2SE installer</a> and install the Java 2 Platform.<br><br>
+				<li><i>Eclipse IDE</li> -</i> This tutorial assumes that 
+				you are using Eclipse as your development environment.&nbsp; 
+				Eclipse is not required to write Piccolo.Java applications, 
+				but we do recommend using it. Once you have installed the Java 2 Platform, you can <a class="main_pane" href="http://www.eclipse.org/">download and install</a> eclipse.<br><br>
+				<li><i>Piccolo classes</li> -</i>Of course, you will need Piccolo.Java. You can download the Jar files or the full source code from the <a class="main_pane" href="http://www.cs.umd.edu/hcil/piccolo/download/index.shtml">download page</a>.<br>
+			</ul>
+			
+			<p><a name="Environment"></a><b class = "dark_heading_two">Setting up the Environment</b></p>
+			<p><i>These steps will help you setup the Eclipse environment 
+			to begin Piccolo.Java development.</i></p>
+
+			<p><a name="step2"></a><span class="dark_heading_two"><font color="#0000FF">2.</font> 
+			Add Piccolo to Eclipse</span></p>
+			<ol type="a">
+				<li>Open the Eclipse IDE.<br><br></li>
+				<li>Choose File > New Project, and create a new Java project named "piccolo".<br><br></li>
+				<li>Locate the file &quot;Piccolo-1.1.zip,&quot; which you downloaded 
+				in step 1.&nbsp; Extract the zipped package using WinZip or 
+				another compression utility.<br><br></li>
+				<li>Renamed the extracted "Piccolo-1.1" folder to the name (my choice was "piccolo") of the eclipse project that you created in step a.<br><br></li>
+				<li>Locate the Eclipse workspace folder. This folder is located inside the folder that holds your Eclipse installation.<br><br></li>
+				<li>Drag the renamed "piccolo" folder into the workspace folder, replacing the existing "piccolo" folder in the workspace.<br><br></li>
+				<li>Last of all go into Eclipse and right-click on the "piccolo" project and choose "Refresh" from the popup menu.<br><br></li>
+				<li>Piccolo's classes should now be visible in eclipse.</li>
+			</ol>
+
+			<p><a name="ZUI"></a><b class = "dark_heading_two">Building Your First ZUI</b></p>
+			<p><i>These steps will guide you through writing your first zoomable 
+			user interface with Piccolo.Java.</i></p>
+			<p><a name="step4"></a><span class="dark_heading_two"><font color="#0000FF">4.</font> 
+			Create a new Java project in Eclipse.</span></p>
+			<p><i>Here you will create a new Eclipse java project.</i></p>
+			<ol type="a">
+				<li>In Eclipse choose File > New Project and create another "Java Project". This time name the project "Hello World".</li>
+			</ol>
+			<p><a name="step5"></a><span class="dark_heading_two">
+			<font color="#0000FF">5.</font> Add References to Piccolo</span></p>
+			<p><i>These steps will add references to the Piccolo project so 
+			that you can use Piccolo's classes in your own project.</i></p>
+			<ol type="a">
+				<li>Right click on your new "Hello World" project and choose "Properties".</li>
+				<li>In the properties panel click on the "Java Build Path" list item on the left.</li>
+				<li>Now click on the "Projects" tab and choose the "Add..." button. Check to add the "piccolo" project that you created earlier.</li>
+				<li>Now your "Hello World" project is setup to use classes from the "piccolo" project.</li>
+			</ol>
+			<p><a name="step6"></a><span class="dark_heading_two">
+			<font color="#0000FF">6.</font> Subclass PFrame</span></p>
+			<p><i>Next we will subclass the Piccolo class PFrame.</i></p>
+			<ol>
+				<li type="a">Select your "Hello World" project and then choose File > New > Class.</li>
+				<li type="a">Name the new class "HelloWorld".</li>
+				<li type="a">Choose the Superclass edu.umd.cs.piccolox.PFrame.</li>
+				<li type="a">Check the box labeled "public static void main(String[] args)" so that a main method will be created for your class.</li>
+				<li type="a">Click the Finish button to create you new class.</li>
+			</ol>
+			<p><a name="step7"></a><span class="dark_heading_two">
+			<font color="#0000FF">7.</font>
+			Write the Code</span></p>
+			<p><i>Now we will write our first Piccolo code.</i></p>
+
+			<ol>
+				<li type="a">At the top of the screen add the following import statement so that we can use the PText class.
+<pre>
+import edu.umd.cs.piccolo.nodes.PText;
+</pre>
+			<li type = a>PFrame will call the "initialize" method when it is created. This is a good place to add our Piccolo nodes, so override this method like this:
+<pre>
+	public void initialize() {	
+		PText text = new PText("Hello World");
+		getCanvas().getLayer().addChild(text);
+	}
+</pre>
+
+Last of all override main method so that a new instance of your "HelloWorld" class gets created by main. The final code should look like this:
+
+<pre>
+import edu.umd.cs.piccolo.nodes.PText;
+import edu.umd.cs.piccolox.PFrame;
+
+public class HelloWorldExample extends PFrame {
+	
+	public void initialize() {	
+		PText text = new PText("Hello World");
+		getCanvas().getLayer().addChild(text);
+	}
+
+	public static void main(String[] args) {
+		new HelloWorldExample();
+	}
+}
+</pre>
+
+
+				That's it! You've just written your first zooming application.&nbsp;The first line creates a new PText node and initializes it to the 
+			string &quot;Hello World&quot;. And, the second line adds the new node to the 
+			main layer of the canvas.&nbsp; Zooming and panning are there for 
+				free.</li>
+			</ol>
+				<a name="step8"></a><span class="dark_heading_two">
+				<font color="#0000FF">8.</font> Run the Code</span>
+			<p><i>Now let's see Piccolo in Action</i></p>
+			
+			<ol>
+				<li type="a">Right-click on your "HelloWorld" class and choose Run As > Java Application</li>
+				<li type="a">You should see the text &quot;Hello World&quot;</li>
+				<li type="a">Click anywhere in the window with the left mouse 
+				button and drag to pan the camera around.</li>
+				<li type="a">Click anywhere in the window with the right mouse 
+				button and drag to the right to zoom in on the point.&nbsp; Drag 
+				to the left to zoom out.</li>
+			</ol>
+			<p>The reason this works is because the zoom and pan event handlers 
+			are installed by default.&nbsp; See the
+			<a class="main_pane" href="interaction.shtml">Defining User Interaction</a> tutorial 
+			for more details.</p>
+			<p></p>
+				</td>
+		</tr>
+		</table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

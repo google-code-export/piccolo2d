@@ -1,0 +1,1026 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+        
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="description"
+content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab.">
+<meta name="format" content="text/html">
+<meta name="keywords"
+content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education">
+<meta name="publisher"
+content="Human-Computer Interaction Lab, University of Maryland">
+<meta name="relation"
+content="(contained in)=http://www.cs.umd.edu/hcil/piccolo">
+<meta name="rights statement"
+content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved.">
+<title>Piccolo Home Page</title>
+<link rel=StyleSheet HREF="http://www.cs.umd.edu/hcil/style.css" TYPE="text/css">
+<link rel=stylesheet href="../style.css" type="text/css">
+<script language="JavaScript" type="text/javascript" src="snippets.js">
+</script>
+<script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+</script>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" link="#000080" vlink="#390764" alink="#FFB926">
+
+<!--#include virtual="/hcil/research/banner.html"-->
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+	<tr>
+	<td valign="top" width="168" nowrap>
+	
+	<table border="0" width = "168" cellpadding="10" cellspacing="0">
+
+
+	<tr>
+
+        <td valign="top" nowrap>
+        
+		<a href="../index.shtml" class="heading">Piccolo</a><br><br>
+        <a href="index.shtml" class="side_pane">Learn</a>
+        <br>
+
+        &nbsp;&nbsp;<a class="side_pane_small" href="about.shtml">About Piccolo</a>
+        <br>
+        &nbsp;&nbsp;<span class="curr_page_link_small">Piccolo Patterns</span>
+        <br>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Usage Patterns For Piccolo">Usage</a>
+        <br>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Building Piccolo">Building Piccolo</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Creating Nodes">Creating Nodes</a>
+        <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Adding User Interaction">Adding Interaction</a>
+        <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Layout Constraints">Layout Constraints</a>
+        <br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Activities">Activities</a>
+        <br>        
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#SWT">SWT</a>
+        <br>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Implementation Patterns for Piccolo">Implementation</a>
+        <br>
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Piccolo Framework Design">Framework Design</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Full Terminology">Full Terminology</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Coordinate Systems">Coordinates</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#UI Cycle">UI Cycle</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Threads">Threads</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Dispatching Events">Dispatching Events</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Processing Activities">Processing Activities</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Validating Bounds">Validating Bounds</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Updating the Display">Updating Display</a>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Desing Patterns for ZUI Interaces">ZUI Design</a>
+        <br>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Semantic Zooming">Semantic Zooming</a>
+        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="side_pane_small" href="#Sticky Objects">Sticky Objects</a>
+        <br>
+        
+        &nbsp;&nbsp;<a class="side_pane_small" href="get-started.shtml">Getting Started</a>
+  	    <br>
+  	    &nbsp;&nbsp;<a class="side_pane_small" href="api.shtml">API Documentation</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="comparison.shtml">Piccolo&nbsp;in&nbsp;Comparison</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="publications.shtml">Publications</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="dev-faq.shtml">Developer FAQ</a>
+        <br>        
+        &nbsp;&nbsp;<a href="maillists.shtml" class="side_pane_small">Mailing Lists</a>
+        <br>
+        &nbsp;&nbsp;<a class="side_pane_small" href="graphics.shtml">Graphics Primer</a>
+        <br>
+	<a href="../play/index.shtml" class="side_pane">Play</a>
+        <br>
+
+	<a href="../team/index.shtml" class="side_pane">Team</a>
+        <br>
+
+	<a href="../press/index.shtml" class="side_pane">Press</a>
+        <br>
+
+	<a href="../contribute/index.shtml" class="side_pane">Contribute</a>
+        <br>
+
+	<a href="../applications/index.shtml" class="side_pane">Applications</a>
+        <br>
+
+	<a href="../contact/index.shtml" class="side_pane">Contact Us</a>
+        <br><br>
+
+	<table border="1" cellpadding="5" cellspacing="0" width="120" bordercolor="#FF0000">
+	<tr><td>
+	<a href="../download/index.shtml" class="side_pane">Download</a>
+        <br>
+        </td></tr>
+	</table>
+
+	</td></tr>
+
+	</table>
+	</td>
+		
+        <td valign="top">
+		<table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
+		<tr>
+			<td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
+			<b class="dark_heading">Piccolo Patterns</b><br><br>
+			Below, we explain the common programming Paradigms associated with 
+			Piccolo.&nbsp;
+			This work is based heavily on the work of R. Johnson in his 
+			seminal 1992 paper &quot;Documenting Frameworks using Patterns&quot; and the 
+			work of Douglas Kirk in his &#8220;Patterns for JHotDraw paper&#8221;. This work 
+			merely attempts to adapt the concepts presented there into a format 
+			suitable for our Piccolo framework.<p></p></td>
+		</tr>
+
+		<tr width="640">
+		<td bgcolor="#FFFD9C" width="640" height="550" valign="top">
+			
+			<table border="0" width="100%" id="table1">
+				<tr>
+					<td>
+					<b class="dark_heading_two">
+					<a name="Pattern 1 Zooming User Interfaces (ZUI's)"></a>
+					Pattern 1: Zoomable User Interfaces (ZUI&#8217;s)</b>
+					<p><i>Piccolo is a framework for building zoomable user 
+					interfaces. The elements of these interfaces can be scaled 
+					or animated, 
+					and react to user input. The user viewpoint may 
+					also be scaled and panned. Interfaces built with Piccolo can 
+					define your entire application interface, or they can be a 
+					small part of a large system.</i></td>
+					<td valign="top">
+					<div style="border:thin solid blue; position: relative; width: 123px; height: 70px; z-index: 3; float: right" id="language">
+						&nbsp;Show examples in<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img border="0" src="images/check.gif" width="15" height="15" id="java13">
+						<a id = "jlink13" class="main_content" style="color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a><br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img style="visibility: hidden" border="0" src="images/check.gif" width="15" height="15" id="csharp13">
+						<a id = "clink13" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a></div>
+					</td>
+				</tr>
+			</table>
+			<p align="center">
+			<img height="146" src="http://www.cs.umd.edu/hcil/jazz/download/piccolo/zoomsequence.jpg" width="450" border="0"></p>
+			<p>Figure 1 shows a sequence of frames from a simple zooming 
+			interface created using Piccolo. This example shows the fundamental 
+			aspects of a Piccolo application. In this sequence the user is 
+			zooming in on a &quot;Hello world!&quot; interface object.</p>
+			<p>The objects on a piccolo canvas are nodes (instances of <code>PNode</code>), 
+			in this case a <code>PText</code> node. Nodes are used to represent the discrete 
+			components of an interface. The framework comes with some commonly 
+			required nodes (shapes, images, and text) and the developer has the 
+			opportunity to define new ones for their own interfaces.</p>
+			<p>Figure 1&#8217;s zooming interaction was created with the help of an 
+			event listener (instances of <code>PInputEventListener</code>). Event listeners 
+			define how the interface reacts to user input. In this zooming 
+			interaction the event listener reacted to mouse input by 
+			manipulating the camera node's view transform to create the zooming 
+			effect. Piccolo comes with ready-made event listeners for zooming 
+			and panning camera nodes, and dragging nodes on the canvas.</p>
+			<p>All Piccolo interfaces need to be placed in a <code>PCanvas</code> so that 
+			they may be viewed and interacted with by the user. <code>PCanvas</code> extends 
+			the <code>javax.swing.JComponent</code> class in Piccolo.Java and the equivalent 
+			<code>System.Windows.Forms.Control</code> class in Piccolo.NET.&nbsp; 
+			As a result, piccolo can easily be integrated with both Java 
+			Swing and Windows applications. In addition to hosting Piccolo in 
+			the application interface, the canvas also maintains a camera and layer node. Scaling 
+			and translating the camera's view transform over time is how zooming 
+			and panning is accomplished. New nodes are 
+			normally added to the canvas's layer node.</p>
+			<p>The interface depicted in figure 1 can be created with the 
+			following code:</p>
+
+			<a id="jlink0" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink0" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet0">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java0">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_zoom.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp0">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_zoom.html"--></pre>
+			</div>
+			</div>
+			<b>Note:</b> For simplicity, the C# example does not include the initialization code inserted by Visual Studio.
+			
+			<p>This creates the default zooming interface. A new text node is 
+			added to the surface, and event handlers for zooming and panning are 
+			automatically installed by the <code>PCanvas</code>.</p>
+			<ul>
+				<li>To quickly get started using Piccolo, see
+				<a class="main_pane" href="#Usage Patterns For Piccolo">Usage Patterns for Piccolo</a>  
+				</li>
+				<li>To learn more about the Piccolo implementation, see
+				<a class="main_pane" href="#Implementation Patterns for Piccolo">Implementation 
+				Patterns for Piccolo</a>  
+				</li>
+				<li>To learn more about common ZUI design patterns, see
+				<a class="main_pane" href="#Desing Patterns for ZUI Interaces">Design Patterns for 
+				ZUI Interfaces</a> 
+				</li>
+			</ul>
+			<b class="dark_heading"><a name="Usage Patterns for Piccolo"></a>Usage Patterns for Piccolo</b>
+			<p>The Piccolo usage patterns are designed to get you up and running 
+			with Piccolo as quickly as possible. They provide quick &quot;cookbook&quot; 
+			explanations of the major things that can be done with Piccolo. To 
+			gain a better understanding of the Piccolo implementation and of its 
+			runtime behavior is see
+			<a class="main_pane" href="#Implementation Patterns for Piccolo">Implementation 
+			Patterns for Piccolo</a>.</p>
+			<ul>
+				<li>To create nodes see, 
+				<a class="main_pane" href="#Creating Nodes">Creating Nodes</a>  
+				</li>
+				<li>To create user interactions, see
+				<a class="main_pane" href="#Adding User Interaction">Adding User 
+				Interaction</a>  
+				</li>
+				<li>To create animations, see 
+				<a class="main_pane" href="#Activities">Activities</a> 
+				</li>
+			</ul>
+			<b class="dark_heading_two"><a name="Building Piccolo"></a>Pattern 2: Building and Using 
+			Piccolo</b>
+			<p><i>To use <b>Piccolo.Java</b>, you will need to add the appropriate .jar files 
+			to your classpath, and to do that you need to know what each .jar 
+			file contains, and how to build the framework.</i></p>
+			<p>Piccolo.Java comes with 4 .jar files:</p>
+			<ul>
+				<li><i class="dark_text_emph">piccolo.jar</i> - This .jar contains the Piccolo 2D zooming 
+				graphics framework. 
+				</li>
+				<li><i class="dark_text_emph">piccolox.jar</i> - This .jar contains the Piccolo extras, and it 
+				depends on piccolo.jar 
+				</li>
+				<li><i class="dark_text_emph">examples.jar</i> - This .jar contains simple examples of 
+				Piccolo, it depends on piccolo.jar and piccolox.jar.&nbsp; 
+				</li>
+				<li><i class="dark_text_emph">tests.jar</i> - This .jar contains unit tests for classes in the 
+				Piccolo framework, it depends on piccolo.jar and /lib/junit.jar 
+				</li>
+			</ul>
+			<p>If you downloaded the compiled distribution of Piccolo.Java these .jar 
+			files are located for you in &quot;piccolo/build/&quot;. If you didn't then you 
+			will need to build them yourself. This is done by typing 'build all' 
+			from within the piccolo/ folder.</p>
+			<p>Piccolo.Java also comes with project files for the Eclipse IDE 
+			(www.eclipse.org), our favorite development environment for 
+			Piccolo.Java, and Java in general.</p>
+			<p><i>To use <b>Piccolo.NET</b>, you will need to add references to 
+			the appropriate .dll files in your Visual Studio Project. </i></p>
+			<p>Piccolo.NET comes with 2 .dll files and 2 .xml files:</p>
+			<ul>
+				<li><i class="dark_text_emph">UMD.HCIL.Piccolo.dll</i> - This .dll contains the Piccolo.NET 2D 
+				zooming graphics framework</li>
+				<li><i class="dark_text_emph">UMD.HCIL.PiccoloX.dll</i> - This .dll contains the Piccolo 
+				extras, and it depends on UMD.HCIL.Piccolo.dll. </li>
+				<li><i class="dark_text_emph">UMD.HCIL.Piccolo.xml</i> - This xml file is necessary to 
+				provide intellisense support for UMD.HCIL.Piccolo.dll, within 
+				the Visual Studio.NET IDE</li>
+				<li><i class="dark_text_emph">UMD.HCIL.PiccoloX.xml</i> - This xml file is necessary to 
+				provide intellisense support for UMD.HCIL.PiccoloX.dll, within 
+				the Visual Studio.NET IDE<br></li>
+			</ul>
+			<p>You do not need to build either distribution of Piccolo.NET. The 
+			DLL distribution contains all four of these files at the top level. 
+			And, the source distribution contains these files in &quot;Piccolo.NET/Bin/&quot;.</p>
+			<p>However, if you modify the source code, then you will need to 
+			rebuild the framework.&nbsp; To do this, open &quot;Piccolo.NET/Source/Piccolo.Net.sln&quot; 
+			in Visual Studio.NET.&nbsp; Then, from the &quot;Build&quot; menu select 
+			&quot;Rebuild Solution.&quot; The new .dll files will be located in &quot;Piccolo.NET/Source/Piccolo/bin/Debug&quot; 
+			and &quot;Piccolo.NET/Source/PiccoloX/bin/Debug&quot;.</p>
+			<p><br><b>Note: </b>For more detailed instructions on setting up 
+			Piccolo, see the README file that comes with each distribution 
+			and the
+			<a class="main_pane" href="get-started.shtml">Getting Started</a> 
+			tutorial.</p>
+			<b class="dark_heading_two"><a name="Creating Nodes"></a>Pattern 3: Creating Nodes</b>
+			<p><i>There are an infinite variety of nodes that can be included in 
+			a zoomable user interface. And, there are several ways to make new 
+			nodes for each application.</i></p>
+			<ol>
+				<li><b>Use existing classes:</b> Piccolo is supplied with the 
+				default implementations for three kinds of visual nodes: <code>PText</code>, 
+				<code>PPath</code>, and <code>PImage</code>. These may be used &#8216;as is&#8217; in a new 
+				application, which saves developers the time and effort required 
+				to create such elements themselves, but reduces the knowledge 
+				they have about how that figure is implemented. 
+				</li>
+				<li><b>Subclass existing classes:</b> Often the default 
+				implementations of <code>PNodes</code> are &#8216;almost but not quite&#8217; what is 
+				required for an interface. In such circumstances, it makes sense 
+				to customize the existing node to fit the needs of the interface. This 
+				saves time compared with starting from scratch and provides 
+				insight into the organization of that node but subclassing will 
+				increase the number of classes in the system and carries the 
+				responsibility of ensuring that the original intent of that 
+				inheritance hierarchy is maintained.&nbsp; 
+				</li>
+				<li><b>Composition:</b> An alternative to subclassing, 
+				composition can be used in situations where the new 
+				functionality required can be created by arranging several preexisting nodes together. 
+				A text label could be defined as a rectangle (to define the 
+				border) with a text object inside. To facilitate this kind of 
+				creation any node may have other child nodes added to them. 
+				Adding a text node as a child of the rectangle node could create 
+				the text label mentioned above. Composition frees the developer 
+				from class details, allows reuse 
+				of existing tools and allows dynamic configuration (new 
+				arrangements of figures can be constructed while the program 
+				runs). But, composition doesn&#8217;t provide as much freedom 
+				as subclassing (it can only compose what is available).&nbsp; 
+				And, because of its dynamic nature, it can be difficult to debug 
+				problems.</li>
+				<li><b>Custom Node:</b> The ultimate amount of creative freedom 
+				comes from subclassing <code>PNode</code> directly. <code>PNode</code> already provides 
+				default behavior for all operations (it is a concrete class). So, 
+				it is fairly easy to subclass. Many subclasses will want 
+				to override a few key methods: <code>setBounds()</code>, <code>intersects()</code>, and <code>paint()</code> 
+				in Piccolo.Java and <code>SetBounds()</code>, <code>Intersects()</code> and <code>Paint()</code> in 
+				Piccolo.NET.</li>
+			</ol>
+			<p>Each visual interface element in Piccolo is a subclass of <code>PNode</code>. 
+			Nodes can be used directly or customized by sub classing or 
+			composition.&nbsp;</p>
+			<p>The following code defines a new simple (without a border) 
+			ellipse node.</p>
+			
+			<a id="jlink1" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" class="main_content" style = "color: #000000; text-decoration: none" href="javascript:void(0)">Java</a> | 
+			<a id="clink1" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0)">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet1">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java1">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_ellipse.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp1">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_ellipse.html"--></pre>
+			</div>	
+			</div>			
+			<ul>
+				<li>To let the user change the attributes of a node, see
+				<a class="main_pane" href="#Adding User Interaction">Adding user 
+				Interaction</a>  
+				</li>
+				<li>To constrain the layout of a nodes children, see
+				<a class="main_pane" href="#Layout Constraints">Layout Constraints</a> 
+				</li>
+			</ul>
+			<b class="dark_heading_two"><a name="Adding User Interaction"></a>Pattern 4: Adding User Interaction</b>
+			<p><i>Event listeners represent the modes of interaction between the 
+			user and the interface. Piccolo comes with event listeners that let 
+			the user zoom and pan their viewpoint, and drag nodes in the 
+			interface. An important part of designing an interface using Piccolo 
+			is to design the set of event listeners that will define the user 
+			experience.</i></p>
+			<p>Once created an event listener must be registered with a node so 
+			that it can receive events. Many event handlers register with the 
+			camera node so that they get all events that come from the canvas 
+			associated with that camera.</p>
+			<p>This example class creates an event listener that will create 
+			rectangle nodes on the canvas's layer when the user presses, drags, 
+			and then releases the mouse.</p>
+			
+			<a id="jlink2" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" class="main_content" style = "color: #000000; text-decoration: none" href="javascript:void(0)">Java</a> | 
+			<a id="clink2" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0)">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet2">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java2">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_event.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp2">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_event.html"--></pre>
+			</div>	
+			</div>
+			
+			<p>The code to register this event listener with the canvas would 
+			look like this:</p>
+			
+			<a  id="jlink3" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" class="main_content" style = "color: #000000; text-decoration: none" href="javascript:void(0)">Java</a> | 
+			<a id="clink3" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0)">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet3">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java3">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_reg_event.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp3">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_reg_event.html"--></pre>
+			</div>	
+			</div>
+
+			<p>Note that this event handler reacts to the same events that the 
+			zoom and pan event handlers react to. If they are all active on the 
+			canvas at the same time undesired behavior would occur. Often you will want to remove the default pan and zoom 
+			event handlers associated with the <code>PCanvas</code>, this can be done as 
+			follows:</p>
+						
+			<a id="jlink4" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" class="main_content" style = "color: #000000; text-decoration: none" href="javascript:void(0)">Java</a> | 
+			<a id="clink4" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0)">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet4">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java4">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_unreg_event.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp4">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_unreg_event.html"--></pre>
+			</div>	
+			</div>
+			
+			<p>In Piccolo.NET you can also use the following shortcut:</p>
+			
+			<span class="dark_text_emph" style = "color: #000000;">C#</span><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="o_snippet0">			
+			<div style="padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="o_csharp0">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_unreg_event2.html"--></pre>
+			</div>	
+			</div>
+			
+			<p>A general problem when defining global event handlers is making 
+			sure that they do not conflict. The Java <code>PInputEventFilter</code> class and the C# 
+			<code>PInputEventListener.DoesAcceptEvent()</code> method can help in this 
+			regard. </p>
+			<p>In Piccolo.NET there is another way to handle basic input events.&nbsp; 
+			You can connect an event handler method directly to a node in the 
+			same way that .NET event handlers can be connected to a control.&nbsp; 
+			This allows you to define your event 
+			handlers in style consistent with .NET events.&nbsp; For example, 
+			the following code prints a message every time the user clicks  
+			the green node:</p>
+			
+			<span class="dark_text_emph" style = "color: #000000;">C#</span><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="o_snippet1">
+			<div style="padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="o_csharp1">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_alt_event.html"--></pre>
+			</div>	
+			</div>
+			
+			<p>For more information about the tradeoffs of each of these 
+			approaches see the <a class="main_pane" href="get-started.shtml">
+			Defining User Interaction</a> tutorial on the
+			<a class="main_pane" href="get-started.shtml">Getting Started</a> 
+			page.</p>
+			
+			<ul>
+				<li>To learn more about coordinate systems, see
+				<a class="main_pane" href="#Coordinate Systems">Coordinate Systems</a>  
+				</li>
+				<li>To learn more about event dispatch, see
+				<a class="main_pane" href="#Dispatching Events">Dispatching Events</a> 
+				</li>
+			</ul>
+			<b class="dark_heading_two"><a name="Layout Constraints"></a>Pattern 5: Layout Constraints</b>
+			<p><i>Often an interface has constraints that must be maintained 
+			between a node and its children. For example a node may want to 
+			always make its children line up in a row or a node may wish to 
+			expand its base size to always fully contain the bounds of its 
+			children.</i></p>
+			<p>The <code>PNode</code> class does no automatic layout of its own, but it 
+			provides methods that subclasses can override to perform layout in 
+			the appropriate place during the layout process.. The following is a 
+			simple layout node that overrides and lays its children out in a 
+			horizontal row.</p>
+			
+			<a id="jlink5" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink5" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet5">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java5">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_layout.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px" id="csharp5">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_layout.html"--></pre>
+			</div>	
+			</div>
+			
+			This layout code will automatically be called when the bounds of the 
+			layout node change, or when the fullBounds of any of the layout 
+			node's children change. 
+			<ul>
+				<li>For more information on the layout process, see
+				<a class="main_pane" href="#Validating Bounds">Validating Bounds</a>  
+				</li>
+				<li>For more information on the &quot;full&quot; term used in fullBounds, 
+				see <a class="main_pane" href="#Full Terminology">Full Terminology</a> 
+				</li>
+			</ul>
+			<b class="dark_heading_two"><a name="Activities"></a>Pattern 6: Activities</b>
+			<p><i>Event handlers let an interface react to a user. Actives are 
+			used to give the interface a life of its own through the use of 
+			animation and other &quot;scheduled&quot; behaviors.</i></p>
+			<p>Activities control some time-dependent 
+			aspect of the Piccolo system, usually some part of a node. This 
+			behavior may be of fixed duration or may continue until some 
+			termination condition is met (or perhaps forever). Activities of 
+			fixed duration may be defined to consume a fixed amount of time, 
+			independent of the frame rate.</p>
+			<p>This method sets up a flash activity that flashes the given 
+			node's color from red to green for 5 seconds.</p>
+			
+			<a id="jlink6" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink6" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet6">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java6">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_activity.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp6">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_activity.html"--></pre>
+			</div>	
+			</div>
+			
+			<p>Activities are scheduled by the <code>PRoot</code> until they have completed. 
+			Note that for animation activities you can also use the convenience 
+			methods in <code>PNode</code>:</p>
+			
+			<a id="jlink7" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink7" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet7">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java7">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_conv_activity.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp7">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_conv_activity.html"--></pre>
+			</div>	
+			</div>
+
+			<p>Each activity has a start time and a duration, that together 
+			determine when an activity starts stepping and how long it continues 
+			to step. The Java <font face="Courier">PActivity.startAfter()</font> 
+			and the C# <code>PActivity.StartAfter()</code> 
+			methods may be used to sequence an activity so that it starts right 
+			after another has stopped.</p>
+			<ul>
+				<li>To learn more about activities see,
+				<a class="main_pane" href="#Processing Activities">Processing 
+				Activities</a> </li>
+			</ul>
+			<b class="dark_heading_two"><a name="SWT"></a>Pattern 7: Standard Widget Toolkit (SWT) connection</b>
+			<p><i>SWT is a new Java toolkit (similar to and replacing Swing) 
+			that comes out of the Eclipse IDE project. Piccolo.Java was originally 
+			designed to work with swing, but now has <b>preliminary</b> SWT 
+			support as well. You will most likely use SWT if you are writing 
+			Piccolo extensions to the Eclipse IDE. See
+			<a class="main_pane" href="http://www.eclipse.org">www.eclipse.org</a> for more info 
+			on the Eclipse project.</i></p>
+			<p>Again SWT support is not complete. We are interested in your 
+			feedback and hope it is of use, but we can not promise future 
+			updates. SWT support is provided in the extras package in 
+			<code>edu.umd.cs.piccolox.swt</code>, and you will find SWT examples in the 
+			examples package.&nbsp;Here is the code for SWT hello world:</p>
+		
+			<span class = "dark_text_emph" style = "color: #000000;">Java</span>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="o_snippet2">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="o_java0">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_swt.html"--></pre>
+			</div>			
+			</div>
+			
+			<br><b class="dark_heading"><a name="Implementation Patterns for Piccolo"></a>Implementation Patterns for Piccolo</b>
+			<p>The Piccolo implementation patterns are designed to give a 
+			general understanding of how Piccolo is implemented and what its 
+			runtime behaviors are. This is opposed to the patterns in
+			<a class="main_pane" href="#Usage Patterns For Piccolo">Usage Patterns For Piccolo</a> 
+			that are designed to get you using the framework as quickly as 
+			possible.</p>
+			<b class="dark_heading_two"><a name="Piccolo Framework Design"></a>Pattern 8: Piccolo Framework Design</b>
+			<p align="left"><i>You should be familiar with the basic concepts of 
+			the Piccolo framework design and how they relate to each other to 
+			effectively use Piccolo.</i></p>
+			<p>Piccolo is a direct-manipulation graphics framework that supports 
+			constructing zoomable interfaces. The framework's design borrows 
+			heavily from the designs of both the Jazz and Morphic interface 
+			frameworks.</p>
+			<p align="center"><i>
+			<img height="177" src="http://www.cs.umd.edu/hcil/jazz/download/piccolo/piccolo_hierachy.gif" width="321" border="0"></i></p>
+			<p align="center"><i>Piccolo Class Hierarchy</i></p>
+			<p>There are four main classes that define the framework's core:</p>
+			<ol>
+				<li><code>PNode</code> (anything that is visible and gets events) 
+				</li>
+				<li><code>PCamera</code> (a node that looks at other layer nodes, and applies 
+				a view transform) 
+				</li>
+				<li><code>PLayer</code> (a node that can be looked at by a camera) 
+				</li>
+				<li><code>PRoot</code> (the root of the Piccolo display tree) 
+				</li>
+				<li><code>PCanvas</code> (the host component that lets <code>PNodes</code> exist in a Java 
+				Swing or .NET Windows application. Each <code>PCanvas</code> is associated with a <code>PCamera</code>. 
+				But all cameras are not necessarily directly associated with a 
+				<code>PCanvas</code>, internal cameras for example are not.) </li>
+			</ol>
+			<p align="center"><i>
+			<img height="177" src="http://www.cs.umd.edu/hcil/jazz/download/piccolo/piccolo_runtime.gif" width="236" border="0"></i></p>
+			<p align="center"><i>Piccolo Runtime Structure</i></p>
+			<p align="left">At runtime these classes form a tree-like structure 
+			with the <code>PRoot</code> situated at the top. Each <code>PCamera</code> is normally linked 
+			with at least one <code>PLayer</code> that it looks at through it's view 
+			transform. If a camera is associated with a canvas then that 
+			camera's view is displayed on the canvas, and input events from the 
+			canvas enter the Piccolo scene graph at that camera's point in the 
+			hierarchy.</p>
+			<h3>PNode</h3>
+			<p>Nodes are the central design concept in Piccolo. Any object that 
+			wants to paint itself on the screen should inherit from the node 
+			class. In addition to painting on the screen all nodes may have 
+			other &quot;child&quot; nodes added to them. Visual structures are build up by 
+			grouping and sub grouping collections of nodes.</p>
+			<p>Each node also has its own affine transform that is applied before 
+			the node is drawn to the screen. This transform can be modified to 
+			scale and translate the node. The transform exits directly above 
+			the node, but below the node's parent.&nbsp; Thus, translating it will 
+			translate the node (and all its descendents) but will not translate 
+			the node's parent.</p>
+			<h3>PCamera</h3>
+			<p>Cameras are nodes that have an additional view transform and a collection of layers in addition to the 
+			collection of children that they inherit from <code>PNode</code>. The view 
+			transform is applied before drawing or picking the layers, but not 
+			when drawing or picking the camera's children. Cameras may (an 
+			internal camera might not) also reference a <code>PCanvas</code>, and forward 
+			repaint events to that canvas. The canvas would then later ask the 
+			camera to draw the damaged region on its surface.</p>
+			<h3>PLayer</h3>
+			<p>Layer nodes are nodes that can be viewed by a one or more 
+			cameras. They maintain a list of the cameras that are viewing them, 
+			and notify these cameras when they are repainted.</p>
+			<h3>PRoot</h3>
+			<p>The <code>PRoot</code> serves as the topmost node in the Piccolo runtime 
+			structure; all other nodes are its direct children or descendents of 
+			its children. The <code>PCanvas</code> communicates with the root node to manage 
+			screen updates and to dispatch events to its children.</p>
+			<h3>PCanvas</h3>
+			<p>The <code>PCanvas</code> is a <code>JComponent</code> in Piccolo.Java and 
+			a <code>Control</code> in Piccolo.NET. Thus, it is used to view a Piccolo scene 
+			graph in Java Swing and .NET Windows applications respectively. The <code>PCanvas</code> views the scene graph 
+			through a <code>PCamera</code>. It forwards input events to that camera, 
+			and uses that camera to draw itself. Translating and scaling that 
+			camera's view transform is how panning and zooming are accomplished.</p>
+			<b class="dark_heading_two"><a name="Full Terminology"></a>Pattern 9: Full Terminology</b>
+			<p><i>Many of PNode's methods work on the composite structure (the 
+			node plus all its descendents) of the node. It is helpful to be able 
+			to easily distinguish these methods from ones that only work 
+			directly on the node and not on its children.</i></p>
+			<p>
+			Piccolo uses the term "full" to mean a node and its descendants with the node's transform applied.
+			This helps distinguish between methods that work on a single node and those that work on a node
+			together with all of its descendants  with the node's transform applied. When traversing the node
+			scene graph to paint or calculate bounds parent nodes generally call the "full" methods of their
+			direct child nodes.  For example:</p>
+			
+			<a id="jlink8" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink8" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet8">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java8">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_full_term.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp8">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_full_term.html"--></pre>
+			</div>	
+			</div>
+
+			<p>Subclasses should generally not override the &quot;full&quot; methods, 
+			since they are implemented in terms of other methods that can be 
+			overridden.</p>
+			<b class="dark_heading_two"><a name="Coordinate Systems"></a>Pattern 10: Coordinate Systems</b>
+			<p><i>Each node in Piccolo has its own transform that it uses to 
+			define its own coordinate system. It is essential that you 
+			understand coordinate systems, and how to convert from one 
+			coordinate system to another when designing a zoomable user 
+			interface.</i></p>
+			<p>There may be thousands of different coordinate systems in a 
+			Piccolo interface (a different one for each node), but they can all 
+			be organized into three categories:</p>
+			<ol>
+				<li><b>Local:</b> The local coordinate system is specific to a 
+				single node. This coordinate system exists directly below that 
+				nodes transform. The base bounds of a node are kept in this 
+				local coordinate system, while the fullBounds of a node are 
+				stored in the local coordinate system of the nodes parent. (This 
+				means that the full bounds of a node have been transformed up 
+				through the node's transform, but are still below the node's 
+				parent's transform).&nbsp; 
+				</li>
+				<li><b>Global:</b> The global coordinate system exists above the 
+				root node's transform, but below the canvas's view transform. 
+				The global coordinate system serves as a common coordinate 
+				system that can be used as an intermediate when converting from 
+				the local coordinates of one node to that of another node. 
+				</li>
+				<li><b>Canvas:</b> The canvas coordinate system is equal to the 
+				coordinate system of the <code>PCanvas</code>. </li>
+			</ol>
+			<p>Piccolo provides methods that let you easily convert between 
+			different coordinate systems. The <code>PNode</code> class defines the methods:</p>
+			
+			<a id="jlink9" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink9" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet9">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java9">
+				<ul>
+					<li>localToGlobal() - Transform up from a node's local coordinate 
+					system into the global coordinates.. 
+					</li>
+					<li>globalToLocal() - Transform down from global coordinate system 
+					into a node's local coordinates. 
+					</li>
+					<li>localToParent() - Transform up from a nodes local coordinate 
+					system into the node's parent's local coordinates. 
+					</li>
+					<li>parentToLocal() - Transform down from a node's parent's local 
+					coordinate system into the node's local coordinates. </li>
+				</ul>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; height: 174px; z-index: 2; left:0px; top:0px" id="csharp9">
+				<ul>
+					<li>LocalToGlobal() - Transform up from a node's local coordinate 
+					system into the global coordinates.. 
+					</li>
+					<li>GlobalToLocal() - Transform down from global coordinate system 
+					into a node's local coordinates. 
+					</li>
+					<li>LocalToParent() - Transform up from a nodes local coordinate 
+					system into the node's parent's local coordinates. 
+					</li>
+					<li>ParentToLocal() - Transform down from a node's parent's local 
+					coordinate system into the node's local coordinates. </li>
+				</ul>
+			</div>	
+			</div>
+			
+			<p>Here is a typical example of how coordinate systems are used:</p>
+			
+			<a id="jlink10" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink10" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet10">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java10">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_coords.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp10">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_coords.html"--></pre>
+			</div>	
+			</div>
+
+			<br></btr><b class="dark_heading_two"><a name="UI Cycle"></a>Pattern 11: UI Cycle</b>
+			<p><i>The root node's UI Cycle is at the center of Piccolo's runtime 
+			behavior where it drives the processes for processing user input, 
+			activities, bounds management, and scheduling repaints.</i></p>
+			<p>The <code>PRoot</code> class is responsible for running the UI Cycle. During 
+			each cycle it performs four actions:</p>
+			<ol>
+				<li><b>Process Inputs:</b> Incoming input events from Swing or 
+				.NET are
+				passed to the dispatch manager which will then send them to the appropriate <code>PInputEventListeners</code>.</li>
+				<li><b>Process Activities:</b> All activities that are ready to 
+				run are given a chance to do so. 
+				</li>
+				<li><b>Validate Bounds:</b> All invalidated bounds are updated, 
+				and bounds caches filled. 
+				</li>
+				<li><b>Update Display:</b> Damage is collected for all areas of 
+				the screen that need to be repainted and is then sent to the 
+				Swing or .NET repaint manager. </li>
+			</ol>
+			<p>The Piccolo UI loop is always driven from the event dispatch 
+			thread. A UI cycle is done for each new input event received by the 
+			canvas, and for each time the activity timer fires (to support 
+			animation).</p>
+			<ul>
+				<li>To learn more about Piccolo and threads, see
+				<a class="main_pane" href="#Threads">Threads</a>  
+				</li>
+				<li>To learn more about dispatching events, see
+				<a class="main_pane" href="#Dispatching Events">Dispatching Events</a>  
+				</li>
+				<li>To learn more about&nbsp; processing activities, see
+				<a class="main_pane" href="#Processing Activities">Processing 
+				Activities</a>  
+				</li>
+				<li>To learn more about the bounds validation, see
+				<a class="main_pane" href="#Validating Bounds">Validating Bounds</a>  
+				</li>
+				<li>To learn more about updating the display, see
+				<a class="main_pane" href="#Updating the Display">Updating the Display</a> 
+				</li>
+			</ul>
+			<b class="dark_heading_two"><a name="Threads"></a>Pattern 12: Threads</b>
+			<p><i>Piccolo is not thread safe and should only be used by a single 
+			thread at a time, and that thread will almost always be the event 
+			dispatch thread.</i></p>
+			<p>If you need to run a computation in another thread you will need 
+			to call special methods to connect the results of your 
+			computation back up to the event dispatch thread. In Piccolo.Java, 
+			use&nbsp; <code>SwingUtilities.invokeLater()</code> or 
+			<code>SwingUtilities.invokeAndWait()</code>. In Piccolo.NET, use
+			<code>Control.BeginInvoke()</code> and 
+			<code>Control.Invoke()</code>.</p>
+			<b class="dark_heading_two"><a name="Dispatching Events"></a>Pattern 13: Dispatching Events</b>
+			<p><i>Event dispatch is the process through which Piccolo directs 
+			new events coming from the user to event handlers in the interface.</i></p>
+			<p>All event dispatch is managed by the input manager 
+			(<code>PInputManager</code>). Events get to the dispatch manager by 
+			first coming off the Java or .NET event queue, next they are sent to the canvas 
+			(<code>PCanvas</code>) and the canvas forwards them to the input manager.</p>
+			<p>The input manager then converts the incoming Java or .NET 
+			event to a Piccolo event.&nbsp; in Piccolo.Java, a <code>java.awt.InputEvent</code> 
+			is converted into a <code>PInputEvent</code>. In Piccolo.NET, a <code>System.EventArgs</code> is 
+			converted into a <code>PInputEventArgs</code>. Next the input manager  
+			sends the Piccolo event to the event listeners of the appropriate 
+			nodes. The dispatch manager maintains the following focus nodes:</p>
+			<ul>
+				<li><b>Keyboard Focus</b> - The node that gets key events sent 
+				to it (Usually defined when the mouse is pressed) 
+				</li>
+				<li><b>Mouse Over Focus</b> - The node that the mouse cursor 
+				is over. When a node first becomes the current mouse over node 
+				it is sent a mouse entered event, and when the mouse leaves it 
+				is sent a mouse exited event. 
+				</li>
+				<li><b>Mouse Focus</b> - The mouse focus node is sent mouse 
+				pressed, dragged, and released events. When the mouse is pressed 
+				the dispatch manager gets the mouse over focus, and makes it the 
+				mouse focus node as well. This mouse focus node is sent all 
+				events from that mouse pressed, dragged, released sequence. 
+				After the release event arrives the dispatch manager sets the 
+				mouse focus back to null. </li>
+			</ul>
+			<p>Events are dispatched up the <code>PPickPath</code> associated with a given 
+			focus node, so they percolate up the pick path until they are 
+			consumed or they reach the originating camera node.</p>
+			<p>TIP: You can always get a reference to the dispatch manager from 
+			a <code>PInputEvent</code>, and ask it for the current focus nodes.&nbsp;</p>
+			<b class="dark_heading_two"><a name="Processing Activities"></a>Pattern 14: Processing Activities</b>
+			<p><i>All scheduled activities are given a chance to run during the 
+			UI Cycle.</i></p>
+			<p>Activities are used to control some time dependent aspect of the 
+			Piccolo framework, for example they can be used to animate a node 
+			across the screen, or animate the camera's view transform to perform 
+			a zoom.</p>
+			<b class="dark_heading_two"><a name="Validating Bounds"></a>Pattern 15: Validating Bounds</b>
+			<p><i>When the geometry of a node changes its bounds caches need to 
+			be recomputed and the geometry of other related nodes may also be 
+			effected.</i></p>
+			<p>Maintaining bounds caches and updating layouts can become very 
+			expensive when manipulating a large number of nodes. Because of this 
+			Piccolo uses a two stage incremental approach the layout management. 
+			The two stages consist of; a damage stage where damage is recorded 
+			in bit flags for each damaged node, and an incremental repair stage 
+			where the damage is repaired as is needed.</p>
+			<p>The damage stage begins when some node geometry changes. When 
+			this happens the type of damage that occurred is recorded for each 
+			node. The are three kinds of damage that can occur:</p>
+			<ul>
+				<li><b>bounds invalidated</b> - This damage is recorded whenever 
+				the bounds of a node change.&nbsp; 
+				</li>
+				<li><b>full bounds invalidated</b> - This damage is recorded 
+				anytime the fullBoundsCache becomes invalid. 
+				</li>
+				<li><b>child bounds invalidated</b> - This damage is recorded 
+				anytime the full bounds of any descendant node is invalidated. 
+				</li>
+			</ul>
+			<p>Damage is repaired by <code>PNode's</code> validateFullBounds method at the 
+			end of the UI cycle. That method does the following things</p>
+			<ol>
+				<li>If the node's bounds have been invalidated, then validate 
+				them. 
+				</li>
+				<li>If the node's child bounds invalidated flag is set then all 
+				of the nodes children a validated. 
+				</li>
+				<li>Next layout the children. (by default, the layout method of
+				<code>PNode</code> does nothing, but layout manager nodes would override it). 
+				</li>
+				<li>If the nodes full bounds invalidated flag is set then: 
+				<ol>
+					<li>Record the node's old full bounds 
+					</li>
+					<li>Compute the node's new full bounds 
+					</li>
+					<li>If the node's full bounds have change make sure to 
+					invalidate the full bounds of the parent node. </li>
+				</ol>
+				</li>
+				<li>The layout is now up to date, so clear the layout flags. 
+				</li>
+			</ol>
+			<b class="dark_heading_two"><a name="Updating the Display"></a>Pattern 16: Updating the Display</b>
+			<p><i>Piccolo should paint the screen only when needed, and it 
+			should be smart about only painting the portions of the screen that 
+			need to be painted.</i></p>
+			<p>Display update in Piccolo is driven from the UI Cycle, and uses 
+			the same damage/repair design that Piccolo uses to validate bounds. 
+			When a node changes such that it needs to be repainted it 
+			invalidates its paint, and invalidates the child paint of all its 
+			ancestors. Later (at the end of the UI Cycle) screen damage is 
+			collected for all nodes with invalid paint.</p>
+			<h1><a name="Desing Patterns for ZUI Interaces"></a>Design Patterns for ZUI Interfaces</h1>
+			<p>This section contains a few basic patterns that occur frequently 
+			in ZUIs, and describes how they can be implemented with 
+			Piccolo. To learn more about using Piccolo see
+			<a class="main_pane" href="#Usage Patterns For Piccolo">Usage Patterns For Piccolo</a>, 
+			and to learn more about the Piccolo implementation see
+			<a class="main_pane" href="#Implementation Patterns for Piccolo">Implementation 
+			Patterns for Piccolo</a>.</p>
+			<b class="dark_heading_two"><a name="Semantic Zooming"></a>Pattern 17: Semantic Zooming</b>
+			<p><i>It is useful for an object to change its visual representation 
+			based on the scale that it is being viewed at. For example when a 
+			document is viewed from far away (at a small scale) in a ZUI it 
+			might be best to just show that documents title, but when the view 
+			is zoomed in all the documents content should become visible.</i></p>
+			<p>To do semantic zooming in Piccolo you should override the 
+			appropriate paint method, and then choose how the node renders 
+			itself based on the scale stored in the paint context parameter. 
+			This example creates a new node that will paint its based bounds 
+			filed with a blue color when viewed at a scale that is less then 
+			one, and with an orange color when the scale is greater then one.</p>
+			
+			<a id="jlink11" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink11" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet11">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 1; left:0px; top:0px" id="java11">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_semantic_zoom.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 2; left:0px; top:0px" id="csharp11">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_semantic_zoom.html"--></pre>
+			</div>	
+			</div>
+			
+			<br><b class="dark_heading_two"><a name="Sticky Objects"></a>Pattern 18: Sticky Objects</b>
+			<p><i>It is useful for an object to &quot;stick&quot; to a camera, so that its 
+			position does not change even when the camera is zoomed and 
+			panned.</i></p>
+			<p>To do this in Piccolo you should add the &quot;sticky node&quot; as a child 
+			of the camera. The camera's view transform is only applied to the 
+			layer nodes that it is viewing, not to its children. The children 
+			are drawn after (on top of) the layer nodes.</p>
+			<p>This example creates a yellow rectangle with bounds handles and 
+			adds it to the camera as a sticky node.&nbsp; A standard rectangle 
+			is then added to the main layer.&nbsp; Zooming in and out will 
+			change the scale of the standard rectangle but not the sticky one.</p>
+			
+			<a id="jlink12" class="main_content" style = "color: #000000; text-decoration: none" onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');" href="javascript:void(0);">Java</a> | 
+			<a id="clink12" class="main_content" onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');" href="javascript:void(0);">C#</a><br>
+		
+			<div style="position: relative; background-color: #D6D583; width: 100%;" id="snippet12">
+			<div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px" id="java12">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/java_sticky.html"--></pre>
+			</div>
+			
+			<div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px" id="csharp12">
+			<pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;"><!--#include virtual="/hcil/piccolo/learn/snippets/csharp_sticky.html"--></pre>
+			</div>	
+			</div>
+			
+			<p></p>
+
+			</td>
+		</tr>
+
+		</table>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

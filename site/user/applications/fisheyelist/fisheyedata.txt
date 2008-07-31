@@ -1,0 +1,147 @@
+FY 2001
+NULL
+30 30 30
+
+AlphaTrek, Inc., Ashton, Md.
+NULL
+140 140 140
+
+Better Growth, LLC, Deal Island, Md.
+NULL
+140 140 140
+
+Blue Wave Semiconductor, Inc., College Park, Md.
+NULL
+140 140 140
+
+Calibrant Biosystems, Bethesda, Md.
+http://www.Calibrant.com
+140 140 140
+
+Hang 40, LLC, Ellicott City, Md.
+http://www.hang40.com
+140 140 140
+
+Optical Fiber Research Resources, Inc., Baltimore, Md.
+http://www.opticalfiberlab.com
+140 140 140
+
+www.opticalfiberlab.com 
+NULL
+140 140 140
+
+
+NULL
+30 30 30
+
+FY 2000
+NULL
+30 30 30
+
+LaserLink Technology, LLC, Columbia, Md.
+http://www.makelink.com
+140 140 140
+
+Little Optics Inc., Columbia, Md. 
+NULL
+140 140 140
+
+
+NULL
+30 30 30
+
+FY 1999 
+NULL
+30 30 30
+
+FLY OFF, Inc., St. Davids, Pa.
+http://www.flyoffinc.com
+140 140 140
+
+The Learning Bench, Washington, D.C.
+http://www.learningbench.com
+140 140 140
+
+SabaTech Corporation, College Park, Md.
+NULL
+140 140 140
+
+Saffron Systems, Inc., College Park, Md.
+NULL
+140 140 140
+
+Syscom Services, Inc., Silver Springs, Md.
+http://www.skimaps.com
+140 140 140
+
+
+NULL
+30 30 30
+
+FY 1998
+NULL
+30 30 30
+
+Quantum Photonics, Inc., Jessup, Md.
+http://www.quantumphotonics.com
+140 140 140
+
+Viridian Environmental, L.L.C., Houston, Texas
+NULL
+140 140 140
+
+
+NULL
+30 30 30
+
+FY 1997
+NULL
+30 30 30
+
+Advanced Thermal Environmental Concepts Ltd., Columbia, Md.
+http://www.atec-ahx.com
+140 140 140
+
+
+NULL
+140 140 140
+
+FY 1993
+NULL
+30 30 30
+
+DAMILIC Corporation, Rockville, Md.
+http://www.damilic.com/rubber.htm
+140 140 140
+
+RainbowBridge Communications, Inc., Rockville, Md.,
+http://www.damilic.com/rubber.htm
+140 140 140
+
+Vibran Technologies, Inc., Silver Spring, Md.
+http://www.vibran.com/vibran
+140 140 140
+
+
+http://www.damilic.com/rubber.htm
+30 30 30
+
+FY 1992
+http://www.damilic.com/rubber.htm
+30 30 30
+
+Marizyme Corporation, Hanover, Md.
+http://www.novascreen.com
+140 140 140
+
+
+http://www.damilic.com/rubber.htm
+30 30 30
+
+FY 1988
+http://www.damilic.com/rubber.htm
+30 30 30
+
+NovaScreen Biosciences Corporation, Hanover, Md.
+http://www.novascreen.com
+140 140 140
