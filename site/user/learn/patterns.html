@@ -47,19 +47,19 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="#Usage%20Patterns%20for%20Piccolo">Usage</a> 
+                  <a href="#Usage_Patterns">Usage</a> 
                   <ul class="nav">
                     <li>
-                      <a href="#Building%20Piccolo">Build</a>
+                      <a href="#Building_Piccolo">Build</a>
                     </li>
                     <li>
-                      <a href="#Creating%20Nodes">Creating&nbsp;Nodes</a>
+                      <a href="#Creating_Nodes">Creating&nbsp;Nodes</a>
                     </li>
                     <li>
-                      <a href="#Adding%20User%20Interaction">Adding&nbsp;Interaction</a>
+                      <a href="#Adding_User_Interaction">Adding&nbsp;Interaction</a>
                     </li>
                     <li>
-                      <a href="#Layout%20Constraints">Layout&nbsp;Constraints</a>
+                      <a href="#Layout_Constraints">Layout&nbsp;Constraints</a>
                     </li>
                     <li>
                       <a href="#Activities">Activities</a>
@@ -70,45 +70,45 @@
                   </ul>
                 </li>
                 <li>
-                  <a href="#Implementation%20Patterns%20for%20Piccolo">Implementation</a> 
+                  <a href="#Implementation_Patterns_for_Piccolo">Implementation</a> 
                   <ul class="nav">
                     <li>
-                      <a href="#Piccolo%20Framework%20Design">Framework&nbsp;Design</a>
+                      <a href="#Piccolo_Framework_Design">Framework&nbsp;Design</a>
                     </li>
                     <li>
-                      <a href="#Full%20Terminology">Full&nbsp;Terminology</a>
+                      <a href="#Full_Terminology">Full&nbsp;Terminology</a>
                     </li>
                     <li>
-                      <a href="#Coordinate%20Systems">Coordinates</a>
+                      <a href="#Coordinate_Systems">Coordinates</a>
                     </li>
                     <li>
-                      <a href="#UI%20Cycle">UI&nbsp;Cycle</a>
+                      <a href="#UI_Cycle">UI&nbsp;Cycle</a>
                     </li>
                     <li>
                       <a href="#Threads">Threads</a>
                     </li>
                     <li>
-                      <a href="#Dispatching%20Events">Dispatching&nbsp;Events</a>
+                      <a href="#Dispatching_Events">Dispatching&nbsp;Events</a>
                     </li>
                     <li>
-                      <a href="#Processing%20Activities">Processing&nbsp;Activities</a>
+                      <a href="#Processing_Activities">Processing&nbsp;Activities</a>
                     </li>
                     <li>
-                      <a href="#Validating%20Bounds">Validating&nbsp;Bounds</a>
+                      <a href="#Validating_Bounds">Validating&nbsp;Bounds</a>
                     </li>
                     <li>
-                      <a href="#Updating%20the%20Display">Updating&nbsp;Display</a>
+                      <a href="#Updating_the_Display">Updating&nbsp;Display</a>
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#Desing%20Patterns%20for%20ZUI%20Interaces">ZUI&nbsp;Design</a> 
+                  <a href="#Desing_Patterns_for_ZUI_Interfaces">ZUI&nbsp;Design</a> 
                   <ul class="nav">
                     <li>
-                      <a href="#Semantic%20Zooming">Semantic&nbsp;Zooming</a>
+                      <a href="#Semantic_Zooming">Semantic&nbsp;Zooming</a>
                     </li>
                     <li>
-                      <a href="#Sticky%20Objects">Sticky&nbsp;Objects</a>
+                      <a href="#Sticky_Objects">Sticky&nbsp;Objects</a>
                     </li>
                   </ul>
                 </li>
@@ -181,6 +181,18 @@
         JHotDraw</em> paper. This work merely attempts to adapt the concepts presented there into a
         format suitable for our Piccolo framework.
       </div>
+      <p class="toggle" style="float: right; width: 8.5em; height: 8ex; border:thin solid blue;"
+      id="language">
+        Show examples in<br />
+         <img src="images/check.gif" alt="Checkmark" style="border:0;width:1.0em;height:2ex"
+        id="java13" /><a class="toggle selected" id="jlink13"
+        onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+        href="javascript:void(0);">Java</a><br />
+         <img src="images/check.gif" alt="Checkmark"
+        style="visibility: hidden;border:0;width:1.0em;height:2ex" id="csharp13" /><a id="clink13"
+        onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+        href="javascript:void(0);">C#</a>
+      </p>
       <h2>
         <a name="Intro" id="Intro"></a>Intro
       </h2>
@@ -193,21 +205,8 @@
         be scaled and panned. Interfaces built with Piccolo can define your entire application
         interface, or they can be a small part of a large system.
       </p>
-      <p class="toggle"
-      style="border:thin solid blue; position: relative; width: 8em; height: 8ex; z-index: 3; float: right"
-         id="language">
-        Show examples in<br />
-         <img class="toggle selected" border="0" src="images/check.gif" width="15px" height="15px"
-        id="java13" /> <a class="toggle selected" id="jlink13"
-        onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-        href="javascript:void(0);">Java</a><br />
-         <img style="visibility: hidden" border="0" src="images/check.gif" width="15px"
-        height="15px" id="csharp13" /> <a id="clink13"
-        onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-        href="javascript:void(0);">C#</a>
-      </p>
       <p class="image">
-        <img height="146" src="../images/zoomsequence.jpg" width="450" border="0" />
+        <img src="../images/zoomsequence.jpg" alt="Zoom Sequence" />
       </p>
       <p>
         Figure 1 shows a sequence of frames from a simple zooming interface created using Piccolo.
@@ -306,45 +305,41 @@ public class PiccoloExample : PForm {
       </p>
       <ul>
         <li>
-          To quickly get started using Piccolo, see
-          <a href="#Usage%20Patterns%20For%20Piccolo">Usage Patterns for Piccolo</a>
-        </li>
-        <li>
-          To learn more about the Piccolo implementation, see
-          <a href="#Implementation%20Patterns%20for%20Piccolo">Implementation Patterns for
+          To quickly get started using Piccolo, see <a href="#Usage_Patterns">Usage Patterns for
           Piccolo</a>
         </li>
         <li>
-          To learn more about common ZUI design patterns, see
-          <a href="#Desing%20Patterns%20for%20ZUI%20Interaces">Design Patterns for ZUI
-          Interfaces</a>
+          To learn more about the Piccolo implementation, see
+          <a href="#implementation_patterns">Implementation Patterns for Piccolo</a>
+        </li>
+        <li>
+          To learn more about common ZUI design patterns, see <a href="#interface_patterns">Design
+          Patterns for ZUI Interfaces</a>
         </li>
       </ul>
       <h2>
-        <a name="Usage Patterns for Piccolo" id="Usage Patterns for Piccolo"></a>Usage Patterns for
-        Piccolo
+        <a name="Usage_Patterns" id="Usage_Patterns"></a>Usage Patterns for Piccolo
       </h2>
       <p>
         The Piccolo usage patterns are designed to get you up and running with Piccolo as quickly
         as possible. They provide quick "cookbook" explanations of the major things that can be
         done with Piccolo. To gain a better understanding of the Piccolo implementation and of its
-        runtime behavior is see <a href="#Implementation%20Patterns%20for%20Piccolo">Implementation
-        Patterns for Piccolo</a>.
+        runtime behavior is see <a href="#implementation_patterns">Implementation Patterns for
+        Piccolo</a>.
       </p>
       <ul>
         <li>
-          To create nodes see, <a href="#Creating%20Nodes">Creating Nodes</a>
+          To create nodes see, <a href="#creating_nodes">Creating Nodes</a>
         </li>
         <li>
-          To create user interactions, see <a href="#Adding%20User%20Interaction">Adding User
-          Interaction</a>
+          To create user interactions, see <a href="#User_Interaction">Adding User Interaction</a>
         </li>
         <li>
           To create animations, see <a href="#Activities">Activities</a>
         </li>
       </ul>
       <h3>
-        <a name="Building Piccolo" id="Building Piccolo"></a>Pattern 2: Building and Using Piccolo
+        <a name="Building_Piccolo" id="Building_Piccolo"></a>Pattern 2: Building and Using Piccolo
       </h3>
       <p class="preamble">
         To use <em>Piccolo.Java</em>, you will need to add the appropriate .jar files to your
@@ -443,7 +438,7 @@ public class PiccoloExample : PForm {
         tutorial.
       </p>
       <h3>
-        <a name="Creating Nodes" id="Creating Nodes"></a>Pattern 3: Creating Nodes
+        <a name="Creating_Nodes" id="Creating_Nodes"></a>Pattern 3: Creating Nodes
       </h3>
       <p class="preamble">
         There are an infinite variety of nodes that can be included in a zoomable user interface.
@@ -592,8 +587,8 @@ public class SimpleEllipseNode : PNode {
       </div>
       <ul>
         <li>
-          To let the user change the attributes of a node, see
-          <a href="#Adding%20User%20Interaction">Adding user Interaction</a>
+          To let the user change the attributes of a node, see <a href="#User_Interaction">Adding
+          user Interaction</a>
         </li>
         <li>
           To constrain the layout of a nodes children, see <a href="#Layout%20Constraints">Layout
@@ -601,7 +596,7 @@ public class SimpleEllipseNode : PNode {
         </li>
       </ul>
       <h3>
-        <a name="Adding User Interaction" id="Adding User Interaction"></a>Pattern 4: Adding User
+        <a name="Adding_User_Interaction" id="Adding_User_Interaction"></a>Pattern 4: Adding User
         Interaction
       </h3>
       <p class="preamble">
@@ -841,16 +836,16 @@ protected void aNode_MouseDown(object sender, PInputEventArgs e) {
       </p>
       <ul>
         <li>
-          To learn more about coordinate systems, see <a href="#Coordinate%20Systems">Coordinate
+          To learn more about coordinate systems, see <a href="#Coordinate_Systems">Coordinate
           Systems</a>
         </li>
         <li>
-          To learn more about event dispatch, see <a href="#Dispatching%20Events">Dispatching
+          To learn more about event dispatch, see <a href="#Dispatching_Events">Dispatching
           Events</a>
         </li>
       </ul>
       <h3>
-        <a name="Layout Constraints" id="Layout Constraints"></a>Pattern 5: Layout Constraints
+        <a name="Layout_Constraints" id="Layout_Constraints"></a>Pattern 5: Layout Constraints
       </h3>
       <p class="preamble">
         Often an interface has constraints that must be maintained between a node and its children.
@@ -1063,17 +1058,17 @@ public class SWTHelloWorld {
 }
 </pre>
       <h2>
-        <a name="Implementation Patterns for Piccolo"
-        id="Implementation Patterns for Piccolo"></a>Implementation Patterns for Piccolo
+        <a name="Implementation_Patterns_for_Piccolo"
+        id="Implementation_Patterns_for_Piccolo"></a>Implementation Patterns for Piccolo
       </h2>
       <p>
         The Piccolo implementation patterns are designed to give a general understanding of how
         Piccolo is implemented and what its runtime behaviors are. This is opposed to the patterns
-        in <a href="#Usage%20Patterns%20For%20Piccolo">Usage Patterns For Piccolo</a> that are
-        designed to get you using the framework as quickly as possible.
+        in <a href="#Usage_Patterns">Usage Patterns For Piccolo</a> that are designed to get you
+        using the framework as quickly as possible.
       </p>
       <h3>
-        <a name="Piccolo Framework Design" id="Piccolo Framework Design"></a>Pattern 8: Piccolo
+        <a name="Piccolo_Framework_Design" id="Piccolo_Framework_Design"></a>Pattern 8: Piccolo
         Framework Design
       </h3>
       <p class="preamble">
@@ -1086,8 +1081,8 @@ public class SWTHelloWorld {
         Morphic interface frameworks.
       </p>
       <p class="image">
-        <img style="background-color: white" height="177" src="../images/piccolo_hierachy.gif"
-        width="321" border="0" /><br />
+        <img style="background-color: white" src="../images/piccolo_hierachy.gif"
+        alt="Piccolo Class Hierarchy" /><br />
          Piccolo Class Hierarchy
       </p>
       <p>
@@ -1115,7 +1110,7 @@ public class SWTHelloWorld {
         </li>
       </ol>
       <p class="image">
-        <img height="177" src="../images/piccolo_runtime.gif" width="236" border="0" /><br />
+        <img src="../images/piccolo_runtime.gif" alt="Piccolo Runtime Structure" /><br />
          Piccolo Runtime Structure
       </p>
       <p>
@@ -1179,7 +1174,7 @@ public class SWTHelloWorld {
         panning and zooming are accomplished.
       </p>
       <h3>
-        <a name="Full Terminology" id="Full Terminology"></a>Pattern 9: Full Terminology
+        <a name="Full_Terminology" id="Full_Terminology"></a>Pattern 9: Full Terminology
       </h3>
       <p class="preamble">
         Many of PNode's methods work on the composite structure (the node plus all its descendents)
@@ -1245,7 +1240,7 @@ aNode.FullPaint(aPaintContext);
         terms of other methods that can be overridden.
       </p>
       <h3>
-        <a name="Coordinate Systems" id="Coordinate Systems"></a>Pattern 10: Coordinate Systems
+        <a name="Coordinate_Systems" id="Coordinate_Systems"></a>Pattern 10: Coordinate Systems
       </h3>
       <p class="preamble">
         Each node in Piccolo has its own transform that it uses to define its own coordinate
@@ -1408,7 +1403,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
 </pre>
       </div>
       <h3>
-        <a name="UI Cycle" id="UI Cycle"></a>Pattern 11: UI Cycle
+        <a name="UI_Cycle" id="UI_Cycle"></a>Pattern 11: UI Cycle
       </h3>
       <p class="preamble">
         The root node's UI Cycle is at the center of Piccolo's runtime behavior where it drives the
@@ -1469,8 +1464,8 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
           Bounds</a>
         </li>
         <li>
-          To learn more about updating the display, see
-          <a href="#Updating%20the%20Display">Updating the Display</a>
+          To learn more about updating the display, see <a href="#updating_display">Updating the
+          Display</a>
         </li>
       </ul>
       <h3>
@@ -1488,7 +1483,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         <code>Control.BeginInvoke()</code> and <code>Control.Invoke()</code>.
       </p>
       <h3>
-        <a name="Dispatching Events" id="Dispatching Events"></a>Pattern 13: Dispatching Events
+        <a name="Dispatching_Events" id="Dispatching_Events"></a>Pattern 13: Dispatching Events
       </h3>
       <p class="preamble">
         Event dispatch is the process through which Piccolo directs new events coming from the user
@@ -1544,7 +1539,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         <code>PInputEvent</code>, and ask it for the current focus nodes.&nbsp;
       </p>
       <h3>
-        <a name="Processing Activities" id="Processing Activities"></a>Pattern 14: Processing
+        <a name="Processing_Activities" id="Processing_Activities"></a>Pattern 14: Processing
         Activities
       </h3>
       <p class="preamble">
@@ -1556,7 +1551,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         transform to perform a zoom.
       </p>
       <h3>
-        <a name="Validating Bounds" id="Validating Bounds"></a>Pattern 15: Validating Bounds
+        <a name="Validating_Bounds" id="Validating_Bounds"></a>Pattern 15: Validating Bounds
       </h3>
       <p class="preamble">
         When the geometry of a node changes its bounds caches need to be recomputed and the
@@ -1630,7 +1625,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         </li>
       </ol>
       <h3>
-        <a name="Updating the Display" id="Updating the Display"></a>Pattern 16: Updating the
+        <a name="Updating_the_Display" id="Updating_the_Display"></a>Pattern 16: Updating the
         Display
       </h3>
       <p class="preamble">
@@ -1645,19 +1640,18 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         paint.
       </p>
       <h1>
-        <a name="Desing Patterns for ZUI Interaces"
-        id="Desing Patterns for ZUI Interaces"></a>Design Patterns for ZUI Interfaces
+        <a name="Desing_Patterns_for_ZUI_Interfaces"
+        id="Desing_Patterns_for_ZUI_Interfaces"></a>Design Patterns for ZUI Interfaces
       </h1>
       <p>
         This section contains a few basic patterns that occur frequently in ZUIs, and describes how
         they can be implemented with Piccolo. To learn more about using Piccolo see
-        <a href="#Usage%20Patterns%20For%20Piccolo">Usage Patterns For Piccolo</a>, and to learn
-        more about the Piccolo implementation see
-        <a href="#Implementation%20Patterns%20for%20Piccolo">Implementation Patterns for
+        <a href="#Usage_Patterns">Usage Patterns For Piccolo</a>, and to learn more about the
+        Piccolo implementation see <a href="#implementation_patterns">Implementation Patterns for
         Piccolo</a>.
       </p>
       <h3>
-        <a name="Semantic Zooming" id="Semantic Zooming"></a>Pattern 17: Semantic Zooming
+        <a name="Semantic_Zooming" id="Semantic_Zooming"></a>Pattern 17: Semantic Zooming
       </h3>
       <p class="preamble">
         It is useful for an object to change its visual representation based on the scale that it
@@ -1714,7 +1708,7 @@ public class SemanticNode : PNode {
 </pre>
       </div>
       <h3>
-        <a name="Sticky Objects" id="Sticky Objects"></a>Pattern 18: Sticky Objects
+        <a name="Sticky_Objects" id="Sticky_Objects"></a>Pattern 18: Sticky Objects
       </h3>
       <p class="preamble">
         It is useful for an object to "stick" to a camera, so that its position does not change
