@@ -1,13 +1,13 @@
-./learn/dev-faq.html
-./learn/graphics.html
 ./learn/interface.html
 ./learn/interaction.html
 ./learn/effects.html
-./press.html
-./publications.html
-./sponsors.html
-./learn/api.html
 ./learn/fisheye.html
+./learn/graphics.html
+./learn/api.html
+./press.html
+./comparison.html
+./contribute.html
+./sponsors.html
 ./learn/grapheditor.html
 ./play/applet/fisheyecalendar.html
 ./play/applet/grapheditor.html
@@ -19,8 +19,6 @@
 ./applications/mftv/index.html
 ./applications/salsa-community/LMSS-Salsa/LMSS-Salsa.html
 ./applications/wordnetviewer/index.html
-./comparison.html
-./contribute.html
 
 ./learn/snippets/t1_interface/csharp_advnode.html
 ./learn/snippets/t1_interface/csharp_compose.html

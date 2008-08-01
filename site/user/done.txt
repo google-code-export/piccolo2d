@@ -4,3 +4,6 @@
 ./learn/out-of-box-dotnet.html
 ./learn/out-of-box-java.html
 ./learn/patterns.html
+./learn/dev-faq.html
+./publications.html
+
