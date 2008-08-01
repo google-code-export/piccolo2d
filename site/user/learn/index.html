@@ -1,239 +1,147 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="HTML Tidy for Linux/x86 (vers 1st December 2002), see www.w3.org"
     name="generator" />
     <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-    <meta name="description"
-    content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab." />
+    <meta name="description" content="Home Page for the Piccolo2D project." />
     <meta name="format" content="text/html" />
     <meta name="keywords"
-    content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education" />
-    <meta name="publisher" content="Human-Computer Interaction Lab, University of Maryland" />
-    <meta name="relation" content="(contained in)=http://www.cs.umd.edu/hcil/piccolo" />
-    <meta name="rights statement"
-    content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved." />
+    content="piccolo2d, piccolo2d.net, piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education" />
+    <meta name="relation" content="(contained in)=http://www.piccolo2d.org" />
     <title>
-      Piccolo Home Page
+      Piccolo2D - About
     </title>
-    <link rel="StyleSheet" href="http://www.cs.umd.edu/hcil/style.css" type="text/css" />
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <link rel="stylesheet" href="../piccolo2d.css" type="text/css" />
     <script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
     //<![CDATA[
     //]]>
     </script>
-    <script language="javascript" type="text/javascript">
-    //<![CDATA[
-    <!--
-
-    //Default browsercheck, added to all scripts!
-    function checkBrowser(){
-        this.ver=navigator.appVersion
-        this.dom=document.getElementById?1:0
-        this.ie5=(this.ver.indexOf("MSIE 5")>-1 && this.dom)?1:0;
-        this.ie4=(document.all && !this.dom)?1:0;
-        this.ns5=(this.dom && parseInt(this.ver) >= 5) ?1:0;
-        this.ns4=(document.layers && !this.dom)?1:0;
-        this.bw=(this.ie5 || this.ie4 || this.ns4 || this.ns5)
-        return this
-    }
-
-    bw=new checkBrowser()
-
-    //With nested layers for netscape, this function hides the layer if it's visible and visa versa
-    function showHide(div,nest){
-        obj=bw.dom?document.getElementById(div).style:bw.ie4?document.all[div].style:bw.ns4?nest?document[nest].document[div]:document[div]:0; 
-        if(obj.visibility=='visible' || obj.visibility=='show') obj.visibility='hidden'
-        else obj.visibility='visible'
-    }
-
-    //Shows the div
-    function show(div,nest){
-        obj=bw.dom?document.getElementById(div).style:bw.ie4?document.all[div].style:bw.ns4?nest?document[nest].document[div]:document[div]:0; 
-        obj.visibility='visible'
-    }
-
-    //Hides the div
-    function hide(div,nest){
-        obj=bw.dom?document.getElementById(div).style:bw.ie4?document.all[div].style:bw.ns4?nest?document[nest].document[div]:document[div]:0; 
-        obj.visibility='hidden'
-    }
-
-    //Shows the div
-    function large(div,nest){
-        obj=bw.dom?document.getElementById(div).style:bw.ie4?document.all[div].style:bw.ns4?nest?document[nest].document[div]:document[div]:0; 
-        obj.color='red'
-    }
-
-    //Hides the div
-    function small(div,nest){
-        obj=bw.dom?document.getElementById(div).style:bw.ie4?document.all[div].style:bw.ns4?nest?document[nest].document[div]:document[div]:0; 
-        obj.color='black'
-    }
-
-    -->
-    <\/script>
-
-
-
-
-    <body alink="#ffb926" bgcolor="#ffffff" link="#000080" text="#000000" vlink="#390764">
-
-    <!--#include virtual="/hcil/research/banner.html"-->
-
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-
-        <tbody><tr>
-        <td nowrap="nowrap" valign="top" width="165">
-        <table border="0" cellpadding="10" cellspacing="0" width="165">
-
-        <tbody>
-        
-        <tr>
-
-        <td nowrap="nowrap" valign="top">
-                <a href="http://www.cs.umd.edu/hcil/piccolo/index.shtml" class="heading">Piccolo<\/a><br><br>
-        <b class="curr_page_link">Learn<\/b>
-        <br>
-
-        &nbsp;&nbsp;<a class="side_pane_small" onmouseover="large('AboutDiv')" onmouseout="small('AboutDiv')" href="http://www.cs.umd.edu/hcil/piccolo/learn/about.shtml">About Piccolo<\/a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" onmouseover="large('PatternsDiv')" onmouseout="small('PatternsDiv')" href="http://www.cs.umd.edu/hcil/piccolo/learn/patterns.shtml">Piccolo Patterns<\/a>
-        <br>
-        &nbsp;&nbsp;<a href="http://www.cs.umd.edu/hcil/piccolo/learn/get-started.shtml" class="side_pane_small" onmouseover="large('StartedDiv')" onmouseout="small('StartedDiv')">Getting Started<\/a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" onmouseover="large('APIDiv')" onmouseout="small('APIDiv')" href="http://www.cs.umd.edu/hcil/piccolo/learn/api.shtml">API Documentation<\/a>
-        <br>
-        &nbsp;&nbsp;<a href="http://www.cs.umd.edu/hcil/piccolo/learn/comparison.shtml" class="side_pane_small" onmouseover="large('ComparisonDiv')" onmouseout="small('ComparisonDiv')">Piccolo in Comparison<\/a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" onmouseover="large('PublicationsDiv')" onmouseout="small('PublicationsDiv')" href="http://www.cs.umd.edu/hcil/piccolo/learn/publications.shtml">Publications<\/a>
-        <br>        
-        &nbsp;&nbsp;<a class="side_pane_small" onmouseover="large('FAQDiv')" onmouseout="small('FAQDiv')" href="http://www.cs.umd.edu/hcil/piccolo/learn/dev-faq.shtml">Developer FAQ<\/a>
-        <br>
-        &nbsp;&nbsp;<a class="side_pane_small" onmouseover="large('MaillistDiv')" onmouseout="small('MaillistDiv')" href="http://www.cs.umd.edu/hcil/piccolo/learn/maillists.shtml">Mailing Lists<\/a>        
-        <br>
-        
-        &nbsp;&nbsp;<a class="side_pane_small" onmouseover="large('GraphicsDiv')" onmouseout="small('GraphicsDiv')" href="http://www.cs.umd.edu/hcil/piccolo/learn/graphics.shtml">Graphics Primer<\/a>
-        <br>
-        <a href="http://www.cs.umd.edu/hcil/piccolo/play/index.shtml" class="side_pane">Play<\/a>
-        <br>
-
-        <a href="http://www.cs.umd.edu/hcil/piccolo/team/index.shtml" class="side_pane">Team<\/a>
-        <br>
-
-        <a href="http://www.cs.umd.edu/hcil/piccolo/press/index.shtml" class="side_pane">Press<\/a>
-        <br>
-
-        <a href="http://www.cs.umd.edu/hcil/piccolo/contribute/index.shtml" class="side_pane">Contribute<\/a>
-        <br>
-
-        <a href="http://www.cs.umd.edu/hcil/piccolo/applications/index.shtml" class="side_pane">Applications<\/a>
-        <br>
-
-        <a href="http://www.cs.umd.edu/hcil/piccolo/contact/index.shtml" class="side_pane">Contact Us<\/a>
-        <br><br>
-
-        <table border="1" bordercolor="#ff0000" cellpadding="5" cellspacing="0" width="120">
-        <tbody><tr><td>
-        <a href="http://www.cs.umd.edu/hcil/piccolo/download/index.shtml" class="side_pane">Download<\/a>
-        <br>
-        <\/td><\/tr>
-        <\/tbody><\/table>
-
-        <\/td><\/tr>
-
-        <\/tbody><\/table>
-        <\/td>
-                
-        <td valign="top">
-                <table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
-                <tbody><tr><td class="dark_text" bgcolor="#d6d583" valign="top" width="640">
-                        <b class="dark_heading">Learning Center<\/b><br><br>
-                        This is the place to learn about Piccolo.  Here you'll find general information on 
-                        2D graphics concepts related to Piccolo, an explanation of how 
-                        Piccolo compares with other graphics toolkits,
-                        common programming patterns used with Piccolo, basic and advanced tutorials, and detailed documentation
-                        of the Piccolo API.
-    //]]>
-    </script>
   </head>
   <body>
-    <br />
-     <br />
-     
-    <table>
-      <tr>
-        <td class="dark_text" bgcolor="#FFFD9C" valign="top" width="640" height="550">
-          <div id="AboutDiv">
-            <b>So what exactly is Piccolo?</b>
-          </div><a href="http://www.cs.umd.edu/hcil/piccolo/learn/about.shtml"
-          class="main_pane">About Piccolo</a> will give you some background information on exactly
-          what Piccolo can help you do.<br />
-          <br />
-           
-          <div id="PatternsDiv">
-            <b>Want to learn more about Piccolo?</b>
-          </div><a href="http://www.cs.umd.edu/hcil/piccolo/learn/patterns.shtml"
-          class="main_pane">Piccolo Patterns</a> will explain the common programming paradigms
-          associated with Piccolo.<br />
-          <br />
-           
-          <div id="StartedDiv">
-            <b>Ready to start writing code?</b>
-          </div>The <a class="main_pane"
-          href="http://www.cs.umd.edu/hcil/piccolo/learn/get-started.shtml">Getting Started</a>
-          section includes basic and advanced tutorials. Here you'll find step by step instructions
-          from setting up Piccolo to building sample applications.<br />
-          <br />
-           
-          <div id="APIDiv">
-            <b>Looking for more details?</b>
-          </div>The <a href="http://www.cs.umd.edu/hcil/piccolo/learn/api.shtml"
-          class="main_pane">Piccolo API</a> includes detailed documentation of every class and
-          method in the toolkit. There are separate APIs for Java and C#.<br />
-          <br />
-           
-          <div id="ComparisonDiv">
-            <b>Which version should you use?</b>
-          </div><a class="main_pane"
-          href="http://www.cs.umd.edu/hcil/piccolo/learn/comparison.shtml">Piccolo In
-          Comparison</a> will explain the differences between Piccolo.Java and Piccolo.NET as well
-          as how Piccolo relates to other Graphics Toolkits.<br />
-          <br />
-           
-          <div id="PublicationsDiv">
-            <b>Where's the research?</b>
-          </div>If you want to understand what lead to Piccolo, read some of the papers we have
-          published over the years in the
-          <a href="http://www.cs.umd.edu/hcil/piccolo/learn/publications.shtml"
-          class="main_pane">Publications</a> section.<br />
-          <br />
-           
-          <div id="FAQDiv">
-            <b>Have a technical question about Piccolo?</b>
-          </div>Check out the <a href="http://www.cs.umd.edu/hcil/piccolo/learn/dev-faq.shtml"
-          class="main_pane">Developer's FAQ</a> for answers to frequently asked questions about all
-          three versions of Piccolo.<br />
-          <br />
-           
-          <div id="MaillistDiv">
-            <b>Still have questions?</b>
-          </div>If you couldn't find the answer to your question on the Development FAQ, try
-          submitting it to our
-          <a href="http://www.cs.umd.edu/hcil/piccolo/learn/maillists.shtml">Mailing
-          Lists</a>.<br />
-          <br />
-           
-          <div id="GraphicsDiv">
-            <b>Need to brush up on 2D Graphics?</b>
-          </div>If you feel like you need a refresher in the basic graphics concepts related to
-          Piccolo, check out the
-          <a href="http://www.cs.umd.edu/hcil/piccolo/learn/graphics.shtml">Graphics Primer</a>
-          section.<br />
-          <br />
-        </td>
-      </tr>
-    </table>
+    <div id="navigation">
+      <h1>
+        <a href="../index.html">About Piccolo2D</a>
+      </h1>
+      <ul class="nav">
+        <li>
+          <a href="../play/index.html">Play</a>
+        </li>
+        <li>
+          <a href="./index.html">Learn</a> 
+          <ul class="nav">
+            <!-- li>
+                          <a onmouseover="large('AboutDiv')" onmouseout="small('AboutDiv')"
+                          href="../index.html">About Piccolo</a>
+                        </li -->
+            <li>
+              <a onmouseover="large('PatternsDiv')" onmouseout="small('PatternsDiv')"
+              href="./patterns.html">Piccolo Patterns</a>
+            </li>
+            <li>
+              <a onmouseover="large('StartedDiv')" onmouseout="small('StartedDiv')"
+              href="./get-started.html">Getting Started</a>
+            </li>
+            <li>
+              <a onmouseover="large('APIDiv')" onmouseout="small('APIDiv')" href="./api.html">API
+              Documentation</a>
+            </li>
+            <li>
+              <a onmouseover="large('ComparisonDiv')" onmouseout="small('ComparisonDiv')"
+              href="./comparison.html">Piccolo in Comparison</a>
+            </li>
+            <li>
+              <a onmouseover="large('PublicationsDiv')" onmouseout="small('PublicationsDiv')"
+              href="./publications.html">Publications</a>
+            </li>
+            <li>
+              <a onmouseover="large('FAQDiv')" onmouseout="small('FAQDiv')"
+              href="./dev-faq.html">Developer FAQ</a>
+            </li>
+            <li>
+              <a onmouseover="large('MaillistDiv')" onmouseout="small('MaillistDiv')"
+              href="./maillists.html">Mailing Lists</a>
+            </li>
+            <li>
+              <a onmouseover="large('GraphicsDiv')" onmouseout="small('GraphicsDiv')"
+              href="./graphics.html">Graphics Primer</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../contribute/index.html">Contribute</a>
+        </li>
+        <li>
+          <a href="../applications/index.html">Applications</a>
+        </li>
+        <li>
+          <a href="../press/index.html">Press</a>
+        </li>
+        <li>
+          <a href="../download/index.html">Download</a>
+        </li>
+      </ul>
+      <p>
+        <img alt="a nice graph" src="../images/giny-small.jpg" />
+      </p>
+      <p>
+        <a href="http://validator.w3.org/check/referer"><img style="border:0;width:88px;height:31px"
+             src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0!" /></a>
+             <a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px"
+             src="http://www.w3.org/Icons/valid-css-blue" alt="Valid CSS1!" /></a>
+      </p>
+      <p class="bugreport">
+        <a href="http://code.google.com/p/piccolo2d/issues/entry?template=User%20defect%20report">I
+        found an error!</a>
+      </p>
+    </div>
+    <div id="main">
+      <div id="main-head">
+        <h1>
+          Learning Center
+        </h1>This is the place to learn about Piccolo. Here you'll find general information on 2D
+        graphics concepts related to Piccolo, an explanation of how Piccolo compares with other
+        graphics toolkits, common programming patterns used with Piccolo, basic and advanced
+        tutorials, and detailed documentation of the Piccolo API.
+      </div><!-- h2 id="AboutDiv">
+              So what exactly is Piccolo?
+            </h2><a href="../index.html">About Piccolo</a> will give you some background information on
+            exactly what Piccolo can help you do. -->
+      <h2 id="PatternsDiv">
+        Want to learn more about Piccolo?
+      </h2><a href="./patterns.shtml">Piccolo Patterns</a> will explain the common programming
+      paradigms associated with Piccolo. 
+      <h2 id="StartedDiv">
+        Ready to start writing code?
+      </h2>The <a href="./get-started.shtml">Getting Started</a> section includes basic and
+      advanced tutorials. Here you'll find step by step instructions from setting up Piccolo to
+      building sample applications. 
+      <h2 id="APIDiv">
+        Looking for more details?
+      </h2>The <a href="./api.shtml">Piccolo API</a> includes detailed documentation of every class
+      and method in the toolkit. There are separate APIs for Java and C#. 
+      <h2 id="ComparisonDiv">
+        Which version should you use?
+      </h2><a href="./comparison.shtml">Piccolo In Comparison</a> will explain the differences
+      between Piccolo.Java and Piccolo.NET as well as how Piccolo relates to other Graphics
+      Toolkits. 
+      <h2 id="PublicationsDiv">
+        Where's the research?
+      </h2>If you want to understand what lead to Piccolo, read some of the papers we have
+      published over the years in the <a href="./publications.shtml">Publications</a> section. 
+      <h2 id="FAQDiv">
+        Have a technical question about Piccolo?
+      </h2>Check out the <a href="./dev-faq.shtml">Developer's FAQ</a> for answers to frequently
+      asked questions about all three versions of Piccolo. 
+      <h2 id="MaillistDiv">
+        Still have questions?
+      </h2>If you couldn't find the answer to your question on the Development FAQ, try submitting
+      it to our <a href="./maillists.shtml">Mailing Lists</a>. 
+      <h2 id="GraphicsDiv">
+        Need to brush up on 2D Graphics?
+      </h2>If you feel like you need a refresher in the basic graphics concepts related to Piccolo,
+      check out the <a href="./graphics.shtml">Graphics Primer</a> section.
+    </div>
   </body>
 </html>
