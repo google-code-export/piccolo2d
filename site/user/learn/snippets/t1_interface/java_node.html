@@ -1,0 +1,27 @@
+// Create a node.
+PNode aNode = new PNode();
+
+// A node will not be visible until its bounds and brush are set.
+aNode.setBounds(0, 0, 100, 80);
+aNode.setPaint(Color.RED);
+
+// A node needs to be a descendent of the root to be displayed.
+PLayer layer = getCanvas().getLayer();
+layer.addChild(aNode);
+	
+// A node can have child nodes added to it.
+PNode anotherNode = new PNode();
+anotherNode.setBounds(0, 0, 100, 80);
+anotherNode.setPaint(Color.YELLOW);
+aNode.addChild(anotherNode);
+	
+// The base bounds of a node are easy to change.  Changing the bounds
+// of a node will not affect its children.
+aNode.setBounds(-10, -10, 200, 110);
+	
+// Each node has a transform that can be used to modify the position,
+// scale or rotation of a node.  Changing a node's transform, will
+// transform all of its children as well.
+aNode.translate(100, 100);
+aNode.scale(1.5f);
+aNode.rotate(45);

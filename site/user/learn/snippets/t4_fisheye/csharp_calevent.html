@@ -1,0 +1,35 @@
+public override void OnMouseUp(PInputEventArgs e) {
+    DayNode pickedDay = (DayNode) e.PickedNode;
+    if (pickedDay.HasWidthFocus && pickedDay.HasHeightFocus) {
+        SetFocusDay(null, true);
+    } else {
+        SetFocusDay(pickedDay, true);
+    }
+}
+    
+public void SetFocusDay(DayNode focusDay, bool animate) {
+    for (int i = 0; i < ChildrenCount; i++) {
+        DayNode each = (DayNode) GetChild(i);
+        each.HasWidthFocus = false;
+        each.HasHeightFocus = false;
+    }
+
+    if (focusDay == null) {
+        daysExpanded = 0;
+        weeksExpanded = 0;
+    } else {
+        focusDay.HasWidthFocus = true;
+        daysExpanded = 1;
+        weeksExpanded = 1;
+
+        for (int i = 0; i < numDays; i++) {
+            GetDay(focusDay.Week, i).HasHeightFocus = true;
+        }
+
+        for (int i = 0; i < numWeeks; i++) {
+            GetDay(i, focusDay.Day).HasWidthFocus = true;
+        }
+    }
+
+    LayoutChildren(animate);
+}

@@ -1,0 +1,63 @@
+// This event listener works by keeping track of the mouse press
+// location and the current mouse drag location. It then sizes the new
+// rectangle around those points. Note: The implementation of this event
+// handler could be simplified by sub classing PDragSequenceEventHandler. 
+public class RectangleCreationEventHandler : PBasicInputEventHandler {
+	// The rectangle that is currently getting created.
+	protected PPath rectangle;
+		
+	// The mouse press location for the current pressed, drag, release
+	// sequence.
+	protected PointF pressPoint;
+			
+	// The current drag location.
+	protected PointF dragPoint;
+
+	public override void OnMouseDown(object sender, PInputEventArgs e) {
+		base.OnMouseDown (sender, e);
+
+		PLayer layer = e.Canvas.Layer;
+
+		// Initialize the locations.
+		pressPoint = e.Position;
+		dragPoint = pressPoint; 			
+				
+		// Create a new rectangle and add it to the canvas layer so
+		// that we can see it.
+		rectangle = new PPath();
+		rectangle.Pen = new Pen(Brushes.Black,
+			(float)(1/ e.Camera.ViewScale));
+		layer.AddChild(rectangle);
+				
+		// update the rectangle shape.
+		UpdateRectangle();
+	}
+
+	public override void OnMouseDrag(object sender, PInputEventArgs e) {
+		base.OnMouseDrag (sender, e);
+		// Update the drag point location.
+		dragPoint = e.Position;
+				
+		// Update the rectangle shape.
+		UpdateRectangle();
+	}
+
+	public override void OnMouseUp(object sender, PInputEventArgs e) {
+		base.OnMouseUp (sender, e);
+		// Update the rectangle shape.
+		UpdateRectangle();
+		rectangle = null;
+	}
+
+	public void UpdateRectangle() {
+		// Create a new bounds that contains both the press and
+		// current drag point.
+		RectangleF r = RectangleF.Empty;
+		r = PUtil.AddPointToRect(r, pressPoint);
+		r = PUtil.AddPointToRect(r, dragPoint);
+				
+		// Set the rectangles bounds.
+		rectangle.PathReference.Reset();
+		rectangle.AddRectangle(r.X, r.Y, r.Width, r.Height);
+	}
+}

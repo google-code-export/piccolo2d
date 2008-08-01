@@ -1,49 +1,119 @@
+
+/**********************************************************
+**** element defaults *************************************
+**********************************************************/
+
 body {
-  color: black; background-color: white;
-  font-size: 115%;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-#navigation {
-/*  font-size: 0.91em; */
-  float: left; width: 15em;
-  margin: 0.0em 0; padding: 0.25em;
-  background-color: white;
-/*  border: 1px dashed silver; */
-}
-
-#main {
-  margin: 0; padding: 0 0.5em 0.1em 0.5em;
-  margin-left: 16em;
-/*  border: 1px dashed silver; */
-  background-color: #FFFD9C;
-  min-width: 16em; /* Mindestbreite (der Ueberschrift) verhindert Anzeigefehler in modernen Browsern */
-}
-
-#main-head {
- background-color: #D6D583;
- margin: -0.0em -0.5em -0.25em -0.5em; padding: 0.5em 0.5em 0.25em 0.5em;
-}
-
-ul.nav {
-	margin: 0; padding: 0 1em;
-}
-ul.nav li {
-	list-style: none;
-    	margin: 0; padding: 0;
+	color: black;
+	background-color: white;
+	font-size: 115%;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-  font-size: 160%;
+	font-size: 160%;
 }
 h2 {
-  font-size: 120%;
+	font-size: 120%;
+}
+h3 {
+	font-size: 110%;
+	font-weight: bold;
+}
+
+pre {
+	padding-left: 10px;
+	padding-top: 10px;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 75%;
+}
+code {
+	font-family : 'Courier New', Courier, monospace;
+	font-size: 110%;
 }
 
 dt {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 em {
-  color: blue;
+	color: blue;
 }
+
+/**********************************************************
+**** navigation & main area *******************************
+**********************************************************/
+
+#navigation {
+/*  font-size: 0.91em; */
+	float: left;
+	width: 15em;
+	margin: 0.0em 0;
+	padding: 0.25em;
+	background-color: white;
+/*  border: 1px dashed silver; */
+}
+
+ul.nav {
+	margin: 0;
+	padding: 0 1em;
+}
+ul.nav li {
+	list-style: none;
+    	margin: 0;
+	padding: 0;
+}
+
+#main {
+	margin: 0;
+	padding: 0 0.5em 0.1em 0.5em;
+	margin-left: 16em;
+/*  border: 1px dashed silver; */
+	background-color: #FFFD9C;
+	min-width: 16em; /* Mindestbreite (der Ueberschrift) verhindert Anzeigefehler in modernen Browsern */
+}
+
+#main-head {
+	background-color: #D6D583;
+	margin: 0 -0.5em -0.25em -0.5em;
+	padding: 0.5em 0.5em 0.25em 0.5em;
+}
+
+/**********************************************************
+**** special logical blocks *******************************
+**********************************************************/
+
+.preamble {
+	font-style: italic;
+}
+
+/**********************************************************
+**** code snippets & toggling *****************************
+**********************************************************/
+
+.toggle_active {
+	color: #000000;
+	text-decoration: none;
+}
+.snippet {
+	position: relative;
+	background-color: #D6D583;
+	width: 100%;
+}
+.snippet_java {
+	visibility: visible;
+	position: absolute;
+	width: 575px;
+	z-index: 1;
+	left:0px;
+	top:0px
+}
+.snippet_csharp {
+	visibility: hidden;
+	position: relative;
+	width: 575px;
+	z-index: 2;
+	left:0px;
+	top:0px
+}
+

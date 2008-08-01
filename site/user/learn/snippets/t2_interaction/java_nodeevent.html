@@ -1,0 +1,35 @@
+// Attach event handler directly to the node.
+nodeGreen.addInputEventListener(new PBasicInputEventHandler() {
+	public void mousePressed(PInputEvent event) {
+		event.getPickedNode().setPaint(Color.ORANGE);
+		event.getInputManager().setKeyboardFocus(event.getPath());
+		event.setHandled(true);
+	}
+	public void mouseDragged(PInputEvent event) {
+		PNode aNode = event.getPickedNode();
+		PDimension delta = event.getDeltaRelativeTo(aNode);
+		aNode.translate(delta.width, delta.height);
+		event.setHandled(true);
+	}
+	public void mouseReleased(PInputEvent event) {
+		event.getPickedNode().setPaint(Color.GREEN);
+		event.setHandled(true);
+	}
+	public void keyPressed(PInputEvent event) {
+		PNode node = event.getPickedNode();
+		switch (event.getKeyCode()) {
+			case KeyEvent.VK_UP:
+				node.translate(0, -10f);
+				break;
+			case KeyEvent.VK_DOWN:
+				node.translate(0, 10f);
+				break;
+			case KeyEvent.VK_LEFT:
+				node.translate(-10f, 0);
+				break;
+			case KeyEvent.VK_RIGHT:
+				node.translate(10f, 0);
+				break;
+		}
+	}
+});

@@ -1,0 +1,6 @@
+// The animate activities will start immediately (in the next call to
+// PRoot.processInputs) by default. Here we set their start times (in PRoot
+// global time) so that they start when the previous one has finished.
+a1.StartTime = currentTime;
+a2.StartAfter(a1);
+a3.StartAfter(a2);

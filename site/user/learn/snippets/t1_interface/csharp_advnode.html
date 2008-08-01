@@ -1,0 +1,9 @@
+// Add a couple of PPath nodes and a PText node.
+layer.AddChild(PPath.CreateEllipse(0, 0, 100, 100));
+layer.AddChild(PPath.CreateRectangle(0, 100, 100, 100));
+layer.AddChild(new PText("Hello World"));
+
+// Here we create a PImage node that displays a thumbnail image
+// of the root node. Then we add the new PImage to the main layer.
+PImage image = new PImage(layer.ToImage(300, 300));
+layer.AddChild(image);

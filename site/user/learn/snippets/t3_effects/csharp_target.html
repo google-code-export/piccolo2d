@@ -1,0 +1,7 @@
+
+// Create a new node that we will apply different activities to, and
+// place that node at location 200, 200.
+aNode = PPath.CreateRectangle(0, 0, 100, 80);
+PLayer layer = Canvas.Layer;
+layer.AddChild(aNode);
+aNode.SetOffset(Canvas.Width-aNode.Width, Canvas.Height-aNode.Height);

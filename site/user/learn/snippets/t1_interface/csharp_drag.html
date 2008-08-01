@@ -1,0 +1,4 @@
+// Remove the default pan event handler and add a drag event handler
+// so that we can drag the nodes around individually.
+Canvas.PanEventHandler = null;
+Canvas.AddInputEventListener(new PDragEventHandler());

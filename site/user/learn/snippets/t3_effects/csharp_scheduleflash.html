@@ -1,0 +1,10 @@
+// Store the current time in milliseconds for use below.
+long currentTime = PUtil.CurrentTimeMillis;
+			
+// Create a new custom "flash" activity. This activity will start running in
+// five seconds, and while it runs it will flash aNode's brush color between
+// red and green every half second.
+PActivity flash = new Flash(aNode, -1, 500, currentTime + 5000);
+
+// Schedule the activity.
+Canvas.Root.AddActivity(flash);

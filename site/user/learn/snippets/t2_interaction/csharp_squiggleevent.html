@@ -1,0 +1,61 @@
+class SquiggleHandler : PBasicInputEventHandler {
+	protected PCanvas canvas;
+
+	// The squiggle that is currently getting created.
+	protected PPath squiggle;
+
+	// The last mouse position.
+	protected PointF lastPoint;
+
+	public SquiggleHandler(PCanvas canvas) {
+		this.canvas = canvas;
+	}
+
+	public override void OnMouseDown(object sender, PInputEventArgs e) {
+		base.OnMouseDown (sender, e);
+
+		// Create a new squiggle and add it to the canvas.
+		squiggle = new PPath();
+		squiggle.Pen = new Pen(Brushes.Black,
+			(float)(1/ e.Camera.ViewScale));
+		canvas.Layer.AddChild(0, squiggle);
+
+		// Save the current mouse position.		
+		lastPoint = e.Position;
+		
+		// Reset the keyboard focus.
+		e.InputManager.KeyboardFocus = null;
+	}
+
+	public override void OnMouseDrag(object sender, PInputEventArgs e) {
+		base.OnMouseDrag (sender, e);
+
+		// Update the squiggle while dragging.
+		UpdateSquiggle(e);
+	}
+
+	public override void OnMouseUp(object sender, PInputEventArgs e) {
+		base.OnMouseUp (sender, e);
+
+		// Update the squiggle one last time.
+		UpdateSquiggle(e);
+		squiggle = null;
+	}
+
+	protected void UpdateSquiggle(PInputEventArgs e) {
+		// Add a new segment to the squiggle
+		// from the last mouse position to
+		// the current mouse position.
+		PointF p = e.Position;
+		if (p.X != lastPoint.X || p.Y != lastPoint.Y) {
+			squiggle.AddLine(lastPoint.X, lastPoint.Y, p.X, p.Y);
+		}
+		lastPoint = p;
+	}
+
+	public override bool DoesAcceptEvent(PInputEventArgs e) {
+		// Filter out everything but left mouse button events.
+		return (base.DoesAcceptEvent(e)
+			&& e.IsMouseEvent && e.Button == MouseButtons.Left);
+	}
+}

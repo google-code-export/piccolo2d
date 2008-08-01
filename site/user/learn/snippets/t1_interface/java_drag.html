@@ -1,0 +1,4 @@
+// Remove the Default pan event handler and add a drag event handler
+// so that we can drag the nodes around individually.
+getCanvas().setPanEventHandler(null);
+getCanvas().addInputEventListener(new PDragEventHandler());

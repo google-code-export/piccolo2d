@@ -1,0 +1,14 @@
+public class TabularFisheyeTester extends JFrame {
+    public TabularFisheyeTester() {
+        setTitle("Piccolo Tabular Fisheye");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        TabularFisheye tabularFisheye = new TabularFisheye();
+        getContentPane().add(tabularFisheye);
+        pack();
+        setVisible(true);
+    }
+
+    public static void main(String args[]) {
+        new TabularFisheyeTester();
+    }
+}

@@ -1,0 +1,50 @@
+public class SquiggleHandler extends PBasicInputEventHandler {
+	protected PCanvas canvas;
+		
+	// The squiggle that is currently getting created.
+	protected PPath squiggle;
+
+	public SquiggleHandler(PCanvas aCanvas) {
+		canvas = aCanvas;
+		setEventFilter(new PInputEventFilter(InputEvent.BUTTON1_MASK));
+	}
+		
+	public void mousePressed(PInputEvent e) {
+		super.mousePressed(e);
+
+		Point2D p = e.getPosition();
+
+		// Create a new squiggle and add it to the canvas.
+		squiggle = new PPath();
+		squiggle.moveTo((float) p.getX(), (float) p.getY());
+		squiggle.setStroke(new BasicStroke(
+			(float) (1 / e.getCamera().getViewScale())));
+		canvas.getLayer().addChild(0, squiggle);
+			
+		// Reset the keydboard focus.
+		e.getInputManager().setKeyboardFocus(null);
+	}
+
+	public void mouseDragged(PInputEvent e) {
+		super.mouseDragged(e);
+
+		// Update the squiggle while dragging.
+		updateSquiggle(e);
+	}
+
+	public void mouseReleased(PInputEvent e) {
+		super.mouseReleased(e);
+
+		// Update the squiggle one last time.
+		updateSquiggle(e);
+		squiggle = null;
+	}
+
+	public void updateSquiggle(PInputEvent aEvent) {
+		// Add a new segment to the squiggle
+		// from the last mouse position to
+		// the current mouse position.
+		Point2D p = aEvent.getPosition();
+		squiggle.lineTo((float) p.getX(), (float) p.getY());
+	}
+}

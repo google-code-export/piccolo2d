@@ -1,0 +1,21 @@
+using UMD.HCIL.Piccolo;
+using UMD.HCIL.Piccolo.Nodes;
+using UMD.HCIL.PiccoloX;
+
+// The PForm class is a utility class that creates a new window
+// and adds a PCanvas to it. You can override the Initialize method and
+// start building your interface there.
+public class PiccoloExample : PForm {
+	public override void Initialize() {
+		PText text = new PText(&quot;Hello World&quot;);
+
+		// Add the node to the canvas layer so that it
+		// will be displayed on the screen.
+		Canvas.Layer.AddChild(text);
+	}
+
+	[STAThread]
+	static void Main() {
+		Application.Run(new PiccoloExample());
+	}
+}

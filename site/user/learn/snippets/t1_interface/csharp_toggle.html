@@ -1,0 +1,35 @@
+class ToggleShape : PPath {
+	private bool fIsPressed = false;
+
+	public bool FIsPressed {
+		set {
+			fIsPressed = value;
+			InvalidatePaint();
+		}
+		get { return fIsPressed; }
+	}
+
+	public ToggleShape() {
+		this.AddEllipse(0, 0, 100, 80);
+	}
+
+	public override void OnMouseDown(PInputEventArgs e) {
+		base.OnMouseDown (e);
+		FIsPressed = true;
+	}
+
+	public override void OnMouseUp(PInputEventArgs e) {
+		base.OnMouseUp (e);
+		FIsPressed = false;
+	}
+
+	protected override void Paint(PPaintContext paintContext) {
+		if (fIsPressed) {
+			Graphics g = paintContext.Graphics;
+			g.FillRectangle(this.Brush, this.Bounds);
+		}
+		else {
+			base.Paint(paintContext);
+		}
+	}
+}

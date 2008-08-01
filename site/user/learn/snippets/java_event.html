@@ -1,0 +1,62 @@
+// This event listener works by keeping track of the mouse press
+// location and the current mouse drag location. It then sizes the new
+// rectangle around those points. Note: The implementation of this event
+// handler could be simplified by sub classing PDragSequenceEventHandler. 
+public class RectangleCreationEventHandler extends PBasicInputEventHandler {
+	// The rectangle that is currently getting created.
+	protected PPath rectangle;
+			
+	// The mouse press location for the current pressed, drag, release
+	// sequence.
+	protected Point2D pressPoint;
+			
+	// The current drag location.
+	protected Point2D dragPoint;
+		
+	public void mousePressed(PInputEvent e) {
+		super.mousePressed(e);			
+		
+		PLayer layer = ((PCanvas)(e.getComponent())).getLayer();
+
+		// Initialize the locations.
+		pressPoint = e.getPosition();
+		dragPoint = pressPoint;				
+				
+		// create a new rectangle and add it to the canvas layer so
+		// that we can see it.
+		rectangle = new PPath();
+		rectangle.setStroke(new BasicStroke(
+			(float)(1/ e.getCamera().getViewScale())));
+		layer.addChild(rectangle);
+				
+		// update the rectangle shape.
+		updateRectangle();
+	}
+			
+	public void mouseDragged(PInputEvent e) {
+		super.mouseDragged(e);
+		// update the drag point location.
+		dragPoint = e.getPosition();	
+				
+		// update the rectangle shape.
+		updateRectangle();
+	}
+		
+	public void mouseReleased(PInputEvent e) {
+		super.mouseReleased(e);
+		// update the rectangle shape.
+		updateRectangle();
+		rectangle = null;
+	}	
+		
+	public void updateRectangle() {
+		// create a new bounds that contains both the press and
+		// current drag point.
+		PBounds b = new PBounds();
+		b.add(pressPoint);
+		b.add(dragPoint);
+		
+		// Set the rectangles bounds.
+		rectangle.setPathTo(b);
+	}
+}

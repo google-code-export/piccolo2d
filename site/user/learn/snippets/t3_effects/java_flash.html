@@ -1,0 +1,17 @@
+PActivity flash = new PActivity(-1, 500, currentTime + 5000) {
+	boolean fRed = true;
+			
+	protected void activityStep(long elapsedTime) {
+		super.activityStep(elapsedTime);
+				
+		// Toggle the target node's brush color between red and green
+		// each time the activity steps.
+		if (fRed) {
+			aNode.setPaint(Color.red);
+		} else {
+			aNode.setPaint(Color.green);
+		}		
+		
+		fRed = !fRed;
+	}
+};

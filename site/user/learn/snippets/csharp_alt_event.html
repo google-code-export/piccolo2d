@@ -1,0 +1,12 @@
+public override void Initialize() {
+	PNode aNode = new PNode();
+	aNode.SetBounds(0,0, 100, 100);
+	aNode.Brush = Brushes.Green;
+	Canvas.Layer.AddChild(aNode);
+
+	aNode.MouseDown += new PInputEventHandler(aNode_MouseDown);
+}
+
+protected void aNode_MouseDown(object sender, PInputEventArgs e) {
+	System.Console.WriteLine("Clicked aNode!");
+}

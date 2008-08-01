@@ -1,0 +1,69 @@
+class CalendarNode : PNode {
+    public static int DEFAULT_NUM_DAYS = 7;
+    public static int DEFAULT_NUM_WEEKS = 12;
+    public static int TEXT_X_OFFSET = 1;
+    public static int TEXT_Y_OFFSET = 1;
+    public static int DEFAULT_ANIMATION_MILLIS = 250;
+    public static float FOCUS_SIZE_PERCENT = 0.65f;
+    public static Font DEFAULT_FONT = new Font("Arial", 7);
+	
+    int numDays = DEFAULT_NUM_DAYS;
+    int numWeeks = DEFAULT_NUM_WEEKS;
+    int daysExpanded = 0;
+    int weeksExpanded = 0;
+	
+    public CalendarNode() {		
+        for (int week = 0; week < numWeeks; week++) {
+            for (int day = 0; day < numDays; day++) {
+                AddChild(new DayNode(week, day));
+            }
+        }
+    }
+			
+    public DayNode GetDay(int week, int day) {
+        return (DayNode) GetChild((week * numDays) + day);
+    }
+
+    public void LayoutChildren(bool animate) {
+        float focusWidth = 0;
+        float focusHeight = 0;
+			
+        if (daysExpanded != 0 && weeksExpanded != 0) {
+            focusWidth = (Width * FOCUS_SIZE_PERCENT) / daysExpanded;
+            focusHeight = (Height * FOCUS_SIZE_PERCENT) / weeksExpanded;
+        }
+	
+        float collapsedWidth = (Width - (focusWidth * daysExpanded))
+            / (numDays - daysExpanded);
+        float collapsedHeight = (Height - (focusHeight * weeksExpanded))
+            / (numWeeks - weeksExpanded);
+
+        float xOffset = 0;
+        float yOffset = 0;
+        float rowHeight = 0;
+        DayNode each = null;
+
+        for (int week = 0; week < numWeeks; week++) {
+            for (int day = 0; day < numDays; day++) {
+                each = GetDay(week, day);
+                float width = collapsedWidth;
+                float height = collapsedHeight;
+	
+                if (each.HasWidthFocus) width = focusWidth;
+                if (each.HasHeightFocus) height = focusHeight;
+
+                if (animate) {
+                    each.AnimateToBounds(xOffset, yOffset, width,
+                        height, DEFAULT_ANIMATION_MILLIS).StepInterval = 0;
+                } else {
+                    each.SetBounds(xOffset, yOffset, width, height);
+                }
+	
+                xOffset += width;
+                rowHeight = height;
+            }
+            xOffset = 0;
+            yOffset += rowHeight;
+        }
+    }
+}

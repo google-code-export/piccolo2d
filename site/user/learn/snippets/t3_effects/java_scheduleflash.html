@@ -1,0 +1,11 @@
+// Store the current time in milliseconds for use below.
+long currentTime = System.currentTimeMillis();
+
+// Create a new custom "flash" activity. This activity will start running in
+// five seconds, and while it runs it will flash aNode's paint between
+// red and green every half second.
+PActivity flash = new PActivity(-1, 500, currentTime + 5000)
+	{ /* see code above */ });
+	
+// Schedule the activity.
+getCanvas().getRoot().addActivity(flash);

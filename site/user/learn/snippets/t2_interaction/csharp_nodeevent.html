@@ -1,0 +1,37 @@
+protected void nodeGreen_MouseDown(object sender, PInputEventArgs e) {
+	PNode aNode = (PNode)sender;
+	aNode.Brush = new SolidBrush(Color.Orange);
+	e.InputManager.KeyboardFocus = e.Path;
+	e.Handled = true;
+}
+
+protected void nodeGreen_MouseDrag(object sender, PInputEventArgs e) {
+	PNode aNode = (PNode)sender;
+	SizeF delta = e.GetDeltaRelativeTo(aNode);
+	aNode.TranslateBy(delta.Width, delta.Height);
+	e.Handled = true;
+}
+
+protected void nodeGreen_MouseUp(object sender, PInputEventArgs e) {
+	PNode aNode = (PNode)sender;
+	aNode.Brush = new SolidBrush(Color.Green);
+	e.Handled = true;
+}
+
+protected void nodeGreen_KeyDown(object sender, PInputEventArgs e) {
+	PNode node = (PNode)sender;
+	switch (e.KeyCode) {
+		case Keys.Up:
+			node.TranslateBy(0, -10);
+			break;
+		case Keys.Down:
+			node.TranslateBy(0, 10);
+			break;
+		case Keys.Left:
+			node.TranslateBy(-10, 0);
+			break;
+		case Keys.Right:
+			node.TranslateBy(10, 0);
+			break;
+	}
+}
