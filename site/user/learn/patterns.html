@@ -194,10 +194,10 @@
         href="javascript:void(0);">C#</a>
       </p>
       <h2>
-        <a name="Intro" id="Intro"></a>Intro
+        <a id="Intro"></a>Intro
       </h2>
       <h3>
-        <a name="ZUIs" id="ZUIs"></a> Pattern 1: Zoomable User Interfaces (ZUI's)
+        <a id="ZUIs"></a> Pattern 1: Zoomable User Interfaces (ZUI's)
       </h3>
       <p class="preamble">
         Piccolo is a framework for building zoomable user interfaces. The elements of these
@@ -318,7 +318,7 @@ public class PiccoloExample : PForm {
         </li>
       </ul>
       <h2>
-        <a name="Usage_Patterns" id="Usage_Patterns"></a>Usage Patterns for Piccolo
+        <a id="Usage_Patterns"></a>Usage Patterns for Piccolo
       </h2>
       <p>
         The Piccolo usage patterns are designed to get you up and running with Piccolo as quickly
@@ -339,7 +339,7 @@ public class PiccoloExample : PForm {
         </li>
       </ul>
       <h3>
-        <a name="Building_Piccolo" id="Building_Piccolo"></a>Pattern 2: Building and Using Piccolo
+        <a id="Building_Piccolo"></a>Pattern 2: Building and Using Piccolo
       </h3>
       <p class="preamble">
         To use <em>Piccolo.Java</em>, you will need to add the appropriate .jar files to your
@@ -438,7 +438,7 @@ public class PiccoloExample : PForm {
         tutorial.
       </p>
       <h3>
-        <a name="Creating_Nodes" id="Creating_Nodes"></a>Pattern 3: Creating Nodes
+        <a id="Creating_Nodes"></a>Pattern 3: Creating Nodes
       </h3>
       <p class="preamble">
         There are an infinite variety of nodes that can be included in a zoomable user interface.
@@ -596,8 +596,7 @@ public class SimpleEllipseNode : PNode {
         </li>
       </ul>
       <h3>
-        <a name="Adding_User_Interaction" id="Adding_User_Interaction"></a>Pattern 4: Adding User
-        Interaction
+        <a id="Adding_User_Interaction"></a>Pattern 4: Adding User Interaction
       </h3>
       <p class="preamble">
         Event listeners represent the modes of interaction between the user and the interface.
@@ -845,7 +844,7 @@ protected void aNode_MouseDown(object sender, PInputEventArgs e) {
         </li>
       </ul>
       <h3>
-        <a name="Layout_Constraints" id="Layout_Constraints"></a>Pattern 5: Layout Constraints
+        <a id="Layout_Constraints"></a>Pattern 5: Layout Constraints
       </h3>
       <p class="preamble">
         Often an interface has constraints that must be maintained between a node and its children.
@@ -909,7 +908,7 @@ public class LayoutNode : PNode {
         </li>
       </ul>
       <h3>
-        <a name="Activities" id="Activities"></a>Pattern 6: Activities
+        <a id="Activities"></a>Pattern 6: Activities
       </h3>
       <p class="preamble">
         Event handlers let an interface react to a user. Actives are used to give the interface a
@@ -1010,7 +1009,7 @@ public virtual PTransformActivity AnimateToMatrix(PMatrix destMatrix,
         </li>
       </ul>
       <h3>
-        <a name="SWT" id="SWT"></a>Pattern 7: Standard Widget Toolkit (SWT) connection
+        <a id="SWT"></a>Pattern 7: Standard Widget Toolkit (SWT) connection
       </h3>
       <p class="preamble">
         SWT is a new Java toolkit (similar to and replacing Swing) that comes out of the Eclipse
@@ -1058,8 +1057,7 @@ public class SWTHelloWorld {
 }
 </pre>
       <h2>
-        <a name="Implementation_Patterns_for_Piccolo"
-        id="Implementation_Patterns_for_Piccolo"></a>Implementation Patterns for Piccolo
+        <a id="Implementation_Patterns_for_Piccolo"></a>Implementation Patterns for Piccolo
       </h2>
       <p>
         The Piccolo implementation patterns are designed to give a general understanding of how
@@ -1068,8 +1066,7 @@ public class SWTHelloWorld {
         using the framework as quickly as possible.
       </p>
       <h3>
-        <a name="Piccolo_Framework_Design" id="Piccolo_Framework_Design"></a>Pattern 8: Piccolo
-        Framework Design
+        <a id="Piccolo_Framework_Design"></a>Pattern 8: Piccolo Framework Design
       </h3>
       <p class="preamble">
         You should be familiar with the basic concepts of the Piccolo framework design and how they
@@ -1174,7 +1171,7 @@ public class SWTHelloWorld {
         panning and zooming are accomplished.
       </p>
       <h3>
-        <a name="Full_Terminology" id="Full_Terminology"></a>Pattern 9: Full Terminology
+        <a id="Full_Terminology"></a>Pattern 9: Full Terminology
       </h3>
       <p class="preamble">
         Many of PNode's methods work on the composite structure (the node plus all its descendents)
@@ -1240,7 +1237,7 @@ aNode.FullPaint(aPaintContext);
         terms of other methods that can be overridden.
       </p>
       <h3>
-        <a name="Coordinate_Systems" id="Coordinate_Systems"></a>Pattern 10: Coordinate Systems
+        <a id="Coordinate_Systems"></a>Pattern 10: Coordinate Systems
       </h3>
       <p class="preamble">
         Each node in Piccolo has its own transform that it uses to define its own coordinate
@@ -1403,7 +1400,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
 </pre>
       </div>
       <h3>
-        <a name="UI_Cycle" id="UI_Cycle"></a>Pattern 11: UI Cycle
+        <a id="UI_Cycle"></a>Pattern 11: UI Cycle
       </h3>
       <p class="preamble">
         The root node's UI Cycle is at the center of Piccolo's runtime behavior where it drives the
@@ -1469,7 +1466,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         </li>
       </ul>
       <h3>
-        <a name="Threads" id="Threads"></a>Pattern 12: Threads
+        <a id="Threads"></a>Pattern 12: Threads
       </h3>
       <p class="preamble">
         Piccolo is not thread safe and should only be used by a single thread at a time, and that
@@ -1483,7 +1480,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         <code>Control.BeginInvoke()</code> and <code>Control.Invoke()</code>.
       </p>
       <h3>
-        <a name="Dispatching_Events" id="Dispatching_Events"></a>Pattern 13: Dispatching Events
+        <a id="Dispatching_Events"></a>Pattern 13: Dispatching Events
       </h3>
       <p class="preamble">
         Event dispatch is the process through which Piccolo directs new events coming from the user
@@ -1539,8 +1536,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         <code>PInputEvent</code>, and ask it for the current focus nodes.&nbsp;
       </p>
       <h3>
-        <a name="Processing_Activities" id="Processing_Activities"></a>Pattern 14: Processing
-        Activities
+        <a id="Processing_Activities"></a>Pattern 14: Processing Activities
       </h3>
       <p class="preamble">
         All scheduled activities are given a chance to run during the UI Cycle.
@@ -1551,7 +1547,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         transform to perform a zoom.
       </p>
       <h3>
-        <a name="Validating_Bounds" id="Validating_Bounds"></a>Pattern 15: Validating Bounds
+        <a id="Validating_Bounds"></a>Pattern 15: Validating Bounds
       </h3>
       <p class="preamble">
         When the geometry of a node changes its bounds caches need to be recomputed and the
@@ -1625,8 +1621,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         </li>
       </ol>
       <h3>
-        <a name="Updating_the_Display" id="Updating_the_Display"></a>Pattern 16: Updating the
-        Display
+        <a id="Updating_the_Display"></a>Pattern 16: Updating the Display
       </h3>
       <p class="preamble">
         Piccolo should paint the screen only when needed, and it should be smart about only
@@ -1640,8 +1635,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         paint.
       </p>
       <h1>
-        <a name="Desing_Patterns_for_ZUI_Interfaces"
-        id="Desing_Patterns_for_ZUI_Interfaces"></a>Design Patterns for ZUI Interfaces
+        <a id="Desing_Patterns_for_ZUI_Interfaces"></a>Design Patterns for ZUI Interfaces
       </h1>
       <p>
         This section contains a few basic patterns that occur frequently in ZUIs, and describes how
@@ -1651,7 +1645,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         Piccolo</a>.
       </p>
       <h3>
-        <a name="Semantic_Zooming" id="Semantic_Zooming"></a>Pattern 17: Semantic Zooming
+        <a id="Semantic_Zooming"></a>Pattern 17: Semantic Zooming
       </h3>
       <p class="preamble">
         It is useful for an object to change its visual representation based on the scale that it
@@ -1708,7 +1702,7 @@ public class SemanticNode : PNode {
 </pre>
       </div>
       <h3>
-        <a name="Sticky_Objects" id="Sticky_Objects"></a>Pattern 18: Sticky Objects
+        <a id="Sticky_Objects"></a>Pattern 18: Sticky Objects
       </h3>
       <p class="preamble">
         It is useful for an object to "stick" to a camera, so that its position does not change

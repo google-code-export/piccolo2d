@@ -1,0 +1,6 @@
+./index.html
+./learn/get-started.html
+./learn/index.html
+./learn/out-of-box-dotnet.html
+./learn/out-of-box-java.html
+./learn/patterns.html
