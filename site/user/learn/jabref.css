@@ -1,0 +1,31 @@
+
+body { background-color: white; font-family: "Trebuchet MS", Arial, sans-serif; font-size: 12px; line-height: 1.2; padding: 1em; }
+
+#qs { width: auto; border-style: solid; border-color: gray; border-width: 1px 1px 0px 1px; padding: 0.5em 0.5em; display:none; position:relative; }
+#qs form { padding: 0px; margin: 0px; }
+#qs form p { padding: 0px; margin: 0px; }
+
+.invalidsearch { background-color: red; }
+
+table { border: 1px gray solid; width: 100%; empty-cells: show; }
+th, td { border: 1px gray solid; padding: 0.5em; vertical-align: top;  }
+td { text-align: left; vertical-align: top; }
+th { background-color: #EFEFEF; }
+
+td a, td a:hover { color: navy; font-weight: bold; }
+
+tr.noshow { display: none;}
+
+tr.highlight td { background-color: #F1F1F1; border-top: 2px black solid; font-weight: bold; }
+tr.abstract td, tr.review td, tr.bibtex td { background-color: #F1F1F1; border-bottom: 2px black solid; }
+tr.nextshow td { border-bottom: 1px gray solid; }
+
+tr.bibtex pre { width: 100%; overflow: auto;}
+
+p.infolinks { margin: 0.5em 0em 0em 0em; padding: 0px; }
+
+#qssettings { padding: 0.5em; position: absolute; top: 0.2em; right: 0.2em; border: 1px gray solid; background-color: white; display: block; }
+#qssettings p { font-weight: bold; cursor: pointer; }
+#qssettings ul { display: none; list-style-type: none; padding-left: 0; margin: 0; }
+#qssettings.active ul { display: block; }
+
