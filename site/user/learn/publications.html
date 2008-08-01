@@ -1,297 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
-<head>
-<title>Piccolo2D - Publications</title>
-<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<script type="text/javascript">
-<!--
-// QuickSearch script for JabRef HTML export 
-// Version: 2.0
-//
-// Copyright (c) 2006-2007, Mark Schenk
-//
-// Permission to use, copy, modify, and distribute this software for any
-// purpose with or without fee is hereby granted, provided that the above
-// copyright notice and this permission notice appear in all copies.
-//
-
-// Some features:
-// + optionally searches Abstracts and Reviews
-// + allows RegExp searches
-//   e.g. to search for entries between 1980 and 1989, type:  198[0-9]
-//   e.g. for any entry ending with 'symmetry', type:  symmetry$
-//   e.g. for all reftypes that are books: ^book$, or ^article$
-//   e.g. for entries by either John or Doe, type john|doe
-// + easy toggling of Abstract/Review
-
-// Acknowledgements:
-// + incorporates speed improvements suggested by Jean-Luc Falcone
-
-// Search settings
-var searchAbstract = true;
-var searchReview = true;
-
-// Speed optimisation introduced some esoteric problems with certain RegExp searches
-// e.g. if the previous search is 200[-7] and the next search is 200[4-7] then the search doesn't work properly until the next 'keyup'
-// hence the searchOpt can be turned off for RegExp adepts
-var searchOpt = true;
-
-if (window.addEventListener) {
-	window.addEventListener("load",initSearch,false); }
-else if (window.attachEvent) {
-	window.attachEvent("onload", initSearch); }
-
-function initSearch() {
-	// basic object detection
-	if(!document.getElementById || !document.getElementsByTagName) { return; }
-	if (!document.getElementById('qstable')||!document.getElementById('qs')) { return; }
-
-	// find QS table and appropriate rows
-	searchTable = document.getElementById('qstable');
-	var allRows = searchTable.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-
-	// split all rows into entryRows and infoRows (e.g. abstract, review, bibtex)
-	entryRows = new Array();
-	infoRows = new Array();
-
-	for (var i=0, k=0, j=0; i<allRows.length;i++) {
-		if (allRows[i].className.indexOf('entry') != -1) {
-			entryRows[j++] = allRows[i];
-		} else {
-			infoRows[k++] = allRows[i];		
-		}
-	}
-
-	//number of entries and rows
-	numRows = allRows.length;
-	numEntries = entryRows.length;
-	numInfo = infoRows.length;
-
-	//find the query field
-	qsfield = document.getElementById('qsfield');
-
-	// previous search term; used for speed optimisation
-	prevSearch = '';
-
-	//find statistics location
-	stats = document.getElementById('stat');
-	setStatistics(-1);
-
-	// shows the searchfield
-	document.getElementById('qs').style.display = 'block';
-	document.getElementById('qsfield').onkeyup = testEvent;
-}
-
-function quickSearch(tInput){
-
-	 if (tInput.value.length == 0) {
-		showAll();
-		setStatistics(-1);
-		qsfield.className = '';
-		return;
-	} else {
-		// only search for valid RegExp
-		try {
-			var searchText = new RegExp(tInput.value,"i")
-			closeAllInfo();
-			qsfield.className = '';
-		}
-		catch(err) {
-			prevSearch = tInput.value;
-			qsfield.className = 'invalidsearch';
-			return;
-		}
-	}
-	
-	// count number of hits
-	var hits = 0;
-
-	// start looping through all entry rows
-	for (var i = 0; cRow = entryRows[i]; i++){
-
-		// only show search the cells if it isn't already hidden OR if the search term is getting shorter, then search all
-		// some further optimisation is possible: if the search string is getting shorter, and the row is already visible, skip it. Then be careful with hits!
-		if(!searchOpt || cRow.className.indexOf('noshow')==-1 || tInput.value.length <= prevSearch.length){
-			var found = false; 
-
-			var inCells = cRow.getElementsByTagName('td');
-			var numCols = inCells.length;
-				
-			for (var j=0; j<numCols; j++) {
-				cCell = inCells[j];
-				var t = cCell.innerText?cCell.innerText:getTextContent(cCell);
-				if (t.search(searchText) != -1){ 
-					found=true; 
-					break;
-				} 
-			}
-
-			// look for further hits in Abstract and Review
-			if(!found) {
-				var articleid = cRow.id;
-				if(searchAbstract && (abs = document.getElementById('abs_'+articleid))) {
-					if (getTextContent(abs).search(searchText) != -1){ found=true; } 
-				}
-				if(searchReview && (rev = document.getElementById('rev_'+articleid))) {
-					if (getTextContent(rev).search(searchText) != -1){ found=true; } 
-				}
-			}
-			
-			if(found) {
-				cRow.className = 'entry show';
-				hits++;
-			} else {
-				cRow.className = 'entry noshow';
-			}
-		}
-	}
-
-	// update statistics
-	setStatistics(hits)
-	
-	// set previous search value
-	prevSearch = tInput.value;
-}
-
-function toggleInfo(articleid,info) {
-
-	var entry = document.getElementById(articleid);
-	var abs = document.getElementById('abs_'+articleid);
-	var rev = document.getElementById('rev_'+articleid);
-	var bib = document.getElementById('bib_'+articleid);
-	
-	if (abs && info == 'abstract') {
-		if(abs.className.indexOf('abstract') != -1) {
-		abs.className.indexOf('noshow') == -1?abs.className = 'abstract noshow':abs.className = 'abstract';
-		}
-	} else if (rev && info == 'review') {
-		if(rev.className.indexOf('review') != -1) {
-		rev.className.indexOf('noshow') == -1?rev.className = 'review noshow':rev.className = 'review';
-		}
-	} else if (bib && info == 'bibtex') {
-		if(bib.className.indexOf('bibtex') != -1) {
-		bib.className.indexOf('noshow') == -1?bib.className = 'bibtex noshow':bib.className = 'bibtex';
-		}		
-	} else { 
-		return;
-	}
-
-	// check if one or the other is available
-	var revshow = false;
-	var absshow = false;
-	var bibshow = false;
-	(abs && abs.className.indexOf('noshow') == -1)? absshow = true: absshow = false;
-	(rev && rev.className.indexOf('noshow') == -1)? revshow = true: revshow = false;	
-	(bib && bib.className == 'bibtex')? bibshow = true: bibshow = false;
-	
-	// highlight original entry
-	if(entry) {
-		if (revshow || absshow || bibshow) {
-		entry.className = 'entry highlight show';
-		} else {
-		entry.className = 'entry show';
-		}		
-	}
-	
-	// When there's a combination of abstract/review/bibtex showing, need to add class for correct styling
-	if(absshow) {
-		(revshow||bibshow)?abs.className = 'abstract nextshow':abs.className = 'abstract';
-	} 
-	if (revshow) {
-		bibshow?rev.className = 'review nextshow': rev.className = 'review';
-	}
-	
-}
-
-function setStatistics (hits) {
-	if(hits < 0) { hits=numEntries; }
-	if(stats) { stats.firstChild.data = hits + '/' + numEntries}
-}
-
-function getTextContent(node) {
-	// Function written by Arve Bersvendsen
-	// http://www.virtuelvis.com
-	
-	if (node.nodeType == 3) {
-	return node.nodeValue;
-	} // text node
-	if (node.nodeType == 1) { // element node
-	var text = [];
-	for (var chld = node.firstChild;chld;chld=chld.nextSibling) {
-		text.push(getTextContent(chld));
-	}
-	return text.join("");
-	} return ""; // some other node, won't contain text nodes.
-}
-
-function showAll(){
-	// first close all abstracts, reviews, etc.
-	closeAllInfo();
-
-	for (var i = 0; i < numEntries; i++){
-		entryRows[i].className = 'entry show'; 
-	}
-}
-
-function closeAllInfo(){
-	for (var i=0; i < numInfo; i++){
-		if (infoRows[i].className.indexOf('noshow') ==-1) {
-			infoRows[i].className = infoRows[i].className + ' noshow';
-		}
-	}
-}
-
-function testEvent(e){
-	if (!e) var e = window.event;
-	quickSearch(this);
-}
-
-function clearQS() {
-	qsfield.value = '';
-	quickSearch(qsfield);
-}
-
-function redoQS(){
-	showAll();
-	quickSearch(qsfield);
-}
-
-// Search Settings
-
-function toggleQSettingsDialog() {
-
-	var qssettings = document.getElementById('qssettings');
-
-	if(qssettings.className.indexOf('active')==-1) {
-		qssettings.className = 'active';
-
-		var absCheckBox = document.getElementById('searchabs');
-		var revCheckBox = document.getElementById('searchrev');
-		if(searchAbstract == true) { absCheckBox.checked = 'checked'; }
-		if(searchReview == true) { revCheckBox.checked = 'checked'; }
-
-	} else {
-		qssettings.className= '';
-	}
-}
-
-function toggleQSetting(setting) {
-
-	if(setting=='abs') { searchAbstract = !searchAbstract; }
-	if(setting=='rev') { searchReview = !searchReview; }
-
-	redoQS()
-}
--->
-</script>
-    <link rel="stylesheet" href="jabref.css" type="text/css" />
-    <link rel="stylesheet" href="../piccolo2d.css" type="text/css" />
-</head>
-<body>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <script language="JavaScript" type="text/javascript" src="jabref.js">
+    //<![CDATA[
+    //]]>
+    </script>
     <meta content="HTML Tidy for Linux/x86 (vers 1st December 2002), see www.w3.org"
     name="generator" />
     <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
@@ -301,17 +16,10 @@ function toggleQSetting(setting) {
     content="piccolo2d, piccolo2d.net, piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education" />
     <meta name="relation" content="(contained in)=http://www.piccolo2d.org" />
     <title>
-      Piccolo2D - Developer's FAQ
+      Piccolo2D - Publications
     </title>
+    <link rel="stylesheet" href="jabref.css" type="text/css" />
     <link rel="stylesheet" href="../piccolo2d.css" type="text/css" />
-    <script language="JavaScript" type="text/javascript" src="snippets.js">
-    //<![CDATA[
-    //]]>
-    </script>
-    <script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
-    //<![CDATA[
-    //]]>
-    </script>
   </head>
   <body>
     <div id="navigation">
@@ -382,36 +90,98 @@ function toggleQSetting(setting) {
       <div id="main-head">
         <h1>
           Papers We have Written
-        </h1>Here you'll find an archive of all the papers we have published that are related to Piccolo, it's predecessor toolkits, or zoomable user interfaces in general.
+        </h1>Here you'll find an archive of all the papers we have published that are related to
+        Piccolo, it's predecessor toolkits, or zoomable user interfaces in general.
       </div>
-<div id="qs">
-	<form action="">
-	<p>QuickSearch: <input type="text" name="qsfield" id="qsfield" autocomplete="off" title="Allows plain text as well as RegExp searches" /><input type="button" onclick="clearQS()" value="clear" />&nbsp; Number of matching entries: <span id="stat">0</span>.</p>
-	<div id="qssettings">
-		<p onclick="toggleQSettingsDialog()">Search Settings</p>
-		<ul>
-		<li><label><input type="checkbox" id="searchabs" onclick="toggleQSetting('abs')"> search abstract</label></li>
-		<li><label><input type="checkbox" id="searchrev" onclick="toggleQSetting('rev')"> search review</label></li>
-		</ul>
-	</div>
-	</form>
-</div>
-<table id="qstable" border="1">
-<thead><tr><th width="20%">Author</th><th width="30%">Title</th><th width="5%">Year</th><th width="30%">Journal/Proceedings</th><th width="10%">Reftype</th><th width="5%">DOI/URL</th></tr></thead>
-<tbody><tr id="Bederson1996" class="entry">
-	<td>Bederson, B.</td>
-	<td>A Zooming Web Browser <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1996','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson1996','bibtex')">BibTeX</a>]</p></td>
-	<td>1996</td>
-	<td>9th Annual ACM Symposium on User-Interface Software and Technology &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="https://webmail.csic.umd.edu/hcil/piccolo/learn/papers/spie-96-webbrowser.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson1996" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: The World Wide Web (WWW) is becoming increasingly important for business, education, and entertainment. Popular web browsers make access to Internet information resources relatively easy for novice users. Simply by clicking on a link, a new page of information replaces the current one on the screen. Unfortunately however, after following a number of links, people can have difficulty remembering where they've been and navigating links they have followed. As one's collection of web pages grows...</td>
-</tr>
-<tr id="bib_Bederson1996" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+      <div id="qs">
+        <form action="">
+          <p>
+            QuickSearch: <input type="text" name="qsfield" id="qsfield" autocomplete="off"
+            title="Allows plain text as well as RegExp searches" /><input type="button"
+            onclick="clearQS()" value="clear" />&nbsp; Number of matching entries:
+            <span id="stat">0</span>.
+          </p>
+          <div id="qssettings">
+            <p onclick="toggleQSettingsDialog()">
+              Search Settings
+            </p>
+            <ul>
+              <li>
+                <label><input type="checkbox" id="searchabs" onclick="toggleQSetting('abs')" />
+                search abstract</label>
+              </li>
+              <li>
+                <label><input type="checkbox" id="searchrev" onclick="toggleQSetting('rev')" />
+                search review</label>
+              </li>
+            </ul>
+          </div>
+        </form>
+      </div>
+      <table id="qstable" border="1">
+        <thead>
+          <tr>
+            <th width="20%">
+              Author
+            </th>
+            <th width="30%">
+              Title
+            </th>
+            <th width="5%">
+              Year
+            </th>
+            <th width="30%">
+              Journal/Proceedings
+            </th>
+            <th width="10%">
+              Reftype
+            </th>
+            <th width="5%">
+              DOI/URL
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="Bederson1996" class="entry">
+            <td>
+              Bederson, B.
+            </td>
+            <td>
+              A Zooming Web Browser 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1996','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson1996','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1996
+            </td>
+            <td>
+              9th Annual ACM Symposium on User-Interface Software and Technology &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="https://webmail.csic.umd.edu/hcil/piccolo/learn/papers/spie-96-webbrowser.pdf">
+              URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson1996" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: The World Wide Web (WWW) is becoming increasingly important for
+              business, education, and entertainment. Popular web browsers make access to Internet
+              information resources relatively easy for novice users. Simply by clicking on a link,
+              a new page of information replaces the current one on the screen. Unfortunately
+              however, after following a number of links, people can have difficulty remembering
+              where they've been and navigating links they have followed. As one's collection of
+              web pages grows...
+            </td>
+          </tr>
+          <tr id="bib_Bederson1996" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Bederson1996,
   author = {Benjamin Bederson},
   title = {A Zooming Web Browser},
@@ -419,19 +189,38 @@ function toggleQSetting(setting) {
   year = {1996},
   url = {https://webmail.csic.umd.edu/hcil/piccolo/learn/papers/spie-96-webbrowser.pdf}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1999" class="entry">
-	<td>Bederson, B. &amp; Boltman, A.</td>
-	<td>Does animation help users build mental maps of spatial information? <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1999','bibtex')">BibTeX</a>]</p></td>
-	<td>1999</td>
-	<td>Information Visualization, 1999.(Info Vis' 99) Proceedings. 1999 IEEE Symposium on &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=801854">URL</a> &nbsp;</td>
-</tr>
-<tr id="bib_Bederson1999" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1999" class="entry">
+            <td>
+              Bederson, B. &amp; Boltman, A.
+            </td>
+            <td>
+              Does animation help users build mental maps of spatial information? 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1999','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1999
+            </td>
+            <td>
+              Information Visualization, 1999.(Info Vis' 99) Proceedings. 1999 IEEE Symposium on
+              &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=801854">URL</a>
+              &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Bederson1999" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Bederson1999,
   author = {Bederson, BB and Boltman, A.},
   title = {Does animation help users build mental maps of spatial information?},
@@ -440,22 +229,48 @@ function toggleQSetting(setting) {
   pages = {28--35},
   url = {http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=801854}
 }
-</pre></td>
-</tr>
-<tr id="Bederson2004" class="entry">
-	<td>Bederson, B., Grosjean, J. &amp; Meyer, J.</td>
-	<td>Toolkit Design for Interactive Structured Graphics <p class="infolinks">[<a href="javascript:toggleInfo('Bederson2004','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson2004','bibtex')">BibTeX</a>]</p></td>
-	<td>2004</td>
-	<td>IEEE TRANSACTIONS ON SOFTWARE ENGINEERING &nbsp;</td>
-	<td>misc</td>
-	<td><a href="http://doi.ieeecomputersociety.org/10.1109/TSE.2004.44">DOI</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson2004" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: In this paper, we analyze toolkit designs for building graphical applications with rich user interfaces, comparing polylithic and monolithic toolkit-based solutions. Polylithic toolkits encourage extension by composition and follow a design philosophy similar to 3D scene graphs supported by toolkits including Java3D and OpenInventor. Monolithic toolkits, on the other hand, encourage extension by inheritance, and are more akin to 2D Graphical User Interface toolkits such as Swing or MFC. We...</td>
-</tr>
-<tr id="bib_Bederson2004" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson2004" class="entry">
+            <td>
+              Bederson, B., Grosjean, J. &amp; Meyer, J.
+            </td>
+            <td>
+              Toolkit Design for Interactive Structured Graphics 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson2004','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson2004','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2004
+            </td>
+            <td>
+              IEEE TRANSACTIONS ON SOFTWARE ENGINEERING &nbsp;
+            </td>
+            <td>
+              misc
+            </td>
+            <td>
+              <a href="http://doi.ieeecomputersociety.org/10.1109/TSE.2004.44">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson2004" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: In this paper, we analyze toolkit designs for building graphical
+              applications with rich user interfaces, comparing polylithic and monolithic
+              toolkit-based solutions. Polylithic toolkits encourage extension by composition and
+              follow a design philosophy similar to 3D scene graphs supported by toolkits including
+              Java3D and OpenInventor. Monolithic toolkits, on the other hand, encourage extension
+              by inheritance, and are more akin to 2D Graphical User Interface toolkits such as
+              Swing or MFC. We...
+            </td>
+          </tr>
+          <tr id="bib_Bederson2004" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @misc{Bederson2004,
   author = {B. Bederson and J. Grosjean and J. Meyer},
   title = {Toolkit Design for Interactive Structured Graphics},
@@ -465,22 +280,48 @@ function toggleQSetting(setting) {
   pages = {535--546},
   doi = {http://doi.ieeecomputersociety.org/10.1109/TSE.2004.44}
 }
-</pre></td>
-</tr>
-<tr id="Bederson2004a" class="entry">
-	<td>Bederson, B., Grosjean, J. &amp; Meyer, J.</td>
-	<td>Toolkit Design for Interactive Structured Graphics <p class="infolinks">[<a href="javascript:toggleInfo('Bederson2004a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson2004a','bibtex')">BibTeX</a>]</p></td>
-	<td>2004</td>
-	<td>IEEE TRANSACTIONS ON SOFTWARE ENGINEERING &nbsp;</td>
-	<td>article</td>
-	<td><a href="www.cs.umd.edu/hcil/piccolo/learn/Toolkit_Design_2004.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson2004a" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: In this paper, we analyze toolkit designs for building graphical applications with rich user interfaces, comparing polylithic and monolithic toolkit-based solutions. Polylithic toolkits encourage extension by composition and follow a design philosophy similar to 3D scene graphs supported by toolkits including Java3D and OpenInventor. Monolithic toolkits, on the other hand, encourage extension by inheritance, and are more akin to 2D Graphical User Interface toolkits such as Swing or MFC. We...</td>
-</tr>
-<tr id="bib_Bederson2004a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson2004a" class="entry">
+            <td>
+              Bederson, B., Grosjean, J. &amp; Meyer, J.
+            </td>
+            <td>
+              Toolkit Design for Interactive Structured Graphics 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson2004a','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson2004a','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2004
+            </td>
+            <td>
+              IEEE TRANSACTIONS ON SOFTWARE ENGINEERING &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="www.cs.umd.edu/hcil/piccolo/learn/Toolkit_Design_2004.pdf">URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson2004a" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: In this paper, we analyze toolkit designs for building graphical
+              applications with rich user interfaces, comparing polylithic and monolithic
+              toolkit-based solutions. Polylithic toolkits encourage extension by composition and
+              follow a design philosophy similar to 3D scene graphs supported by toolkits including
+              Java3D and OpenInventor. Monolithic toolkits, on the other hand, encourage extension
+              by inheritance, and are more akin to 2D Graphical User Interface toolkits such as
+              Swing or MFC. We...
+            </td>
+          </tr>
+          <tr id="bib_Bederson2004a" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Bederson2004a,
   author = {Bederson, B.B. and Grosjean, J. and Meyer, J.},
   title = {Toolkit Design for Interactive Structured Graphics},
@@ -490,22 +331,50 @@ function toggleQSetting(setting) {
   pages = {535--546},
   url = {www.cs.umd.edu/hcil/piccolo/learn/Toolkit_Design_2004.pdf}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1996a" class="entry">
-	<td>Bederson, B., Hollan, J., Perlin, K., Meyer, J., Bacon, D. &amp; Furnas, G.</td>
-	<td>Pad++: A Zoomable Graphical Sketchpad For Exploring Alternate Interface Physics <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1996a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson1996a','bibtex')">BibTeX</a>]</p></td>
-	<td>1996</td>
-	<td>Journal of Visual Languages and Computing &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://linkinghub.elsevier.com/retrieve/pii/S1045926X96900026">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson1996a" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We describe Pad++, a zoomable graphical sketchpad that we are exploring as an alternative to traditional window and icon-based interfaces. We discuss the motivation for Pad++, describe the implementation and present prototype applications. In addition, we introduce an informational physics strategy for interface design and briefly contrast it with current design strategies. We envision a rich world of dynamic persistent informational entities that operate according to multiple physics specifically designed to provide cognitively facile access and serve as the basis for the design of new computationally-based work materials.</td>
-</tr>
-<tr id="bib_Bederson1996a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1996a" class="entry">
+            <td>
+              Bederson, B., Hollan, J., Perlin, K., Meyer, J., Bacon, D. &amp; Furnas, G.
+            </td>
+            <td>
+              Pad++: A Zoomable Graphical Sketchpad For Exploring Alternate Interface Physics 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1996a','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson1996a','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1996
+            </td>
+            <td>
+              Journal of Visual Languages and Computing &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://linkinghub.elsevier.com/retrieve/pii/S1045926X96900026">URL</a>
+              &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson1996a" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We describe Pad++, a zoomable graphical sketchpad that we are
+              exploring as an alternative to traditional window and icon-based interfaces. We
+              discuss the motivation for Pad++, describe the implementation and present prototype
+              applications. In addition, we introduce an informational physics strategy for
+              interface design and briefly contrast it with current design strategies. We envision
+              a rich world of dynamic persistent informational entities that operate according to
+              multiple physics specifically designed to provide cognitively facile access and serve
+              as the basis for the design of new computationally-based work materials.
+            </td>
+          </tr>
+          <tr id="bib_Bederson1996a" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Bederson1996a,
   author = {Bederson, B.B. and Hollan, J.D. and Perlin, K. and Meyer, J. and Bacon, D. and Furnas, G.},
   title = {Pad++: A Zoomable Graphical Sketchpad For Exploring Alternate Interface Physics},
@@ -517,22 +386,49 @@ function toggleQSetting(setting) {
   pages = {3--32},
   url = {http://linkinghub.elsevier.com/retrieve/pii/S1045926X96900026}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1997" class="entry">
-	<td>Bederson, B., Hollan, J., Stewart, J., Rogers, D., Druin, A. &amp; Vick, D.</td>
-	<td>A Zooming Web Browser <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1997','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson1997','bibtex')">BibTeX</a>]</p></td>
-	<td>1997</td>
-	<td>Human Factors in Web Development &nbsp;</td>
-	<td>article</td>
-	<td><a href="https://webmail.csic.umd.edu/hcil/piccolo/learn/papers/spie-96-webbrowser.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson1997" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: The World Wide Web (WWW) is becoming increasingly important for business, education, and entertainment. Popular web browsers make access to Internet information resources relatively easy for novice users. Simply by clicking on a link, a new page of information replaces the current one on the screen. Unfortunately however, after following a number of links, people can have difficulty remembering where they've been and navigating links they have followed. As one's collection of web pages grows...</td>
-</tr>
-<tr id="bib_Bederson1997" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1997" class="entry">
+            <td>
+              Bederson, B., Hollan, J., Stewart, J., Rogers, D., Druin, A. &amp; Vick, D.
+            </td>
+            <td>
+              A Zooming Web Browser 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1997','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson1997','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1997
+            </td>
+            <td>
+              Human Factors in Web Development &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="https://webmail.csic.umd.edu/hcil/piccolo/learn/papers/spie-96-webbrowser.pdf">
+              URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson1997" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: The World Wide Web (WWW) is becoming increasingly important for
+              business, education, and entertainment. Popular web browsers make access to Internet
+              information resources relatively easy for novice users. Simply by clicking on a link,
+              a new page of information replaces the current one on the screen. Unfortunately
+              however, after following a number of links, people can have difficulty remembering
+              where they've been and navigating links they have followed. As one's collection of
+              web pages grows...
+            </td>
+          </tr>
+          <tr id="bib_Bederson1997" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Bederson1997,
   author = {Bederson, B.B. and Hollan, J.D. and Stewart, J. and Rogers, D. and Druin, A. and Vick, D.},
   title = {A Zooming Web Browser},
@@ -540,19 +436,36 @@ function toggleQSetting(setting) {
   year = {1997},
   url = {https://webmail.csic.umd.edu/hcil/piccolo/learn/papers/spie-96-webbrowser.pdf}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1999a" class="entry">
-	<td>Bederson, B. &amp; McAlister, B.</td>
-	<td>Jazz: An Extensible 2D+ Zooming Graphics Toolkit in Java <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1999a','bibtex')">BibTeX</a>]</p></td>
-	<td>1999</td>
-	<td>University of Maryland Computer Science Tech Report CS-TR &nbsp;</td>
-	<td>article</td>
-	<td> &nbsp;</td>
-</tr>
-<tr id="bib_Bederson1999a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1999a" class="entry">
+            <td>
+              Bederson, B. &amp; McAlister, B.
+            </td>
+            <td>
+              Jazz: An Extensible 2D+ Zooming Graphics Toolkit in Java 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1999a','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1999
+            </td>
+            <td>
+              University of Maryland Computer Science Tech Report CS-TR &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Bederson1999a" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Bederson1999a,
   author = {Bederson, B.B. and McAlister, B.},
   title = {Jazz: An Extensible 2D+ Zooming Graphics Toolkit in Java},
@@ -560,19 +473,38 @@ function toggleQSetting(setting) {
   year = {1999},
   volume = {4015}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1998" class="entry">
-	<td>Bederson, B. &amp; Meyer, J.</td>
-	<td>Implementing a zooming user interface: experience building Pad++ <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1998','bibtex')">BibTeX</a>]</p></td>
-	<td>1998</td>
-	<td>Softw. Pract. Exper. &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://dx.doi.org/10.1002/(SICI)1097-024X(199808)28:10<1101::AID-SPE190>3.0.CO;2-V">DOI</a><a href="http://www.cs.umd.edu/hcil/pad++/papers/spe-98-padimplementation/spe-98-padimplementation.ps.gz">URL</a> &nbsp;</td>
-</tr>
-<tr id="bib_Bederson1998" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1998" class="entry">
+            <td>
+              Bederson, B. &amp; Meyer, J.
+            </td>
+            <td>
+              Implementing a zooming user interface: experience building Pad++ 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1998','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1998
+            </td>
+            <td>
+              Softw. Pract. Exper. &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://dx.doi.org/10.1002/(SICI)1097-024X(199808)28:10%3C1101::AID-SPE190%3E3.0.CO;2-V">
+              DOI</a><a href="http://www.cs.umd.edu/hcil/pad++/papers/spe-98-padimplementation/spe-98-padimplementation.ps.gz">
+              URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Bederson1998" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Bederson1998,
   author = {Ben Bederson and Jon Meyer},
   title = {Implementing a zooming user interface: experience building Pad++},
@@ -583,24 +515,55 @@ function toggleQSetting(setting) {
   number = {10},
   pages = {1101--1135},
   url = {http://www.cs.umd.edu/hcil/pad++/papers/spe-98-padimplementation/spe-98-padimplementation.ps.gz},
-  doi = {http://dx.doi.org/10.1002/(SICI)1097-024X(199808)28:10<1101::AID-SPE190>3.0.CO;2-V}
+  doi = {http://dx.doi.org/10.1002/(SICI)1097-024X(199808)28:10&lt;1101::AID-SPE190&gt;3.0.CO;2-V}
 }
-</pre></td>
-</tr>
-<tr id="Bederson2001" class="entry">
-	<td>Bederson, B. B.</td>
-	<td>PhotoMesa: a zoomable image browser using quantum treemaps and bubblemaps <p class="infolinks">[<a href="javascript:toggleInfo('Bederson2001','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson2001','bibtex')">BibTeX</a>]</p></td>
-	<td>2001</td>
-	<td>UIST '01: Proceedings of the 14th annual ACM symposium on User interface software and technology &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/502348.502359">DOI</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson2001" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: PhotoMesa is a zoomable image browser that uses a novel treemap algorithm to present large numbers of images grouped by directory, or other available metadata. It uses a new interaction technique for zoomable user interfaces designed for novices and family use that makes it straightforward to navigate through the space of images, and impossible to get lost.PhotoMesa groups images using one of two new algorithms that lay out groups of objects in a 2D space-filling manner. Quantum treemaps are designed for laying out images or other objects of indivisible (quantum) size. They are a variation on existing treemap algorithms in that they guarantee that every generated rectangle will have a width and height that are an integral multiple of an input object size. Bubblemaps also fill space with groups of quantum-sized objects, but generate non-rectangular blobs, and utilize space more efficiently.</td>
-</tr>
-<tr id="bib_Bederson2001" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson2001" class="entry">
+            <td>
+              Bederson, B. B.
+            </td>
+            <td>
+              PhotoMesa: a zoomable image browser using quantum treemaps and bubblemaps 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson2001','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson2001','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2001
+            </td>
+            <td>
+              UIST '01: Proceedings of the 14th annual ACM symposium on User interface software and
+              technology &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/502348.502359">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson2001" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: PhotoMesa is a zoomable image browser that uses a novel treemap
+              algorithm to present large numbers of images grouped by directory, or other available
+              metadata. It uses a new interaction technique for zoomable user interfaces designed
+              for novices and family use that makes it straightforward to navigate through the
+              space of images, and impossible to get lost.PhotoMesa groups images using one of two
+              new algorithms that lay out groups of objects in a 2D space-filling manner. Quantum
+              treemaps are designed for laying out images or other objects of indivisible (quantum)
+              size. They are a variation on existing treemap algorithms in that they guarantee that
+              every generated rectangle will have a width and height that are an integral multiple
+              of an input object size. Bubblemaps also fill space with groups of quantum-sized
+              objects, but generate non-rectangular blobs, and utilize space more efficiently.
+            </td>
+          </tr>
+          <tr id="bib_Bederson2001" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Bederson2001,
   author = {Benjamin B. Bederson},
   title = {PhotoMesa: a zoomable image browser using quantum treemaps and bubblemaps},
@@ -610,22 +573,47 @@ function toggleQSetting(setting) {
   pages = {71--80},
   doi = {http://doi.acm.org/10.1145/502348.502359}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1995" class="entry">
-	<td>Bederson, B. B. &amp; Hollan, J. D.</td>
-	<td>Advances in the Pad++ zoomable graphics widget <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1995','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson1995','bibtex')">BibTeX</a>]</p></td>
-	<td>1995</td>
-	<td>TCLTK'98: Proceedings of the 3rd conference on USENIX Third Annual Tcl/Tk Workshop &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://www.usenix.org/publications/library/proceedings/tcl95/full_papers/bederson.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson1995" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We describe Pad++, a zoomable graphical sketchpad that we are exploring as an alternative to traditional window and icon-based interfaces. We discuss the motivation for Pad++, describe the implementation, and present some of the differences between Pad++ and the standard Tk Canvas widget.</td>
-</tr>
-<tr id="bib_Bederson1995" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1995" class="entry">
+            <td>
+              Bederson, B. B. &amp; Hollan, J. D.
+            </td>
+            <td>
+              Advances in the Pad++ zoomable graphics widget 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1995','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson1995','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1995
+            </td>
+            <td>
+              TCLTK'98: Proceedings of the 3rd conference on USENIX Third Annual Tcl/Tk Workshop
+              &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://www.usenix.org/publications/library/proceedings/tcl95/full_papers/bederson.pdf">
+              URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson1995" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We describe Pad++, a zoomable graphical sketchpad that we are
+              exploring as an alternative to traditional window and icon-based interfaces. We
+              discuss the motivation for Pad++, describe the implementation, and present some of
+              the differences between Pad++ and the standard Tk Canvas widget.
+            </td>
+          </tr>
+          <tr id="bib_Bederson1995" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Bederson1995,
   author = {Benjamin B. Bederson and James D. Hollan},
   title = {Advances in the Pad++ zoomable graphics widget},
@@ -635,22 +623,46 @@ function toggleQSetting(setting) {
   pages = {4--4},
   url = {http://www.usenix.org/publications/library/proceedings/tcl95/full_papers/bederson.pdf}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1994" class="entry">
-	<td>Bederson, B. B. &amp; Hollan, J. D.</td>
-	<td>Pad++: a zooming graphical interface for exploring alternate interface physics <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1994','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson1994','bibtex')">BibTeX</a>]</p></td>
-	<td>1994</td>
-	<td>UIST '94: Proceedings of the 7th annual ACM symposium on User interface software and technology &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/192426.192435">DOI</a><a href="http://www.graphics.cs.columbia.edu/courses/csw4170/resources/bedersonHollanUIST94.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson1994" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We describe the current status of Pad++, a zooming graphical interface that we are exploring as an alternative to tradhional window and icon-based approaches to interface design. We discuss the motivation for Pad++, ...</td>
-</tr>
-<tr id="bib_Bederson1994" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1994" class="entry">
+            <td>
+              Bederson, B. B. &amp; Hollan, J. D.
+            </td>
+            <td>
+              Pad++: a zooming graphical interface for exploring alternate interface physics 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1994','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson1994','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1994
+            </td>
+            <td>
+              UIST '94: Proceedings of the 7th annual ACM symposium on User interface software and
+              technology &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/192426.192435">DOI</a><a href="http://www.graphics.cs.columbia.edu/courses/csw4170/resources/bedersonHollanUIST94.pdf">
+              URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson1994" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We describe the current status of Pad++, a zooming graphical
+              interface that we are exploring as an alternative to tradhional window and icon-based
+              approaches to interface design. We discuss the motivation for Pad++, ...
+            </td>
+          </tr>
+          <tr id="bib_Bederson1994" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Bederson1994,
   author = {Benjamin B. Bederson and James D. Hollan},
   title = {Pad++: a zooming graphical interface for exploring alternate interface physics},
@@ -661,19 +673,37 @@ function toggleQSetting(setting) {
   url = {http://www.graphics.cs.columbia.edu/courses/csw4170/resources/bedersonHollanUIST94.pdf},
   doi = {http://doi.acm.org/10.1145/192426.192435}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1996b" class="entry">
-	<td>Bederson, B. B., Hollan, J. D., Druin, A., Stewart, J., Rogers, D. &amp; Proft, D.</td>
-	<td>Local tools: an alternative to tool palettes <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1996b','bibtex')">BibTeX</a>]</p></td>
-	<td>1996</td>
-	<td>UIST '96: Proceedings of the 9th annual ACM symposium on User interface software and technology &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/237091.237116">DOI</a> &nbsp;</td>
-</tr>
-<tr id="bib_Bederson1996b" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1996b" class="entry">
+            <td>
+              Bederson, B. B., Hollan, J. D., Druin, A., Stewart, J., Rogers, D. &amp; Proft, D.
+            </td>
+            <td>
+              Local tools: an alternative to tool palettes 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1996b','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1996
+            </td>
+            <td>
+              UIST '96: Proceedings of the 9th annual ACM symposium on User interface software and
+              technology &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/237091.237116">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Bederson1996b" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Bederson1996b,
   author = {Benjamin B. Bederson and James D. Hollan and Allison Druin and Jason Stewart and David Rogers and David Proft},
   title = {Local tools: an alternative to tool palettes},
@@ -683,44 +713,97 @@ function toggleQSetting(setting) {
   pages = {169--170},
   doi = {http://doi.acm.org/10.1145/237091.237116}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1996c" class="entry">
-	<td>Bederson, B. B., Hollan, J. D. &amp; Stewart, J.</td>
-	<td>An Agnostic Approach to Scripting Languages <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1996c','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson1996c','bibtex')">BibTeX</a>]</p></td>
-	<td>1996</td>
-	<td> &nbsp;</td>
-	<td>misc</td>
-	<td><a href="ftp.cs.unm.edu/pub/pad++/languages.ps.gz">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson1996c" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We describe a generic approach to connect any number of interpreted scripting languages to a library. We implemented this technique with Pad++ so that complete access to Pad++ is now available through Scheme and Perl as well as Tcl/Tk. INTRODUCTION Ask any two programmers what their favorite computer languages are and you will likely end up with a very intense debate. Indeed, developers' feelings about programming languages are almost religious in nature. With the current proliferation of...</td>
-</tr>
-<tr id="bib_Bederson1996c" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1996c" class="entry">
+            <td>
+              Bederson, B. B., Hollan, J. D. &amp; Stewart, J.
+            </td>
+            <td>
+              An Agnostic Approach to Scripting Languages 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1996c','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson1996c','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1996
+            </td>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              misc
+            </td>
+            <td>
+              <a href="ftp.cs.unm.edu/pub/pad++/languages.ps.gz">URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson1996c" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We describe a generic approach to connect any number of interpreted
+              scripting languages to a library. We implemented this technique with Pad++ so that
+              complete access to Pad++ is now available through Scheme and Perl as well as Tcl/Tk.
+              INTRODUCTION Ask any two programmers what their favorite computer languages are and
+              you will likely end up with a very intense debate. Indeed, developers' feelings about
+              programming languages are almost religious in nature. With the current proliferation
+              of...
+            </td>
+          </tr>
+          <tr id="bib_Bederson1996c" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @misc{Bederson1996c,
   author = {Benjamin B. Bederson and James D. Hollan and Jason Stewart},
   title = {An Agnostic Approach to Scripting Languages},
   year = {1996},
   url = {ftp.cs.unm.edu/pub/pad++/languages.ps.gz}
 }
-</pre></td>
-</tr>
-<tr id="Bederson2000" class="entry">
-	<td>Bederson, B. B., Meyer, J. &amp; Good, L.</td>
-	<td>Jazz: an extensible zoomable user interface graphics toolkit in Java <p class="infolinks">[<a href="javascript:toggleInfo('Bederson2000','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson2000','bibtex')">BibTeX</a>]</p></td>
-	<td>2000</td>
-	<td>UIST '00: Proceedings of the 13th annual ACM symposium on User interface software and technology &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/354401.354754">DOI</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson2000" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: In this paper we investigate the use of scene graphs as a general approach for implementing two-dimensional (2D) graphical applications, and in particular Zoomable User Interfaces (ZUIs). Scene graphs are typically found in three-dimensional (3D) graphics packages such as Sun's Java3D and SGI's OpenInventor. They have not been widely adopted by 2D graphical user interface toolkits. To explore the effectiveness of scene graph techniques, we have developed Jazz, a general-purpose 2D scene graph...</td>
-</tr>
-<tr id="bib_Bederson2000" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson2000" class="entry">
+            <td>
+              Bederson, B. B., Meyer, J. &amp; Good, L.
+            </td>
+            <td>
+              Jazz: an extensible zoomable user interface graphics toolkit in Java 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson2000','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson2000','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2000
+            </td>
+            <td>
+              UIST '00: Proceedings of the 13th annual ACM symposium on User interface software and
+              technology &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/354401.354754">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson2000" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: In this paper we investigate the use of scene graphs as a general
+              approach for implementing two-dimensional (2D) graphical applications, and in
+              particular Zoomable User Interfaces (ZUIs). Scene graphs are typically found in
+              three-dimensional (3D) graphics packages such as Sun's Java3D and SGI's OpenInventor.
+              They have not been widely adopted by 2D graphical user interface toolkits. To explore
+              the effectiveness of scene graph techniques, we have developed Jazz, a
+              general-purpose 2D scene graph...
+            </td>
+          </tr>
+          <tr id="bib_Bederson2000" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Bederson2000,
   author = {Benjamin B. Bederson and Jon Meyer and Lance Good},
   title = {Jazz: an extensible zoomable user interface graphics toolkit in Java},
@@ -730,22 +813,45 @@ function toggleQSetting(setting) {
   pages = {171--180},
   doi = {http://doi.acm.org/10.1145/354401.354754}
 }
-</pre></td>
-</tr>
-<tr id="Bederson1994a" class="entry">
-	<td>Bederson, B. B., Stead, L. &amp; Hollan, J. D.</td>
-	<td>Pad++: advances in multiscale interfaces <p class="infolinks">[<a href="javascript:toggleInfo('Bederson1994a','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Bederson1994a','bibtex')">BibTeX</a>]</p></td>
-	<td>1994</td>
-	<td>CHI '94: Conference companion on Human factors in computing systems &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/259963.260379">DOI</a><a href="http://wiki.lri.fr:8000/fondihm/_files/pad-chi94-bederson.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Bederson1994a" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We have implemented an infinite resolution multimedia sketchpad as a base for exploring a stream-of-conscious- ness model of computation where information creating, sharing and retrieval becomes so intuitive that the ...</td>
-</tr>
-<tr id="bib_Bederson1994a" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Bederson1994a" class="entry">
+            <td>
+              Bederson, B. B., Stead, L. &amp; Hollan, J. D.
+            </td>
+            <td>
+              Pad++: advances in multiscale interfaces 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Bederson1994a','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Bederson1994a','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1994
+            </td>
+            <td>
+              CHI '94: Conference companion on Human factors in computing systems &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/259963.260379">DOI</a><a href="http://wiki.lri.fr:8000/fondihm/_files/pad-chi94-bederson.pdf">
+              URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Bederson1994a" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We have implemented an infinite resolution multimedia sketchpad as a
+              base for exploring a stream-of-conscious- ness model of computation where information
+              creating, sharing and retrieval becomes so intuitive that the ...
+            </td>
+          </tr>
+          <tr id="bib_Bederson1994a" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Bederson1994a,
   author = {Ben B. Bederson and Larry Stead and James D. Hollan},
   title = {Pad++: advances in multiscale interfaces},
@@ -756,19 +862,36 @@ function toggleQSetting(setting) {
   url = {http://wiki.lri.fr:8000/fondihm/_files/pad-chi94-bederson.pdf},
   doi = {http://doi.acm.org/10.1145/259963.260379}
 }
-</pre></td>
-</tr>
-<tr id="Combs1999" class="entry">
-	<td>Combs, T. T. A. &amp; Bederson, B. B.</td>
-	<td>Does zooming improve image browsing? <p class="infolinks">[<a href="javascript:toggleInfo('Combs1999','bibtex')">BibTeX</a>]</p></td>
-	<td>1999</td>
-	<td>DL '99: Proceedings of the fourth ACM conference on Digital libraries &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/313238.313286">DOI</a> &nbsp;</td>
-</tr>
-<tr id="bib_Combs1999" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Combs1999" class="entry">
+            <td>
+              Combs, T. T. A. &amp; Bederson, B. B.
+            </td>
+            <td>
+              Does zooming improve image browsing? 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Combs1999','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1999
+            </td>
+            <td>
+              DL '99: Proceedings of the fourth ACM conference on Digital libraries &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/313238.313286">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Combs1999" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Combs1999,
   author = {Tammara T. A. Combs and Benjamin B. Bederson},
   title = {Does zooming improve image browsing?},
@@ -778,19 +901,37 @@ function toggleQSetting(setting) {
   pages = {130--137},
   doi = {http://doi.acm.org/10.1145/313238.313286}
 }
-</pre></td>
-</tr>
-<tr id="Druin1997" class="entry">
-	<td>Druin, A., Stewart, J., Proft, D., Bederson, B. &amp; Hollan, J.</td>
-	<td>KidPad: a design collaboration between children, technologists, and educators <p class="infolinks">[<a href="javascript:toggleInfo('Druin1997','bibtex')">BibTeX</a>]</p></td>
-	<td>1997</td>
-	<td>CHI '97: Proceedings of the SIGCHI conference on Human factors in computing systems &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/258549.258866">DOI</a> &nbsp;</td>
-</tr>
-<tr id="bib_Druin1997" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Druin1997" class="entry">
+            <td>
+              Druin, A., Stewart, J., Proft, D., Bederson, B. &amp; Hollan, J.
+            </td>
+            <td>
+              KidPad: a design collaboration between children, technologists, and educators 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Druin1997','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1997
+            </td>
+            <td>
+              CHI '97: Proceedings of the SIGCHI conference on Human factors in computing systems
+              &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/258549.258866">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Druin1997" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Druin1997,
   author = {Allison Druin and Jason Stewart and David Proft and Ben Bederson and Jim Hollan},
   title = {KidPad: a design collaboration between children, technologists, and educators},
@@ -800,19 +941,38 @@ function toggleQSetting(setting) {
   pages = {463--470},
   doi = {http://doi.acm.org/10.1145/258549.258866}
 }
-</pre></td>
-</tr>
-<tr id="Furnas1995" class="entry">
-	<td>Furnas, G. W. &amp; Bederson, B. B.</td>
-	<td>Space-scale diagrams: understanding multiscale interfaces <p class="infolinks">[<a href="javascript:toggleInfo('Furnas1995','bibtex')">BibTeX</a>]</p></td>
-	<td>1995</td>
-	<td>CHI '95: Proceedings of the SIGCHI conference on Human factors in computing systems &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://doi.acm.org/10.1145/223904.223934">DOI</a><a href="http://ftp.cs.umd.edu/hcil/piccolo/learn/papers/chi-95-spacescale.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="bib_Furnas1995" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Furnas1995" class="entry">
+            <td>
+              Furnas, G. W. &amp; Bederson, B. B.
+            </td>
+            <td>
+              Space-scale diagrams: understanding multiscale interfaces 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Furnas1995','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1995
+            </td>
+            <td>
+              CHI '95: Proceedings of the SIGCHI conference on Human factors in computing systems
+              &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/223904.223934">DOI</a><a href="http://ftp.cs.umd.edu/hcil/piccolo/learn/papers/chi-95-spacescale.pdf">
+              URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Furnas1995" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Furnas1995,
   author = {George W. Furnas and Benjamin B. Bederson},
   title = {Space-scale diagrams: understanding multiscale interfaces},
@@ -823,22 +983,49 @@ function toggleQSetting(setting) {
   url = {http://ftp.cs.umd.edu/hcil/piccolo/learn/papers/chi-95-spacescale.pdf},
   doi = {http://doi.acm.org/10.1145/223904.223934}
 }
-</pre></td>
-</tr>
-<tr id="Good2001" class="entry">
-	<td>Good, L. &amp; Bederson, B.</td>
-	<td>CounterPoint: Creating Jazzy Interactive Presentations <p class="infolinks">[<a href="javascript:toggleInfo('Good2001','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Good2001','bibtex')">BibTeX</a>]</p></td>
-	<td>2001</td>
-	<td>HCILTechReport &nbsp;</td>
-	<td>article</td>
-	<td><a href="ftp://ftp.cs.umd.edu/pub/hcil/Reports-Abstracts-Bibliography/2001-03html/2001-03.htm">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Good2001" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: In this paper, we introduce Counterpoint, a zooming presentation tool. CounterPoint supports the construction of slide show style presentations with content arrangement in a 2.5D space. As with other Zoomable User Interfaces, CounterPoint provides animated navigations as transitions through this space. Our tool also supports both automated sequential paths and interactive navigation through the presentation. Multiple paths may also be defined within a single presentation space. This paper...</td>
-</tr>
-<tr id="bib_Good2001" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Good2001" class="entry">
+            <td>
+              Good, L. &amp; Bederson, B.
+            </td>
+            <td>
+              CounterPoint: Creating Jazzy Interactive Presentations 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Good2001','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Good2001','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2001
+            </td>
+            <td>
+              HCILTechReport &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="ftp://ftp.cs.umd.edu/pub/hcil/Reports-Abstracts-Bibliography/2001-03html/2001-03.htm">
+              URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Good2001" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: In this paper, we introduce Counterpoint, a zooming presentation
+              tool. CounterPoint supports the construction of slide show style presentations with
+              content arrangement in a 2.5D space. As with other Zoomable User Interfaces,
+              CounterPoint provides animated navigations as transitions through this space. Our
+              tool also supports both automated sequential paths and interactive navigation through
+              the presentation. Multiple paths may also be defined within a single presentation
+              space. This paper...
+            </td>
+          </tr>
+          <tr id="bib_Good2001" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Good2001,
   author = {Good, L. and Bederson, B.},
   title = {CounterPoint: Creating Jazzy Interactive Presentations},
@@ -848,22 +1035,49 @@ function toggleQSetting(setting) {
   pages = {2001--03},
   url = {ftp://ftp.cs.umd.edu/pub/hcil/Reports-Abstracts-Bibliography/2001-03html/2001-03.htm}
 }
-</pre></td>
-</tr>
-<tr id="Hightower1998" class="entry">
-	<td>Hightower, R. R., Ring, L. T., Helfman, J. I., Bederson, B. B. &amp; Hollan, J. D.</td>
-	<td>Graphical multiscale Web histories: a study of padprints <p class="infolinks">[<a href="javascript:toggleInfo('Hightower1998','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Hightower1998','bibtex')">BibTeX</a>]</p></td>
-	<td>1998</td>
-	<td>HYPERTEXT '98: Proceedings of the ninth ACM conference on Hypertext and hypermedia : links, objects, time and space---structure in hypermedia systems &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/276627.276634">DOI</a> &nbsp;</td>
-</tr>
-<tr id="abs_Hightower1998" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We have implemented a browser companion called PadPrints that dynamically builds a graphical history-map of visited web pages. PadPrints relies on Pad++, a zooming user interface (ZUI) development substrate, to display the history-map using minimal screen space. PadPrints functions in conjunction with a traditional web browser but without requiring any browser modifications. We performed two usability studies of PadPrints. The first addressed general navigation effectiveness. The second focused ...</td>
-</tr>
-<tr id="bib_Hightower1998" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Hightower1998" class="entry">
+            <td>
+              Hightower, R. R., Ring, L. T., Helfman, J. I., Bederson, B. B. &amp; Hollan, J. D.
+            </td>
+            <td>
+              Graphical multiscale Web histories: a study of padprints 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Hightower1998','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Hightower1998','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1998
+            </td>
+            <td>
+              HYPERTEXT '98: Proceedings of the ninth ACM conference on Hypertext and hypermedia :
+              links, objects, time and space---structure in hypermedia systems &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/276627.276634">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Hightower1998" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We have implemented a browser companion called PadPrints that
+              dynamically builds a graphical history-map of visited web pages. PadPrints relies on
+              Pad++, a zooming user interface (ZUI) development substrate, to display the
+              history-map using minimal screen space. PadPrints functions in conjunction with a
+              traditional web browser but without requiring any browser modifications. We performed
+              two usability studies of PadPrints. The first addressed general navigation
+              effectiveness. The second focused ...
+            </td>
+          </tr>
+          <tr id="bib_Hightower1998" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Hightower1998,
   author = {Ron R. Hightower and Laura T. Ring and Jonathan I. Helfman and Benjamin B. Bederson and James D. Hollan},
   title = {Graphical multiscale Web histories: a study of padprints},
@@ -873,22 +1087,58 @@ function toggleQSetting(setting) {
   pages = {58--65},
   doi = {http://doi.acm.org/10.1145/276627.276634}
 }
-</pre></td>
-</tr>
-<tr id="Hornbaek2002" class="entry">
-	<td>Hornb&aelig;k, K., Bederson, B. B. &amp; Plaisant, C.</td>
-	<td>Navigation patterns and usability of zoomable user interfaces with and without an overview <p class="infolinks">[<a href="javascript:toggleInfo('Hornbaek2002','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Hornbaek2002','bibtex')">BibTeX</a>]</p></td>
-	<td>2002</td>
-	<td>ACM Trans. Comput.-Hum. Interact. &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://doi.acm.org/10.1145/586081.586086">DOI</a> &nbsp;</td>
-</tr>
-<tr id="abs_Hornbaek2002" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: The literature on information visualization establishes the usability of interfaces with an overview of the information space, but for zoomable user interfaces, results are mixed. We compare zoomable user interfaces with and without an overview to understand the navigation patterns and usability of these interfaces. Thirty-two subjects solved navigation and browsing tasks on two maps. We found no difference between interfaces in subjects' ability to solve tasks correctly. Eighty percent of the subjects preferred the interface with an overview, stating that it supported navigation and helped keep track of their position on the map. However, subjects were faster with the interface without an overview when using one of the two maps. We conjecture that this difference was due to the organization of that map in multiple levels, which rendered the overview unnecessary by providing richer navigation cues through semantic zooming. The combination of that map and the interface without an overview also improved subjects' recall of objects on the map. Subjects who switched between the overview and the detail windows used more time, suggesting that integration of overview and detail windows adds complexity and requires additional mental and motor effort.</td>
-</tr>
-<tr id="bib_Hornbaek2002" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Hornbaek2002" class="entry">
+            <td>
+              Hornb&aelig;k, K., Bederson, B. B. &amp; Plaisant, C.
+            </td>
+            <td>
+              Navigation patterns and usability of zoomable user interfaces with and without an
+              overview 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Hornbaek2002','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Hornbaek2002','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2002
+            </td>
+            <td>
+              ACM Trans. Comput.-Hum. Interact. &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/586081.586086">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Hornbaek2002" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: The literature on information visualization establishes the
+              usability of interfaces with an overview of the information space, but for zoomable
+              user interfaces, results are mixed. We compare zoomable user interfaces with and
+              without an overview to understand the navigation patterns and usability of these
+              interfaces. Thirty-two subjects solved navigation and browsing tasks on two maps. We
+              found no difference between interfaces in subjects' ability to solve tasks correctly.
+              Eighty percent of the subjects preferred the interface with an overview, stating that
+              it supported navigation and helped keep track of their position on the map. However,
+              subjects were faster with the interface without an overview when using one of the two
+              maps. We conjecture that this difference was due to the organization of that map in
+              multiple levels, which rendered the overview unnecessary by providing richer
+              navigation cues through semantic zooming. The combination of that map and the
+              interface without an overview also improved subjects' recall of objects on the map.
+              Subjects who switched between the overview and the detail windows used more time,
+              suggesting that integration of overview and detail windows adds complexity and
+              requires additional mental and motor effort.
+            </td>
+          </tr>
+          <tr id="bib_Hornbaek2002" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Hornbaek2002,
   author = {Kasper Hornb&aelig;k and Benjamin B. Bederson and Catherine Plaisant},
   title = {Navigation patterns and usability of zoomable user interfaces with and without an overview},
@@ -900,62 +1150,144 @@ function toggleQSetting(setting) {
   pages = {362--389},
   doi = {http://doi.acm.org/10.1145/586081.586086}
 }
-</pre></td>
-</tr>
-<tr id="Meyer1995" class="entry">
-	<td>Meyer, J., Perlin, K., Bederson, B. &amp; Hollan, J.</td>
-	<td>Two document visualization techniques for zoomable interfaces <p class="infolinks">[<a href="javascript:toggleInfo('Meyer1995','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Meyer1995','bibtex')">BibTeX</a>]</p></td>
-	<td>1995</td>
-	<td> &nbsp;</td>
-	<td>article</td>
-	<td> &nbsp;</td>
-</tr>
-<tr id="abs_Meyer1995" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We have developed two interactive document visualizations in Pad++, an environment for exploring zooming techniques for interfaces. The first is a page-based elliptical view that shows an entire document simultaneously and provides multiple navigation mechanisms. We have used it to develop a tutorial document. The second technique employs an inverted triangle view so that any size document can be presented in the same amount of space. Access is via zooming rather than panning.</td>
-</tr>
-<tr id="bib_Meyer1995" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Meyer1995" class="entry">
+            <td>
+              Meyer, J., Perlin, K., Bederson, B. &amp; Hollan, J.
+            </td>
+            <td>
+              Two document visualization techniques for zoomable interfaces 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Meyer1995','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Meyer1995','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1995
+            </td>
+            <td>
+              &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Meyer1995" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We have developed two interactive document visualizations in Pad++,
+              an environment for exploring zooming techniques for interfaces. The first is a
+              page-based elliptical view that shows an entire document simultaneously and provides
+              multiple navigation mechanisms. We have used it to develop a tutorial document. The
+              second technique employs an inverted triangle view so that any size document can be
+              presented in the same amount of space. Access is via zooming rather than panning.
+            </td>
+          </tr>
+          <tr id="bib_Meyer1995" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Meyer1995,
   author = {J. Meyer and K. Perlin and B. Bederson and J. Hollan},
   title = {Two document visualization techniques for zoomable interfaces},
   year = {1995}
 }
-</pre></td>
-</tr>
-<tr id="Perlin1991" class="entry">
-	<td>Perlin, K.</td>
-	<td>A multiscale approach to interactive display organization <p class="infolinks">[<a href="javascript:toggleInfo('Perlin1991','bibtex')">BibTeX</a>]</p></td>
-	<td>1991</td>
-	<td>Coordination Theory and Collaboration Technology Workshop &nbsp;</td>
-	<td>article</td>
-	<td> &nbsp;</td>
-</tr>
-<tr id="bib_Perlin1991" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Perlin1991" class="entry">
+            <td>
+              Perlin, K.
+            </td>
+            <td>
+              A multiscale approach to interactive display organization 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Perlin1991','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1991
+            </td>
+            <td>
+              Coordination Theory and Collaboration Technology Workshop &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Perlin1991" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Perlin1991,
   author = {Perlin, K.},
   title = {A multiscale approach to interactive display organization},
   journal = {Coordination Theory and Collaboration Technology Workshop},
   year = {1991}
 }
-</pre></td>
-</tr>
-<tr id="Perlin1993" class="entry">
-	<td>Perlin, K. &amp; Fox, D.</td>
-	<td>Pad: an alternative approach to the computer interface <p class="infolinks">[<a href="javascript:toggleInfo('Perlin1993','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Perlin1993','bibtex')">BibTeX</a>]</p></td>
-	<td>1993</td>
-	<td>SIGGRAPH '93: Proceedings of the 20th annual conference on Computer graphics and interactive techniques &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/166117.166125">DOI</a> &nbsp;</td>
-</tr>
-<tr id="abs_Perlin1993" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We believe that navigation in information spaces is best supported by tapping into our natural spatial and geographic ways of thinking. To this end, we are developing a new computer interface model called Pad. The ongoing Pad project uses a spatial metaphor for computer interface design. It provides an intuitive base for the support of such applications as electronic marketplaces, information services, and on-line collaboration. Pad is an infinite two dimensional information plane that is shared among users, much as a network file system is shared. Objects are organized geographically; every object occupies a well defined region on the Pad surface. For navigation, Pad uses &amp;quot;portals &amp;quot;- magnifying glasses that can peer into and roam over different parts of this single infinite shared desktop; links to specific items are established and broken continually as the portal's view changes. Portals can recursively look onto other portals. This paradigm enables the sort of peripheral activity generally found in real physical working environments. The apparent size of an object to any user determines the amount of detail it presents. Different users can share and view multiple applications while assigning each a desired degree of interaction. Documents can be visually nested and zoomed as they move back and forth between primary and secondary working attention. Things can be peripherally accessible. In this paper we describe the Pad interface. We discuss how to efficiently implement its graphical aspects, and we illustrate some of our initial applications.</td>
-</tr>
-<tr id="bib_Perlin1993" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Perlin1993" class="entry">
+            <td>
+              Perlin, K. &amp; Fox, D.
+            </td>
+            <td>
+              Pad: an alternative approach to the computer interface 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Perlin1993','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Perlin1993','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1993
+            </td>
+            <td>
+              SIGGRAPH '93: Proceedings of the 20th annual conference on Computer graphics and
+              interactive techniques &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/166117.166125">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Perlin1993" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We believe that navigation in information spaces is best supported
+              by tapping into our natural spatial and geographic ways of thinking. To this end, we
+              are developing a new computer interface model called Pad. The ongoing Pad project
+              uses a spatial metaphor for computer interface design. It provides an intuitive base
+              for the support of such applications as electronic marketplaces, information
+              services, and on-line collaboration. Pad is an infinite two dimensional information
+              plane that is shared among users, much as a network file system is shared. Objects
+              are organized geographically; every object occupies a well defined region on the Pad
+              surface. For navigation, Pad uses &amp;quot;portals &amp;quot;- magnifying glasses
+              that can peer into and roam over different parts of this single infinite shared
+              desktop; links to specific items are established and broken continually as the
+              portal's view changes. Portals can recursively look onto other portals. This paradigm
+              enables the sort of peripheral activity generally found in real physical working
+              environments. The apparent size of an object to any user determines the amount of
+              detail it presents. Different users can share and view multiple applications while
+              assigning each a desired degree of interaction. Documents can be visually nested and
+              zoomed as they move back and forth between primary and secondary working attention.
+              Things can be peripherally accessible. In this paper we describe the Pad interface.
+              We discuss how to efficiently implement its graphical aspects, and we illustrate some
+              of our initial applications.
+            </td>
+          </tr>
+          <tr id="bib_Perlin1993" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Perlin1993,
   author = {Ken Perlin and David Fox},
   title = {Pad: an alternative approach to the computer interface},
@@ -965,22 +1297,50 @@ function toggleQSetting(setting) {
   pages = {57--64},
   doi = {http://doi.acm.org/10.1145/166117.166125}
 }
-</pre></td>
-</tr>
-<tr id="Plaisant2002" class="entry">
-	<td>Plaisant, C., Grosjean, J. &amp; Bederson, B.</td>
-	<td>SpaceTree: supporting exploration in large node link tree, design evolution and empirical evaluation <p class="infolinks">[<a href="javascript:toggleInfo('Plaisant2002','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Plaisant2002','bibtex')">BibTeX</a>]</p></td>
-	<td>2002</td>
-	<td>Information Visualization, 2002. INFOVIS 2002. IEEE Symposium on &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://www.cs.umd.edu/Library/TRs/CS-TR-4360/CS-TR-4360.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Plaisant2002" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We present a novel tree browser that builds on the conventional node link tree diagrams. It adds dynamic rescaling of branches of the tree to best fit the available screen space, optimized camera movement, and the use of preview icons summarizing the topology of the branches that cannot be expanded. In addition, it includes integrated search and filter functions. This paper reflects on the evolution of the design and highlights the principles that emerged from it. A controlled experiment showed benefits for navigation to already previously visited nodes and estimation of overall tree topology.</td>
-</tr>
-<tr id="bib_Plaisant2002" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Plaisant2002" class="entry">
+            <td>
+              Plaisant, C., Grosjean, J. &amp; Bederson, B.
+            </td>
+            <td>
+              SpaceTree: supporting exploration in large node link tree, design evolution and
+              empirical evaluation 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Plaisant2002','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Plaisant2002','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2002
+            </td>
+            <td>
+              Information Visualization, 2002. INFOVIS 2002. IEEE Symposium on &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://www.cs.umd.edu/Library/TRs/CS-TR-4360/CS-TR-4360.pdf">URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Plaisant2002" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We present a novel tree browser that builds on the conventional node
+              link tree diagrams. It adds dynamic rescaling of branches of the tree to best fit the
+              available screen space, optimized camera movement, and the use of preview icons
+              summarizing the topology of the branches that cannot be expanded. In addition, it
+              includes integrated search and filter functions. This paper reflects on the evolution
+              of the design and highlights the principles that emerged from it. A controlled
+              experiment showed benefits for navigation to already previously visited nodes and
+              estimation of overall tree topology.
+            </td>
+          </tr>
+          <tr id="bib_Plaisant2002" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Plaisant2002,
   author = {Plaisant, C. and Grosjean, J. and Bederson, BB},
   title = {SpaceTree: supporting exploration in large node link tree, design evolution and empirical evaluation},
@@ -989,19 +1349,37 @@ function toggleQSetting(setting) {
   pages = {57--64},
   url = {http://www.cs.umd.edu/Library/TRs/CS-TR-4360/CS-TR-4360.pdf}
 }
-</pre></td>
-</tr>
-<tr id="Stewart1998" class="entry">
-	<td>Stewart, J., Raybourn, E. M., Bederson, B. &amp; Druin, A.</td>
-	<td>When two hands are better than one: enhancing collaboration using single display groupware <p class="infolinks">[<a href="javascript:toggleInfo('Stewart1998','bibtex')">BibTeX</a>]</p></td>
-	<td>1998</td>
-	<td>CHI '98: CHI 98 conference summary on Human factors in computing systems &nbsp;</td>
-	<td>inproceedings</td>
-	<td><a href="http://doi.acm.org/10.1145/286498.286766">DOI</a> &nbsp;</td>
-</tr>
-<tr id="bib_Stewart1998" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Stewart1998" class="entry">
+            <td>
+              Stewart, J., Raybourn, E. M., Bederson, B. &amp; Druin, A.
+            </td>
+            <td>
+              When two hands are better than one: enhancing collaboration using single display
+              groupware 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Stewart1998','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1998
+            </td>
+            <td>
+              CHI '98: CHI 98 conference summary on Human factors in computing systems &nbsp;
+            </td>
+            <td>
+              inproceedings
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/286498.286766">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Stewart1998" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @inproceedings{Stewart1998,
   author = {Jason Stewart and Elaine M. Raybourn and Ben Bederson and Allison Druin},
   title = {When two hands are better than one: enhancing collaboration using single display groupware},
@@ -1011,22 +1389,48 @@ function toggleQSetting(setting) {
   pages = {287--288},
   doi = {http://doi.acm.org/10.1145/286498.286766}
 }
-</pre></td>
-</tr>
-<tr id="Suh2002" class="entry">
-	<td>Suh, B. &amp; Bederson, B.</td>
-	<td>OZONE: A Zoomable Interface for Navigating Ontology Information <p class="infolinks">[<a href="javascript:toggleInfo('Suh2002','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Suh2002','bibtex')">BibTeX</a>]</p></td>
-	<td>2002</td>
-	<td>Proceedings of Advanced Visual Interfaces (AVI 2002) ACM Press &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://hcil.cs.umd.edu/trs/2001-04/2001-04.html">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Suh2002" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: We present OZONE (Zoomable Ontology Navigator), for searching and browsing ontological information. OZONE visualizes query conditions and provides interactive, guided browsing for DAML (DARPA Agent Markup Language) ontologies. To visually represent objects in DAML, we define a visual model for its classes, properties and relationships between them. Properties can be expanded into classes for query refinement. The visual query can be formulated incrementally as users explore class and...</td>
-</tr>
-<tr id="bib_Suh2002" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Suh2002" class="entry">
+            <td>
+              Suh, B. &amp; Bederson, B.
+            </td>
+            <td>
+              OZONE: A Zoomable Interface for Navigating Ontology Information 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Suh2002','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Suh2002','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2002
+            </td>
+            <td>
+              Proceedings of Advanced Visual Interfaces (AVI 2002) ACM Press &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://hcil.cs.umd.edu/trs/2001-04/2001-04.html">URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Suh2002" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: We present OZONE (Zoomable Ontology Navigator), for searching and
+              browsing ontological information. OZONE visualizes query conditions and provides
+              interactive, guided browsing for DAML (DARPA Agent Markup Language) ontologies. To
+              visually represent objects in DAML, we define a visual model for its classes,
+              properties and relationships between them. Properties can be expanded into classes
+              for query refinement. The visual query can be formulated incrementally as users
+              explore class and...
+            </td>
+          </tr>
+          <tr id="bib_Suh2002" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Suh2002,
   author = {Suh, B. and Bederson, B.B.},
   title = {OZONE: A Zoomable Interface for Navigating Ontology Information},
@@ -1035,22 +1439,49 @@ function toggleQSetting(setting) {
   pages = {139--143},
   url = {http://hcil.cs.umd.edu/trs/2001-04/2001-04.html}
 }
-</pre></td>
-</tr>
-<tr id="Suh2003" class="entry">
-	<td>Suh, B., Ling, H., Bederson, B. &amp; Jacobs, D.</td>
-	<td>Automatic thumbnail cropping and its effectiveness <p class="infolinks">[<a href="javascript:toggleInfo('Suh2003','abstract')">Abstract</a>] [<a href="javascript:toggleInfo('Suh2003','bibtex')">BibTeX</a>]</p></td>
-	<td>2003</td>
-	<td>Proceedings of the 16th annual ACM symposium on User interface software and technology &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://www.cs.umd.edu/Library/TRs/CS-TR-4469/CS-TR-4469.pdf">URL</a> &nbsp;</td>
-</tr>
-<tr id="abs_Suh2003" class="abstract noshow">
-	<td colspan="6"><b>Abstract</b>: Thumbnail images provide users of image retrieval and browsing systems with a method for quickly scanning large numbers of images. Recognizing the objects in an image is important in many retrieval tasks, but thumbnails generated by shrinking the original image often render objects illegible. We study the ability of computer vision systems to detect key components of images so that intelligent cropping, prior to shrinking, can render objects more recognizable. We evaluate automatic cropping...</td>
-</tr>
-<tr id="bib_Suh2003" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Suh2003" class="entry">
+            <td>
+              Suh, B., Ling, H., Bederson, B. &amp; Jacobs, D.
+            </td>
+            <td>
+              Automatic thumbnail cropping and its effectiveness 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Suh2003','abstract')">Abstract</a>]
+                [<a href="javascript:toggleInfo('Suh2003','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              2003
+            </td>
+            <td>
+              Proceedings of the 16th annual ACM symposium on User interface software and
+              technology &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://www.cs.umd.edu/Library/TRs/CS-TR-4469/CS-TR-4469.pdf">URL</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="abs_Suh2003" class="abstract noshow">
+            <td colspan="6">
+              <b>Abstract</b>: Thumbnail images provide users of image retrieval and browsing
+              systems with a method for quickly scanning large numbers of images. Recognizing the
+              objects in an image is important in many retrieval tasks, but thumbnails generated by
+              shrinking the original image often render objects illegible. We study the ability of
+              computer vision systems to detect key components of images so that intelligent
+              cropping, prior to shrinking, can render objects more recognizable. We evaluate
+              automatic cropping...
+            </td>
+          </tr>
+          <tr id="bib_Suh2003" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Suh2003,
   author = {Suh, B. and Ling, H. and Bederson, B.B. and Jacobs, D.W.},
   title = {Automatic thumbnail cropping and its effectiveness},
@@ -1060,19 +1491,37 @@ function toggleQSetting(setting) {
   pages = {95--104},
   url = {http://www.cs.umd.edu/Library/TRs/CS-TR-4469/CS-TR-4469.pdf}
 }
-</pre></td>
-</tr>
-<tr id="Wardrip-Fruin1997" class="entry">
-	<td>Wardrip-Fruin, N., Meyer, J., Perlin, K., Bederson, B. &amp; Hollan, J.</td>
-	<td>A zooming sketchpad, a multiscale narrative: Pad++, PadDraw, Gray Matters <p class="infolinks">[<a href="javascript:toggleInfo('Wardrip-Fruin1997','bibtex')">BibTeX</a>]</p></td>
-	<td>1997</td>
-	<td>SIGGRAPH '97: ACM SIGGRAPH 97 Visual Proceedings: The art and interdisciplinary programs of SIGGRAPH '97 &nbsp;</td>
-	<td>article</td>
-	<td><a href="http://doi.acm.org/10.1145/259081.259227">DOI</a> &nbsp;</td>
-</tr>
-<tr id="bib_Wardrip-Fruin1997" class="bibtex noshow">
-<td colspan="6"><b>BibTeX</b>:
-<pre>
+</pre>
+            </td>
+          </tr>
+          <tr id="Wardrip-Fruin1997" class="entry">
+            <td>
+              Wardrip-Fruin, N., Meyer, J., Perlin, K., Bederson, B. &amp; Hollan, J.
+            </td>
+            <td>
+              A zooming sketchpad, a multiscale narrative: Pad++, PadDraw, Gray Matters 
+              <p class="infolinks">
+                [<a href="javascript:toggleInfo('Wardrip-Fruin1997','bibtex')">BibTeX</a>]
+              </p>
+            </td>
+            <td>
+              1997
+            </td>
+            <td>
+              SIGGRAPH '97: ACM SIGGRAPH 97 Visual Proceedings: The art and interdisciplinary
+              programs of SIGGRAPH '97 &nbsp;
+            </td>
+            <td>
+              article
+            </td>
+            <td>
+              <a href="http://doi.acm.org/10.1145/259081.259227">DOI</a> &nbsp;
+            </td>
+          </tr>
+          <tr id="bib_Wardrip-Fruin1997" class="bibtex noshow">
+            <td colspan="6">
+              <b>BibTeX</b>: 
+              <pre>
 @article{Wardrip-Fruin1997,
   author = {Noah Wardrip-Fruin and Jorn Meyer and Ken Perlin and Ben Bederson and Jim Hollan},
   title = {A zooming sketchpad, a multiscale narrative: Pad++, PadDraw, Gray Matters},
@@ -1082,17 +1531,14 @@ function toggleQSetting(setting) {
   pages = {141},
   doi = {http://doi.acm.org/10.1145/259081.259227}
 }
-</pre></td>
-</tr>
-</tbody>
-</table>
-
-<p>
- <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 02/08/2008.</small>
-</p>
-</div>
-</body>
+</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        <small>Created by <a href="http://jabref.sourceforge.net">JabRef</a> on 02/08/2008.</small>
+      </p>
+    </div><!-- File generated by JabRef ; Export Filter written by Mark Schenk -->
+    </body>
 </html>
-
-<!-- File generated by JabRef ; Export Filter written by Mark Schenk -->
-
