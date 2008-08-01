@@ -60,7 +60,44 @@ As Piccolo2D comes in three flavors, there's multiple repository roots:
 == Java ==
 All Java Language source code in the repository must be written in conformance to the [http://java.sun.com/docs/codeconv/html/CodeConvTOC.doc.html Code Conventions for the Java Programming Language] as published by Sun.
 
-TODO: Tabs or spaces to indent?
+
+Source code conventions are enforced using the Checkstyle plug-in.  Project-specific Checkstyle configuration files are located in the source tree at e.g.
+
+{{{
+piccolo2d.java/core/src/build/conf/checkstyle.xml
+}}}
+
+The maven site build creates a Checkstyle Results report.
+
+
+For Eclipse users, there is an Eclipse formatter configuration that closely matches the Checkstyle configuration.  It is located in the source tree at
+
+{{{
+piccolo2d.java/core/src/build/conf/eclipse-formatting-conventions.xml
+}}}
+
+To use this in Eclipse, go to Window -> Preferences -> Java -> Code Style -> Formatter, click Import... and select this configuration file.  Thereafter, format a java source file using Source -> Format.
+
+
+For emacs/xemacs users, the following mode provided by the Apache Jakarta project works well: 
+
+{{{
+(defun apache-jakarta-mode ()
+  "The Java mode specialization for Apache Jakarta projects."
+  (if (not (assoc "apache-jakarta" c-style-alist))
+      ;; Define the Apache Jakarta cc-mode style.
+      (c-add-style "apache-jakarta" '("java" (indent-tabs-mode . nil))))
+
+  (c-set-style "apache-jakarta")
+  (c-set-offset 'substatement-open 0 nil)
+  (setq mode-name "Apache Jakarta"))
+
+;; Activate Jakarta mode.
+(if (fboundp 'jde-mode)
+    (add-hook 'jde-mode-hook 'apache-jakarta-mode)
+  (add-hook 'java-mode-hook 'apache-jakarta-mode))
+}}}
+
 
 == .Net ==
 
