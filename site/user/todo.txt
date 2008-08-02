@@ -1,5 +1,3 @@
-./learn/interface.html
-./learn/interaction.html
 ./learn/effects.html
 ./learn/fisheye.html
 ./learn/graphics.html

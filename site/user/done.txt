@@ -1,3 +1,5 @@
+./learn/interface.html
+./learn/interaction.html
 ./index.html
 ./learn/get-started.html
 ./learn/index.html
