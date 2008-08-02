@@ -1,7 +1,0 @@
-// Remove the pan event handler that is installed by default so that it
-// does not conflict with our new squiggle handler.
-getCanvas().setPanEventHandler(null);
-
-// Create a squiggle handler and register it with the Canvas.
-PBasicInputEventHandler squiggleHandler = new SquiggleHandler(getCanvas());
-getCanvas().addInputEventListener(squiggleHandler);

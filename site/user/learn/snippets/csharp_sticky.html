@@ -1,8 +1,0 @@
-public override void Initialize() {
-	PPath sticky = PPath.CreateRectangle(0, 0, 50, 50);;
-	sticky.Brush = Brushes.Yellow;
-	sticky.Pen = null;
-	PBoundsHandle.AddBoundsHandlesTo(sticky);
-	Canvas.Layer.AddChild(PPath.CreateRectangle(0, 0, 100, 80));
-	Canvas.Camera.AddChild(sticky);
-}

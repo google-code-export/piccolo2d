@@ -1,8 +1,0 @@
-public void initialize() {	
-	PPath sticky = PPath.createRectangle(0, 0, 50, 50);;
-	sticky.setPaint(Color.YELLOW);
-	sticky.setStroke(null);
-	PBoundsHandle.addBoundsHandlesTo(sticky);
-	getCanvas().getLayer().addChild(PPath.createRectangle(0, 0, 100, 80));
-	getCanvas().getCamera().addChild(sticky);
-}
