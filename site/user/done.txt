@@ -13,4 +13,5 @@
 ./learn/grapheditor.html
 ./learn/graphics.html
 ./learn/api.html
+./contribute.html
 

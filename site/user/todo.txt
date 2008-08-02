@@ -1,4 +1,3 @@
-./contribute.html
 ./press.html
 ./sponsors.html
 ./comparison.html
