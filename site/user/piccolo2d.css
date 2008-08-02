@@ -106,14 +106,23 @@ p.image {
 
 /* Display code snippets in multiple, switcheable languages.
  Typical usage:
- <div class="snippet" id="snippet12">
-   <pre class="snippet java" id="java12">
-   ...
-   </pre>
-   <pre class="snippet csharp" id="csharp12">
-   ...
-   </pre>
- </p>
+
+          <p class="toggle">
+            <a id="jlink$$$" class="toggle selected"
+            onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+            href="javascript:void(0);">Java</a> | <a id="clink$$$"
+            onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+            href="javascript:void(0);">C#</a>
+          </p>
+          <div class="snippet" id="snippet$$$">
+            <pre class="snippet java" id="java$$$">
+...
+</pre>
+            <pre class="snippet csharp" id="csharp$$$">
+...
+</pre>
+          </div>
+
 */
 
 .snippet {
