@@ -96,7 +96,7 @@
       <div id="qs">
         <form action="">
           <p>
-            QuickSearch: <input type="text" name="qsfield" id="qsfield" autocomplete="off"
+            QuickSearch: <input type="text" name="qsfield" id="qsfield"
             title="Allows plain text as well as RegExp searches" /><input type="button"
             onclick="clearQS()" value="clear" />&nbsp; Number of matching entries:
             <span id="stat">0</span>.
@@ -253,7 +253,8 @@
               misc
             </td>
             <td>
-              <a href="http://doi.ieeecomputersociety.org/10.1109/TSE.2004.44">DOI</a> &nbsp;
+              <a href="http://doi.ieeecomputersociety.org/10.1109/TSE.2004.44">DOI</a><a href="http://www.cs.umd.edu/hcil/piccolo/learn/Toolkit_Design_2004.pdf">
+              URL</a> &nbsp;
             </td>
           </tr>
           <tr id="abs_Bederson2004" class="abstract noshow">
@@ -264,7 +265,15 @@
               follow a design philosophy similar to 3D scene graphs supported by toolkits including
               Java3D and OpenInventor. Monolithic toolkits, on the other hand, encourage extension
               by inheritance, and are more akin to 2D Graphical User Interface toolkits such as
-              Swing or MFC. We...
+              Swing or MFC. We describe Jazz (a polylithic toolkit) and Piccolo (a monolithic
+              toolkit), each of which we built to support interactive 2D structured graphics
+              applications in general, and Zoomable User Interface applications in particular. We
+              examine the trade offs of each approach in terms of performance, memory requirements,
+              and programmability. We conclude that a polylithic approach is most suitable for
+              toolkit builders, visual design software where code is automatically generated, and
+              application builders where there is much customization of the toolkit.
+              Correspondingly, we find that monolithic approaches appear to be best for application
+              builders where there is not much customization of the toolkit.
             </td>
           </tr>
           <tr id="bib_Bederson2004" class="bibtex noshow">
@@ -278,58 +287,8 @@
   publisher = {IEEE Computer Society},
   year = {2004},
   pages = {535--546},
+  url = {http://www.cs.umd.edu/hcil/piccolo/learn/Toolkit_Design_2004.pdf},
   doi = {http://doi.ieeecomputersociety.org/10.1109/TSE.2004.44}
-}
-</pre>
-            </td>
-          </tr>
-          <tr id="Bederson2004a" class="entry">
-            <td>
-              Bederson, B., Grosjean, J. &amp; Meyer, J.
-            </td>
-            <td>
-              Toolkit Design for Interactive Structured Graphics 
-              <p class="infolinks">
-                [<a href="javascript:toggleInfo('Bederson2004a','abstract')">Abstract</a>]
-                [<a href="javascript:toggleInfo('Bederson2004a','bibtex')">BibTeX</a>]
-              </p>
-            </td>
-            <td>
-              2004
-            </td>
-            <td>
-              IEEE TRANSACTIONS ON SOFTWARE ENGINEERING &nbsp;
-            </td>
-            <td>
-              article
-            </td>
-            <td>
-              <a href="www.cs.umd.edu/hcil/piccolo/learn/Toolkit_Design_2004.pdf">URL</a> &nbsp;
-            </td>
-          </tr>
-          <tr id="abs_Bederson2004a" class="abstract noshow">
-            <td colspan="6">
-              <b>Abstract</b>: In this paper, we analyze toolkit designs for building graphical
-              applications with rich user interfaces, comparing polylithic and monolithic
-              toolkit-based solutions. Polylithic toolkits encourage extension by composition and
-              follow a design philosophy similar to 3D scene graphs supported by toolkits including
-              Java3D and OpenInventor. Monolithic toolkits, on the other hand, encourage extension
-              by inheritance, and are more akin to 2D Graphical User Interface toolkits such as
-              Swing or MFC. We...
-            </td>
-          </tr>
-          <tr id="bib_Bederson2004a" class="bibtex noshow">
-            <td colspan="6">
-              <b>BibTeX</b>: 
-              <pre>
-@article{Bederson2004a,
-  author = {Bederson, B.B. and Grosjean, J. and Meyer, J.},
-  title = {Toolkit Design for Interactive Structured Graphics},
-  journal = {IEEE TRANSACTIONS ON SOFTWARE ENGINEERING},
-  publisher = {IEEE Computer Society},
-  year = {2004},
-  pages = {535--546},
-  url = {www.cs.umd.edu/hcil/piccolo/learn/Toolkit_Design_2004.pdf}
 }
 </pre>
             </td>
