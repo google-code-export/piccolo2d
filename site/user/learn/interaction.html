@@ -1,22 +1,19 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta content="HTML Tidy for Linux/x86 (vers 1st December 2002), see www.w3.org"
     name="generator" />
     <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-    <meta name="description"
-    content="Home Page for the Piccolo resarch project of the Human-Computer Interaction Lab." />
+    <meta name="description" content="Home Page for the Piccolo2D project." />
     <meta name="format" content="text/html" />
     <meta name="keywords"
-    content="piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education" />
-    <meta name="publisher" content="Human-Computer Interaction Lab, University of Maryland" />
-    <meta name="relation" content="(contained in)=http://www.cs.umd.edu/hcil/piccolo" />
-    <meta name="rights statement"
-    content="Copyright; 2004 The University of Maryland, College Park, MD 20782 USA. All rights reserved." />
+    content="piccolo2d, piccolo2d.net, piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education" />
+    <meta name="relation" content="(contained in)=http://www.piccolo2d.org" />
     <title>
-      Piccolo Home Page
+      Piccolo2D.Java - Defining User Interaction
     </title>
-    <link rel="StyleSheet" href="http://www.cs.umd.edu/hcil/style.css" type="text/css" />
-    <link rel="stylesheet" href="../style.css" type="text/css" />
+    <link rel="stylesheet" href="../piccolo2d.css" type="text/css" />
     <script language="JavaScript" type="text/javascript" src="snippets.js">
     //<![CDATA[
     //]]>
@@ -26,522 +23,674 @@
     //]]>
     </script>
   </head>
-  <body bgcolor="#FFFFFF" text="#000000" link="#000080" vlink="#390764" alink="#FFB926">
-    <!--#include virtual="/hcil/research/banner.html"-->
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr>
-        <td valign="top" width="165" nowrap="nowrap">
-          <table border="0" cellpadding="10" cellspacing="0" width="165">
-            <tr>
-              <td valign="top" nowrap="nowrap">
-                <a href="../index.shtml" class="heading">Piccolo</a><br />
-                <br />
-                 <a href="index.shtml" class="side_pane">Learn</a><br />
-                 &#160;&#160;<a class="side_pane_small" href="about.shtml">About Piccolo</a><br />
-                 &#160;&#160;<a class="side_pane_small" href="patterns.shtml">Piccolo
-                Patterns</a><br />
-                 &#160;&#160;<a href="get-started.shtml" class="side_pane_small">Getting
-                Started</a><br />
-                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
-                href="out-of-box-java.shtml">.Java: Out of the Box</a><br />
-                 &#160;&#160;&#160;&#160;&#160;<a href="out-of-box-dotnet.shtml"
-                class="side_pane_small">.NET: Out of the Box</a><br />
-                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
-                href="interface.shtml">The Interface</a><br />
-                 &#160;&#160;&#160;&#160;&#160; <span class="curr_page_link_small">User
-                Interaction</span><br />
-                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
-                href="effects.shtml">Special Effects</a><br />
-                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
-                href="fisheye.shtml">Fisheye Calendar</a><br />
-                 &#160;&#160;&#160;&#160;&#160;<a class="side_pane_small"
-                href="grapheditor.shtml">Graph Editor</a><br />
-                 &#160;&#160;<a class="side_pane_small" href="api.shtml">API
-                Documentation</a><br />
-                 &#160;&#160;<a href="comparison.shtml"
-                class="side_pane_small">Piccolo&#160;in&#160;Comparison</a><br />
-                 &#160;&#160;<a class="side_pane_small"
-                href="publications.shtml">Publications</a><br />
-                 &#160;&#160;<a class="side_pane_small" href="dev-faq.shtml">Developer
-                FAQ</a><br />
-                 &#160;&#160;<a href="maillists.shtml" class="side_pane_small">Mailing
-                Lists</a><br />
-                 <a href="../play/index.shtml" class="side_pane">Play</a><br />
-                 <a href="../team/index.shtml" class="side_pane">Team</a><br />
-                 <a href="../press/index.shtml" class="side_pane">Press</a><br />
-                 <a href="../contribute/index.shtml" class="side_pane">Contribute</a><br />
-                 <a href="../applications/index.shtml" class="side_pane">Applications</a><br />
-                 <a href="../contact/index.shtml" class="side_pane">Contact Us</a><br />
-                <br />
-                 
-                <table border="1" cellpadding="5" cellspacing="0" width="120"
-                bordercolor="#FF0000">
-                  <tr>
-                    <td>
-                      <a href="../download/index.shtml" class="side_pane">Download</a><br />
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-        </td>
-        <td valign="top">
-          <table border="0" cellpadding="10" cellspacing="0" cols="1" height="100%" width="100%">
-            <tr>
-              <td bgcolor="#D6D583" width="640" valign="top" class="dark_text">
-                <b class="dark_heading">Getting Started</b><br />
-                <br />
-                 Here you will find both basic and advanced tutorials to help you get started using
-                Piccolo.&#160; All tutorials provide examples in both Java and C#.&#160; This
-                section assumes you have read <a href="patterns.shtml" class="main_pane">Piccolo
-                Patterns</a> and have a basic understanding of the concepts presented there.
-              </td>
-            </tr>
-            <tr>
-              <td bgcolor="#FFFD9C" width="640" height="550" valign="top">
-                <table border="0" width="100%" id="table1">
-                  <tr>
-                    <td>
-                      <b class="dark_heading_two">Defining User Interaction</b> 
-                      <p>
-                        <i>This tutorial will show you how to design the set of event handlers that
-                        will define the user experience.&#160; It will cover how to add mouse and
-                        keyboard event handlers to the main camera and other nodes, as well as how
-                        to filter and consume events.</i>
-                      </p>
-                    </td>
-                    <td valign="top">
-                      <div style="border:thin solid blue; position: relative; width: 123px; height: 70px; z-index: 3; float: right"
-                           id="language">
-                        &#160;Show examples in<br />
-                         &#160;&#160;&#160;&#160;&#160;<img border="0" src="images/check.gif"
-                        width="15" height="15" id="java0" /> <a id="jlink0" class="main_content"
-                        style="color: #000000; text-decoration: none"
-                        onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-                        href="javascript:void(0);">Java</a><br />
-                         &#160;&#160;&#160;&#160;&#160;<img style="visibility: hidden" border="0"
-                        src="images/check.gif" width="15" height="15" id="csharp0" />
-                        <a id="clink0" class="main_content"
-                        onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-                        href="javascript:void(0);">C#</a>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-                <center>
-                  <img border="0" src="images/interaction.jpg" width="300" height="300" /><br />
-                   Download the complete code sample in <a class="main_pane"
-                  href="codesamples/UserInteraction.Java.zip">Java</a> or <a class="main_pane"
-                  href="codesamples/UserInteraction.NET.zip">C#</a>.
-                </center>
-                <p>
-                  &#160;<a name="step1"
-                  id="step1"></a><span class="dark_heading_two"><font color="#0000FF">1.</font>
-                  Setup</span>
-                </p><br />
-                <br />
-                <br />
-                <br />
-                 
-                <p>
-                  <i>We need to create a window with a Piccolo canvas, so that we can add the
-                  interface components to the canvas.</i>
-                </p>
-                <ol type="a">
-                  <li>
-                    First you will need to reference the appropriate packages/namespaces.&#160; Add
-                    the following lines to the top of your code file:<br />
-                    <br />
-                     <a id="jlink1" class="main_content"
-                    style="color: #000000; text-decoration: none"
-                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-                    href="javascript:void(0);">Java</a> | <a id="clink1" class="main_content"
-                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-                    href="javascript:void(0);">C#</a><br />
-                     
-                    <div style="position: relative; background-color: #D6D583; width: 100%;"
-                    id="snippet0">
-                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
-                           id="java1">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
-
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/java_include.html"-->
-                       
+  <body>
+    <div id="navigation">
+      <h1>
+        <a href="../index.html">About Piccolo2D</a>
+      </h1>
+      <ul class="nav">
+        <li>
+          <a href="../play/index.html">Play</a>
+        </li>
+        <li>
+          <a href="./index.html">Learn</a> 
+          <ul class="nav">
+            <li>
+              <a onmouseover="large('PatternsDiv')" onmouseout="small('PatternsDiv')"
+              href="./patterns.html">Piccolo2D Patterns</a>
+            </li>
+            <li>
+              <a href="./get-started.html">Getting Started</a> 
+              <ul class="nav">
+                <li>
+                  <a href="out-of-box-java.html">Java:&nbsp;Out&nbsp;of&nbsp;the&nbsp;Box</a>
+                </li>
+                <li>
+                  <a href="out-of-box-dotnet.html">.Net:&nbsp;Out&nbsp;of&nbsp;the&nbsp;Box</a>
+                </li>
+                <li>
+                  <a href="interface.html">The&nbsp;Interface</a>
+                </li>
+                <li>
+                  User&nbsp;Interaction
+                </li>
+                <li>
+                  <a href="effects.html">Special&nbsp;Effects</a>
+                </li>
+                <li>
+                  <a href="fisheye.html">Fisheye&nbsp;Calendar</a>
+                </li>
+                <li>
+                  <a href="grapheditor.html">Graph&nbsp;Editor</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="./api.html">API Documentation</a>
+            </li>
+            <li>
+              <a href="./comparison.html">Piccolo2D in Comparison</a>
+            </li>
+            <li>
+              <a href="./publications.html">Publications</a>
+            </li>
+            <li>
+              <a href="./dev-faq.html">Developer FAQ</a>
+            </li>
+            <li>
+              <a href="./maillists.html">Mailing Lists</a>
+            </li>
+            <li>
+              <a href="./graphics.html">Graphics Primer</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../contribute/index.html">Contribute</a>
+        </li>
+        <li>
+          <a href="../applications/index.html">Applications</a>
+        </li>
+        <li>
+          <a href="../press/index.html">Press</a>
+        </li>
+        <li>
+          <a href="../download/index.html">Download</a>
+        </li>
+      </ul>
+      <p>
+        <img alt="a nice graph" src="../images/giny-small.jpg" />
+      </p>
+      <p>
+        <a href="http://validator.w3.org/check/referer"><img style="border:0;width:88px;height:31px"
+             src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0!" /></a>
+             <a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px"
+             src="http://www.w3.org/Icons/valid-css-blue" alt="Valid CSS1!" /></a>
+      </p>
+      <p class="bugreport">
+        <a href="http://code.google.com/p/piccolo2d/issues/entry?template=User%20defect%20report">I
+        found an error!</a>
+      </p>
+    </div>
+    <div id="main">
+      <div id="main-head">
+        <h1>
+          Getting Started
+        </h1>Here you will find both basic and advanced tutorials to help you get started using
+        Piccolo2D.&nbsp; All tutorials provide examples in both Java and C#.&nbsp; This section
+        assumes you have read <a href="patterns.html">Piccolo2D Patterns</a> and have a basic
+        understanding of the concepts presented there.
+      </div>
+      <p class="toggle" style="float: right; width: 8.5em; height: 8ex; border:thin solid blue;"
+      id="language">
+        Show examples in<br />
+         <img src="images/check.gif" alt="Checkmark" style="border:0;width:1.0em;height:2ex"
+        id="java0" /><a class="toggle selected" id="jlink0"
+        onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+        href="javascript:void(0);">Java</a><br />
+         <img src="images/check.gif" alt="Checkmark"
+        style="visibility: hidden;border:0;width:1.0em;height:2ex" id="csharp0" /><a id="clink0"
+        onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+        href="javascript:void(0);">C#</a>
+      </p>
+      <h1>
+        Defining User Interaction
+      </h1>
+      <p class="preamble">
+        This tutorial will show you how to design the set of event handlers that will define the
+        user experience.&nbsp; It will cover how to add mouse and keyboard event handlers to the
+        main camera and other nodes, as well as how to filter and consume events.
+      </p>
+      <p class="image">
+        <img src="images/interaction.jpg" alt="user interaction" /><br />
+         Download the complete code sample in
+        <a href="codesamples/UserInteraction.Java.zip">Java</a> or
+        <a href="codesamples/UserInteraction.NET.zip">C#</a>.
+      </p>
+      <h2>
+        <a id="step1"></a>1. Setup
+      </h2>
+      <p class="preamble">
+        We need to create a window with a Piccolo canvas, so that we can add the interface
+        components to the canvas.
+      </p>
+      <ol type="a">
+        <li>
+          <p>
+            First you will need to reference the appropriate packages/namespaces.&nbsp; Add the
+            following lines to the top of your code file:
+          </p>
+          <p class="toggle">
+            <a id="jlink1" class="toggle selected"
+            onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+            href="javascript:void(0);">Java</a> | <a id="clink1"
+            onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+            href="javascript:void(0);">C#</a>
+          </p>
+          <div class="snippet" id="snippet1">
+            <pre class="snippet java" id="java1">
+import edu.umd.cs.piccolo.*;
+import edu.umd.cs.piccolo.event.*;
+import edu.umd.cs.piccolo.nodes.*;
+import edu.umd.cs.piccolo.util.*;
+import edu.umd.cs.piccolox.*;
 </pre>
-                      </div>
-                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
-                           id="csharp1">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
-
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/csharp_include.html"-->
-                       
+            <pre class="snippet csharp" id="csharp1">
+using UMD.HCIL.Piccolo;
+using UMD.HCIL.Piccolo.Nodes;
+using UMD.HCIL.Piccolo.Event;
+using UMD.HCIL.Piccolo.Util;
+using UMD.HCIL.PiccoloX;
 </pre>
-                      </div>
-                    </div><br />
-                     The first line adds the base Piccolo types, such as <code>PNode</code>. The
-                    second line includes the default node types that Piccolo provides, all of which
-                    extend <code>PNode</code>.&#160; The third line includes the basic event
-                    types.&#160; The fourth line includes several utility classes.&#160; And the
-                    last line includes various "extras," such as <code>PForm</code> in .NET and
-                    <code>PFrame</code> in Java, which will be used below.<br />
-                    <br />
-                  </li>
-                  <li>
-                    Next we will extend the <code>PForm</code> class in .NET or the
-                    <code>PFrame</code> class in Java. This is a convenience class that adds a
-                    <code>PCanvas</code> to a window. When you extend this class, you should NOT
-                    add your Piccolo code to the constructor. Instead, you should override the
-                    <code>initialize</code> method and add all of your Piccolo code there.&#160;
-                    See the <a class="main_pane" href="dev-faq.shtml">FAQ</a> for more
-                    details.<br />
-                    <br />
-                     <a id="jlink2" class="main_content"
-                    style="color: #000000; text-decoration: none"
-                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-                    href="javascript:void(0);">Java</a> | <a id="clink2" class="main_content"
-                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-                    href="javascript:void(0);">C#</a><br />
-                     
-                    <div style="position: relative; background-color: #D6D583; width: 100%;"
-                    id="snippet1">
-                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
-                           id="java2">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
-
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/java_window.html"-->
-                       
+          </div>
+          <p>
+            The first line adds the base Piccolo types, such as <code>PNode</code>. The second line
+            includes the default node types that Piccolo provides, all of which extend
+            <code>PNode</code>.&nbsp; The third line includes the basic event types.&nbsp; The
+            fourth line includes several utility classes.&nbsp; And the last line includes various
+            "extras," such as <code>PForm</code> in .NET and <code>PFrame</code> in Java, which
+            will be used below.
+          </p>
+        </li>
+        <li>
+          <p>
+            Next we will extend the <code>PForm</code> class in .NET or the <code>PFrame</code>
+            class in Java. This is a convenience class that adds a <code>PCanvas</code> to a
+            window. When you extend this class, you should NOT add your Piccolo code to the
+            constructor. Instead, you should override the <code>initialize</code> method and add
+            all of your Piccolo code there.&nbsp; See the <a href="dev-faq.html">FAQ</a> for more
+            details.
+          </p>
+          <p class="toggle">
+            <a id="jlink2" class="toggle selected"
+            onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+            href="javascript:void(0);">Java</a> | <a id="clink2"
+            onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+            href="javascript:void(0);">C#</a>
+          </p>
+          <div class="snippet" id="snippet2">
+            <pre class="snippet java" id="java2">
+public class InteractionFrame extends PFrame {
+        public void initialize() {
+                //Add Piccolo code here.
+        }
+}
 </pre>
-                      </div>
-                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
-                           id="csharp2">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
-
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/csharp_window.html"-->
-                       
+            <pre class="snippet csharp" id="csharp2">
+public class InteractionForm : PForm {
+        public override void Initialize() {
+                //Add Piccolo code here.
+        }
+}
 </pre>
-                      </div>
-                    </div><br />
-                  </li>
-                </ol>
-                <p>
-                  <a name="step2"
-                  id="step2"></a><span class="dark_heading_two"><font color="#0000FF">2.</font>
-                  Create a Camera Event Listener</span>
-                </p>
-                <p>
-                  <i>Event listeners can be attached to any node in the hierarchy.&#160; The events
-                  that you get depend on the node that you have registered with.&#160; For example
-                  you will only get mouse moved events when the mouse is over the node that you
-                  have registered with, not when the mouse is over some other node.</i>
-                </p>
-                <p>
-                  <i>As explained in <a class="main_pane" href="patterns.shtml">Piccolo
-                  Patterns</a>, events are dispatched to the <code>PPickPath</code> associated with
-                  the appropriate focus node (MouseOver, MouseFocus or KeyboardFocus).&#160; They
-                  percolate up the pick path, giving each node along the way a chance to handle the
-                  event if that node has a registered event handler.&#160;&#160; The events will
-                  keep percolating up the pick path until they are consumed by a node's event
-                  handler or they reach the originating camera node.&#160; Often you will attach
-                  event handlers directly to the main camera, in order to receive all events that
-                  come from the canvas.</i>
-                </p><i>Piccolo comes with event listeners that let the user zoom and pan the
-                viewpoint and drag nodes in the interface.&#160; You can use the default event
-                listeners directly or you can define your own.&#160; Here, we will create a new
-                kind of event listener and add it to the camera.</i> 
-                <ol type="a">
-                  <li>
-                    We will create a squiggle event handler, that draws squiggles as the mouse is
-                    dragged along the canvas.&#160; To do this, we will extend
-                    PBasicInputEventHandler, the standard class in Piccolo that is used to register
-                    for mouse and keyboard events on a PNode.&#160; Add the following internal
-                    class beneath the <code>initialize</code> method.<br />
-                    <br />
-                     <a id="jlink3" class="main_content"
-                    style="color: #000000; text-decoration: none"
-                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-                    href="javascript:void(0);">Java</a> | <a id="clink3" class="main_content"
-                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-                    href="javascript:void(0);">C#</a><br />
-                     
-                    <div style="position: relative; background-color: #D6D583; width: 100%;"
-                    id="snippet2">
-                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
-                           id="java3">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+          </div>
+        </li>
+      </ol>
+      <h2>
+        <a id="step2"></a>2. Create a Camera Event Listener
+      </h2>
+      <p class="preamble">
+        Event listeners can be attached to any node in the hierarchy.&nbsp; The events that you get
+        depend on the node that you have registered with.&nbsp; For example you will only get mouse
+        moved events when the mouse is over the node that you have registered with, not when the
+        mouse is over some other node.
+      </p>
+      <p class="preamble">
+        As explained in <a href="patterns.html">Piccolo Patterns</a>, events are dispatched to the
+        <code>PPickPath</code> associated with the appropriate focus node (MouseOver, MouseFocus or
+        KeyboardFocus).&nbsp; They percolate up the pick path, giving each node along the way a
+        chance to handle the event if that node has a registered event handler.&nbsp;&nbsp; The
+        events will keep percolating up the pick path until they are consumed by a node's event
+        handler or they reach the originating camera node.&nbsp; Often you will attach event
+        handlers directly to the main camera, in order to receive all events that come from the
+        canvas.
+      </p>
+      <p class="preamble">
+        Piccolo comes with event listeners that let the user zoom and pan the viewpoint and drag
+        nodes in the interface.&nbsp; You can use the default event listeners directly or you can
+        define your own.&nbsp; Here, we will create a new kind of event listener and add it to the
+        camera.
+      </p>
+      <ol type="a">
+        <li>
+          <p>
+            We will create a squiggle event handler, that draws squiggles as the mouse is dragged
+            along the canvas.&nbsp; To do this, we will extend PBasicInputEventHandler, the
+            standard class in Piccolo that is used to register for mouse and keyboard events on a
+            PNode.&nbsp; Add the following internal class beneath the <code>initialize</code>
+            method.
+          </p>
+          <p class="toggle">
+            <a id="jlink3" class="toggle selected"
+            onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+            href="javascript:void(0);">Java</a> | <a id="clink3"
+            onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+            href="javascript:void(0);">C#</a>
+          </p>
+          <div class="snippet" id="snippet3">
+            <pre class="snippet java" id="java3">
+public class SquiggleHandler extends PBasicInputEventHandler {
+        protected PCanvas canvas;
+                
+        // The squiggle that is currently getting created.
+        protected PPath squiggle;
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/java_squiggleevent.html"-->
-                       
-</pre>
-                      </div>
-                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
-                           id="csharp3">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+        public SquiggleHandler(PCanvas aCanvas) {
+                canvas = aCanvas;
+                setEventFilter(new PInputEventFilter(InputEvent.BUTTON1_MASK));
+        }
+                
+        public void mousePressed(PInputEvent e) {
+                super.mousePressed(e);
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/csharp_squiggleevent.html"-->
-                       
-</pre>
-                      </div>
-                    </div><br />
-                    <code>PBasicInputEventHandler</code> is the top-level event handler
-                    class.&#160; It implements the <code>PInputEventListener</code>
-                    interface.&#160; All event listeners must implement this interface.&#160;
-                    Typically, you will not implement it directly.&#160; Instead, you will usually
-                    create event handlers by extending the existing event handler classes.&#160;
-                    <code>PBasicInputEventListener</code> provides empty methods for all of the
-                    basic input event types.&#160; You simply override the methods for the events
-                    you are interested in handling.&#160; In the above example we override the
-                    appropriate methods for handling mouse pressed, dragged and released events. 
-                    <p>
-                      When the mouse is pressed, we create a new <code>PPath</code> called squiggle
-                      and add it to the canvas's main layer.&#160; Notice that we set the path's
-                      pen width to 1 / ViewScale, so that we will always draw with a uniform
-                      width.&#160; We also save the current mouse position as the
-                      <code>lastPoint</code>.
-                    </p>
-                    <p>
-                      When the mouse is dragged, we call <code>UpdateSquiggle()</code>.&#160; This
-                      method will add a new line segment from the <code>lastPoint</code> to the
-                      current mouse position.&#160; Finally it will set the <code>lastPoint</code>
-                      to be the current mouse position.
-                    </p>
-                    <p>
-                      When the mouse is released, we will call updateSquiggle one more time and
-                      then set our current squiggle to null.
-                    </p>
-                    <p>
-                      Finally, you might notice that the C# version of this code snippet, overrides
-                      the DoesAcceptEvent method.&#160; This method is part of the
-                      PInputEventListener interface and is used to implement event filtering in
-                      Piccolo.NET.&#160; Any event handler class can override this method and
-                      return true if it wants to accept an event, or false otherwise.&#160;
-                      Filtered events will never be dispatched to the event handler.&#160; In this
-                      case, we only accept left mouse button events, so that the right mouse button
-                      cannot be used to draw squiggles.
-                    </p><br />
-                  </li>
-                  <li>
-                    Now that we have created our squiggle event handler, we need to register it
-                    with a node so that it can receive events.&#160; We will add the squiggle event
-                    handler to the main camera node.&#160; Add the following lines of code to the
-                    <code>initialize</code> method.<br />
-                    <br />
-                     <a id="jlink4" class="main_content"
-                    style="color: #000000; text-decoration: none"
-                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-                    href="javascript:void(0);">Java</a> | <a id="clink4" class="main_content"
-                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-                    href="javascript:void(0);">C#</a><br />
-                     
-                    <div style="position: relative; background-color: #D6D583; width: 100%;"
-                    id="snippet3">
-                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
-                           id="java4">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+                Point2D p = e.getPosition();
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/java_addsquiggleevent.html"-->
-                       
-</pre>
-                      </div>
-                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
-                           id="csharp4">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+                // Create a new squiggle and add it to the canvas.
+                squiggle = new PPath();
+                squiggle.moveTo((float) p.getX(), (float) p.getY());
+                squiggle.setStroke(new BasicStroke(
+                        (float) (1 / e.getCamera().getViewScale())));
+                canvas.getLayer().addChild(0, squiggle);
+                        
+                // Reset the keydboard focus.
+                e.getInputManager().setKeyboardFocus(null);
+        }
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/csharp_addsquiggleevent.html"-->
-                       
-</pre>
-                      </div>
-                    </div><br />
-                     First we remove the default pan event handler because we don't want it to
-                    conflict with our squiggle event handler.&#160; Since we are not using our
-                    right mouse button, we do not have to remove the default zoom event handler. 
-                    <p>
-                      Next we create our squiggle event handler.&#160; Notice that the Java version
-                      of this code snippet calls the <code>setEventFilter()</code> method and
-                      passes it a new instance of <code>PInputEventFilter</code>.&#160; In
-                      Piccolo.Java, event filtering is accomplished by creating a new event filter
-                      object and setting various masks on that object.&#160; In particular, an
-                      event will be accepted if it contains all the modifiers listed in the
-                      <code>andMask</code>, at least one of the modifiers listed in the
-                      <code>orMask</code>, and none of the modifiers listed in the
-                      <code>notMask</code>.&#160; In this case, we set the <code>andMask</code> to
-                      a <code>BUTTON1_MASK</code>, so that it will only accept left mouse button
-                      events.
-                    </p>
-                    <p>
-                      Finally, we register our new squiggle event handler to receive events from
-                      the camera.&#160; Notice that we do this by calling the canvas's
-                      <code>AddInputEventListener()</code> method.&#160; This is just a convenience
-                      method that adds the given event listener to the main camera associated with
-                      the canvas.&#160; We could have also gotten the camera from the canvas and
-                      added the event listener directly.
-                    </p>
-                  </li>
-                </ol>
-                <p>
-                  <a name="step5" id="step5"></a>
-                  <span class="dark_heading_two"><font color="#0000FF">3.</font> Create a Node
-                  Event Listener</span>
-                </p>
-                <p>
-                  <i>Now that we have added an event handler to the camera, lets try adding an
-                  event handler to another node.&#160;</i>
-                </p>
-                <ol type="a">
-                  <li>
-                    First, we will create green rectangle node and add it to the main layer.&#160;
-                    Add the following lines of code to the <code>initialize</code> method.<br />
-                    <br />
-                     <a id="jlink5" class="main_content"
-                    style="color: #000000; text-decoration: none"
-                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-                    href="javascript:void(0);">Java</a> | <a id="clink5" class="main_content"
-                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-                    href="javascript:void(0);">C#</a><br />
-                     
-                    <div style="position: relative; background-color: #D6D583; width: 100%;"
-                    id="snippet4">
-                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
-                           id="java5">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+        public void mouseDragged(PInputEvent e) {
+                super.mouseDragged(e);
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/java_addnode.html"-->
-                       
-</pre>
-                      </div>
-                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
-                           id="csharp5">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+                // Update the squiggle while dragging.
+                updateSquiggle(e);
+        }
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/csharp_addnode.html"-->
-                       
-</pre>
-                      </div>
-                    </div><br />
-                  </li>
-                  <li>
-                    Next, we will create a new event handler that will change our node's color to
-                    orange when the mouse is pressed over the node and back to green, when it is
-                    released.&#160; Additionally, the event handler will move the node when the
-                    mouse is dragged.&#160; We will be careful to consume these events, since we
-                    don't want dragging the node around to draw squiggles underneath of it.&#160;
-                    Note, this is a simple example, but most of the time the best way to implement
-                    dragging is to use a PDragEventHandler.&#160; Add the following lines of code
-                    to the project.&#160; The java snippet should be added directly to the
-                    <code>initialize</code> method.&#160; The .NET snippet should be added beneath
-                    <code>initialize</code>.<br />
-                    <br />
-                     <a id="jlink6" class="main_content"
-                    style="color: #000000; text-decoration: none"
-                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-                    href="javascript:void(0);">Java</a> | <a id="clink6" class="main_content"
-                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-                    href="javascript:void(0);">C#</a><br />
-                     
-                    <div style="position: relative; background-color: #D6D583; width: 100%;"
-                    id="snippet5">
-                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
-                           id="java6">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+        public void mouseReleased(PInputEvent e) {
+                super.mouseReleased(e);
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/java_nodeevent.html"-->
-                       
-</pre>
-                      </div>
-                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
-                           id="csharp6">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+                // Update the squiggle one last time.
+                updateSquiggle(e);
+                squiggle = null;
+        }
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/csharp_nodeevent.html"-->
-                       
+        public void updateSquiggle(PInputEvent aEvent) {
+                // Add a new segment to the squiggle
+                // from the last mouse position to
+                // the current mouse position.
+                Point2D p = aEvent.getPosition();
+                squiggle.lineTo((float) p.getX(), (float) p.getY());
+        }
+}
 </pre>
-                      </div>
-                    </div><br />
-                     The first thing you might notice is that the C# version of this code snippet
-                    does not extend <code>PBasicInputEventHandler</code>.&#160; Instead, it
-                    consists of several distinct methods.&#160; In Piccolo.NET there are actually
-                    two ways to create event handlers.&#160; The first is to use the standard
-                    approach of extending the event handler classes.&#160; But, you can also add
-                    event handler methods directly to a node, in the same way that you can add
-                    event handler methods directly to Control.&#160; PNode defines Events for each
-                    of the basic input events.&#160; The benefit of doing things this way is that
-                    it takes fewer lines of code.&#160; The benefit of using classes is that your
-                    event handlers will be reusable and capable of maintaining state. 
-                    <p>
-                      When the mouse is pressed, we get the pressed node and set it's fill color to
-                      be orange.&#160; Next, we get the InputManager from the event and set it's
-                      keyboard focus node to be the current pick path generated from this mouse
-                      pressed event.&#160; This ensures that all future keyboard events will be
-                      dispatched to that pick path.&#160; Otherwise, our key pressed event handler
-                      would never get called.&#160; For more information about focus nodes, picking
-                      and event dispatch, see <a class="main_pane" href="patterns.shtml">Piccolo
-                      Patterns</a>.&#160; Finally, we consume the event by marking it as
-                      handled.&#160; If we did not do this, the event would percolate up to the
-                      camera and get dispatched to our squiggle event handler.
-                    </p>
-                    <p>
-                      When the mouse is dragged, we get the distance that the mouse has moved from
-                      it's last position and we translate the node by that amount.&#160; This is
-                      how dragging is implemented.&#160; Notice that we get the distance by calling
-                      <code>GetDeltaRelativeToNode</code>, ensuring that the value returned is in
-                      the local coordinate system of this node.&#160; We also mark this event as
-                      handled.
-                    </p>
-                    <p>
-                      When the mouse is released, we set the node's fill back to green and mark the
-                      event as handled.
-                    </p>
-                    <p>
-                      When an arrow key is pressed, we will translate the node by 10 in the
-                      direction of the arrow.&#160; Note the key pressed event handler will only
-                      get called when our node has the keyboard focus.&#160; So, once we click on
-                      the node, we will be able to move it with the arrow keys .&#160; But, after
-                      we draw a squiggle, the arrow keys will no longer move the node, since the
-                      squiggle event handler resets the keyboard focus to null.&#160; We would then
-                      have to click on the node again to give it back the keyboard focus.
-                    </p><br />
-                  </li>
-                  <li>
-                    Finally, we will register the node event handler with our node.&#160; Add the
-                    following lines of code to the <code>initialize</code> method.<br />
-                    <br />
-                     <a id="jlink7" class="main_content"
-                    style="color: #000000; text-decoration: none"
-                    onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
-                    href="javascript:void(0);">Java</a> | <a id="clink7" class="main_content"
-                    onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
-                    href="javascript:void(0);">C#</a><br />
-                     
-                    <div style="position: relative; background-color: #D6D583; width: 100%;"
-                    id="snippet6">
-                      <div style="visibility: visible; padding-left: 10px; padding-top: 10px; position: absolute; width: 575px; z-index: 1; left:0px; top:0px"
-                           id="java7">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+            <pre class="snippet csharp" id="csharp3">
+class SquiggleHandler : PBasicInputEventHandler {
+        protected PCanvas canvas;
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/java_addnodeevent.html"-->
-                       
-</pre>
-                      </div>
-                      <div style="visibility: hidden; padding-left: 10px; padding-top: 10px; position: relative; width: 575px; z-index: 2; left:0px; top:0px"
-                           id="csharp7">
-                        <pre style="font-family : 'Courier New', Courier, monospace; font-size: 13px;">
+        // The squiggle that is currently getting created.
+        protected PPath squiggle;
 
-<!--#include virtual="/hcil/piccolo/learn/snippets/t2_interaction/csharp_addnodeevent.html"-->
-                       
+        // The last mouse position.
+        protected PointF lastPoint;
+
+        public SquiggleHandler(PCanvas canvas) {
+                this.canvas = canvas;
+        }
+
+        public override void OnMouseDown(object sender, PInputEventArgs e) {
+                base.OnMouseDown (sender, e);
+
+                // Create a new squiggle and add it to the canvas.
+                squiggle = new PPath();
+                squiggle.Pen = new Pen(Brushes.Black,
+                        (float)(1/ e.Camera.ViewScale));
+                canvas.Layer.AddChild(0, squiggle);
+
+                // Save the current mouse position.             
+                lastPoint = e.Position;
+                
+                // Reset the keyboard focus.
+                e.InputManager.KeyboardFocus = null;
+        }
+
+        public override void OnMouseDrag(object sender, PInputEventArgs e) {
+                base.OnMouseDrag (sender, e);
+
+                // Update the squiggle while dragging.
+                UpdateSquiggle(e);
+        }
+
+        public override void OnMouseUp(object sender, PInputEventArgs e) {
+                base.OnMouseUp (sender, e);
+
+                // Update the squiggle one last time.
+                UpdateSquiggle(e);
+                squiggle = null;
+        }
+
+        protected void UpdateSquiggle(PInputEventArgs e) {
+                // Add a new segment to the squiggle
+                // from the last mouse position to
+                // the current mouse position.
+                PointF p = e.Position;
+                if (p.X != lastPoint.X || p.Y != lastPoint.Y) {
+                        squiggle.AddLine(lastPoint.X, lastPoint.Y, p.X, p.Y);
+                }
+                lastPoint = p;
+        }
+
+        public override bool DoesAcceptEvent(PInputEventArgs e) {
+                // Filter out everything but left mouse button events.
+                return (base.DoesAcceptEvent(e)
+                        &amp;&amp; e.IsMouseEvent &amp;&amp; e.Button == MouseButtons.Left);
+        }
+}
 </pre>
-                      </div>
-                    </div><br />
-                     Notice that the C# version of this code snippet adds each of the event handler
-                    methods individually, using the <code>PInputEventHandler</code> delegate.&#160;
-                    We could have also extended <code>PBasicInputEventHandler</code> and added a
-                    new event handler class to the node, as the Java code does.
-                  </li>
-                </ol>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
+          </div>
+          <p>
+            <code>PBasicInputEventHandler</code> is the top-level event handler class.&nbsp; It
+            implements the <code>PInputEventListener</code> interface.&nbsp; All event listeners
+            must implement this interface.&nbsp; Typically, you will not implement it
+            directly.&nbsp; Instead, you will usually create event handlers by extending the
+            existing event handler classes.&nbsp; <code>PBasicInputEventListener</code> provides
+            empty methods for all of the basic input event types.&nbsp; You simply override the
+            methods for the events you are interested in handling.&nbsp; In the above example we
+            override the appropriate methods for handling mouse pressed, dragged and released
+            events.
+          </p>
+          <p>
+            When the mouse is pressed, we create a new <code>PPath</code> called squiggle and add
+            it to the canvas's main layer.&nbsp; Notice that we set the path's pen width to 1 /
+            ViewScale, so that we will always draw with a uniform width.&nbsp; We also save the
+            current mouse position as the <code>lastPoint</code>.
+          </p>
+          <p>
+            When the mouse is dragged, we call <code>UpdateSquiggle()</code>.&nbsp; This method
+            will add a new line segment from the <code>lastPoint</code> to the current mouse
+            position.&nbsp; Finally it will set the <code>lastPoint</code> to be the current mouse
+            position.
+          </p>
+          <p>
+            When the mouse is released, we will call updateSquiggle one more time and then set our
+            current squiggle to null.
+          </p>
+          <p>
+            Finally, you might notice that the C# version of this code snippet, overrides the
+            DoesAcceptEvent method.&nbsp; This method is part of the PInputEventListener interface
+            and is used to implement event filtering in Piccolo.NET.&nbsp; Any event handler class
+            can override this method and return true if it wants to accept an event, or false
+            otherwise.&nbsp; Filtered events will never be dispatched to the event handler.&nbsp;
+            In this case, we only accept left mouse button events, so that the right mouse button
+            cannot be used to draw squiggles.
+          </p>
+        </li>
+        <li>
+          <p>
+            Now that we have created our squiggle event handler, we need to register it with a node
+            so that it can receive events.&nbsp; We will add the squiggle event handler to the main
+            camera node.&nbsp; Add the following lines of code to the <code>initialize</code>
+            method.
+          </p>
+          <p class="toggle">
+            <a id="jlink4" class="toggle selected"
+            onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+            href="javascript:void(0);">Java</a> | <a id="clink4"
+            onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+            href="javascript:void(0);">C#</a>
+          </p>
+          <div class="snippet" id="snippet4">
+            <pre class="snippet java" id="java4">
+// Remove the pan event handler that is installed by default so that it
+// does not conflict with our new squiggle handler.
+getCanvas().setPanEventHandler(null);
+
+// Create a squiggle handler and register it with the Canvas.
+PBasicInputEventHandler squiggleHandler = new SquiggleHandler(getCanvas());
+getCanvas().addInputEventListener(squiggleHandler);
+</pre>
+            <pre class="snippet csharp" id="csharp4">
+// Remove the pan event handler that is installed by default so that it
+// does not conflict with our new squiggle handler.
+Canvas.PanEventHandler = null;
+
+// Create a squiggle handler and register it with the Canvas.
+PBasicInputEventHandler squiggleHandler = new SquiggleHandler(Canvas);          
+Canvas.AddInputEventListener(squiggleHandler);
+</pre>
+          </div>
+          <p>
+            First we remove the default pan event handler because we don't want it to conflict with
+            our squiggle event handler.&nbsp; Since we are not using our right mouse button, we do
+            not have to remove the default zoom event handler.
+          </p>
+          <p>
+            Next we create our squiggle event handler.&nbsp; Notice that the Java version of this
+            code snippet calls the <code>setEventFilter()</code> method and passes it a new
+            instance of <code>PInputEventFilter</code>.&nbsp; In Piccolo.Java, event filtering is
+            accomplished by creating a new event filter object and setting various masks on that
+            object.&nbsp; In particular, an event will be accepted if it contains all the modifiers
+            listed in the <code>andMask</code>, at least one of the modifiers listed in the
+            <code>orMask</code>, and none of the modifiers listed in the
+            <code>notMask</code>.&nbsp; In this case, we set the <code>andMask</code> to a
+            <code>BUTTON1_MASK</code>, so that it will only accept left mouse button events.
+          </p>
+          <p>
+            Finally, we register our new squiggle event handler to receive events from the
+            camera.&nbsp; Notice that we do this by calling the canvas's
+            <code>AddInputEventListener()</code> method.&nbsp; This is just a convenience method
+            that adds the given event listener to the main camera associated with the canvas.&nbsp;
+            We could have also gotten the camera from the canvas and added the event listener
+            directly.
+          </p>
+        </li>
+      </ol>
+      <h2>
+        <a id="step5"></a> 3. Create a Node Event Listener
+      </h2>
+      <p class="preamble">
+        Now that we have added an event handler to the camera, lets try adding an event handler to
+        another node.&nbsp;
+      </p>
+      <ol type="a">
+        <li>
+          <p>
+            First, we will create green rectangle node and add it to the main layer.&nbsp; Add the
+            following lines of code to the <code>initialize</code> method.
+          </p>
+          <p class="toggle">
+            <a id="jlink5" class="toggle selected"
+            onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+            href="javascript:void(0);">Java</a> | <a id="clink5"
+            onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+            href="javascript:void(0);">C#</a>
+          </p>
+          <div class="snippet" id="snippet5">
+            <pre class="snippet java" id="java5">
+// Create a green rectangle node.
+PNode nodeGreen = PPath.createRectangle(0, 0, 100, 100);
+nodeGreen.setPaint(Color.GREEN);
+getCanvas().getLayer().addChild(nodeGreen);
+</pre>
+            <pre class="snippet csharp" id="csharp5">
+// Create a green rectangle node.
+PNode nodeGreen = PPath.CreateRectangle(0, 0, 100, 100);
+nodeGreen.Brush = Brushes.Green;
+Canvas.Layer.AddChild(nodeGreen);
+</pre>
+          </div>
+        </li>
+        <li>
+          <p>
+            Next, we will create a new event handler that will change our node's color to orange
+            when the mouse is pressed over the node and back to green, when it is released.&nbsp;
+            Additionally, the event handler will move the node when the mouse is dragged.&nbsp; We
+            will be careful to consume these events, since we don't want dragging the node around
+            to draw squiggles underneath of it.&nbsp; Note, this is a simple example, but most of
+            the time the best way to implement dragging is to use a PDragEventHandler.&nbsp; Add
+            the following lines of code to the project.&nbsp; The java snippet should be added
+            directly to the <code>initialize</code> method.&nbsp; The .NET snippet should be added
+            beneath <code>initialize</code>.
+          </p>
+          <p class="toggle">
+            <a id="jlink6" class="toggle selected"
+            onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+            href="javascript:void(0);">Java</a> | <a id="clink6"
+            onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+            href="javascript:void(0);">C#</a>
+          </p>
+          <div class="snippet" id="snippet6">
+            <pre class="snippet java" id="java6">
+// Attach event handler directly to the node.
+nodeGreen.addInputEventListener(new PBasicInputEventHandler() {
+        public void mousePressed(PInputEvent event) {
+                event.getPickedNode().setPaint(Color.ORANGE);
+                event.getInputManager().setKeyboardFocus(event.getPath());
+                event.setHandled(true);
+        }
+        public void mouseDragged(PInputEvent event) {
+                PNode aNode = event.getPickedNode();
+                PDimension delta = event.getDeltaRelativeTo(aNode);
+                aNode.translate(delta.width, delta.height);
+                event.setHandled(true);
+        }
+        public void mouseReleased(PInputEvent event) {
+                event.getPickedNode().setPaint(Color.GREEN);
+                event.setHandled(true);
+        }
+        public void keyPressed(PInputEvent event) {
+                PNode node = event.getPickedNode();
+                switch (event.getKeyCode()) {
+                        case KeyEvent.VK_UP:
+                                node.translate(0, -10f);
+                                break;
+                        case KeyEvent.VK_DOWN:
+                                node.translate(0, 10f);
+                                break;
+                        case KeyEvent.VK_LEFT:
+                                node.translate(-10f, 0);
+                                break;
+                        case KeyEvent.VK_RIGHT:
+                                node.translate(10f, 0);
+                                break;
+                }
+        }
+});
+</pre>
+            <pre class="snippet csharp" id="csharp6">
+protected void nodeGreen_MouseDown(object sender, PInputEventArgs e) {
+        PNode aNode = (PNode)sender;
+        aNode.Brush = new SolidBrush(Color.Orange);
+        e.InputManager.KeyboardFocus = e.Path;
+        e.Handled = true;
+}
+
+protected void nodeGreen_MouseDrag(object sender, PInputEventArgs e) {
+        PNode aNode = (PNode)sender;
+        SizeF delta = e.GetDeltaRelativeTo(aNode);
+        aNode.TranslateBy(delta.Width, delta.Height);
+        e.Handled = true;
+}
+
+protected void nodeGreen_MouseUp(object sender, PInputEventArgs e) {
+        PNode aNode = (PNode)sender;
+        aNode.Brush = new SolidBrush(Color.Green);
+        e.Handled = true;
+}
+
+protected void nodeGreen_KeyDown(object sender, PInputEventArgs e) {
+        PNode node = (PNode)sender;
+        switch (e.KeyCode) {
+                case Keys.Up:
+                        node.TranslateBy(0, -10);
+                        break;
+                case Keys.Down:
+                        node.TranslateBy(0, 10);
+                        break;
+                case Keys.Left:
+                        node.TranslateBy(-10, 0);
+                        break;
+                case Keys.Right:
+                        node.TranslateBy(10, 0);
+                        break;
+        }
+}
+</pre>
+          </div>
+          <p>
+            The first thing you might notice is that the C# version of this code snippet does not
+            extend <code>PBasicInputEventHandler</code>.&nbsp; Instead, it consists of several
+            distinct methods.&nbsp; In Piccolo.NET there are actually two ways to create event
+            handlers.&nbsp; The first is to use the standard approach of extending the event
+            handler classes.&nbsp; But, you can also add event handler methods directly to a node,
+            in the same way that you can add event handler methods directly to Control.&nbsp; PNode
+            defines Events for each of the basic input events.&nbsp; The benefit of doing things
+            this way is that it takes fewer lines of code.&nbsp; The benefit of using classes is
+            that your event handlers will be reusable and capable of maintaining state.
+          </p>
+          <p>
+            When the mouse is pressed, we get the pressed node and set it's fill color to be
+            orange.&nbsp; Next, we get the InputManager from the event and set it's keyboard focus
+            node to be the current pick path generated from this mouse pressed event.&nbsp; This
+            ensures that all future keyboard events will be dispatched to that pick path.&nbsp;
+            Otherwise, our key pressed event handler would never get called.&nbsp; For more
+            information about focus nodes, picking and event dispatch, see
+            <a href="patterns.html">Piccolo Patterns</a>.&nbsp; Finally, we consume the event by
+            marking it as handled.&nbsp; If we did not do this, the event would percolate up to the
+            camera and get dispatched to our squiggle event handler.
+          </p>
+          <p>
+            When the mouse is dragged, we get the distance that the mouse has moved from it's last
+            position and we translate the node by that amount.&nbsp; This is how dragging is
+            implemented.&nbsp; Notice that we get the distance by calling
+            <code>GetDeltaRelativeToNode</code>, ensuring that the value returned is in the local
+            coordinate system of this node.&nbsp; We also mark this event as handled.
+          </p>
+          <p>
+            When the mouse is released, we set the node's fill back to green and mark the event as
+            handled.
+          </p>
+          <p>
+            When an arrow key is pressed, we will translate the node by 10 in the direction of the
+            arrow.&nbsp; Note the key pressed event handler will only get called when our node has
+            the keyboard focus.&nbsp; So, once we click on the node, we will be able to move it
+            with the arrow keys .&nbsp; But, after we draw a squiggle, the arrow keys will no
+            longer move the node, since the squiggle event handler resets the keyboard focus to
+            null.&nbsp; We would then have to click on the node again to give it back the keyboard
+            focus.
+          </p>
+        </li>
+        <li>
+          <p>
+            Finally, we will register the node event handler with our node.&nbsp; Add the following
+            lines of code to the <code>initialize</code> method.
+          </p>
+          <p class="toggle">
+            <a id="jlink7" class="toggle selected"
+            onmousedown="swapSections('csharp', 'java', 'clink', 'jlink');"
+            href="javascript:void(0);">Java</a> | <a id="clink7"
+            onmousedown="swapSections('java', 'csharp', 'jlink', 'clink');"
+            href="javascript:void(0);">C#</a>
+          </p>
+          <div class="snippet" id="snippet7">
+            <pre class="snippet java" id="java7">
+// Attach event handler directly to the node.
+
+The Java version defines and attaches the event handler using an anonymous
+class. See previous code sample.
+</pre>
+            <pre class="snippet csharp" id="csharp7">
+// Attach event delegates directly to the node.
+nodeGreen.MouseDown += new PInputEventHandler(nodeGreen_MouseDown);
+nodeGreen.MouseDrag += new PInputEventHandler(nodeGreen_MouseDrag);
+nodeGreen.MouseUp += new PInputEventHandler(nodeGreen_MouseUp);
+nodeGreen.KeyDown += new PInputEventHandler(nodeGreen_KeyDown);
+</pre>
+          </div>
+          <p>
+            Notice that the C# version of this code snippet adds each of the event handler methods
+            individually, using the <code>PInputEventHandler</code> delegate.&nbsp; We could have
+            also extended <code>PBasicInputEventHandler</code> and added a new event handler class
+            to the node, as the Java code does.
+          </p>
+        </li>
+      </ol>
+    </div>
   </body>
 </html>
