@@ -1,4 +1,3 @@
-./sponsors.html
 ./comparison.html
 ./play/index.html
 ./play/applet/fisheyecalendar.html

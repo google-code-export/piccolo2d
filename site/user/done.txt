@@ -15,4 +15,5 @@
 ./learn/api.html
 ./contribute.html
 ./press.html
+./sponsors.html
 
