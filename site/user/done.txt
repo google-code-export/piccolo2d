@@ -1,5 +1,3 @@
-./learn/interface.html
-./learn/interaction.html
 ./index.html
 ./learn/get-started.html
 ./learn/index.html
@@ -8,4 +6,10 @@
 ./learn/patterns.html
 ./learn/dev-faq.html
 ./publications.html
+./learn/interface.html
+./learn/interaction.html
+./learn/effects.html
+./learn/fisheye.html
+./learn/grapheditor.html
+./learn/graphics.html
 

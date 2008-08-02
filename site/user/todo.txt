@@ -1,12 +1,8 @@
-./learn/effects.html
-./learn/fisheye.html
-./learn/graphics.html
 ./learn/api.html
 ./press.html
 ./comparison.html
 ./contribute.html
 ./sponsors.html
-./learn/grapheditor.html
 ./play/applet/fisheyecalendar.html
 ./play/applet/grapheditor.html
 ./play/applet/presentation.html
