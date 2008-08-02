@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta content="HTML Tidy for Linux/x86 (vers 1st December 2002), see www.w3.org"
+    name="generator" />
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <meta name="description" content="Home Page for the Piccolo2D project." />
+    <meta name="format" content="text/html" />
+    <meta name="keywords"
+    content="piccolo2d, piccolo2d.net, piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education" />
+    <meta name="relation" content="(contained in)=http://www.piccolo2d.org" />
+    <title>
+      Piccolo2D - Piccolo in Comparison
+    </title>
+    <link rel="stylesheet" href="../piccolo2d.css" type="text/css" />
+    <script language="JavaScript" type="text/javascript" src="../scrollsidebar.js">
+    //<![CDATA[
+    //]]>
+    </script>
+  </head>
+  <body>
+    <div id="navigation">
+      <h1>
+        <a href="../index.html">About Piccolo2D</a>
+      </h1>
+      <ul class="nav">
+        <li>
+          <a href="../play/index.html">Play</a>
+        </li>
+        <li>
+          <a href="./index.html">Learn</a> 
+          <ul class="nav">
+            <li>
+              <a href="./patterns.html">Piccolo2D Patterns</a>
+            </li>
+            <li>
+              <a href="get-started.html">Getting Started</a>
+            </li>
+            <li>
+              <a href="./api.html">API Documentation</a>
+            </li>
+            <li>
+              Piccolo in Comparison 
+              <ul class="nav">
+                <li>
+                  <a onmouseover="large('out_of_java')" onmouseout="small('out_of_java')"
+                  href="#">Piccolo&nbsp;Version</a>
+                </li>
+                <li>
+                  <a onmouseover="large('out_of_java')" onmouseout="small('out_of_java')"
+                  href="#">Piccolo&nbsp;and&nbsp;Jazz</a>
+                </li>
+                <li>
+                  <a onmouseover="large('out_of_java')" onmouseout="small('out_of_java')"
+                  href="#">Other&nbsp;Toolkits</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="./publications.html">Publications</a>
+            </li>
+            <li>
+              <a href="./dev-faq.html">Developer FAQ</a>
+            </li>
+            <li>
+              <a href="./maillists.html">Mailing Lists</a>
+            </li>
+            <li>
+              <a href="./graphics.html">Graphics Primer</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="../contribute/index.html">Contribute</a>
+        </li>
+        <li>
+          <a href="../applications/index.html">Applications</a>
+        </li>
+        <li>
+          <a href="../press/index.html">Press</a>
+        </li>
+        <li>
+          <a href="../download/index.html">Download</a>
+        </li>
+      </ul>
+      <p>
+        <img alt="a nice graph" src="../images/giny-small.jpg" />
+      </p>
+      <p>
+        <a href="http://validator.w3.org/check/referer"><img style="border:0;width:88px;height:31px"
+             src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0!" /></a>
+             <a href="http://jigsaw.w3.org/css-validator/check/referer"><img style="border:0;width:88px;height:31px"
+             src="http://www.w3.org/Icons/valid-css-blue" alt="Valid CSS1!" /></a>
+      </p>
+      <p class="bugreport">
+        <a href="http://code.google.com/p/piccolo2d/issues/entry?template=User%20defect%20report">I
+        found an error!</a>
+      </p>
+    </div>
+    <div id="main">
+      <div id="main-head">
+        <h1>
+          Piccolo in Comparison
+        </h1>Why should you use Piccolo and which version should you use? This section will cover
+        the differences between Piccolo.Java, Piccolo.NET, and PocketPiccolo.NET.&nbsp; In
+        addition, there will be discussions of the differences between Piccolo and Jazz&nbsp;(our
+        previous toolkit) and how Piccolo relates to other available toolkits.
+      </div>
+      <h2>
+        Piccolo.Java, Piccolo.NET and PocketPiccolo.NET
+      </h2>
+      <p>
+        There three versions of Piccolo: <em>Piccolo.Java</em>, <em>Piccolo.NET</em>, and
+        <em>PocketPiccolo.NET</em>. They contain the same core functionality with a few
+        differences.&nbsp; We will examine those differences here.
+      </p>
+      <h3>
+        Languages, Libraries and IDEs
+      </h3>
+      <p>
+        Piccolo.Java is written in 100% java and relies on the
+        <a href="http://java.sun.com/products/java-media/2D/">Java2D</a> API for graphics
+        rendering.&nbsp; Applications built on Piccolo.Java will run anywhere java will run
+        (including Windows, Mac OS X, Linux and Solaris).&nbsp; The recommended development
+        environment for Piccolo.Java is <a href="http://www.eclipse.org/">Eclipse</a>, although it
+        is possible to use Piccolo.Java without an IDE.
+      </p>
+      <p>
+        Piccolo.NET, on the other hand, is written in C# and relies on the
+        <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/gdicpp/GDIPlus/GDIPlus.asp">
+        GDI+</a> API for graphics rendering.&nbsp; It runs on platforms that support the .NET
+        Framework.&nbsp; However, currently only Windows machines implement the Common Language
+        Runtime (CLR).&nbsp; So, If you really want your application to be cross-platform you
+        should use Piccolo.Java.&nbsp; On the other hand, the advantage of using Piccolo.NET is
+        that it will allow you to easily integrate advanced 2D graphics and zooming with standard
+        Windows application code and platform-specific features.&nbsp; The recommended development
+        environment for Piccolo.NET is Visual Studio.NET.
+      </p>
+      <p>
+        PocketPiccolo.NET is also written in C#.&nbsp; It runs on platforms that support the .NET
+        Compact Framework (including Pocket PCs, Pocket PC Phones, Smart Phones, and Windows CE.NET
+        devices).&nbsp; There is no equivalent to GDI+ for the Compact Framework.&nbsp; Thus,
+        PocketPiccolo.NET is limited by the primitive drawing routines available through the
+        Compact Framework.&nbsp; See the <a href="#features">Features</a> section for more
+        details.&nbsp; As with Piccolo.NET, the recommended development environment for
+        PocketPiccolo.NET is Visual Studio.NET.
+      </p>
+      <p>
+        Below is a chart the summarizes the differences outlined above.
+      </p>
+      <table border="1" width="100%" summary="Piccolo Versions">
+        <tr>
+          <th>
+            Piccolo Version Differences
+          </th>
+          <th>
+            Piccolo.Java
+          </th>
+          <th>
+            Piccolo.NET
+          </th>
+          <th>
+            PocketPiccolo.NET
+          </th>
+        </tr>
+        <tr>
+          <td>
+            Language
+          </td>
+          <td>
+            Java
+          </td>
+          <td>
+            C#
+          </td>
+          <td>
+            C#
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Underlying Framework
+          </td>
+          <td>
+            Java 2
+          </td>
+          <td>
+            .NET Framework
+          </td>
+          <td>
+            .NET Compact Framework
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Graphics Renderer
+          </td>
+          <td>
+            Java2D
+          </td>
+          <td>
+            GDI+
+          </td>
+          <td>
+            Limited GDI
+          </td>
+        </tr>
+        <tr>
+          <td>
+            IDE of Choice
+          </td>
+          <td>
+            Eclipse
+          </td>
+          <td>
+            Visual Studio.NET
+          </td>
+          <td>
+            Visual Studio.NET
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Speed/Memory
+      </h3>
+      <p>
+        In terms of both speed and memory usage, Piccolo.Java and Piccolo.NET are comparable.&nbsp;
+        While earlier versions of .NET had slower image rendering performance than Java, we have
+        not done any direct comparisons in several years.&nbsp; In practice, we find Java and C# to
+        have similar rendering performance.
+      </p>
+      <p>
+        Since performance is critical in a graphics toolkit, we provide framework support for
+        plugging in other more powerful renderers.&nbsp; The
+        <a href="../download/index.html#Source">current release</a> of Piccolo.NET includes an
+        implementation of a
+        <a href="http://www.microsoft.com/windows/directx/default.aspx">Direct3D</a> renderer
+        package.&nbsp; For better performance with Piccolo.Java, you can use
+        <a href="http://www.cs.umd.edu/hcil/agile2d/">Agile2D</a>, which includes a pluggable
+        <a href="http://www.opengl.org/">OpenGL</a> implementation of Java2D.
+      </p>
+      <p>
+        PocketPiccolo.NET is our first alpha release targeting the .NET Compact framework.&nbsp; As
+        such, it has not yet been optimized for performance.
+      </p>
+      <h3>
+        <a id="features"></a>Features
+      </h3>
+      <p>
+        Piccolo.Java and Piccolo.NET support virtually the same feature set.&nbsp; This makes it
+        very easy port code from one version to the other. There are however a couple exceptions:
+      </p>
+      <ul>
+        <li>
+          Transparency - Piccolo.NET does not have built-in support for transparency since .NET
+          does not provide a mechanism to set a global alpha composite. You can of course still use
+          transparent fills on nodes.
+        </li>
+        <li>
+          PStyledText - This is a node used to render styled text data at various magnitudes.&nbsp;
+          It is available in Piccolo.Java, but not Piccolo.NET
+        </li>
+        <li>
+          PStyledTextEventHandler - This is an event handler that places a text editor on the
+          screen when a user clicks on a PStyledText node, in order to edit the underlying
+          text.&nbsp; It is available in Piccolo.Java, but not Piccolo.NET.
+        </li>
+        <li>
+          PLine - This is an implementation of a line node, very similar to PPath, that was
+          submitted by a Piccolo user.&nbsp; It is available in Piccolo.Java, but not
+          Piccolo.NET.&nbsp; However, if someone ports and submits a Piccolo.NET version we will
+          include it in the source.
+        </li>
+        <li>
+          SWT Package - This is a set of classes to help integrate Piccolo code into the Eclipse
+          development environment.&nbsp; It is available in Piccolo.Java, but not Piccolo.NET.
+        </li>
+        <li>
+          PFixedWidthStroke - This is stroke class that always has a fixed width on screen, even
+          when the canvas view is zoomed.&nbsp; It is available in Piccolo.Java, but not
+          Piccolo.NET since there is no simple way to implement a Pen in .NET.
+        </li>
+      </ul>
+      <ul>
+        <li>
+          PiccoloDirect3D - This is an implementation of Piccolo that uses a Direct3D
+          renderer.&nbsp; It available in Piccolo.NET, but not Piccolo.Java.&nbsp; However, you can
+          use <a href="http://www.cs.umd.edu/hcil/agile2d/">Agile2D</a> to plug in an OpenGl
+          renderer for Piccolo.Java.
+        </li>
+        <li>
+          Serialization Surrogates - These are several classes that define how to serialize certain
+          types, to avoid duplicating serialization code.&nbsp; These are available in Piccolo.NET,
+          but not Piccolo.Java.&nbsp; Piccolo.Java uses utility methods to achieve the same effect.
+        </li>
+        <li>
+          PControl - This is a PNode wrapper for standard controls, allowing you to embed existing
+          widgets (i.e. buttons, textboxes, etc.) in the scene-graph.&nbsp; It is available in
+          Piccolo.NET, but not Piccolo.Java
+        </li>
+        <li>
+          PControlEventHandler - This is an event handler that implements focused based navigation
+          for PControl nodes.&nbsp; It is available in Piccolo.NET, but not Piccolo.Java
+        </li>
+      </ul>
+      <p>
+        Just as the .NET Compact Framework is a subset of the .NET Framework, PocketPiccolo.NET is
+        a subset of Piccolo.NET.&nbsp; It has the same core features: hierarchical transformable
+        objects, animation, event handling and efficiency mechanisms.&nbsp; But, some features of
+        the desktop versions are not available:
+      </p>
+      <ul>
+        <li>
+          High Quality Rendering - This refers to aliasing and other techniques that improve the
+          quality of the rendering.&nbsp; These optimizations are not available in
+          PocketPiccolo.NET since they are not supported by the Compact Framework.
+        </li>
+        <li>
+          Transparency - This is unavailable in PocketPiccolo.NET since the Compact Framework does
+          not support transparency.
+        </li>
+        <li>
+          Rotation - This is unavailable in PocketPiccolo.NET since the Compact Framework does not
+          support rotation.
+        </li>
+        <li>
+          PPath - This is a graphical path node in the desktop versions of Piccolo. In
+          Piccolo.Java, PPath wraps the
+          <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/awt/geom/GeneralPath.html">GeneralPath</a>
+          object and in Piccolo.NET, it wraps the
+          <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemdrawingdrawing2dgraphicspathclasstopic.asp">
+          GraphicsPath</a> object.&nbsp; Since there is no equivalent class to wrap in the Compact
+          Framework, PPath is very limited.
+        </li>
+      </ul>
+      <h3>
+        API
+      </h3>
+      <p>
+        The APIs for the various versions of Piccolo will all feel similar.&nbsp; In fact, the
+        PocketPiccolo.NET API is mostly identical to the Piccolo.NET API, except that some of the
+        classes and methods of the desktop version are unavailable.&nbsp; There are also some
+        differences between Piccolo.NET and Piccolo.Java that reflect an effort to support the
+        individual style guidelines and language constructs of Java and C#.
+      </p>
+      <p>
+        Method names, for example, begin with a lower-case letter in Piccolo.Java and an upper-case
+        letter in both Piccolo.NET and PocketPiccolo.NET.&nbsp; For example, the method that
+        animates a node from it's current position and size to a new position and size is
+        <code>animateToBounds()</code> in Piccolo.Java and <code>AnimateToBounds()</code> in
+        Piccolo.NET and PocketPiccolo.NET.
+      </p>
+      <p>
+        Member attributes are also accessed differently in each API.&nbsp; For example, in
+        Piccolo.Java, attributes are accessed via get/set methods.&nbsp; But, Piccolo.NET and
+        PocketPiccolo.NET take advantage of language supported
+        <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/csref/html/vclrfUsingProperties.asp">
+        Properties</a>. For example, to access the bounds of a node in each version you would do
+        the following:
+      </p>
+      <table summary="Code look">
+        <tr>
+          <td>
+            //Piccolo.Java
+          </td>
+          <td>
+            //Piccolo.NET and PocketPiccolo.NET
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <code>node.getBounds()</code>
+          </td>
+          <td>
+            <code>node.Bounds</code>
+          </td>
+        </tr>
+      </table>
+      <p>
+        The APIs also differ in terms of the underlying types they use.&nbsp; Often the Java and
+        .NET names of equivalent classes are different.&nbsp; For example, Java has Paint and
+        Stroke classes whereas .NET has Brush and Pen classes.&nbsp; Another example is the affine
+        transform type, which is called AffineTransform in java and Matrix in .NET. The names of
+        Piccolo methods also reflect these differences.&nbsp; For example, the method to animate a
+        node to an arbitrary affine transform is <code>animateToTransform()</code> in Piccolo.Java
+        and <code>AnimateToMatrix()</code> in Piccolo.NET and PocketPiccolo.NET.
+      </p>
+      <p>
+        One very important distinction related to types has to do with how the bounds of a node is
+        stored.&nbsp; In Piccolo.Java there is a PBounds type which extends
+        <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/awt/geom/Rectangle2D.Double.html">Rectangle2D.Double</a>,
+        adding several useful methods. But, the corresponding
+        <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemdrawingrectanglefclasstopic.asp">
+        RectangleF</a> type in .NET cannot be extended.&nbsp; This left us with two choices: create
+        a PBounds class that wraps a RectangleF or use the RectangleF directly.&nbsp; We decided it
+        would be more straightforward to store the bounds as RectangleF objects.&nbsp; Thus, we
+        provide the same methods of Piccolo.Java's PBounds as static utility methods in
+        Piccolo.NET.
+      </p>
+      <p>
+        The versions of piccolo differ in the primitive types they use too.&nbsp; Since the Java2D
+        API uses doubles, Piccolo.Java also stores internal values (e.g. x, y, width, height) as
+        doubles.&nbsp; The GDI+ API on the other hand uses floats.&nbsp; So, Piccolo.NET stores
+        these same values as floats.&nbsp;
+      </p>
+      <p>
+        Another language difference reflected in Piccolo is that Java provides <i>anonymous inner
+        classes</i> while C# has <i>delegates</i>. The Piccolo.Java API does not enforce the use of
+        anonymous inner classes, but, often it is the easiest way to do things.&nbsp; For example,
+        using anonymous inner classes, you could create a new type of
+        <code>PBasicInputEventHandler</code> in place and override just the
+        <code>mousePressed</code> method.&nbsp; In Piccolo.NET, you would have to create a named
+        static class that extends <code>PBasicInputEventHandler</code> to do the same thing.&nbsp;
+        This could vastly increase the amount of code you have to write.&nbsp; So, Piccolo.NET
+        provides delegates as a shorthand. This allows you to instantiate a
+        <code>PBasicInputEventHandler</code>, and then attach your event handler method directly to
+        it's <code>MouseDown</code> delegate.&nbsp; For code examples see the
+        <a href="./patterns.html">Piccolo Patterns</a> section.
+      </p>
+      <p>
+        Piccolo.NET also takes advantage of several other usability enhancements .NET provides,
+        including a <i>simpler event model</i>, <i>indexers</i>, the <i>foreach loop</i> and
+        <i>type-safe lists</i>.&nbsp; See the <a href="./api.html">API</a> documentation for more
+        details.
+      </p>
+      <h2>
+        <a id="jazz"></a>Piccolo and Jazz
+      </h2>
+      <p>
+        Jazz was our previous ZUI toolkit.&nbsp; The following section outlines the major
+        differences between Piccolo and Jazz.
+      </p>
+      <h3>
+        Ease of Use
+      </h3>
+      <p>
+        Our goal with Piccolo was to create a ZUI that had a similar feature set to Jazz, but that
+        was easier to use from a programmers standpoint. Almost all the differences between Piccolo
+        and Jazz are changes that are meant to make Piccolo easier to use.
+      </p>
+      <h3>
+        Complexity
+      </h3>
+      <p>
+        The Jazz framework design is modeled after a 3D scene graph API. It contains many different
+        types of object, each with specific functionality, and these objects are designed to be put
+        together at runtime to produce more complicated objects. This gives the framework
+        flexibility, but requires many different classes and levels of abstraction to support,
+        making it more difficult to use. For example to create a moveable rectangle with Jazz you
+        will need:
+      </p>
+      <dl>
+        <dt>
+          ZRectangle
+        </dt>
+        <dd>
+          This is the ZVisualComponent abstraction
+        </dd>
+        <dt>
+          ZVisualLeaf
+        </dt>
+        <dd>
+          This is a ZNode that is used to place a ZVisualComponent into a scene graph
+        </dd>
+        <dt>
+          ZTransformGroup
+        </dt>
+        <dd>
+          This is a decorator on the ZVisuallLeaf that gives it the ability to be scaled and
+          translated.
+        </dd>
+      </dl>
+      <p>
+        Piccolo takes a different more traditional 2D approach. There is no separation between
+        ZVisualComponents and ZNodes. So the Piccolo version of a rectangle extends directly from
+        PNode and can be place directly into a scene graph without needing to be wrapped in a
+        ZVisualLeaf type object. Piccolo has also built many of the most common decorator classes
+        used in Jazz directly into the PNode class. For example every PNode has a affine transform,
+        supports children, and can have its transparency set. So in Piccolo to create a movable
+        rectangle all you need is a:
+      </p>
+      <dl>
+        <dt>
+          PPath
+        </dt>
+        <dd>
+          This class represents a graphics path and is used to draw all shapes. It extends from
+          PNode so it has a transform, may have child nodes added to it and all the rest.
+        </dd>
+      </dl>
+      <p>
+        Since the Piccolo is a complete rewrite, and a smaller code base we also put a lot of time
+        into making the Piccolo source code as readable and strait forward as possible. It's our
+        hope that this should make it much easier to add your own new features to Piccolo then it
+        was to do with Jazz.
+      </p>
+      <h3>
+        Speed/Memory
+      </h3>
+      <p>
+        The speed differences between Piccolo and Jazz for most applications are not large, most
+        time is still spent painting with Java's Graphics2D. With that said Piccolo has made
+        significant improvements in the time required to manipulate the scene graph. So if your
+        program is moving around larger numbers of nodes at the same time then Piccolo should be
+        faster.
+      </p>
+      <p>
+        It turns out that for most cases Piccolo uses less memory then Jazz. Since instead of
+        needing three different objects to support the normal situation of a movable visible object
+        it only needs one. This together with better bounds management also makes it much faster to
+        create a large number of new objects in Piccolo then in Jazz.
+      </p>
+      <p>
+        The piccolo.jar size is approximately 65k, while the jazz.jar was about 450k. So for applet
+        based applications the Piccolo framework will be much faster to download over the web.
+      </p>
+      <h3>
+        Features
+      </h3>
+      <p>
+        Piccolo and Jazz support the same basic feature set. They both have structured graphics,
+        and cameras that can look onto that structure using a view transform. So you should be able
+        to build anything in Piccolo that was possible in Jazz. At the moment their are some
+        specific features that we have not ported over to Piccolo from Jazz yet:
+      </p>
+      <dl>
+        <dt>
+          ZAnchorGroup
+        </dt>
+        <dd>
+          used to specify hyperlinks
+        </dd>
+        <dt>
+          ZClipGroup
+        </dt>
+        <dd>
+          used to specify a clip group around it children nodes
+        </dd>
+        <dt>
+          ZConstraintGroup
+        </dt>
+        <dd>
+          used to constrain a transform based on some calculation. See Piccolo Patterns for an
+          easier way to do this in Piccolo.
+        </dd>
+        <dt>
+          ZFadeGroup
+        </dt>
+        <dd>
+          all piccolo nodes support transparency, something that ZFadeGroup was used for. But
+          ZFadeGroup also supported automatically changing an objects transparency based on scale
+          that it was being viewed at.
+        </dd>
+        <dt>
+          Layout managers
+        </dt>
+        <dd>
+          Piccolo doesn't come with any layout managers, but all PNodes have a method
+          layoutChildren() that is easily overridden and will get called for you automatically when
+          the size of any of the children changes.
+        </dd>
+        <dt>
+          ZSelectionGroup
+        </dt>
+        <dd>
+          Used by Jazz's selection management system.
+        </dd>
+        <dt>
+          ZSpatialIndex
+        </dt>
+        <dd>
+          Used for efficient picking and culling objects that won't be painted. Not having this
+          effects speed very little if at all since the vast majority of time is spent painting
+          objects, not culling or picking them.
+        </dd>
+        <dt>
+          ZSwing
+        </dt>
+        <dd>
+          Piccolo does not support embedding Swing objects into the PCanvas.
+        </dd>
+      </dl>
+      <p>
+        Any needed features should be fairly easy to port to Piccolo, please let us know if you
+        need something and well do our best to include it. We will put most of these features in
+        piccolox (Piccolo extras) so that if we do add them the don't complicate Piccolo's core
+        classes.
+      </p>
+      <p>
+        Jazz has some features that will most likely never be supported by Piccolo
+      </p>
+      <dl>
+        <dt>
+          Text file format
+        </dt>
+        <dd>
+          Our recommendation is that applications that need a file format should use define their
+          own and it will make life much easier for everyone. Piccolo does support Java
+          serialization for short term persistence.
+        </dd>
+      </dl>
+      <p>
+        To learn more about the difference between Jazz and Piccolo and why we made this
+        architectural change, you can read <a href="Toolkit_Design_2004.pdf">Toolkit Design for
+        Interactive Structured Graphics</a>.
+      </p>
+      <h2>
+        <a id="other"></a>Piccolo and Other Toolkits
+      </h2>
+      <p>
+        There are numerous graphical toolkits available.&nbsp; This section will explain how
+        Piccolo fits in with the myriad of other available toolkits.
+      </p>
+      <h3>
+        Structured Architecture
+      </h3>
+      <p>
+        Piccolo is a toolkit for building structured 2D graphics programs.&nbsp; This means piccolo
+        maintains a hierarchy of visual nodes that can be grouped, oriented and manipulated in
+        interesting ways.&nbsp; As such, it is very useful for application developers who wish to
+        build custom user interface components and smoothly integrate them with standard
+        application code.&nbsp; Most standard 2D UI toolkits provide little support for building
+        custom components.&nbsp; There are a number of other structured graphics toolkits
+        available.&nbsp; But, many provide a fixed set of shapes that can be added to the canvas,
+        making it difficult to define new classes of objects.
+      </p>
+      <p>
+        There are also a number of information visualization toolkits available, such as the
+        <a href="http://www.lri.fr/~fekete/InfovisToolkit/">InfoVis Toolkit</a>, which take a
+        different approach.&nbsp; Rather than maintaining a hierarchy of visual nodes, these
+        toolkits walk along some application-defined data structure, visualizing each item along
+        the way.&nbsp; This approach is simple and it works quite well for visualizing
+        information.&nbsp; Since the data is decoupled from the visualization algorithm, it is also
+        very easy to plug-in new visualizations.&nbsp; But, this sort of toolkit is not as amenable
+        to creating highly customized interaction.
+      </p>
+      <h3>
+        Monlithic Design
+      </h3>
+      <p>
+        Most 3D Graphics toolkits use a polylithic design approach.&nbsp; This means many distinct
+        classes are used to represent both visual and non-visual data.&nbsp; Instances of these
+        classes are then combined at runtime to create more complex objects.&nbsp;&nbsp; This
+        approach is very flexible.&nbsp; And, it promotes abstraction and code reuse.&nbsp; For
+        this reason, some 2D graphics toolkits, such as Jazz and
+        <a href="http://prefuse.sourceforge.net/">Prefuse</a>, incorporate aspects of polylithic
+        design to varying degrees.&nbsp; But, this approach often results in a proliferation of
+        types, which can be very confusing for a programmer to manage.
+      </p>
+      <p>
+        Piccolo takes a more traditional 2D graphics approach, using compile-time inheritance to
+        extend functionality.&nbsp; Piccolo defines a large base class that supports all of the
+        functionality commonly used by different types of visual nodes.&nbsp; New node types are
+        created by extending this base class.&nbsp; We believe this monolithic design approach is
+        much easier for the application developer to use.
+      </p>
+      <h3>
+        Multiple Views, Zooming and Panning
+      </h3>
+      <p>
+        Part of the goal of piccolo was to build a toolkit that would enable highly innovative
+        visualization and interaction.&nbsp; To that end, Piccolo provides support for multiple
+        cameras, arbitrary node transforms and full-screen zooming and panning.&nbsp; This makes it
+        very easy to build sophisticated data displays, from fisheye visualizations to Zoomable
+        User Interfaces.&nbsp; A number of other toolkits provide support for building innovative
+        visualizations.&nbsp; But, few provide the same level of support for multiple views,
+        zooming and panning.
+      </p>
+    </div>
+  </body>
+</html>
