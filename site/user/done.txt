@@ -12,4 +12,5 @@
 ./learn/fisheye.html
 ./learn/grapheditor.html
 ./learn/graphics.html
+./learn/api.html
 
