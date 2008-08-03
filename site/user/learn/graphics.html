@@ -14,6 +14,23 @@
       Piccolo2D - 2D Graphics Primer
     </title>
     <link href='../piccolo2d.css' rel='stylesheet' type='text/css' />
+    <style type="text/css">
+    /*<![CDATA[*/
+    <!--
+    /* ... Hier werden die Formate definiert ... */
+    div.center {
+        margin: auto;
+        /* border: 1px solid black; */
+    }
+    div.center table {
+        width: 100%;
+    }
+    div.center table tr td {
+        text-align: center;
+    }
+    -->
+    /*]]>*/
+    </style>
     <script type='text/javascript' src='../scrollsidebar.js'>
     //<![CDATA[
     //]]>
@@ -328,48 +345,48 @@ Line from (4,5) to (9,7) in red with a thickness of 5
 Circle centered at (19,8) in blue with a radius of 8 and a thickness of 3
 ...
 </pre>
-          <div style='margin:auto; width:450px'>
-            <table summary='Stroke Styles' style='width: 100%'>
+          <div class='center' style='width:450px'>
+            <table summary='Stroke Styles'>
               <tr>
-                <td style='text-align: center'>
+                <td>
                   <img src='images/line-dashes.png' alt='Dash Styles' /><br />
                    Dash Styles
                 </td>
-                <td style='text-align: center'>
+                <td>
                   <img src='images/line-caps.png' alt='End Cap Styles' /><br />
                    End Cap Styles
                 </td>
               </tr>
             </table>
           </div>
-          <div style='margin:auto; width:600px'>
-            <table summary='Join Styles' style='width: 100%'>
+          <div class='center' style='width:600px'>
+            <table summary='Join Styles'>
               <tr>
-                <td style='text-align: center'>
+                <td>
                   <img src='images/line-join-miter.png' alt='Miter Join' /><br />
                    Miter Join
                 </td>
-                <td style='text-align: center'>
+                <td>
                   <img src='images/line-join-round.png' alt='Round Join' /><br />
                    Round Join
                 </td>
-                <td style='text-align: center'>
+                <td>
                   <img src='images/line-join-bevel.png' alt='Bevel Join' /><br />
                    Bevel Join
                 </td>
               </tr>
             </table>
           </div>
-          <div style='margin:auto; width:700px'>
-            <table summary='Antialiasing images' style='width: 100%'>
+          <div class='center' style='width:700px'>
+            <table summary='Antialiasing images'>
               <tr>
-                <td style='text-align: center'>
+                <td>
                   <img src='images/line1.png' height='100' alt='Aliased, small'
                   width='100' />&nbsp;&nbsp; <img src='images/line2.png' height='200'
                   alt='Aliased, large' width='200' /><br />
                    Unantialiased Line
                 </td>
-                <td style='text-align: center'>
+                <td>
                   <img src='images/line3.png' height='100' alt='Antialiased, small'
                   width='100' />&nbsp;&nbsp; <img src='images/line4.png' height='200'
                   alt='Antialiased, large' width='200' /><br />
@@ -393,7 +410,7 @@ Circle centered at (19,8) in blue with a radius of 8 and a thickness of 3
 Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
 ...
 </pre>
-          <div align='center'>
+          <div class='center' style='width:400px'>
             <table summary='Fill Styles'>
               <tr>
                 <td>
@@ -418,10 +435,9 @@ Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
             describes images as a discrete number of pixels. Each pixel is specified by a color
             from one of several possible color models.
           </p>
-          <div align='center'>
-            <img src='images/pixel-model.png' height='202' alt='Pixel Model'
-            width='202' />
-          </div>
+          <p class='image'>
+            <img src='images/pixel-model.png' height='202' alt='Pixel Model' width='202' />
+          </p>
         </dd>
       </dl>
       <p>
@@ -594,14 +610,14 @@ Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
       <p>
         Used to specify geometry - often accessed through "handles" in an interface
       </p>
-      <div align='center'>
+      <div class='center' style='width:400px'>
         <table summary='Bezier Curves'>
           <tr>
-            <td align='center'>
+            <td>
               <img src='images/graphi1.png' alt='Cubic Bezier Curve' /><br />
                Cubic Bezier Curve
             </td>
-            <td align='center'>
+            <td>
               <img src='images/graphi2.png' alt='Quad Bezier Curve' /><br />
                Quad Bezier Curve
             </td>
@@ -636,8 +652,7 @@ Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
         We can then multiply the matrix by a column vector to apply the transformation to a point.
       </p>
       <p class='image'>
-        <img src='images/matrix-mult.png' alt='Matrix Multiplication'
-        style='background-color: white' />
+        <img src='images/matrix-mult.png' alt='Matrix Multiplication' />
       </p>
       <p class='image'>
         x&prime; = Ax + By<br />
@@ -663,11 +678,11 @@ Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
         multiply all the x-coordinates by some scale factor S<sub>x</sub> and we multiply the
         y-coordinates by some scale factor S<sub>y</sub>.
       </p>
-      <div align='center'>
+      <div class='center' style='width:350px'>
         <table summary='Scaling'>
           <tr>
             <td>
-              <img src='images/scale.png' alt='Scaling' align='bottom'
+              <img src='images/scale.png' alt='Scaling'
               style='background-color: white' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td>
@@ -676,17 +691,17 @@ Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
             </td>
           </tr>
         </table>
-        <p>
-          If we define P as a point [x, y], we can combine the equations above to get the following
-          representation.
-        </p>
-        <p>
-          P&prime; = S &#8729; P or,
-        </p>
-        <p class='image'>
-          <img src='images/scale-formula.png' alt='Scaling Formula' />
-        </p>
       </div>
+      <p>
+        If we define P as a point [x, y], we can combine the equations above to get the following
+        representation.
+      </p>
+      <p>
+        P&prime; = S &#8729; P or,
+      </p>
+      <p class='image'>
+        <img src='images/scale-formula.png' alt='Scaling Formula' />
+      </p>
       <p>
         We can then represent the scale vector as 2x2 matrix.
       </p>
@@ -700,11 +715,11 @@ Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
         Another common type of transformation is rotation, where we rotate the points by some angle
         &theta;.
       </p>
-      <div align='center'>
+      <div class='center' style='width:500px'>
         <table summary='Rotation'>
           <tr>
             <td>
-              <img src='images/rotate.png' height='185' alt='Rotation' align='bottom'
+              <img src='images/rotate.png' height='185' alt='Rotation'
               style='background-color: white'
               width='225' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
@@ -732,11 +747,11 @@ Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
         and adding some offset T<sub>y</sub> to all the y-coordinates.&nbsp; This is known as a
         translation.
       </p>
-      <div align='center'>
+      <div class='center' style='width:350px'>
         <table summary='Translation'>
           <tr>
             <td>
-              <img src='images/translate.png' alt='Translation' align='bottom'
+              <img src='images/translate.png' alt='Translation'
               style='background-color: white' />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td>
