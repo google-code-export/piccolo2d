@@ -20,6 +20,9 @@ h3 {
 	font-size: 110%;
 	font-weight: bold;
 }
+ol {
+	list-style-type: lower-alpha;
+}
 
 pre {
 	margin: 0.5em;
