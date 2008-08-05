@@ -1,0 +1,579 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Maven - CPD Results</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../piccolo2d/index.html" id="bannerLeft">
+    
+                                    <img src="http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo.png" alt="" />
+    
+            </a>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2008-07-31
+                      </div>
+            <div class="xright">      
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Piccolo2D</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="">Google Code Home</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../piccolo2d/index.html">Maven Site Home</a>
+          </li>
+          </ul>
+              <h5>Modules</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="../piccolo2d-core/index.html">Core</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../piccolo2d-extras/index.html">Extras</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../piccolo2d-examples/index.html">Examples</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="checkstyle.html">Checkstyle</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cobertura/index.html">Cobertura Test Coverage</a>
+          </li>
+                  
+    <li class="none">
+              <strong>CPD Report</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="findbugs.html">FindBugs Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="jdepend-report.html">JDepend</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>CPD Results</h2>
+<p>The following document contains the results of PMD's  <a href="http://pmd.sourceforge.net/cpd.html" class="externalLink">CPD</a>
+ 4.2.2.</p>
+</div>
+<div class="section"><h2>Duplications</h2>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>edu/umd/cs/piccolo/examples/BirdsEyeViewExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/examples/BirdsEyeViewExample.html#134">134</a>
+</td>
+</tr>
+<tr class="a"><td>edu/umd/cs/piccolo/examples/NodeExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/examples/NodeExample.html#110">110</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		layer.addChild(image);
+	}
+	
+	// Another way to create nodes is to customize other nodes that already
+	// exist. Here we create an ellipse, except when you press the mouse on
+	// this ellipse it turns into a square, when you release the mouse it
+	// goes back to being an ellipse.
+	public void subclassExistingClasses() {
+		final PNode n = new PPath(new Ellipse2D.Float(0, 0, 100, 80)) {
+						
+			public void paint(PPaintContext aPaintContext) {
+				if (fIsPressed) {
+					// if mouse is pressed draw self as a square.
+					Graphics2D g2 = aPaintContext.getGraphics();
+					g2.setPaint(getPaint());
+					g2.fill(getBoundsReference());
+				} else {
+					// if mouse is not pressed draw self normally.
+					super.paint(aPaintContext);
+				}
+			}
+		};		
+		
+		n.addInputEventListener(new PBasicInputEventHandler() {
+			public void mousePressed(PInputEvent aEvent) {
+				super.mousePressed(aEvent);
+				fIsPressed = true;
+				n.invalidatePaint(); // this tells the framework that the node needs to be redisplayed.
+			}
+			
+			public void mouseReleased(PInputEvent aEvent) {
+				super.mousePressed(aEvent);
+				fIsPressed = false;
+				n.invalidatePaint(); // this tells the framework that the node needs to be redisplayed.
+			}
+		});
+		
+		n.setPaint(Color.ORANGE);
+		getCanvas().getLayer().addChild(n);
+	}
+	
+	// Here a new &quot;face&quot; node is created. But instead of drawing the face directly
+	// using Graphics2D we compose the face from other nodes.
+	public void composeOtherNodes() {
+		PNode myCompositeFace = PPath.createRectangle(0, 0, 100, 80);
+		
+		// create parts for the face.
+		PNode eye1 = PPath.createEllipse(0, 0, 20, 20);
+		eye1.setPaint(Color.YELLOW);
+		PNode eye2 = (PNode) eye1.clone();
+		PNode mouth = PPath.createRectangle(0, 0, 40, 20);
+		mouth.setPaint(Color.BLACK);
+		
+		// add the face parts
+		myCompositeFace.addChild(eye1);
+		myCompositeFace.addChild(eye2);
+		myCompositeFace.addChild(mouth);
+		
+		// don't want anyone grabbing out our eye's.
+		myCompositeFace.setChildrenPickable(false);
+		
+		// position the face parts.
+		eye2.translate(25, 0);
+		mouth.translate(0, 30);
+		
+		// set the face bounds so that it neatly contains the face parts.
+		PBounds b = myCompositeFace.getUnionOfChildrenBounds(null);
+		myCompositeFace.setBounds(b.inset(-5, -5));
+		
+		// opps it to small, so scale it up.
+		myCompositeFace.scale(1.5);
+		
+		getCanvas().getLayer().addChild(myCompositeFace);
+	}
+	
+	// Here a completely new kind of node, a grid node&quot; is created. We do
+	// all the drawing ourselves here instead of passing the work off to 
+	// other parts of the framework.
+	public void createCustomNode() {
+		PNode n = new PNode() {
+			public void paint(PPaintContext aPaintContext) {
+				double bx = getX();
+				double by = getY();
+				double rightBorder = bx + getWidth();
+				double bottomBorder = by + getHeight();
+				
+				Line2D line = new Line2D.Double();
+				Graphics2D g2 = aPaintContext.getGraphics();
+				
+				g2.setStroke(new BasicStroke(0));
+				g2.setPaint(getPaint());
+				
+				// draw vertical lines
+				for (double x = bx; x &lt; rightBorder; x += 5) {
+					line.setLine(x, by, x, bottomBorder);
+					g2.draw(line);
+				}
+				
+				for (double y = by; y &lt; bottomBorder; y += 5) {
+					line.setLine(bx, y, rightBorder, y);
+					g2.draw(line);
+				}
+			}
+		};
+		n.setBounds(0, 0, 100, 80);
+		n.setPaint(Color.black);
+		getCanvas().getLayer().addChild(n);
+	}
+	
+	public static void main(String[] args) {
+		new NodeExample();</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>edu/umd/cs/piccolo/examples/BirdsEyeViewExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/examples/BirdsEyeViewExample.html#67">67</a>
+</td>
+</tr>
+<tr class="a"><td>edu/umd/cs/piccolo/examples/NodeExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/examples/NodeExample.html#47">47</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		getCanvas().addInputEventListener(new PDragEventHandler());
+	}
+	
+	// This method demonstrates the kinds of things that can be done with any node.
+	public void nodeDemo() {
+		PLayer layer = getCanvas().getLayer();
+		PNode aNode = PPath.createRectangle(0, 0, 100, 80);
+		
+		// A node needs to be a descendent of the root to be displayed on the screen.
+		layer.addChild(aNode);
+		
+		// The default color for a node is blue, but you can change that with 
+		// the setPaint method.
+		aNode.setPaint(Color.red);
+				
+		// A node can have children nodes added to it.
+		aNode.addChild(PPath.createRectangle(0, 0, 100, 80));
+				
+		// The base bounds of a node is easy to change. Note that changing the base 
+		// bounds of a node will not change it's children.
+		aNode.setBounds(-10, -10, 200, 110);
+		
+		// Each node has a transform that can be used to transform the node, and 
+		// all its children on the screen.
+		aNode.translate(100, 100);
+		aNode.scale(1.5);
+		aNode.rotate(45);
+		
+		// The transparency of any node can be set, this transparency will be 
+		// applied to any of the nodes children as well.
+		aNode.setTransparency(0.75f);
+		
+		// Its easy to copy nodes.
+		PNode aCopy = (PNode) aNode.clone();
+
+		// Make is so that the copies children are not pickable. For this example
+		// that means you will not be able to grab the child and remove it from
+		// its parent.
+		aNode.setChildrenPickable(false);
+
+		// Change the look of the copy
+		aNode.setPaint(Color.GREEN);
+		aNode.setTransparency(1.0f);
+		
+		// Let's add the copy to the root, and translate it so that it does not 
+		// cover the original node.
+		layer.addChild(aCopy);		
+		aCopy.setOffset(0, 0);		
+		aCopy.rotate(-45);
+	}
+		
+	// So far we have just been using PNode, but of course PNode has many
+	// subclasses that you can try out to.
+	public void createNodeUsingExistingClasses() {
+		PLayer layer = getCanvas().getLayer();
+		layer.addChild(PPath.createEllipse(0, 0, 100, 100));
+		layer.addChild(PPath.createRectangle(0, 100, 100, 100));
+		layer.addChild(new PText(&quot;Hello World&quot;));</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>edu/umd/cs/piccolo/examples/NavigationExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/examples/NavigationExample.html#23">23</a>
+</td>
+</tr>
+<tr class="a"><td>edu/umd/cs/piccolo/examples/PanToExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/examples/PanToExample.html#53">53</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		PLayer layer = getCanvas().getLayer();
+		
+		Random random = new Random();
+		for (int i = 0; i &lt; 1000; i++) {
+			PPath each = PPath.createRectangle(0, 0, 100, 80);
+			each.scale(random.nextFloat() * 2);
+			each.offset(random.nextFloat() * 10000, random.nextFloat() * 10000);
+			each.setPaint(new Color(random.nextFloat(),random.nextFloat(),random.nextFloat()));
+			each.setStroke(new BasicStroke(1 + (10 * random.nextFloat())));
+			each.setStrokePaint(new Color(random.nextFloat(),random.nextFloat(),random.nextFloat()));
+			layer.addChild(each);
+		}
+		
+		
+		getCanvas().removeInputEventListener(getCanvas().getZoomEventHandler());</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>edu/umd/cs/piccolo/examples/ActivityExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/examples/ActivityExample.html#32">32</a>
+</td>
+</tr>
+<tr class="a"><td>edu/umd/cs/piccolo/tutorial/SpecialEffects.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/tutorial/SpecialEffects.html#24">24</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		long currentTime = System.currentTimeMillis();
+
+		// Create a new custom &quot;flash&quot; activity. This activity will start running in
+		// five seconds, and while it runs it will flash aNode's paint between
+		// red and green every half second.
+		PActivity flash = new PActivity(-1, 500, currentTime + 5000) {
+			boolean fRed = true;
+			
+			protected void activityStep(long elapsedTime) {
+				super.activityStep(elapsedTime);
+				
+				// Toggle the target node's brush color between red and green
+				// each time the activity steps.
+				if (fRed) {
+					aNode.setPaint(Color.red);
+				} else {
+					aNode.setPaint(Color.green);
+				}		
+				
+				fRed = !fRed;
+			}
+		};
+		
+		// Schedule the activity.
+		getCanvas().getRoot().addActivity(flash);
+		
+		// Create three activities that animate the node's position. Since our node
+		// already descends from the root node the animate methods will automatically
+		// schedule these activities for us.
+		PActivity a1 = aNode.animateToPositionScaleRotation(0, 0, 0.5, 0, 5000);
+		PActivity a2 = aNode.animateToPositionScaleRotation(100, 0, 1.5, Math.toRadians(110), 5000);
+		PActivity a3 = aNode.animateToPositionScaleRotation(200, 100, 1, 0, 5000);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>edu/umd/cs/piccolo/examples/BirdsEyeViewExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/examples/BirdsEyeViewExample.html#181">181</a>
+</td>
+</tr>
+<tr class="a"><td>edu/umd/cs/piccolo/tutorial/InterfaceFrame.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/tutorial/InterfaceFrame.html#62">62</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>		PNode myCompositeFace = PPath.createRectangle(0, 0, 100, 80);
+	
+		// Create parts for the face.
+		PNode eye1 = PPath.createEllipse(0, 0, 20, 20);
+		eye1.setPaint(Color.YELLOW);
+		PNode eye2 = (PNode) eye1.clone();
+		PNode mouth = PPath.createRectangle(0, 0, 40, 20);
+		mouth.setPaint(Color.BLACK);
+	
+		// Add the face parts.
+		myCompositeFace.addChild(eye1);
+		myCompositeFace.addChild(eye2);
+		myCompositeFace.addChild(mouth);
+	
+		// Don't want anyone grabbing out our eye's.
+		myCompositeFace.setChildrenPickable(false);
+	
+		// Position the face parts.
+		eye2.translate(25, 0);
+		mouth.translate(0, 30);
+	
+		// Set the face bounds so that it neatly contains the face parts.
+		PBounds b = myCompositeFace.getUnionOfChildrenBounds(null);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+<p><table class="bodyTable"><tr class="a"><th>File</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>edu/umd/cs/piccolo/swtexamples/SWTBasicExample.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/swtexamples/SWTBasicExample.html#26">26</a>
+</td>
+</tr>
+<tr class="a"><td>edu/umd/cs/piccolo/swtexamples/SWTHelloWorld.java</td>
+<td><a href="./xref/edu/umd/cs/piccolo/swtexamples/SWTHelloWorld.html#23">23</a>
+</td>
+</tr>
+<tr class="b"><td colspan='2'><div class="source"><pre>	public SWTHelloWorld() {
+		super();
+	}
+
+	public static void main(String[] args) {
+		Display display = new Display ();
+		Shell shell = open (display);
+		while (!shell.isDisposed ()) {
+			if (!display.readAndDispatch ()) display.sleep ();
+		}
+		display.dispose ();
+	}
+	
+	public static Shell open(Display display) {
+		final Shell shell = new Shell (display);
+		shell.setLayout(new FillLayout());
+		PSWTCanvas canvas = new PSWTCanvas(shell,0);</pre>
+</div>
+</td></tr>
+<table class="bodyTable"></p>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          1995-2008
+    
+          Piccolo2D
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

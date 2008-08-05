@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Maven - JDepend Report Metrics</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../piccolo2d/index.html" id="bannerLeft">
+    
+                                    <img src="http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo.png" alt="" />
+    
+            </a>
+                    <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+        Last Published: 2008-07-31
+                      </div>
+            <div class="xright">      
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Piccolo2D</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="">Google Code Home</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../piccolo2d/index.html">Maven Site Home</a>
+          </li>
+          </ul>
+              <h5>Modules</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="../piccolo2d-core/index.html">Core</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../piccolo2d-extras/index.html">Extras</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../piccolo2d-examples/index.html">Examples</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="checkstyle.html">Checkstyle</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cobertura/index.html">Cobertura Test Coverage</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="findbugs.html">FindBugs Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+              <strong>JDepend</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="taglist.html">Tag List</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="testapidocs/index.html">Test JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref-test/index.html">Test Source Xref</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>Metric Results</h2>
+[ <a href="#summary">summary</a>
+ ] [ <a href="#packages">packages</a>
+ ] [ <a href="#cycles">cycles</a>
+ ] [ <a href="#explanations">explanations</a>
+ ] <br />
+<br />
+The following document contains the results of a JDepend metric analysis. The various metrics are defined at the bottom of this document.<br />
+<br />
+<a name="summary"></a>
+<h2>Summary</h2>
+[ <a href="#summary">summary</a>
+ ] [ <a href="#packages">packages</a>
+ ] [ <a href="#cycles">cycles</a>
+ ] [ <a href="#explanations">explanations</a>
+ ] <br />
+<br />
+<table class="bodyTable"><tr class="a"><th>Package</th>
+<th>TC</th>
+<th>CC</th>
+<th>AC</th>
+<th>Ca</th>
+<th>Ce</th>
+<th>A</th>
+<th>I</th>
+<th>D</th>
+<th>V</th>
+</tr>
+<tr class="b"><td><a href="#edu.umd.cs.piccolo">edu.umd.cs.piccolo</a>
+</td>
+<td>21</td>
+<td>18</td>
+<td>3</td>
+<td>4</td>
+<td>6</td>
+<td>14.0%</td>
+<td>60.000004%</td>
+<td>26.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#edu.umd.cs.piccolo.activities">edu.umd.cs.piccolo.activities</a>
+</td>
+<td>9</td>
+<td>6</td>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+<td>33.0%</td>
+<td>60.000004%</td>
+<td>7.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#edu.umd.cs.piccolo.event">edu.umd.cs.piccolo.event</a>
+</td>
+<td>9</td>
+<td>7</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>22.0%</td>
+<td>67.0%</td>
+<td>11.0%</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#edu.umd.cs.piccolo.nodes">edu.umd.cs.piccolo.nodes</a>
+</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>0.0%</td>
+<td>100.0%</td>
+<td>0.0%</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#edu.umd.cs.piccolo.util">edu.umd.cs.piccolo.util</a>
+</td>
+<td>14</td>
+<td>13</td>
+<td>1</td>
+<td>4</td>
+<td>4</td>
+<td>7.0%</td>
+<td>50.0%</td>
+<td>43.0%</td>
+<td>1</td>
+</tr>
+</table>
+<a name="packages"></a>
+<h2>Packages</h2>
+[ <a href="#summary">summary</a>
+ ] [ <a href="#packages">packages</a>
+ ] [ <a href="#cycles">cycles</a>
+ ] [ <a href="#explanations">explanations</a>
+ ] <br />
+<a name="edu.umd.cs.piccolo"></a>
+<h3>edu.umd.cs.piccolo</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>6</td>
+<td>14.0%</td>
+<td>60.000004%</td>
+<td>26.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>edu.umd.cs.piccolo.PComponent<br />
+edu.umd.cs.piccolo.PNode$PSceneGraphDelegate<br />
+edu.umd.cs.piccolo.PRoot$InputSource<br />
+</td>
+<td>edu.umd.cs.piccolo.PCamera<br />
+edu.umd.cs.piccolo.PCamera$1<br />
+edu.umd.cs.piccolo.PCanvas<br />
+edu.umd.cs.piccolo.PCanvas$1<br />
+edu.umd.cs.piccolo.PCanvas$2<br />
+edu.umd.cs.piccolo.PCanvas$3<br />
+edu.umd.cs.piccolo.PCanvas$4<br />
+edu.umd.cs.piccolo.PInputManager<br />
+edu.umd.cs.piccolo.PLayer<br />
+edu.umd.cs.piccolo.PNode<br />
+edu.umd.cs.piccolo.PNode$1<br />
+edu.umd.cs.piccolo.PNode$2<br />
+edu.umd.cs.piccolo.PNode$3<br />
+edu.umd.cs.piccolo.PNode$4<br />
+edu.umd.cs.piccolo.PNode$5<br />
+edu.umd.cs.piccolo.PRoot<br />
+edu.umd.cs.piccolo.PRoot$1<br />
+edu.umd.cs.piccolo.PRoot$2<br />
+</td>
+<td>edu.umd.cs.piccolo.activities<br />
+edu.umd.cs.piccolo.event<br />
+edu.umd.cs.piccolo.nodes<br />
+edu.umd.cs.piccolo.util<br />
+</td>
+<td>edu.umd.cs.piccolo.activities<br />
+edu.umd.cs.piccolo.event<br />
+edu.umd.cs.piccolo.util<br />
+javax.swing<br />
+javax.swing.event<br />
+javax.swing.text<br />
+</td>
+</tr>
+</table>
+<a name="edu.umd.cs.piccolo.activities"></a>
+<h3>edu.umd.cs.piccolo.activities</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>3</td>
+<td>33.0%</td>
+<td>60.000004%</td>
+<td>7.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>edu.umd.cs.piccolo.activities.PActivity$PActivityDelegate<br />
+edu.umd.cs.piccolo.activities.PColorActivity$Target<br />
+edu.umd.cs.piccolo.activities.PTransformActivity$Target<br />
+</td>
+<td>edu.umd.cs.piccolo.activities.PActivity<br />
+edu.umd.cs.piccolo.activities.PActivityScheduler<br />
+edu.umd.cs.piccolo.activities.PActivityScheduler$1<br />
+edu.umd.cs.piccolo.activities.PColorActivity<br />
+edu.umd.cs.piccolo.activities.PInterpolatingActivity<br />
+edu.umd.cs.piccolo.activities.PTransformActivity<br />
+</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.event<br />
+</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.util<br />
+javax.swing<br />
+</td>
+</tr>
+</table>
+<a name="edu.umd.cs.piccolo.event"></a>
+<h3>edu.umd.cs.piccolo.event</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>2</td>
+<td>4</td>
+<td>22.0%</td>
+<td>67.0%</td>
+<td>11.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>edu.umd.cs.piccolo.event.PDragSequenceEventHandler<br />
+edu.umd.cs.piccolo.event.PInputEventListener<br />
+</td>
+<td>edu.umd.cs.piccolo.event.PBasicInputEventHandler<br />
+edu.umd.cs.piccolo.event.PDragEventHandler<br />
+edu.umd.cs.piccolo.event.PDragSequenceEventHandler$1<br />
+edu.umd.cs.piccolo.event.PInputEvent<br />
+edu.umd.cs.piccolo.event.PInputEventFilter<br />
+edu.umd.cs.piccolo.event.PPanEventHandler<br />
+edu.umd.cs.piccolo.event.PZoomEventHandler<br />
+</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.util<br />
+</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.activities<br />
+edu.umd.cs.piccolo.util<br />
+javax.swing<br />
+</td>
+</tr>
+</table>
+<a name="edu.umd.cs.piccolo.nodes"></a>
+<h3>edu.umd.cs.piccolo.nodes</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>0</td>
+<td>4</td>
+<td>0.0%</td>
+<td>100.0%</td>
+<td>0.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td><i>None</i>
+</td>
+<td>edu.umd.cs.piccolo.nodes.PImage<br />
+edu.umd.cs.piccolo.nodes.PPath<br />
+edu.umd.cs.piccolo.nodes.PText<br />
+</td>
+<td><i>None</i>
+</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.util<br />
+javax.imageio<br />
+javax.swing<br />
+</td>
+</tr>
+</table>
+<a name="edu.umd.cs.piccolo.util"></a>
+<h3>edu.umd.cs.piccolo.util</h3>
+<table class="bodyTable"><tr class="a"><th>Afferent Couplings</th>
+<th>Efferent Couplings</th>
+<th>Abstractness</th>
+<th>Instability</th>
+<th>Distance</th>
+</tr>
+<tr class="b"><td>4</td>
+<td>4</td>
+<td>7.0%</td>
+<td>50.0%</td>
+<td>43.0%</td>
+</tr>
+</table>
+<table class="bodyTable"><tr class="a"><th>Abstract Classes</th>
+<th>Concrete Classes</th>
+<th>Used by Packages</th>
+<th>Uses Packages</th>
+</tr>
+<tr class="b"><td>edu.umd.cs.piccolo.util.PNodeFilter<br />
+</td>
+<td>edu.umd.cs.piccolo.util.PAffineTransform<br />
+edu.umd.cs.piccolo.util.PBounds<br />
+edu.umd.cs.piccolo.util.PDebug<br />
+edu.umd.cs.piccolo.util.PDimension<br />
+edu.umd.cs.piccolo.util.PObjectOutputStream<br />
+edu.umd.cs.piccolo.util.PObjectOutputStream$1ZMarkObjectOutputStream<br />
+edu.umd.cs.piccolo.util.PPaintContext<br />
+edu.umd.cs.piccolo.util.PPickPath<br />
+edu.umd.cs.piccolo.util.PPickPath$PTuple<br />
+edu.umd.cs.piccolo.util.PStack<br />
+edu.umd.cs.piccolo.util.PUtil<br />
+edu.umd.cs.piccolo.util.PUtil$1<br />
+edu.umd.cs.piccolo.util.PUtil$2<br />
+</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.activities<br />
+edu.umd.cs.piccolo.event<br />
+edu.umd.cs.piccolo.nodes<br />
+</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.event<br />
+javax.swing<br />
+javax.swing.event<br />
+</td>
+</tr>
+</table>
+<a name="cycles"></a>
+<h2>Cycles</h2>
+[ <a href="#summary">summary</a>
+ ] [ <a href="#packages">packages</a>
+ ] [ <a href="#cycles">cycles</a>
+ ] [ <a href="#explanations">explanations</a>
+ ] <br />
+<br />
+<table class="bodyTable"><tr class="a"><th>Package</th>
+<th>Package Dependencies</th>
+</tr>
+<tr class="b"><td>edu.umd.cs.piccolo</td>
+<td>edu.umd.cs.piccolo.event<br />
+edu.umd.cs.piccolo<br />
+</td>
+</tr>
+<tr class="a"><td>edu.umd.cs.piccolo.activities</td>
+<td>edu.umd.cs.piccolo.util<br />
+edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.event<br />
+edu.umd.cs.piccolo<br />
+</td>
+</tr>
+<tr class="b"><td>edu.umd.cs.piccolo.event</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.event<br />
+</td>
+</tr>
+<tr class="a"><td>edu.umd.cs.piccolo.nodes</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.event<br />
+edu.umd.cs.piccolo<br />
+</td>
+</tr>
+<tr class="b"><td>edu.umd.cs.piccolo.util</td>
+<td>edu.umd.cs.piccolo<br />
+edu.umd.cs.piccolo.event<br />
+edu.umd.cs.piccolo<br />
+</td>
+</tr>
+</table>
+<a name="explanations"></a>
+<h2>Explanation</h2>
+[ <a href="#summary">summary</a>
+ ] [ <a href="#packages">packages</a>
+ ] [ <a href="#cycles">cycles</a>
+ ] [ <a href="#explanations">explanations</a>
+ ] <br />
+<br />
+The following explanations are for quick reference and are lifted directly from the original JDepend documentation.<br />
+<br />
+<table class="bodyTable"><tr class="a"><th>Term</th>
+<th>Description</th>
+</tr>
+<tr class="b"><td>Number of Classes</td>
+<td>The number of concrete and abstract classes (and interfaces) in the package is an indicator of the extensibility of the package.</td>
+</tr>
+<tr class="a"><td>Afferent Couplings</td>
+<td>The number of other packages that depend upon classes within the package is an indicator of the package's responsibility.</td>
+</tr>
+<tr class="b"><td>Efferent Couplings</td>
+<td>The number of other packages that the classes in the package depend upon is an indicator of the package's independence.</td>
+</tr>
+<tr class="a"><td>Abstractness</td>
+<td>The ratio of the number of abstract classes (and interfaces) in the analyzed package to the total number of classes in the analyzed package. The range for this metric is 0 to 1, with A=0 indicating a completely concrete package and A=1 indicating a completely abstract package.</td>
+</tr>
+<tr class="b"><td>Instability</td>
+<td>The ratio of efferent coupling (Ce) to total coupling (Ce / (Ce + Ca)). This metric is an indicator of the package's resilience to change. The range for this metric is 0 to 1, with I=0 indicating a completely stable package and I=1 indicating a completely instable package.</td>
+</tr>
+<tr class="a"><td>Distance</td>
+<td>The perpendicular distance of a package from the idealized line A + I = 1. This metric is an indicator of the package's balance between abstractness and stability. A package squarely on the main sequence is optimally balanced with respect to its abstractness and stability. Ideal packages are either completely abstract and stable (x=0, y=1) or completely concrete and instable (x=1, y=0). The range for this metric is 0 to 1, with D=0 indicating a package that is coincident with the main sequence and D=1 indicating a package that is as far from the main sequence as possible.</td>
+</tr>
+<tr class="b"><td>Cycles</td>
+<td>Packages participating in a package dependency cycle are  in a deadly embrace with respect to reusability and their  release cycle. Package dependency cycles can be easily identified by reviewing the textual reports of dependency cycles. Once these dependency cycles have been identified with JDepend, they can be broken by employing various object-oriented techniques.</td>
+</tr>
+</table>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          1995-2008
+    
+          Piccolo2D
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

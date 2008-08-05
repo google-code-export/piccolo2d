@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" href="../PNode.html" title="&lt;TABLE&gt;" alt="" coords="123,12,221,47"/>
+<area shape="rect" href="../PRoot.html" title="&lt;TABLE&gt;" alt="" coords="25,108,124,143"/>
+<area shape="rect" href="./PInterpolatingActivity.html" title="&lt;TABLE&gt;" alt="" coords="373,306,501,330"/>
+<area shape="rect" href="./PActivity.html" title="&lt;TABLE&gt;" alt="" coords="229,210,291,234"/>
+<area shape="rect" href="./PActivityScheduler.html" title="&lt;TABLE&gt;" alt="" coords="16,306,133,330"/>
+<area shape="rect" href="../event/PDragSequenceEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="220,108,404,143"/>
+<area shape="rect" href="./PActivity.PActivityDelegate.html" title="&lt;TABLE&gt;" alt="" coords="205,299,315,336"/>
+</map>

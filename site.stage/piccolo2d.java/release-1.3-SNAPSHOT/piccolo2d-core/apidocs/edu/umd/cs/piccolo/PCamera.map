@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" href="./util/PPaintContext.html" title="&lt;TABLE&gt;" alt="" coords="373,396,488,431"/>
+<area shape="rect" href="./PCamera.html" title="&lt;TABLE&gt;" alt="" coords="267,498,336,522"/>
+<area shape="rect" href="./util/PAffineTransform.html" title="&lt;TABLE&gt;" alt="" coords="413,588,528,623"/>
+<area shape="rect" href="./util/PBounds.html" title="&lt;TABLE&gt;" alt="" coords="641,780,756,815"/>
+<area shape="rect" href="./util/PPickPath.html" title="&lt;TABLE&gt;" alt="" coords="275,204,389,239"/>
+<area shape="rect" href="./PNode.html" title="&lt;TABLE&gt;" alt="" coords="591,306,647,330"/>
+<area shape="rect" href="./util/PUtil.html" title="&lt;TABLE&gt;" alt="" coords="64,396,179,431"/>
+<area shape="rect" href="./PComponent.html" title="&lt;TABLE&gt;" alt="" coords="573,587,664,624"/>
+<area shape="rect" href="./activities/PTransformActivity.html" title="&lt;TABLE&gt;" alt="" coords="229,588,368,623"/>
+<area shape="rect" href="./PInputManager.html" title="&lt;TABLE&gt;" alt="" coords="281,114,383,138"/>
+<area shape="rect" href="./PCanvas.html" title="&lt;TABLE&gt;" alt="" coords="547,690,613,714"/>
+<area shape="rect" href="./event/PInputEvent.html" title="&lt;TABLE&gt;" alt="" coords="380,12,505,47"/>
+</map>
