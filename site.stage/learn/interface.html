@@ -146,8 +146,8 @@
         Building the Interface
       </h1>
       <p>
-        <i>This tutorial will show you how to build a Piccolo interface.&nbsp; It will cover how to
-        use the default nodes, how to create new nodes through composition and how to create new
+        <i>This tutorial will show you how to build a Piccolo2D interface.&nbsp; It will cover how
+        to use the default nodes, how to create new nodes through composition and how to create new
         nodes using inheritance.</i>
       </p>
       <p class='image'>
@@ -160,7 +160,7 @@
         <a id='step1'>1. Setup</a>
       </h2>
       <p class='preamble'>
-        We need to create a window with a Piccolo canvas, so that we can add the interface
+        We need to create a window with a Piccolo2D canvas, so that we can add the interface
         components to the canvas.
       </p>
       <ol>
@@ -193,21 +193,21 @@ using UMD.HCIL.PiccoloX;
 </pre>
           </div>
           <p>
-            The first line adds the base Piccolo types, such as <code>PNode</code>. The second line
-            includes the basic event types.&nbsp; The third line includes the default node types
-            that Piccolo provides, all of which extend <code>PNode</code>.&nbsp; The fourth line
-            includes several utility classes.&nbsp; And the last line includes various "extras,"
-            such as <code>PForm</code> in .NET and <code>PFrame</code> in Java, which will be used
-            below.
+            The first line adds the base Piccolo2D types, such as <code>PNode</code>. The second
+            line includes the basic event types.&nbsp; The third line includes the default node
+            types that Piccolo2D provides, all of which extend <code>PNode</code>.&nbsp; The fourth
+            line includes several utility classes.&nbsp; And the last line includes various
+            "extras," such as <code>PForm</code> in .NET and <code>PFrame</code> in Java, which
+            will be used below.
           </p>
         </li>
         <li>
           <p>
             Next we will extend the <code>PForm</code> class in .NET or the <code>PFrame</code>
             class in Java. This is a convenience class that adds a <code>PCanvas</code> to a
-            window. When you extend this class, you should NOT add your Piccolo code to the
+            window. When you extend this class, you should NOT add your Piccolo2D code to the
             constructor. Instead, you should override the <code>initialize</code> method and add
-            all of your Piccolo code there.&nbsp; See the <a href='dev-faq.html'>FAQ</a> for more
+            all of your Piccolo2D code there.&nbsp; See the <a href='dev-faq.html'>FAQ</a> for more
             details.
           </p>
           <p class='toggle'>
@@ -221,14 +221,14 @@ using UMD.HCIL.PiccoloX;
             <pre class='snippet java' id='java2'>
 public class InterfaceFrame extends PFrame {    
         public void initialize() {
-                //Add Piccolo code here.
+                //Add Piccolo2D code here.
         }
 }
 </pre>
             <pre class='snippet csharp' id='csharp2'>
 public class InterfaceForm : PForm {
         public override void Initialize() {
-                //Add Piccolo code here.
+                //Add Piccolo2D code here.
         }
 }
 </pre>
@@ -276,7 +276,7 @@ Canvas.AddInputEventListener(new PDragEventHandler());
         3. Add Some Default Nodes
       </h2>
       <p class='preamble'>
-        Now we will add a few nodes to the interface.&nbsp; In addition to PNode, Piccolo comes
+        Now we will add a few nodes to the interface.&nbsp; In addition to PNode, Piccolo2D comes
         with three basic types of nodes (PPath, PText and PImage), plus a few in the extras
         package.&nbsp; We will add each of the basic types below.
       </p>
@@ -414,7 +414,7 @@ layer.AddChild(image);
           </p>
           <p>
             Finally, we add an image node.&nbsp; PImage wraps an image so that it can be added to
-            the Piccolo hierarchy.&nbsp; Above, we take advantage of the
+            the Piccolo2D hierarchy.&nbsp; Above, we take advantage of the
             <code>PNode.ToImage()</code> method, which can be used to get a thumbnail of any node.
           </p>
         </li>
@@ -423,7 +423,7 @@ layer.AddChild(image);
         4. Create a New Node using Composition
       </h2>
       <p class='preamble'>
-        The real power of Piccolo is the ability to make new kinds of interface components.&nbsp;
+        The real power of Piccolo2D is the ability to make new kinds of interface components.&nbsp;
         There are various way to make new types of nodes.&nbsp; Here we will examine how to create
         new nodes by combining several pre-existing nodes together.
       </p>
@@ -507,9 +507,9 @@ layer.AddChild(myCompositeFace);
 </pre>
           </div>
           <p>
-            This works because of the hierarchical nature of Piccolo.&nbsp; However, by default any
-            node is pickable.&nbsp; "Picking" refers to the process that determines which node is
-            under the mouse cursor.&nbsp; Events will be dispatched to the&nbsp; picked node and
+            This works because of the hierarchical nature of Piccolo2D.&nbsp; However, by default
+            any node is pickable.&nbsp; "Picking" refers to the process that determines which node
+            is under the mouse cursor.&nbsp; Events will be dispatched to the&nbsp; picked node and
             passed to each ancestor that also intersects that point (see the
             <a href='interaction.html'>Defining User Interaction</a> tutorial).&nbsp; Typically
             event handlers will modify the picked node in some way.&nbsp; For example the drag
@@ -623,7 +623,7 @@ class ToggleShape : PPath {
             the fIsPressed field to indicate whether or not the mouse is currently down over the
             node.&nbsp; Notice that the set accessor for fIsPressed sets the value and then calls
             <code>InvalidatePaint()</code>.&nbsp; This method notifies the framework that the node
-            needs to be repainted.&nbsp; Piccolo will then invalidate the child paint of all the
+            needs to be repainted.&nbsp; Piccolo2D will then invalidate the child paint of all the
             ancestors of this node.&nbsp; Later the screen damage will be collected for all the
             nodes with invalid paint and eventually the <code>Paint()</code> method of those nodes
             will get called.&nbsp; Notice that we override the <code>Paint()</code> method to

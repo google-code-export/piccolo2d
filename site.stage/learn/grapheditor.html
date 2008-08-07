@@ -147,8 +147,8 @@
       </h1>
       <p class='preamble'>
         This tutorial will illustrate how you might build a graph editor interface using
-        Piccolo.&nbsp; Moving the mouse over a node will highlight that node.&nbsp; And, dragging a
-        node will move that node around, keeping the edges connected.
+        Piccolo2D.&nbsp; Moving the mouse over a node will highlight that node.&nbsp; And, dragging
+        a node will move that node around, keeping the edges connected.
       </p>
       <p class='image'>
         <img src='images/grapheditor.jpg' alt='graph editor' /><br />
@@ -160,7 +160,7 @@
         Overall Architecture
       </h2>
       <p>
-        In this example, we will use the <code>PPath</code> node provided by Piccolo for both our
+        In this example, we will use the <code>PPath</code> node provided by Piccolo2D for both our
         nodes and edges.&nbsp; Rather than creating our own data structure to keep track of the
         connections, we will use <code>PNode</code>'s <code>Tag</code> property in .NET and its
         <code>getAttribute</code> and <code>addAttribute</code> methods in Java.&nbsp; Both of
@@ -339,11 +339,11 @@ public class GraphEditor : PCanvas {
           </div>
           <p>
             First we create some randomly positioned ellipses, for our nodes.&nbsp; Next, we need
-            to attach a list to each node, to store the connected edges.&nbsp; <em>Piccolo.NET</em>
-            provides the ability to add an object reference as a tag whereas <em>Piccolo.Java</em>
-            uses a set of named attributes instead.&nbsp; In the Java version, we use
-            <code>addAttribute</code> to attach an ArrayList.&nbsp; In the .NET version, we set
-            each node's <code>Tag</code> property to an ArrayList.
+            to attach a list to each node, to store the connected edges.&nbsp;
+            <em>Piccolo2D.NET</em> provides the ability to add an object reference as a tag whereas
+            <em>Piccolo2D.Java</em> uses a set of named attributes instead.&nbsp; In the Java
+            version, we use <code>addAttribute</code> to attach an ArrayList.&nbsp; In the .NET
+            version, we set each node's <code>Tag</code> property to an ArrayList.
           </p>
           <p>
             Next, we create some lines for our edges. Note, we use a separate layer added
@@ -496,7 +496,7 @@ class NodeDragHandler : PDragEventHandler {
             <pre class='snippet java' id='java3'>
 public class GraphEditorTester extends JFrame {
     public GraphEditorTester() {
-        setTitle("Piccolo Graph Editor");
+        setTitle("Piccolo2D Graph Editor");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         GraphEditor graphEditor = new GraphEditor(500, 500);
         getContentPane().add(graphEditor);

@@ -157,7 +157,7 @@
                       </ul>
                     </li>
                     <li>
-                      <a href='#Piccolo'>Piccolo</a>
+                      <a href='#Piccolo2D'>Piccolo2D</a>
                     </li>
                   </ul>
                 </li>
@@ -198,9 +198,9 @@
           2D Graphics Primer
         </h1>
         <p>
-          This section contains an overview of various 2D graphics concepts related to Piccolo.
+          This section contains an overview of various 2D graphics concepts related to Piccolo2D.
           This is a huge topic which cannot be covered in depth here. But the basics are presented
-          below. In many cases these lower level details are handled for you by Piccolo. But,
+          below. In many cases these lower level details are handled for you by Piccolo2D. But,
           understanding them will help you to use the framework more efficiently, especially when
           extending functionality and creating your own types.
         </p>
@@ -911,33 +911,33 @@ Polygon filling (0, 0)-(10, 5)-(5, 10) with yellow
         new coordinate system.&nbsp; Thinking of things this way is often simpler than thinking
         about transforming individual objects.
       </p>
-      <h2 id='Piccolo'>
-        What about Piccolo?
+      <h2 id='Piccolo2D'>
+        What about Piccolo2D?
       </h2>
       <p>
-        For the most part, Piccolo handles doing things efficiently for you.&nbsp; The framework
+        For the most part, Piccolo2D handles doing things efficiently for you.&nbsp; The framework
         implements region management (only repainting the part of the screen that has changed) as
-        well as efficient picking (determining which object the mouse is over).&nbsp; Piccolo's
+        well as efficient picking (determining which object the mouse is over).&nbsp; Piccolo2D's
         activities make it very easy to implement interpolated animations.&nbsp; And, in many
         cases, you can use convenience methods to transform nodes rather than interacting directly
         with matrices.
       </p>
       <p>
-        Piccolo also has a higher-level model of drawing than the one described above.&nbsp; Rather
-        than drawing lots of shapes to the screen in a one large paint method and then worrying
-        about repainting and picking them, piccolo uses an object-oriented approach.&nbsp; You
-        simply add nodes to the scene-graph.&nbsp; Each node knows how to render and pick
-        itself.&nbsp; Instead of invalidating a rectangle and then drawing in the window's paint
-        method, you will change the node's model.&nbsp; For example, you may change its fill color
-        (paint in Java, Brush in C#).&nbsp; Then the node will handle repainting itself with the
-        new color.
+        Piccolo2D also has a higher-level model of drawing than the one described above.&nbsp;
+        Rather than drawing lots of shapes to the screen in a one large paint method and then
+        worrying about repainting and picking them, piccolo2d uses an object-oriented
+        approach.&nbsp; You simply add nodes to the scene-graph.&nbsp; Each node knows how to
+        render and pick itself.&nbsp; Instead of invalidating a rectangle and then drawing in the
+        window's paint method, you will change the node's model.&nbsp; For example, you may change
+        its fill color (paint in Java, Brush in C#).&nbsp; Then the node will handle repainting
+        itself with the new color.
       </p>
       <p>
         Each node also has an affine transform that defines a local coordinate system for that
         node.&nbsp; Nodes can be arranged hierarchically, where the local coordinate system of a
         node is product of all the matrices from the root to the given node.&nbsp; So, changing a
         parent node's transform, will affect the child as well.&nbsp; For more details about
-        coordinate systems, see <a href='patterns.html#Coordinate_Systems'>Piccolo Patterns</a>.
+        coordinate systems, see <a href='patterns.html#Coordinate_Systems'>Piccolo2D Patterns</a>.
       </p>
     </div>
   </body>

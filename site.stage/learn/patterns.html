@@ -59,7 +59,7 @@
                       <a href='#Usage_Patterns'>Usage</a> 
                       <ul class='nav'>
                         <li>
-                          <a href='#Building_Piccolo'>Build</a>
+                          <a href='#Building_Piccolo2D'>Build</a>
                         </li>
                         <li>
                           <a href='#Creating_Nodes'>Creating&nbsp;Nodes</a>
@@ -79,10 +79,10 @@
                       </ul>
                     </li>
                     <li>
-                      <a href='#Implementation_Patterns_for_Piccolo'>Implementation</a> 
+                      <a href='#Implementation_Patterns_for_Piccolo2D'>Implementation</a> 
                       <ul class='nav'>
                         <li>
-                          <a href='#Piccolo_Framework_Design'>Framework&nbsp;Design</a>
+                          <a href='#Piccolo2D_Framework_Design'>Framework&nbsp;Design</a>
                         </li>
                         <li>
                           <a href='#Full_Terminology'>Full&nbsp;Terminology</a>
@@ -175,12 +175,12 @@
     <div id='main'>
       <div id='main-head'>
         <h1>
-          Piccolo Patterns
-        </h1>Below, we explain the common programming Paradigms associated with Piccolo. This work
-        is based heavily on the work of R. Johnson in his seminal 1992 paper "Documenting
+          Piccolo2D Patterns
+        </h1>Below, we explain the common programming Paradigms associated with Piccolo2D. This
+        work is based heavily on the work of R. Johnson in his seminal 1992 paper "Documenting
         Frameworks using Patterns" and the work of Douglas Kirk in his <em>Patterns for
         JHotDraw</em> paper. This work merely attempts to adapt the concepts presented there into a
-        format suitable for our Piccolo framework.
+        format suitable for our Piccolo2D framework.
       </div>
       <p class='toggle' id='language'
       style='float: right; width: 8.5em; height: 8ex; border:thin solid blue;'>
@@ -203,22 +203,22 @@
         Pattern 1: Zoomable User Interfaces (ZUI's)
       </h3>
       <p class='preamble'>
-        Piccolo is a framework for building zoomable user interfaces. The elements of these
+        Piccolo2D is a framework for building zoomable user interfaces. The elements of these
         interfaces can be scaled or animated, and react to user input. The user viewpoint may also
-        be scaled and panned. Interfaces built with Piccolo can define your entire application
+        be scaled and panned. Interfaces built with Piccolo2D can define your entire application
         interface, or they can be a small part of a large system.
       </p>
       <p class='image'>
         <img src='../images/zoomsequence.jpg' alt='Zoom Sequence' />
       </p>
       <p>
-        Figure 1 shows a sequence of frames from a simple zooming interface created using Piccolo.
-        This example shows the fundamental aspects of a Piccolo application. In this sequence the
-        user is zooming in on a "Hello world!" interface object.
+        Figure 1 shows a sequence of frames from a simple zooming interface created using
+        Piccolo2D. This example shows the fundamental aspects of a Piccolo2D application. In this
+        sequence the user is zooming in on a "Hello world!" interface object.
       </p>
       <p>
-        The objects on a piccolo canvas are nodes (instances of <code>PNode</code>), in this case a
-        <code>PText</code> node. Nodes are used to represent the discrete components of an
+        The objects on a piccolo2d canvas are nodes (instances of <code>PNode</code>), in this case
+        a <code>PText</code> node. Nodes are used to represent the discrete components of an
         interface. The framework comes with some commonly required nodes (shapes, images, and text)
         and the developer has the opportunity to define new ones for their own interfaces.
       </p>
@@ -226,19 +226,20 @@
         Figure 1's zooming interaction was created with the help of an event listener (instances of
         <code>PInputEventListener</code>). Event listeners define how the interface reacts to user
         input. In this zooming interaction the event listener reacted to mouse input by
-        manipulating the camera node's view transform to create the zooming effect. Piccolo comes
+        manipulating the camera node's view transform to create the zooming effect. Piccolo2D comes
         with ready-made event listeners for zooming and panning camera nodes, and dragging nodes on
         the canvas.
       </p>
       <p>
-        All Piccolo interfaces need to be placed in a <code>PCanvas</code> so that they may be
+        All Piccolo2D interfaces need to be placed in a <code>PCanvas</code> so that they may be
         viewed and interacted with by the user. <code>PCanvas</code> extends the
-        <code>javax.swing.JComponent</code> class in Piccolo.Java and the equivalent
-        <code>System.Windows.Forms.Control</code> class in Piccolo.NET.&nbsp; As a result, piccolo
-        can easily be integrated with both Java Swing and Windows applications. In addition to
-        hosting Piccolo in the application interface, the canvas also maintains a camera and layer
-        node. Scaling and translating the camera's view transform over time is how zooming and
-        panning is accomplished. New nodes are normally added to the canvas's layer node.
+        <code>javax.swing.JComponent</code> class in Piccolo2D.Java and the equivalent
+        <code>System.Windows.Forms.Control</code> class in Piccolo2D.NET.&nbsp; As a result,
+        piccolo2d can easily be integrated with both Java Swing and Windows applications. In
+        addition to hosting Piccolo2D in the application interface, the canvas also maintains a
+        camera and layer node. Scaling and translating the camera's view transform over time is how
+        zooming and panning is accomplished. New nodes are normally added to the canvas's layer
+        node.
       </p>
       <p>
         The interface depicted in figure 1 can be created with the following code:
@@ -259,7 +260,7 @@ import edu.umd.cs.piccolox.PFrame;
 // The PFrame class is a utility class that creates a new java window
 // and adds a PCanvas to it. You can override the initialize method and
 // start building your interface there.
-public class PiccoloExample extends PFrame {
+public class Piccolo2DExample extends PFrame {
         public void initialize() {
                 PNode aNode = new PText("Hello World!");                
 
@@ -269,19 +270,19 @@ public class PiccoloExample extends PFrame {
         }
 
         public static void main(String[] args) {
-                new PiccoloExample();
+                new Piccolo2DExample();
         }
 }
 </pre>
         <pre class='snippet csharp' id='csharp0'>
-using UMD.HCIL.Piccolo;
-using UMD.HCIL.Piccolo.Nodes;
-using UMD.HCIL.PiccoloX;
+using UMD.HCIL.Piccolo2D;
+using UMD.HCIL.Piccolo2D.Nodes;
+using UMD.HCIL.Piccolo2DX;
 
 // The PForm class is a utility class that creates a new window
 // and adds a PCanvas to it. You can override the Initialize method and
 // start building your interface there.
-public class PiccoloExample : PForm {
+public class Piccolo2DExample : PForm {
         public override void Initialize() {
                 PText text = new PText("Hello World");
 
@@ -292,7 +293,7 @@ public class PiccoloExample : PForm {
 
         [STAThread]
         static void Main() {
-                Application.Run(new PiccoloExample());
+                Application.Run(new Piccolo2DExample());
         }
 }
 </pre>
@@ -308,12 +309,12 @@ public class PiccoloExample : PForm {
       </p>
       <ul>
         <li>
-          To quickly get started using Piccolo, see <a href='#Usage_Patterns'>Usage Patterns for
-          Piccolo</a>
+          To quickly get started using Piccolo2D, see <a href='#Usage_Patterns'>Usage Patterns for
+          Piccolo2D</a>
         </li>
         <li>
-          To learn more about the Piccolo implementation, see
-          <a href='#implementation_patterns'>Implementation Patterns for Piccolo</a>
+          To learn more about the Piccolo2D implementation, see
+          <a href='#implementation_patterns'>Implementation Patterns for Piccolo2D</a>
         </li>
         <li>
           To learn more about common ZUI design patterns, see <a href='#interface_patterns'>Design
@@ -321,14 +322,14 @@ public class PiccoloExample : PForm {
         </li>
       </ul>
       <h2 id='Usage_Patterns'>
-        Usage Patterns for Piccolo
+        Usage Patterns for Piccolo2D
       </h2>
       <p>
-        The Piccolo usage patterns are designed to get you up and running with Piccolo as quickly
-        as possible. They provide quick "cookbook" explanations of the major things that can be
-        done with Piccolo. To gain a better understanding of the Piccolo implementation and of its
-        runtime behavior is see <a href='#implementation_patterns'>Implementation Patterns for
-        Piccolo</a>.
+        The Piccolo2D usage patterns are designed to get you up and running with Piccolo2D as
+        quickly as possible. They provide quick "cookbook" explanations of the major things that
+        can be done with Piccolo2D. To gain a better understanding of the Piccolo2D implementation
+        and of its runtime behavior is see <a href='#implementation_patterns'>Implementation
+        Patterns for Piccolo2D</a>.
       </p>
       <ul>
         <li>
@@ -341,103 +342,103 @@ public class PiccoloExample : PForm {
           To create animations, see <a href='#Activities'>Activities</a>
         </li>
       </ul>
-      <h3 id='Building_Piccolo'>
-        Pattern 2: Building and Using Piccolo
+      <h3 id='Building_Piccolo2D'>
+        Pattern 2: Building and Using Piccolo2D
       </h3>
       <p class='preamble'>
-        To use <em>Piccolo.Java</em>, you will need to add the appropriate .jar files to your
+        To use <em>Piccolo2D.Java</em>, you will need to add the appropriate .jar files to your
         classpath, and to do that you need to know what each .jar file contains, and how to build
         the framework.
       </p>
       <p>
-        Piccolo.Java comes with 4 .jar files:
+        Piccolo2D.Java comes with 4 .jar files:
       </p>
       <dl>
         <dt>
           piccolo.jar
         </dt>
         <dd>
-          This .jar contains the Piccolo 2D zooming graphics framework.
+          This .jar contains the Piccolo2D 2D zooming graphics framework.
         </dd>
         <dt>
           piccolox.jar
         </dt>
         <dd>
-          This .jar contains the Piccolo extras, and it depends on piccolo.jar
+          This .jar contains the Piccolo2D extras, and it depends on piccolo.jar
         </dd>
         <dt>
           examples.jar
         </dt>
         <dd>
-          This .jar contains simple examples of Piccolo, it depends on piccolo.jar and
+          This .jar contains simple examples of Piccolo2D, it depends on piccolo.jar and
           piccolox.jar.
         </dd>
         <dt>
           tests.jar
         </dt>
         <dd>
-          This .jar contains unit tests for classes in the Piccolo framework, it depends on
+          This .jar contains unit tests for classes in the Piccolo2D framework, it depends on
           piccolo.jar and /lib/junit.jar
         </dd>
       </dl>
       <p>
-        If you downloaded the compiled distribution of Piccolo.Java these .jar files are located
-        for you in "piccolo/build/". If you didn't then you will need to build them yourself. This
-        is done by typing 'build all' from within the piccolo/ folder.
+        If you downloaded the compiled distribution of Piccolo2D.Java these .jar files are located
+        for you in "piccolo2d/build/". If you didn't then you will need to build them yourself.
+        This is done by typing 'build all' from within the piccolo2d/ folder.
       </p>
       <p>
-        Piccolo.Java also comes with project files for the Eclipse IDE (www.eclipse.org), our
-        favorite development environment for Piccolo.Java, and Java in general.
+        Piccolo2D.Java also comes with project files for the Eclipse IDE (www.eclipse.org), our
+        favorite development environment for Piccolo2D.Java, and Java in general.
       </p>
       <p class='preamble'>
-        To use <em>Piccolo.NET</em>, you will need to add references to the appropriate .dll files
-        in your Visual Studio Project.
+        To use <em>Piccolo2D.NET</em>, you will need to add references to the appropriate .dll
+        files in your Visual Studio Project.
       </p>
       <p>
-        Piccolo.NET comes with 2 .dll files and 2 .xml files:
+        Piccolo2D.NET comes with 2 .dll files and 2 .xml files:
       </p>
       <dl>
         <dt>
-          UMD.HCIL.Piccolo.dll
+          UMD.HCIL.Piccolo2D.dll
         </dt>
         <dd>
-          This .dll contains the Piccolo.NET 2D zooming graphics framework
+          This .dll contains the Piccolo2D.NET 2D zooming graphics framework
         </dd>
         <dt>
-          UMD.HCIL.PiccoloX.dll
+          UMD.HCIL.Piccolo2DX.dll
         </dt>
         <dd>
-          This .dll contains the Piccolo extras, and it depends on UMD.HCIL.Piccolo.dll.
+          This .dll contains the Piccolo2D extras, and it depends on UMD.HCIL.Piccolo2D.dll.
         </dd>
         <dt>
-          UMD.HCIL.Piccolo.xml
+          UMD.HCIL.Piccolo2D.xml
         </dt>
         <dd>
-          This xml file is necessary to provide intellisense support for UMD.HCIL.Piccolo.dll,
+          This xml file is necessary to provide intellisense support for UMD.HCIL.Piccolo2D.dll,
           within the Visual Studio.NET IDE
         </dd>
         <dt>
-          UMD.HCIL.PiccoloX.xml
+          UMD.HCIL.Piccolo2DX.xml
         </dt>
         <dd>
-          This xml file is necessary to provide intellisense support for UMD.HCIL.PiccoloX.dll,
+          This xml file is necessary to provide intellisense support for UMD.HCIL.Piccolo2DX.dll,
           within the Visual Studio.NET IDE
         </dd>
       </dl>
       <p>
-        You do not need to build either distribution of Piccolo.NET. The DLL distribution contains
-        all four of these files at the top level. And, the source distribution contains these files
-        in "Piccolo.NET/Bin/".
+        You do not need to build either distribution of Piccolo2D.NET. The DLL distribution
+        contains all four of these files at the top level. And, the source distribution contains
+        these files in "Piccolo2D.NET/Bin/".
       </p>
       <p>
         However, if you modify the source code, then you will need to rebuild the framework.&nbsp;
-        To do this, open "Piccolo.NET/Source/Piccolo.Net.sln" in Visual Studio.NET.&nbsp; Then,
+        To do this, open "Piccolo2D.NET/Source/Piccolo2D.Net.sln" in Visual Studio.NET.&nbsp; Then,
         from the "Build" menu select "Rebuild Solution." The new .dll files will be located in
-        "Piccolo.NET/Source/Piccolo/bin/Debug" and "Piccolo.NET/Source/PiccoloX/bin/Debug".
+        "Piccolo2D.NET/Source/Piccolo2D/bin/Debug" and "Piccolo2D.NET/Source/Piccolo2DX/bin/Debug".
       </p>
       <p>
-        <b>Note:</b> For more detailed instructions on setting up Piccolo, see the README file that
-        comes with each distribution and the <a href='get-started.html'>Getting Started</a>
+        <b>Note:</b> For more detailed instructions on setting up Piccolo2D, see the README file
+        that comes with each distribution and the <a href='get-started.html'>Getting Started</a>
         tutorial.
       </p>
       <h3 id='Creating_Nodes'>
@@ -452,7 +453,7 @@ public class PiccoloExample : PForm {
           Use existing classes
         </dt>
         <dd>
-          Piccolo is supplied with the default implementations for three kinds of visual nodes:
+          Piccolo2D is supplied with the default implementations for three kinds of visual nodes:
           <code>PText</code>, <code>PPath</code>, and <code>PImage</code>. These may be used
           &lsquo;as is' in a new application, which saves developers the time and effort required
           to create such elements themselves, but reduces the knowledge they have about how that
@@ -492,13 +493,13 @@ public class PiccoloExample : PForm {
           directly. <code>PNode</code> already provides default behavior for all operations (it is
           a concrete class). So, it is fairly easy to subclass. Many subclasses will want to
           override a few key methods: <code>setBounds()</code>, <code>intersects()</code>, and
-          <code>paint()</code> in Piccolo.Java and <code>SetBounds()</code>,
-          <code>Intersects()</code> and <code>Paint()</code> in Piccolo.NET.
+          <code>paint()</code> in Piccolo2D.Java and <code>SetBounds()</code>,
+          <code>Intersects()</code> and <code>Paint()</code> in Piccolo2D.NET.
         </dd>
       </dl>
       <p>
-        Each visual interface element in Piccolo is a subclass of <code>PNode</code>. Nodes can be
-        used directly or customized by sub classing or composition.&nbsp;
+        Each visual interface element in Piccolo2D is a subclass of <code>PNode</code>. Nodes can
+        be used directly or customized by sub classing or composition.&nbsp;
       </p>
       <p>
         The following code defines a new simple (without a border) ellipse node.
@@ -604,9 +605,9 @@ public class SimpleEllipseNode : PNode {
       </h3>
       <p class='preamble'>
         Event listeners represent the modes of interaction between the user and the interface.
-        Piccolo comes with event listeners that let the user zoom and pan their viewpoint, and drag
-        nodes in the interface. An important part of designing an interface using Piccolo is to
-        design the set of event listeners that will define the user experience.
+        Piccolo2D comes with event listeners that let the user zoom and pan their viewpoint, and
+        drag nodes in the interface. An important part of designing an interface using Piccolo2D is
+        to design the set of event listeners that will define the user experience.
       </p>
       <p>
         Once created an event listener must be registered with a node so that it can receive
@@ -797,7 +798,7 @@ Canvas.RemoveInputEventListener(Canvas.PanEventHandler);
 </pre>
       </div>
       <p>
-        In Piccolo.NET you can also use the following shortcut:
+        In Piccolo2D.NET you can also use the following shortcut:
       </p>
       <p class='toggle selected'>
         C#
@@ -812,8 +813,8 @@ Canvas.PanEventHandler = null;
         <code>PInputEventListener.DoesAcceptEvent()</code> method can help in this regard.
       </p>
       <p>
-        In Piccolo.NET there is another way to handle basic input events.&nbsp; You can connect an
-        event handler method directly to a node in the same way that .NET event handlers can be
+        In Piccolo2D.NET there is another way to handle basic input events.&nbsp; You can connect
+        an event handler method directly to a node in the same way that .NET event handlers can be
         connected to a control.&nbsp; This allows you to define your event handlers in style
         consistent with .NET events.&nbsp; For example, the following code prints a message every
         time the user clicks the green node:
@@ -922,8 +923,8 @@ public class LayoutNode : PNode {
         life of its own through the use of animation and other "scheduled" behaviors.
       </p>
       <p>
-        Activities control some time-dependent aspect of the Piccolo system, usually some part of a
-        node. This behavior may be of fixed duration or may continue until some termination
+        Activities control some time-dependent aspect of the Piccolo2D system, usually some part of
+        a node. This behavior may be of fixed duration or may continue until some termination
         condition is met (or perhaps forever). Activities of fixed duration may be defined to
         consume a fixed amount of time, independent of the frame rate.
       </p>
@@ -1020,9 +1021,9 @@ public virtual PTransformActivity AnimateToMatrix(PMatrix destMatrix,
       </h3>
       <p class='preamble'>
         SWT is a new Java toolkit (similar to and replacing Swing) that comes out of the Eclipse
-        IDE project. Piccolo.Java was originally designed to work with swing, but now has
+        IDE project. Piccolo2D.Java was originally designed to work with swing, but now has
         <em>preliminary</em> SWT support as well. You will most likely use SWT if you are writing
-        Piccolo extensions to the Eclipse IDE. See
+        Piccolo2D extensions to the Eclipse IDE. See
         <a href='http://www.eclipse.org'>www.eclipse.org</a> for more info on the Eclipse project.
       </p>
       <p>
@@ -1063,31 +1064,31 @@ public class SWTHelloWorld {
         }
 }
 </pre>
-      <h2 id='Implementation_Patterns_for_Piccolo'>
-        Implementation Patterns for Piccolo
+      <h2 id='Implementation_Patterns_for_Piccolo2D'>
+        Implementation Patterns for Piccolo2D
       </h2>
       <p>
-        The Piccolo implementation patterns are designed to give a general understanding of how
-        Piccolo is implemented and what its runtime behaviors are. This is opposed to the patterns
-        in <a href='#Usage_Patterns'>Usage Patterns For Piccolo</a> that are designed to get you
-        using the framework as quickly as possible.
+        The Piccolo2D implementation patterns are designed to give a general understanding of how
+        Piccolo2D is implemented and what its runtime behaviors are. This is opposed to the
+        patterns in <a href='#Usage_Patterns'>Usage Patterns For Piccolo2D</a> that are designed to
+        get you using the framework as quickly as possible.
       </p>
-      <h3 id='Piccolo_Framework_Design'>
-        Pattern 8: Piccolo Framework Design
+      <h3 id='Piccolo2D_Framework_Design'>
+        Pattern 8: Piccolo2D Framework Design
       </h3>
       <p class='preamble'>
-        You should be familiar with the basic concepts of the Piccolo framework design and how they
-        relate to each other to effectively use Piccolo.
+        You should be familiar with the basic concepts of the Piccolo2D framework design and how
+        they relate to each other to effectively use Piccolo2D.
       </p>
       <p>
-        Piccolo is a direct-manipulation graphics framework that supports constructing zoomable
+        Piccolo2D is a direct-manipulation graphics framework that supports constructing zoomable
         interfaces. The framework's design borrows heavily from the designs of both the Jazz and
         Morphic interface frameworks.
       </p>
       <p class='image'>
-        <img src='../images/piccolo_hierachy.png' alt='Piccolo Class Hierarchy'
+        <img src='../images/piccolo2d_hierachy.png' alt='Piccolo2D Class Hierarchy'
         style='background-color: white' /><br />
-         Piccolo Class Hierarchy
+         Piccolo2D Class Hierarchy
       </p>
       <p>
         There are four main classes that define the framework's core:
@@ -1104,7 +1105,7 @@ public class SWTHelloWorld {
           <code>PLayer</code> (a node that can be looked at by a camera)
         </li>
         <li>
-          <code>PRoot</code> (the root of the Piccolo display tree)
+          <code>PRoot</code> (the root of the Piccolo2D display tree)
         </li>
         <li>
           <code>PCanvas</code> (the host component that lets <code>PNodes</code> exist in a Java
@@ -1114,21 +1115,21 @@ public class SWTHelloWorld {
         </li>
       </ol>
       <p class='image'>
-        <img src='../images/piccolo_runtime.png' alt='Piccolo Runtime Structure' /><br />
-         Piccolo Runtime Structure
+        <img src='../images/piccolo2d_runtime.png' alt='Piccolo2D Runtime Structure' /><br />
+         Piccolo2D Runtime Structure
       </p>
       <p>
         At runtime these classes form a tree-like structure with the <code>PRoot</code> situated at
         the top. Each <code>PCamera</code> is normally linked with at least one <code>PLayer</code>
         that it looks at through it's view transform. If a camera is associated with a canvas then
         that camera's view is displayed on the canvas, and input events from the canvas enter the
-        Piccolo scene graph at that camera's point in the hierarchy.
+        Piccolo2D scene graph at that camera's point in the hierarchy.
       </p>
       <h3>
         PNode
       </h3>
       <p>
-        Nodes are the central design concept in Piccolo. Any object that wants to paint itself on
+        Nodes are the central design concept in Piccolo2D. Any object that wants to paint itself on
         the screen should inherit from the node class. In addition to painting on the screen all
         nodes may have other "child" nodes added to them. Visual structures are build up by
         grouping and sub grouping collections of nodes.
@@ -1161,7 +1162,7 @@ public class SWTHelloWorld {
         PRoot
       </h3>
       <p>
-        The <code>PRoot</code> serves as the topmost node in the Piccolo runtime structure; all
+        The <code>PRoot</code> serves as the topmost node in the Piccolo2D runtime structure; all
         other nodes are its direct children or descendents of its children. The
         <code>PCanvas</code> communicates with the root node to manage screen updates and to
         dispatch events to its children.
@@ -1170,12 +1171,12 @@ public class SWTHelloWorld {
         PCanvas
       </h3>
       <p>
-        The <code>PCanvas</code> is a <code>JComponent</code> in Piccolo.Java and a
-        <code>Control</code> in Piccolo.NET. Thus, it is used to view a Piccolo scene graph in Java
-        Swing and .NET Windows applications respectively. The <code>PCanvas</code> views the scene
-        graph through a <code>PCamera</code>. It forwards input events to that camera, and uses
-        that camera to draw itself. Translating and scaling that camera's view transform is how
-        panning and zooming are accomplished.
+        The <code>PCanvas</code> is a <code>JComponent</code> in Piccolo2D.Java and a
+        <code>Control</code> in Piccolo2D.NET. Thus, it is used to view a Piccolo2D scene graph in
+        Java Swing and .NET Windows applications respectively. The <code>PCanvas</code> views the
+        scene graph through a <code>PCamera</code>. It forwards input events to that camera, and
+        uses that camera to draw itself. Translating and scaling that camera's view transform is
+        how panning and zooming are accomplished.
       </p>
       <h3 id='Full_Terminology'>
         Pattern 9: Full Terminology
@@ -1186,7 +1187,7 @@ public class SWTHelloWorld {
         only work directly on the node and not on its children.
       </p>
       <p>
-        Piccolo uses the term "full" to mean a node and its descendants with the node's transform
+        Piccolo2D uses the term "full" to mean a node and its descendants with the node's transform
         applied. This helps distinguish between methods that work on a single node and those that
         work on a node together with all of its descendants with the node's transform applied. When
         traversing the node scene graph to paint or calculate bounds parent nodes generally call
@@ -1247,13 +1248,13 @@ aNode.FullPaint(aPaintContext);
         Pattern 10: Coordinate Systems
       </h3>
       <p class='preamble'>
-        Each node in Piccolo has its own transform that it uses to define its own coordinate
+        Each node in Piccolo2D has its own transform that it uses to define its own coordinate
         system. It is essential that you understand coordinate systems, and how to convert from one
         coordinate system to another when designing a zoomable user interface.
       </p>
       <p>
-        There may be thousands of different coordinate systems in a Piccolo interface (a different
-        one for each node), but they can all be organized into three categories:
+        There may be thousands of different coordinate systems in a Piccolo2D interface (a
+        different one for each node), but they can all be organized into three categories:
       </p>
       <dl>
         <dt>
@@ -1285,8 +1286,8 @@ aNode.FullPaint(aPaintContext);
         </dd>
       </dl>
       <p>
-        Piccolo provides methods that let you easily convert between different coordinate systems.
-        The <code>PNode</code> class defines the methods:
+        Piccolo2D provides methods that let you easily convert between different coordinate
+        systems. The <code>PNode</code> class defines the methods:
       </p>
       <p class='toggle'>
         <a href='javascript:void(0);' class='toggle selected' id='jlink9'
@@ -1410,8 +1411,8 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         Pattern 11: UI Cycle
       </h3>
       <p class='preamble'>
-        The root node's UI Cycle is at the center of Piccolo's runtime behavior where it drives the
-        processes for processing user input, activities, bounds management, and scheduling
+        The root node's UI Cycle is at the center of Piccolo2D's runtime behavior where it drives
+        the processes for processing user input, activities, bounds management, and scheduling
         repaints.
       </p>
       <p>
@@ -1447,13 +1448,13 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         </dd>
       </dl>
       <p>
-        The Piccolo UI loop is always driven from the event dispatch thread. A UI cycle is done for
-        each new input event received by the canvas, and for each time the activity timer fires (to
-        support animation).
+        The Piccolo2D UI loop is always driven from the event dispatch thread. A UI cycle is done
+        for each new input event received by the canvas, and for each time the activity timer fires
+        (to support animation).
       </p>
       <ul>
         <li>
-          To learn more about Piccolo and threads, see <a href='#Threads'>Threads</a>
+          To learn more about Piccolo2D and threads, see <a href='#Threads'>Threads</a>
         </li>
         <li>
           To learn more about dispatching events, see <a href='#Dispatching%20Events'>Dispatching
@@ -1476,22 +1477,22 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         Pattern 12: Threads
       </h3>
       <p class='preamble'>
-        Piccolo is not thread safe and should only be used by a single thread at a time, and that
+        Piccolo2D is not thread safe and should only be used by a single thread at a time, and that
         thread will almost always be the event dispatch thread.
       </p>
       <p>
         If you need to run a computation in another thread you will need to call special methods to
         connect the results of your computation back up to the event dispatch thread. In
-        Piccolo.Java, use <code>SwingUtilities.invokeLater()</code> or
-        <code>SwingUtilities.invokeAndWait()</code>. In Piccolo.NET, use
+        Piccolo2D.Java, use <code>SwingUtilities.invokeLater()</code> or
+        <code>SwingUtilities.invokeAndWait()</code>. In Piccolo2D.NET, use
         <code>Control.BeginInvoke()</code> and <code>Control.Invoke()</code>.
       </p>
       <h3 id='Dispatching_Events'>
         Pattern 13: Dispatching Events
       </h3>
       <p class='preamble'>
-        Event dispatch is the process through which Piccolo directs new events coming from the user
-        to event handlers in the interface.
+        Event dispatch is the process through which Piccolo2D directs new events coming from the
+        user to event handlers in the interface.
       </p>
       <p>
         All event dispatch is managed by the input manager (<code>PInputManager</code>). Events get
@@ -1500,12 +1501,12 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         manager.
       </p>
       <p>
-        The input manager then converts the incoming Java or .NET event to a Piccolo event.&nbsp;
-        In Piccolo.Java, a <code>java.awt.InputEvent</code> is converted into a
-        <code>PInputEvent</code>. In Piccolo.NET, a <code>System.EventArgs</code> is converted into
-        a <code>PInputEventArgs</code>. Next the input manager sends the Piccolo event to the event
-        listeners of the appropriate nodes. The dispatch manager maintains the following focus
-        nodes:
+        The input manager then converts the incoming Java or .NET event to a Piccolo2D event.&nbsp;
+        In Piccolo2D.Java, a <code>java.awt.InputEvent</code> is converted into a
+        <code>PInputEvent</code>. In Piccolo2D.NET, a <code>System.EventArgs</code> is converted
+        into a <code>PInputEventArgs</code>. Next the input manager sends the Piccolo2D event to
+        the event listeners of the appropriate nodes. The dispatch manager maintains the following
+        focus nodes:
       </p>
       <dl>
         <dt>
@@ -1549,7 +1550,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         All scheduled activities are given a chance to run during the UI Cycle.
       </p>
       <p>
-        Activities are used to control some time dependent aspect of the Piccolo framework, for
+        Activities are used to control some time dependent aspect of the Piccolo2D framework, for
         example they can be used to animate a node across the screen, or animate the camera's view
         transform to perform a zoom.
       </p>
@@ -1562,9 +1563,9 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
       </p>
       <p>
         Maintaining bounds caches and updating layouts can become very expensive when manipulating
-        a large number of nodes. Because of this Piccolo uses a two stage incremental approach the
-        layout management. The two stages consist of; a damage stage where damage is recorded in
-        bit flags for each damaged node, and an incremental repair stage where the damage is
+        a large number of nodes. Because of this Piccolo2D uses a two stage incremental approach
+        the layout management. The two stages consist of; a damage stage where damage is recorded
+        in bit flags for each damaged node, and an incremental repair stage where the damage is
         repaired as is needed.
       </p>
       <p>
@@ -1631,12 +1632,12 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         Pattern 16: Updating the Display
       </h3>
       <p class='preamble'>
-        Piccolo should paint the screen only when needed, and it should be smart about only
+        Piccolo2D should paint the screen only when needed, and it should be smart about only
         painting the portions of the screen that need to be painted.
       </p>
       <p>
-        Display update in Piccolo is driven from the UI Cycle, and uses the same damage/repair
-        design that Piccolo uses to validate bounds. When a node changes such that it needs to be
+        Display update in Piccolo2D is driven from the UI Cycle, and uses the same damage/repair
+        design that Piccolo2D uses to validate bounds. When a node changes such that it needs to be
         repainted it invalidates its paint, and invalidates the child paint of all its ancestors.
         Later (at the end of the UI Cycle) screen damage is collected for all nodes with invalid
         paint.
@@ -1646,10 +1647,10 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
       </h1>
       <p>
         This section contains a few basic patterns that occur frequently in ZUIs, and describes how
-        they can be implemented with Piccolo. To learn more about using Piccolo see
-        <a href='#Usage_Patterns'>Usage Patterns For Piccolo</a>, and to learn more about the
-        Piccolo implementation see <a href='#implementation_patterns'>Implementation Patterns for
-        Piccolo</a>.
+        they can be implemented with Piccolo2D. To learn more about using Piccolo2D see
+        <a href='#Usage_Patterns'>Usage Patterns For Piccolo2D</a>, and to learn more about the
+        Piccolo2D implementation see <a href='#implementation_patterns'>Implementation Patterns for
+        Piccolo2D</a>.
       </p>
       <h3 id='Semantic_Zooming'>
         Pattern 17: Semantic Zooming
@@ -1661,7 +1662,7 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
         all the documents content should become visible.
       </p>
       <p>
-        To do semantic zooming in Piccolo you should override the appropriate paint method, and
+        To do semantic zooming in Piccolo2D you should override the appropriate paint method, and
         then choose how the node renders itself based on the scale stored in the paint context
         parameter. This example creates a new node that will paint its based bounds filed with a
         blue color when viewed at a scale that is less then one, and with an orange color when the
@@ -1716,7 +1717,7 @@ public class SemanticNode : PNode {
         even when the camera is zoomed and panned.
       </p>
       <p>
-        To do this in Piccolo you should add the "sticky node" as a child of the camera. The
+        To do this in Piccolo2D you should add the "sticky node" as a child of the camera. The
         camera's view transform is only applied to the layer nodes that it is viewing, not to its
         children. The children are drawn after (on top of) the layer nodes.
       </p>

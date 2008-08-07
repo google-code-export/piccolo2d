@@ -91,24 +91,24 @@
     <div id='main'>
       <div id='main-head'>
         <h1>
-          About Piccolo
+          About Piccolo2D
         </h1>
         <p>
-          <em>Welcome to Piccolo!</em> A revolutionary way to create robust, full-featured
+          <em>Welcome to Piccolo2D!</em> A revolutionary way to create robust, full-featured
           <em>graphical applications</em> in Java and C#, with striking visual effects such as
           <em>zooming, animation</em> and <em>multiple representations</em>.
         </p>
         <p>
-          Piccolo is a toolkit that supports the development of 2D structured graphics programs, in
-          general, and Zoomable User Interfaces (ZUIs), in particular. A ZUI is a new kind of
+          Piccolo2D is a toolkit that supports the development of 2D structured graphics programs,
+          in general, and Zoomable User Interfaces (ZUIs), in particular. A ZUI is a new kind of
           interface that presents a huge canvas of information on a traditional computer display by
           letting the user smoothly zoom in, to get more detailed information, and zoom out for an
           overview. We use a "scene-graph" model that is common to 3D environments. Basically, this
-          means that Piccolo maintains a hierarchal structure of objects and cameras, allowing the
-          application developer to orient, group and manipulate objects in meaningful ways.
+          means that Piccolo2D maintains a hierarchal structure of objects and cameras, allowing
+          the application developer to orient, group and manipulate objects in meaningful ways.
         </p>
         <p>
-          Why use Piccolo? It will allow you to build structured graphical applications without
+          Why use Piccolo2D? It will allow you to build structured graphical applications without
           worrying so much about the low level details. The infrastructure provides efficient
           repainting of the screen, bounds management, event handling and dispatch, picking
           (determining which visual object the mouse is over), animation, layout, and more.
@@ -116,51 +116,51 @@
           want to build an application with zooming, that's built right into the framework too.
         </p>
         <p>
-          What exactly is it? Piccolo is a layer built on top of a lower level graphics API. There
-          are currently three versions of the toolkit: Piccolo.Java, Piccolo.NET and
-          PocketPiccolo.NET (for the .NET Compact Framework). The java version is built on Java 2
+          What exactly is it? Piccolo2D is a layer built on top of a lower level graphics API.
+          There are currently three versions of the toolkit: Piccolo2D.Java, Piccolo2D.NET and
+          PocketPiccolo2D.NET (for the .NET Compact Framework). The java version is built on Java 2
           and relies on the Java2D API to do its graphics rendering. The .NET version is built on
           the .NET Framework and relies on the GDI+ API to do its graphics rendering. This makes it
           easy for Java and C# programmers, even those targeting PDAs, to build their own animated
-          graphical applications. And best of all, Piccolo is <em>free</em> and <em>open
+          graphical applications. And best of all, Piccolo2D is <em>free</em> and <em>open
           source!</em>
         </p>
       </div>
       <h2>
-        How many versions of Piccolo are there?
+        How many versions of Piccolo2D are there?
       </h2>
       <p>
-        There three versions of Piccolo: <em>Piccolo.Java</em>, <em>Piccolo.NET</em>, and
-        <em>PocketPiccolo.NET</em>. They contain the same core functionality with a few
+        There three versions of Piccolo2D: <em>Piccolo2D.Java</em>, <em>Piccolo2D.NET</em>, and
+        <em>PocketPiccolo2D.NET</em>. They contain the same core functionality with a few
         differences. We will examine each separately here. For a detailed comparison, see
-        <a href='comparison.shtml'>Piccolo in Comparison</a>.
+        <a href='comparison.shtml'>Piccolo2D in Comparison</a>.
       </p>
       <dl>
         <dt>
-          Piccolo.Java
+          Piccolo2D.Java
         </dt>
         <dd>
-          Piccolo.Java is written in 100% java, and the great thing about Java is that it runs on
+          Piccolo2D.Java is written in 100% java, and the great thing about Java is that it runs on
           lots of machines including Windows, Mac OS X, Linux and Solaris. It is based on the
           Java2D API.
         </dd>
         <dt>
-          Piccolo.NET
+          Piccolo2D.NET
         </dt>
         <dd>
-          Piccolo.NET is written in 100% C#.&nbsp; It runs on platforms that support the .NET
-          Framework.&nbsp; This means mainly Windows machines. Piccolo.NET provides the same
-          functionality as Piccolo.Java, enabling .NET users to easily integrate advanced 2D
+          Piccolo2D.NET is written in 100% C#.&nbsp; It runs on platforms that support the .NET
+          Framework.&nbsp; This means mainly Windows machines. Piccolo2D.NET provides the same
+          functionality as Piccolo2D.Java, enabling .NET users to easily integrate advanced 2D
           graphics and zooming with standard Windows application code.&nbsp; It is a deep port of
           the&nbsp;&nbsp;Java version.&nbsp; The API is very similar,&nbsp;&nbsp;but there
           are&nbsp;a few differences to better support .NET style guidelines and constructs.&nbsp;
-          Piccolo.NET is based on the GDI+ API.
+          Piccolo2D.NET is based on the GDI+ API.
         </dd>
         <dt>
-          PocketPiccolo.NET
+          PocketPiccolo2D.NET
         </dt>
         <dd>
-          PocketPiccolo.NET is also written in C#.&nbsp; It runs on platforms that support the
+          PocketPiccolo2D.NET is also written in C#.&nbsp; It runs on platforms that support the
           Compact .NET Framework.&nbsp; This means mainly PDAs.&nbsp; Current platforms include
           Pocket PCs, Pocket PC Phones, Smart Phones, and Windows CE.NET devices.
         </dd>
@@ -169,17 +169,17 @@
         What do you mean by "Structured Graphics"?
       </h2>
       <p>
-        Piccolo provides support for developers of 2D (+ zooming) object-oriented graphics programs
-        in Java and C#. It uses a "scenegraph" model that is common to 3D environments. Basically,
-        this means that Piccolo keeps a hierarchal structure of objects and cameras. Each node in
-        the hierarchy has a general 2D affine transform which allows every object to be arbitrarily
-        translated, scaled, rotated, and sheared. In addition, the cameras have affine transforms
-        that specify their view into the scene.
+        Piccolo2D provides support for developers of 2D (+ zooming) object-oriented graphics
+        programs in Java and C#. It uses a "scenegraph" model that is common to 3D environments.
+        Basically, this means that Piccolo2D keeps a hierarchal structure of objects and cameras.
+        Each node in the hierarchy has a general 2D affine transform which allows every object to
+        be arbitrarily translated, scaled, rotated, and sheared. In addition, the cameras have
+        affine transforms that specify their view into the scene.
       </p>
       <p>
         This simple approach is very powerful because is enables a very decoupled object oriented
-        approach to graphical applications. Piccolo defines several visual components, and
-        applications can readily extend them or define their own. Piccolo supports dynamic and
+        approach to graphical applications. Piccolo2D defines several visual components, and
+        applications can readily extend them or define their own. Piccolo2D supports dynamic and
         constrained objects that respond to various kinds of context (such as the current camera
         view). And, the camera model supports multiple views, overviews, and even embedded views
         (where a camera looks at another camera within the scene).
@@ -188,15 +188,15 @@
         What development directions are you following?
       </h2>
       <p>
-        We are continuing to expand and maintain all three versions of Piccolo.&nbsp; But,
-        internally, most of our new research projects are being implemented in Piccolo.NET.
+        We are continuing to expand and maintain all three versions of Piccolo2D.&nbsp; But,
+        internally, most of our new research projects are being implemented in Piccolo2D.NET.
       </p>
       <h2>
-        How do I get a Piccolo License?
+        How do I get a Piccolo2D License?
       </h2>
       <p>
-        It's free! Piccolo is completely open source. You can download and use Piccolo however you
-        like. The only restriction is that you must follow the guidelines set forth in the
+        It's free! Piccolo2D is completely open source. You can download and use Piccolo2D however
+        you like. The only restriction is that you must follow the guidelines set forth in the
         <a href='http://opensource.org/licenses/bsd-license.php'>BSD</a> public license.&nbsp; To
         read more about using the public license, visit the
         <a href='../download/open-source.shtml'>license</a> page.
@@ -206,17 +206,17 @@
         free to protect your applications in any way you see fit.
       </p>
       <h2>
-        How do I contact the Piccolo team and Piccolo users?
+        How do I contact the Piccolo2D team and Piccolo2D users?
       </h2>
       <p>
         There are several ways.&nbsp; You can subscribe to the <a href='maillists.shtml'>mailing
         lists</a> if you would like to ask technical questions or receive announcements about
-        Piccolo.&nbsp; You can also <a href='../contact/index.shtml'>contact us</a> directly if you
-        would prefer to do so.&nbsp; Or, if you find a problem with Piccolo, you can send us a
-        <a href='mailto:piccolo-bug@cs.umd.edu'>bug report</a>.
+        Piccolo2D.&nbsp; You can also <a href='../contact/index.shtml'>contact us</a> directly if
+        you would prefer to do so.&nbsp; Or, if you find a problem with Piccolo2D, you can send us
+        a <a href='mailto:piccolo-bug@cs.umd.edu'>bug report</a>.
       </p>
       <h2>
-        Where did Piccolo come from?
+        Where did Piccolo2D come from?
       </h2>
       <p>
         Ken Perlin at New York University came up with the initial zoomable surface concept. He and
@@ -238,9 +238,9 @@
         objects.
       </p>
       <p>
-        <em>Piccolo</em>, the current incarnation, is a direct successor to Jazz. Piccolo takes all
-        that we have learned over the years, and rolls it into a lean and mean tiny engine that is
-        very easy to understand, use and extend. It was built by&nbsp; Jesse Grosjean and then
+        <em>Piccolo2D</em>, the current incarnation, is a direct successor to Jazz. Piccolo2D takes
+        all that we have learned over the years, and rolls it into a lean and mean tiny engine that
+        is very easy to understand, use and extend. It was built by&nbsp; Jesse Grosjean and then
         ported to .NET by Aaron Clamage under the direction of Ben Bederson at the University of
         Maryland.
       </p>
@@ -249,11 +249,11 @@
       </h2>
       <p>
         Jazz has lived a healthy and prosperous life.&nbsp; It has enabled us to perform our
-        research on Zoomable User Interfaces, and it has spawned a new toolkit, Piccolo.&nbsp;
-        Piccolo is now replacing Jazz and now supports everything Jazz does (except embedded Swing
-        widgets which we never found to be crucial anyway).&nbsp; Jazz remains open source, and we
-        will keep it on this website but we are not actively maintaining it, and are instead
-        focusing all of our current efforts on Piccolo.
+        research on Zoomable User Interfaces, and it has spawned a new toolkit, Piccolo2D.&nbsp;
+        Piccolo2D is now replacing Jazz and now supports everything Jazz does (except embedded
+        Swing widgets which we never found to be crucial anyway).&nbsp; Jazz remains open source,
+        and we will keep it on this website but we are not actively maintaining it, and are instead
+        focusing all of our current efforts on Piccolo2D.
       </p>
     </div>
   </body>

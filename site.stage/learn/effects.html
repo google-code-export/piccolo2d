@@ -161,7 +161,7 @@
         1. Setup
       </p>
       <p>
-        <i>We need to create a window with a Piccolo canvas, so that we can add the interface
+        <i>We need to create a window with a Piccolo2D canvas, so that we can add the interface
         components to the canvas.</i>
       </p>
       <ol>
@@ -193,9 +193,9 @@ using UMD.HCIL.PiccoloX;
 </pre>
           </div>
           <p>
-            The first line adds the base Piccolo types, such as <code>PNode</code>.&nbsp; The
+            The first line adds the base Piccolo2D types, such as <code>PNode</code>.&nbsp; The
             second line includes the activity classes.&nbsp; The third line includes the default
-            node types that Piccolo provides, all of which extend <code>PNode</code>.&nbsp; The
+            node types that Piccolo2D provides, all of which extend <code>PNode</code>.&nbsp; The
             fourth line (for the C# sample) includes several utility classes.&nbsp; And the last
             line includes various "extras," such as <code>PForm</code> in .NET and
             <code>PFrame</code> in Java, which will be used below.
@@ -205,9 +205,9 @@ using UMD.HCIL.PiccoloX;
           <p>
             Next we will extend the <code>PForm</code> class in .NET or the <code>PFrame</code>
             class in Java. This is a convenience class that adds a <code>PCanvas</code> to a
-            window. When you extend this class, you should NOT add your Piccolo code to the
+            window. When you extend this class, you should NOT add your Piccolo2D code to the
             constructor. Instead, you should override the <code>initialize</code> method and add
-            all of your Piccolo code there.&nbsp; See the <a href='dev-faq.html'>FAQ</a> for more
+            all of your Piccolo2D code there.&nbsp; See the <a href='dev-faq.html'>FAQ</a> for more
             details.
           </p>
           <p class='toggle'>
@@ -221,14 +221,14 @@ using UMD.HCIL.PiccoloX;
             <pre class='snippet java' id='java2'>
 public class EffectsFrame extends PFrame {
         public void initialize() {
-                //Add Piccolo code here.
+                //Add Piccolo2D code here.
         }
 }
 </pre>
             <pre class='snippet csharp' id='csharp2'>
 public class EffectsForm : PForm {
         public override void Initialize() {
-                //Add Piccolo code here.
+                //Add Piccolo2D code here.
         }
 }
 </pre>
@@ -351,9 +351,9 @@ class Flash : PActivity {
             from.&nbsp; It will run for a predetermined time, specified by its duration, and it
             will step a number of times, specified by its step interval.&nbsp;
             <code>PActivity</code> provides three methods that you can override to be notified when
-            an activity starts, each time it steps, and when it finishes.&nbsp; In Piccolo.NET
+            an activity starts, each time it steps, and when it finishes.&nbsp; In Piccolo2D.NET
             these methods are <code>OnActivityStarted()</code>, <code>OnActivityStep()</code>, and
-            <code>OnActivityFinished()</code>.&nbsp; In Piccolo.Java, they are
+            <code>OnActivityFinished()</code>.&nbsp; In Piccolo2D.Java, they are
             <code>activityStarted()</code>, <code>activityStep()</code>, and
             <code>activityFinished()</code>.&nbsp; By default, nothing will happen when a PActivity
             steps.&nbsp; Typically, you will extend PActivity and override
@@ -429,9 +429,9 @@ a3.StartAfter(a2);
           </p>
           <p>
             Note, for clarity, this example uses a full static class to define the Flash
-            activity.&nbsp; But, Piccolo does provide a few shortcuts.&nbsp; In Piccolo.Java, you
-            could use an anonymous inner class to inline the Flash activity.&nbsp; The .NET
-            Framework does not support anonymous inner classes.&nbsp; However, with Piccolo.NET,
+            activity.&nbsp; But, Piccolo2D does provide a few shortcuts.&nbsp; In Piccolo2D.Java,
+            you could use an anonymous inner class to inline the Flash activity.&nbsp; The .NET
+            Framework does not support anonymous inner classes.&nbsp; However, with Piccolo2D.NET,
             you could still instantiate a <code>PActivity</code> and set its
             <code>ActivityStepped</code> delegate, rather than creating a new class.&nbsp; You
             would then move the code in the <code>OnActivityStep()</code> method to your new
@@ -614,7 +614,7 @@ public void a1ActivityFinished(PActivity activity) {
           </p>
           <p>
             The C# version could have been written the same way.&nbsp; But, since .NET has language
-            support for delegates, Piccolo.NET provides a separate delegate for each of these
+            support for delegates, Piccolo2D.NET provides a separate delegate for each of these
             methods, allowing you to set them individually.&nbsp;&nbsp; That way you don't have to
             implement the whole interface if you don't need to.&nbsp; In this case, we provide
             delegate methods that will get called when the activity starts and stops.

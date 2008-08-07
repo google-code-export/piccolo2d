@@ -136,7 +136,7 @@
         1. Get the Pre-Requisites
       </h2>
       <p class='preamble'>
-        In order to write your first Piccolo.NET application, you will need to make sure that you
+        In order to write your first Piccolo2D.NET application, you will need to make sure that you
         have the following:
       </p>
       <dl>
@@ -145,7 +145,7 @@
         </dt>
         <dd>
           This tutorial assumes that you are using Visual Studio .NET as your development
-          environment.&nbsp; Visual Studio is not required to write Piccolo.NET applications, but
+          environment.&nbsp; Visual Studio is not required to write Piccolo2D.NET applications, but
           we do recommend using it.&nbsp; If you do not already have Visual Studio, you can
           purchase it from Microsoft.
         </dd>
@@ -153,24 +153,24 @@
           The .NET Framework
         </dt>
         <dd>
-          To run any Piccolo.NET code, you must have the .NET Framework (version 1.1)&nbsp;
+          To run any Piccolo2D.NET code, you must have the .NET Framework (version 1.1)&nbsp;
           installed on your machine.&nbsp; The .NET Framework SDK comes with Visual Studio.&nbsp;
           If you do not have Visual Studio, you can download the
           <a href='http://www.microsoft.com/downloads/details.aspx?FamilyId=9B3A2CA6-3647-4070-9F41-A333C6B9181D&amp;displaylang=en'
               class='main_pane'>.NET SDK</a> directly.
         </dd>
         <dt>
-          Piccolo.NET DLLs
+          Piccolo2D.NET DLLs
         </dt>
         <dd>
-          Of course, you will need Piccolo.NET.&nbsp; You can download the DLLs or the full source
-          code from the <a href='../download/index.html'>download page</a>.
+          Of course, you will need Piccolo2D.NET.&nbsp; You can download the DLLs or the full
+          source code from the <a href='../download/index.html'>download page</a>.
         </dd>
         <dt>
-          Piccolo.NET Documentation
+          Piccolo2D.NET Documentation
         </dt>
         <dd>
-          Optionally, you may want to download Piccolo.NET's <a href='api.html'>integrated
+          Optionally, you may want to download Piccolo2D.NET's <a href='api.html'>integrated
           help</a>.&nbsp; This will enable context sensitive help within the development
           environment.
         </dd>
@@ -179,28 +179,28 @@
         2. Setting up the Environment
       </h2>
       <p class='preamble'>
-        These steps will help you setup the Visual Studio environment to improve the Piccolo.NET
+        These steps will help you setup the Visual Studio environment to improve the Piccolo2D.NET
         development experience.
       </p>
       <h3>
         2.1. Install the Documentation
       </h3>
       <p class='preamble'>
-        It will guide you through installing the Piccolo.NET API documentation directly into Visual
-        Studio and will enable context sensitive help within the development environment.&nbsp; If
-        you do not want to install Piccolo.NET's integrated help, you can skip to
-        <a href='#step3'>step 3</a>.
+        It will guide you through installing the Piccolo2D.NET API documentation directly into
+        Visual Studio and will enable context sensitive help within the development
+        environment.&nbsp; If you do not want to install Piccolo2D.NET's integrated help, you can
+        skip to <a href='#step3'>step 3</a>.
       </p>
       <ol>
         <li>
           Make sure Visual Studio is closed.
         </li>
         <li>
-          Locate the file "Piccolo-Help-1.0.zip," which you downloaded in step 1.&nbsp; Extract the
-          zipped package using WinZip or another compression utility.
+          Locate the file "Piccolo2D-Help-1.0.zip," which you downloaded in step 1.&nbsp; Extract
+          the zipped package using WinZip or another compression utility.
         </li>
         <li>
-          Open the folder where you extracted the file and double click on the "Piccolo Help
+          Open the folder where you extracted the file and double click on the "Piccolo2D Help
           Setup.msi" file.
         </li>
         <li>
@@ -209,19 +209,19 @@
         <li>
           Open Visual Studio and click on the "Contents" option of the "Help" menu, to display
           contents.&nbsp; You will probably receive a message that "help is updating to reflect
-          your recent changes."&nbsp; It can take several minutes to add all of the Piccolo.NET
+          your recent changes."&nbsp; It can take several minutes to add all of the Piccolo2D.NET
           documentation to Visual Studio.&nbsp; There should be an entry in the help contents
-          called "Piccolo.NET."&nbsp; You can now browse the documentation through the contents or
-          search it using the Index.&nbsp; You can also use context sensitive help.&nbsp; For
-          example, if you move the cursor over the name of a Piccolo type, such as PNode, and press
-          <code>F1</code>, you will get the documentation for that type.
+          called "Piccolo2D.NET."&nbsp; You can now browse the documentation through the contents
+          or search it using the Index.&nbsp; You can also use context sensitive help.&nbsp; For
+          example, if you move the cursor over the name of a Piccolo2D type, such as PNode, and
+          press <code>F1</code>, you will get the documentation for that type.
         </li>
       </ol>
       <h3>
         2.2. Add PCanvas to the Toolbox
       </h3>
       <p class='preamble'>
-        All Piccolo interfaces need to be placed in the piccolo canvas, <code>PCanvas,</code> so
+        All Piccolo2D interfaces need to be placed in the piccolo canvas, <code>PCanvas,</code> so
         that they may be viewed and interacted with by the user. This step will show you how to add
         the <code>PCanvas</code> to the Visual Studio Toolbox.&nbsp; This will enable you to drag
         the canvas directly to a form using the Visual Designer, rather than adding the canvas
@@ -252,10 +252,10 @@
           When the "Customize Toolbox" window pops up, click on the "Browse" button.
         </li>
         <li>
-          Look in the folder where you downloaded the Piccolo Source or Binaries.&nbsp; If you
-          downloaded the source code, select the "/Piccolo.NET/Bin/UMD.HCIL.Piccolo.dll".&nbsp; If
-          you downloaded the compiled source, select "/Bin/UMD.HCIL.Piccolo.dll".&nbsp; Press the
-          "Open" button.
+          Look in the folder where you downloaded the Piccolo2D Source or Binaries.&nbsp; If you
+          downloaded the source code, select the "/Piccolo2D.NET/Bin/UMD.HCIL.Piccolo2D.dll".&nbsp;
+          If you downloaded the compiled source, select "/Bin/UMD.HCIL.Piccolo2D.dll".&nbsp; Press
+          the "Open" button.
         </li>
         <li>
           Press the "OK" button in the "Customize Toolbox" window.
@@ -270,7 +270,7 @@
       </h2>
       <p class='preamble'>
         These steps will guide you through writing your first zoomable user interface with
-        Piccolo.NET.
+        Piccolo2D.NET.
       </p>
       <h3>
         3.1. Create a new C# Windows Application Project
@@ -297,10 +297,10 @@
         </li>
       </ol>
       <h3>
-        3.2. Add References to Piccolo DLLs
+        3.2. Add References to Piccolo2D DLLs
       </h3>
       <p class='preamble'>
-        These steps will add references to the Piccolo libraries so that you can access the
+        These steps will add references to the Piccolo2D libraries so that you can access the
         namespaces.
       </p>
       <ol>
@@ -311,9 +311,9 @@
           Click Browse
         </li>
         <li>
-          Look in the folder where you downloaded the Piccolo Source or Binaries.&nbsp; Look in the
-          /Bin directory.&nbsp; Select both "UMD.HCIL.Piccolo.dll" and UMD.HCIL.PiccoloX.dll" and
-          click "Open".
+          Look in the folder where you downloaded the Piccolo2D Source or Binaries.&nbsp; Look in
+          the /Bin directory.&nbsp; Select both "UMD.HCIL.Piccolo2D.dll" and
+          UMD.HCIL.Piccolo2DX.dll" and click "Open".
         </li>
         <li>
           Click "OK" to add the references.
@@ -343,15 +343,15 @@
       </ol>
       <p>
         NOTE:&nbsp; As a shortcut, we could have just extended <code>PForm</code>, a utility class
-        in the UMD.HCIL.PiccoloX namespace that automatically adds a PCanvas to a form and resizes
-        the canvas when the form is resized.&nbsp; See the tutorials that follow this one for an
-        example of how to do that.
+        in the UMD.HCIL.Piccolo2DX namespace that automatically adds a PCanvas to a form and
+        resizes the canvas when the form is resized.&nbsp; See the tutorials that follow this one
+        for an example of how to do that.
       </p>
       <h3>
         3.4. Write the Code
       </h3>
       <p class='preamble'>
-        Now we will write our first Piccolo code.
+        Now we will write our first Piccolo2D code.
       </p>
       <ol>
         <li>
@@ -360,10 +360,10 @@
         <li>
           At the top of the screen, under the using statements, add the following: 
           <pre>
-using UMD.HCIL.Piccolo;
-using UMD.HCIL.Piccolo.Nodes;
-</pre>These lines reference the main Piccolo namespace and the Nodes namespace, which contains the
-PText node that we will use below.
+using UMD.HCIL.Piccolo2D;
+using UMD.HCIL.Piccolo2D.Nodes;
+</pre>These lines reference the main Piccolo2D namespace and the Nodes namespace, which contains
+the PText node that we will use below.
         </li>
         <li>
           In the Constructor after the call to InitializeComponent(), add the following code: 
@@ -379,7 +379,7 @@ node to the main layer of the canvas.&nbsp; Zooming and panning are there for fr
         3.5. Run the Code
       </h3>
       <p class='preamble'>
-        Now let's see Piccolo in Action
+        Now let's see Piccolo2D in Action
       </p>
       <ol>
         <li>

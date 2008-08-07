@@ -11,7 +11,7 @@
     content='piccolo2d, piccolo2d.net, piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education' />
     <meta name='relation' content='(contained in)=http://www.piccolo2d.org' />
     <title>
-      Piccolo2D - Piccolo in Comparison
+      Piccolo2D - Piccolo2D in Comparison
     </title>
     <link href='../piccolo2d.css' rel='stylesheet' type='text/css' />
     <script type='text/javascript' src='../scrollsidebar.js'>
@@ -107,67 +107,67 @@
     <div id='main'>
       <div id='main-head'>
         <h1>
-          Piccolo in Comparison
-        </h1>Why should you use Piccolo and which version should you use? This section will cover
-        the differences between Piccolo.Java, Piccolo.NET, and PocketPiccolo.NET.&nbsp; In
-        addition, there will be discussions of the differences between Piccolo and Jazz&nbsp;(our
-        previous toolkit) and how Piccolo relates to other available toolkits.
+          Piccolo2D in Comparison
+        </h1>Why should you use Piccolo2D and which version should you use? This section will cover
+        the differences between Piccolo2D.Java, Piccolo2D.NET, and PocketPiccolo2D.NET.&nbsp; In
+        addition, there will be discussions of the differences between Piccolo2D and Jazz&nbsp;(our
+        previous toolkit) and how Piccolo2D relates to other available toolkits.
       </div>
       <h2>
-        Piccolo.Java, Piccolo.NET and PocketPiccolo.NET
+        Piccolo2D.Java, Piccolo2D.NET and PocketPiccolo2D.NET
       </h2>
       <p>
-        There three versions of Piccolo: <em>Piccolo.Java</em>, <em>Piccolo.NET</em>, and
-        <em>PocketPiccolo.NET</em>. They contain the same core functionality with a few
+        There three versions of Piccolo2D: <em>Piccolo2D.Java</em>, <em>Piccolo2D.NET</em>, and
+        <em>PocketPiccolo2D.NET</em>. They contain the same core functionality with a few
         differences.&nbsp; We will examine those differences here.
       </p>
       <h3>
         Languages, Libraries and IDEs
       </h3>
       <p>
-        Piccolo.Java is written in 100% java and relies on the
+        Piccolo2D.Java is written in 100% java and relies on the
         <a href='http://java.sun.com/products/java-media/2D/'>Java2D</a> API for graphics
-        rendering.&nbsp; Applications built on Piccolo.Java will run anywhere java will run
+        rendering.&nbsp; Applications built on Piccolo2D.Java will run anywhere java will run
         (including Windows, Mac OS X, Linux and Solaris).&nbsp; The recommended development
-        environment for Piccolo.Java is <a href='http://www.eclipse.org/'>Eclipse</a>, although it
-        is possible to use Piccolo.Java without an IDE.
+        environment for Piccolo2D.Java is <a href='http://www.eclipse.org/'>Eclipse</a>, although
+        it is possible to use Piccolo2D.Java without an IDE.
       </p>
       <p>
-        Piccolo.NET, on the other hand, is written in C# and relies on the
+        Piccolo2D.NET, on the other hand, is written in C# and relies on the
         <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/gdicpp/GDIPlus/GDIPlus.asp'>
         GDI+</a> API for graphics rendering.&nbsp; It runs on platforms that support the .NET
         Framework.&nbsp; However, currently only Windows machines implement the Common Language
         Runtime (CLR).&nbsp; So, If you really want your application to be cross-platform you
-        should use Piccolo.Java.&nbsp; On the other hand, the advantage of using Piccolo.NET is
+        should use Piccolo2D.Java.&nbsp; On the other hand, the advantage of using Piccolo2D.NET is
         that it will allow you to easily integrate advanced 2D graphics and zooming with standard
         Windows application code and platform-specific features.&nbsp; The recommended development
-        environment for Piccolo.NET is Visual Studio.NET.
+        environment for Piccolo2D.NET is Visual Studio.NET.
       </p>
       <p>
-        PocketPiccolo.NET is also written in C#.&nbsp; It runs on platforms that support the .NET
+        PocketPiccolo2D.NET is also written in C#.&nbsp; It runs on platforms that support the .NET
         Compact Framework (including Pocket PCs, Pocket PC Phones, Smart Phones, and Windows CE.NET
         devices).&nbsp; There is no equivalent to GDI+ for the Compact Framework.&nbsp; Thus,
-        PocketPiccolo.NET is limited by the primitive drawing routines available through the
+        PocketPiccolo2D.NET is limited by the primitive drawing routines available through the
         Compact Framework.&nbsp; See the <a href='#features'>Features</a> section for more
-        details.&nbsp; As with Piccolo.NET, the recommended development environment for
-        PocketPiccolo.NET is Visual Studio.NET.
+        details.&nbsp; As with Piccolo2D.NET, the recommended development environment for
+        PocketPiccolo2D.NET is Visual Studio.NET.
       </p>
       <p>
         Below is a chart the summarizes the differences outlined above.
       </p>
-      <table border='1' summary='Piccolo Versions' width='100%'>
+      <table border='1' summary='Piccolo2D Versions' width='100%'>
         <tr>
           <th>
-            Piccolo Version Differences
+            Piccolo2D Version Differences
           </th>
           <th>
-            Piccolo.Java
+            Piccolo2D.Java
           </th>
           <th>
-            Piccolo.NET
+            Piccolo2D.NET
           </th>
           <th>
-            PocketPiccolo.NET
+            PocketPiccolo2D.NET
           </th>
         </tr>
         <tr>
@@ -231,110 +231,112 @@
         Speed/Memory
       </h3>
       <p>
-        In terms of both speed and memory usage, Piccolo.Java and Piccolo.NET are comparable.&nbsp;
-        While earlier versions of .NET had slower image rendering performance than Java, we have
-        not done any direct comparisons in several years.&nbsp; In practice, we find Java and C# to
-        have similar rendering performance.
+        In terms of both speed and memory usage, Piccolo2D.Java and Piccolo2D.NET are
+        comparable.&nbsp; While earlier versions of .NET had slower image rendering performance
+        than Java, we have not done any direct comparisons in several years.&nbsp; In practice, we
+        find Java and C# to have similar rendering performance.
       </p>
       <p>
         Since performance is critical in a graphics toolkit, we provide framework support for
         plugging in other more powerful renderers.&nbsp; The
-        <a href='../download/index.html#Source'>current release</a> of Piccolo.NET includes an
+        <a href='../download/index.html#Source'>current release</a> of Piccolo2D.NET includes an
         implementation of a
         <a href='http://www.microsoft.com/windows/directx/default.aspx'>Direct3D</a> renderer
-        package.&nbsp; For better performance with Piccolo.Java, you can use
+        package.&nbsp; For better performance with Piccolo2D.Java, you can use
         <a href='http://www.cs.umd.edu/hcil/agile2d/'>Agile2D</a>, which includes a pluggable
         <a href='http://www.opengl.org/'>OpenGL</a> implementation of Java2D.
       </p>
       <p>
-        PocketPiccolo.NET is our first alpha release targeting the .NET Compact framework.&nbsp; As
-        such, it has not yet been optimized for performance.
+        PocketPiccolo2D.NET is our first alpha release targeting the .NET Compact framework.&nbsp;
+        As such, it has not yet been optimized for performance.
       </p>
       <h3 id='features'>
         Features
       </h3>
       <p>
-        Piccolo.Java and Piccolo.NET support virtually the same feature set.&nbsp; This makes it
-        very easy port code from one version to the other. There are however a couple exceptions:
+        Piccolo2D.Java and Piccolo2D.NET support virtually the same feature set.&nbsp; This makes
+        it very easy port code from one version to the other. There are however a couple
+        exceptions:
       </p>
       <ul>
         <li>
-          Transparency - Piccolo.NET does not have built-in support for transparency since .NET
+          Transparency - Piccolo2D.NET does not have built-in support for transparency since .NET
           does not provide a mechanism to set a global alpha composite. You can of course still use
           transparent fills on nodes.
         </li>
         <li>
           PStyledText - This is a node used to render styled text data at various magnitudes.&nbsp;
-          It is available in Piccolo.Java, but not Piccolo.NET
+          It is available in Piccolo2D.Java, but not Piccolo2D.NET
         </li>
         <li>
           PStyledTextEventHandler - This is an event handler that places a text editor on the
           screen when a user clicks on a PStyledText node, in order to edit the underlying
-          text.&nbsp; It is available in Piccolo.Java, but not Piccolo.NET.
+          text.&nbsp; It is available in Piccolo2D.Java, but not Piccolo2D.NET.
         </li>
         <li>
           PLine - This is an implementation of a line node, very similar to PPath, that was
-          submitted by a Piccolo user.&nbsp; It is available in Piccolo.Java, but not
-          Piccolo.NET.&nbsp; However, if someone ports and submits a Piccolo.NET version we will
-          include it in the source.
+          submitted by a Piccolo2D user.&nbsp; It is available in Piccolo2D.Java, but not
+          Piccolo2D.NET.&nbsp; However, if someone ports and submits a Piccolo2D.NET version we
+          will include it in the source.
         </li>
         <li>
-          SWT Package - This is a set of classes to help integrate Piccolo code into the Eclipse
-          development environment.&nbsp; It is available in Piccolo.Java, but not Piccolo.NET.
+          SWT Package - This is a set of classes to help integrate Piccolo2D code into the Eclipse
+          development environment.&nbsp; It is available in Piccolo2D.Java, but not Piccolo2D.NET.
         </li>
         <li>
           PFixedWidthStroke - This is stroke class that always has a fixed width on screen, even
-          when the canvas view is zoomed.&nbsp; It is available in Piccolo.Java, but not
-          Piccolo.NET since there is no simple way to implement a Pen in .NET.
+          when the canvas view is zoomed.&nbsp; It is available in Piccolo2D.Java, but not
+          Piccolo2D.NET since there is no simple way to implement a Pen in .NET.
         </li>
       </ul>
       <ul>
         <li>
-          PiccoloDirect3D - This is an implementation of Piccolo that uses a Direct3D
-          renderer.&nbsp; It available in Piccolo.NET, but not Piccolo.Java.&nbsp; However, you can
-          use <a href='http://www.cs.umd.edu/hcil/agile2d/'>Agile2D</a> to plug in an OpenGl
-          renderer for Piccolo.Java.
+          Piccolo2DDirect3D - This is an implementation of Piccolo2D that uses a Direct3D
+          renderer.&nbsp; It available in Piccolo2D.NET, but not Piccolo2D.Java.&nbsp; However, you
+          can use <a href='http://www.cs.umd.edu/hcil/agile2d/'>Agile2D</a> to plug in an OpenGl
+          renderer for Piccolo2D.Java.
         </li>
         <li>
           Serialization Surrogates - These are several classes that define how to serialize certain
-          types, to avoid duplicating serialization code.&nbsp; These are available in Piccolo.NET,
-          but not Piccolo.Java.&nbsp; Piccolo.Java uses utility methods to achieve the same effect.
+          types, to avoid duplicating serialization code.&nbsp; These are available in
+          Piccolo2D.NET, but not Piccolo2D.Java.&nbsp; Piccolo2D.Java uses utility methods to
+          achieve the same effect.
         </li>
         <li>
           PControl - This is a PNode wrapper for standard controls, allowing you to embed existing
           widgets (i.e. buttons, textboxes, etc.) in the scene-graph.&nbsp; It is available in
-          Piccolo.NET, but not Piccolo.Java
+          Piccolo2D.NET, but not Piccolo2D.Java
         </li>
         <li>
           PControlEventHandler - This is an event handler that implements focused based navigation
-          for PControl nodes.&nbsp; It is available in Piccolo.NET, but not Piccolo.Java
+          for PControl nodes.&nbsp; It is available in Piccolo2D.NET, but not Piccolo2D.Java
         </li>
       </ul>
       <p>
-        Just as the .NET Compact Framework is a subset of the .NET Framework, PocketPiccolo.NET is
-        a subset of Piccolo.NET.&nbsp; It has the same core features: hierarchical transformable
-        objects, animation, event handling and efficiency mechanisms.&nbsp; But, some features of
-        the desktop versions are not available:
+        Just as the .NET Compact Framework is a subset of the .NET Framework, PocketPiccolo2D.NET
+        is a subset of Piccolo2D.NET.&nbsp; It has the same core features: hierarchical
+        transformable objects, animation, event handling and efficiency mechanisms.&nbsp; But, some
+        features of the desktop versions are not available:
       </p>
       <ul>
         <li>
           High Quality Rendering - This refers to aliasing and other techniques that improve the
           quality of the rendering.&nbsp; These optimizations are not available in
-          PocketPiccolo.NET since they are not supported by the Compact Framework.
+          PocketPiccolo2D.NET since they are not supported by the Compact Framework.
         </li>
         <li>
-          Transparency - This is unavailable in PocketPiccolo.NET since the Compact Framework does
-          not support transparency.
+          Transparency - This is unavailable in PocketPiccolo2D.NET since the Compact Framework
+          does not support transparency.
         </li>
         <li>
-          Rotation - This is unavailable in PocketPiccolo.NET since the Compact Framework does not
-          support rotation.
+          Rotation - This is unavailable in PocketPiccolo2D.NET since the Compact Framework does
+          not support rotation.
         </li>
         <li>
-          PPath - This is a graphical path node in the desktop versions of Piccolo. In
-          Piccolo.Java, PPath wraps the
+          PPath - This is a graphical path node in the desktop versions of Piccolo2D. In
+          Piccolo2D.Java, PPath wraps the
           <a href='http://java.sun.com/j2se/1.5.0/docs/api/java/awt/geom/GeneralPath.html'>GeneralPath</a>
-          object and in Piccolo.NET, it wraps the
+          object and in Piccolo2D.NET, it wraps the
           <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemdrawingdrawing2dgraphicspathclasstopic.asp'>
           GraphicsPath</a> object.&nbsp; Since there is no equivalent class to wrap in the Compact
           Framework, PPath is very limited.
@@ -344,23 +346,23 @@
         API
       </h3>
       <p>
-        The APIs for the various versions of Piccolo will all feel similar.&nbsp; In fact, the
-        PocketPiccolo.NET API is mostly identical to the Piccolo.NET API, except that some of the
-        classes and methods of the desktop version are unavailable.&nbsp; There are also some
-        differences between Piccolo.NET and Piccolo.Java that reflect an effort to support the
+        The APIs for the various versions of Piccolo2D will all feel similar.&nbsp; In fact, the
+        PocketPiccolo2D.NET API is mostly identical to the Piccolo2D.NET API, except that some of
+        the classes and methods of the desktop version are unavailable.&nbsp; There are also some
+        differences between Piccolo2D.NET and Piccolo2D.Java that reflect an effort to support the
         individual style guidelines and language constructs of Java and C#.
       </p>
       <p>
-        Method names, for example, begin with a lower-case letter in Piccolo.Java and an upper-case
-        letter in both Piccolo.NET and PocketPiccolo.NET.&nbsp; For example, the method that
-        animates a node from it's current position and size to a new position and size is
-        <code>animateToBounds()</code> in Piccolo.Java and <code>AnimateToBounds()</code> in
-        Piccolo.NET and PocketPiccolo.NET.
+        Method names, for example, begin with a lower-case letter in Piccolo2D.Java and an
+        upper-case letter in both Piccolo2D.NET and PocketPiccolo2D.NET.&nbsp; For example, the
+        method that animates a node from it's current position and size to a new position and size
+        is <code>animateToBounds()</code> in Piccolo2D.Java and <code>AnimateToBounds()</code> in
+        Piccolo2D.NET and PocketPiccolo2D.NET.
       </p>
       <p>
         Member attributes are also accessed differently in each API.&nbsp; For example, in
-        Piccolo.Java, attributes are accessed via get/set methods.&nbsp; But, Piccolo.NET and
-        PocketPiccolo.NET take advantage of language supported
+        Piccolo2D.Java, attributes are accessed via get/set methods.&nbsp; But, Piccolo2D.NET and
+        PocketPiccolo2D.NET take advantage of language supported
         <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/csref/html/vclrfUsingProperties.asp'>
         Properties</a>. For example, to access the bounds of a node in each version you would do
         the following:
@@ -368,10 +370,10 @@
       <table summary='Code look'>
         <tr>
           <td>
-            //Piccolo.Java
+            //Piccolo2D.Java
           </td>
           <td>
-            //Piccolo.NET and PocketPiccolo.NET
+            //Piccolo2D.NET and PocketPiccolo2D.NET
           </td>
         </tr>
         <tr>
@@ -388,62 +390,62 @@
         .NET names of equivalent classes are different.&nbsp; For example, Java has Paint and
         Stroke classes whereas .NET has Brush and Pen classes.&nbsp; Another example is the affine
         transform type, which is called AffineTransform in java and Matrix in .NET. The names of
-        Piccolo methods also reflect these differences.&nbsp; For example, the method to animate a
-        node to an arbitrary affine transform is <code>animateToTransform()</code> in Piccolo.Java
-        and <code>AnimateToMatrix()</code> in Piccolo.NET and PocketPiccolo.NET.
+        Piccolo2D methods also reflect these differences.&nbsp; For example, the method to animate
+        a node to an arbitrary affine transform is <code>animateToTransform()</code> in
+        Piccolo2D.Java and <code>AnimateToMatrix()</code> in Piccolo2D.NET and PocketPiccolo2D.NET.
       </p>
       <p>
         One very important distinction related to types has to do with how the bounds of a node is
-        stored.&nbsp; In Piccolo.Java there is a PBounds type which extends
+        stored.&nbsp; In Piccolo2D.Java there is a PBounds type which extends
         <a href='http://java.sun.com/j2se/1.5.0/docs/api/java/awt/geom/Rectangle2D.Double.html'>Rectangle2D.Double</a>,
         adding several useful methods. But, the corresponding
         <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemdrawingrectanglefclasstopic.asp'>
         RectangleF</a> type in .NET cannot be extended.&nbsp; This left us with two choices: create
         a PBounds class that wraps a RectangleF or use the RectangleF directly.&nbsp; We decided it
         would be more straightforward to store the bounds as RectangleF objects.&nbsp; Thus, we
-        provide the same methods of Piccolo.Java's PBounds as static utility methods in
-        Piccolo.NET.
+        provide the same methods of Piccolo2D.Java's PBounds as static utility methods in
+        Piccolo2D.NET.
       </p>
       <p>
-        The versions of piccolo differ in the primitive types they use too.&nbsp; Since the Java2D
-        API uses doubles, Piccolo.Java also stores internal values (e.g. x, y, width, height) as
-        doubles.&nbsp; The GDI+ API on the other hand uses floats.&nbsp; So, Piccolo.NET stores
-        these same values as floats.&nbsp;
+        The versions of piccolo2d differ in the primitive types they use too.&nbsp; Since the
+        Java2D API uses doubles, Piccolo2D.Java also stores internal values (e.g. x, y, width,
+        height) as doubles.&nbsp; The GDI+ API on the other hand uses floats.&nbsp; So,
+        Piccolo2D.NET stores these same values as floats.&nbsp;
       </p>
       <p>
-        Another language difference reflected in Piccolo is that Java provides <i>anonymous inner
-        classes</i> while C# has <i>delegates</i>. The Piccolo.Java API does not enforce the use of
-        anonymous inner classes, but, often it is the easiest way to do things.&nbsp; For example,
-        using anonymous inner classes, you could create a new type of
+        Another language difference reflected in Piccolo2D is that Java provides <i>anonymous inner
+        classes</i> while C# has <i>delegates</i>. The Piccolo2D.Java API does not enforce the use
+        of anonymous inner classes, but, often it is the easiest way to do things.&nbsp; For
+        example, using anonymous inner classes, you could create a new type of
         <code>PBasicInputEventHandler</code> in place and override just the
-        <code>mousePressed</code> method.&nbsp; In Piccolo.NET, you would have to create a named
+        <code>mousePressed</code> method.&nbsp; In Piccolo2D.NET, you would have to create a named
         static class that extends <code>PBasicInputEventHandler</code> to do the same thing.&nbsp;
-        This could vastly increase the amount of code you have to write.&nbsp; So, Piccolo.NET
+        This could vastly increase the amount of code you have to write.&nbsp; So, Piccolo2D.NET
         provides delegates as a shorthand. This allows you to instantiate a
         <code>PBasicInputEventHandler</code>, and then attach your event handler method directly to
         it's <code>MouseDown</code> delegate.&nbsp; For code examples see the
-        <a href='./patterns.html'>Piccolo Patterns</a> section.
+        <a href='./patterns.html'>Piccolo2D Patterns</a> section.
       </p>
       <p>
-        Piccolo.NET also takes advantage of several other usability enhancements .NET provides,
+        Piccolo2D.NET also takes advantage of several other usability enhancements .NET provides,
         including a <i>simpler event model</i>, <i>indexers</i>, the <i>foreach loop</i> and
         <i>type-safe lists</i>.&nbsp; See the <a href='./api.html'>API</a> documentation for more
         details.
       </p>
       <h2 id='jazz'>
-        Piccolo and Jazz
+        Piccolo2D and Jazz
       </h2>
       <p>
         Jazz was our previous ZUI toolkit.&nbsp; The following section outlines the major
-        differences between Piccolo and Jazz.
+        differences between Piccolo2D and Jazz.
       </p>
       <h3>
         Ease of Use
       </h3>
       <p>
-        Our goal with Piccolo was to create a ZUI that had a similar feature set to Jazz, but that
-        was easier to use from a programmers standpoint. Almost all the differences between Piccolo
-        and Jazz are changes that are meant to make Piccolo easier to use.
+        Our goal with Piccolo2D was to create a ZUI that had a similar feature set to Jazz, but
+        that was easier to use from a programmers standpoint. Almost all the differences between
+        Piccolo2D and Jazz are changes that are meant to make Piccolo2D easier to use.
       </p>
       <h3>
         Complexity
@@ -478,12 +480,12 @@
         </dd>
       </dl>
       <p>
-        Piccolo takes a different more traditional 2D approach. There is no separation between
-        ZVisualComponents and ZNodes. So the Piccolo version of a rectangle extends directly from
+        Piccolo2D takes a different more traditional 2D approach. There is no separation between
+        ZVisualComponents and ZNodes. So the Piccolo2D version of a rectangle extends directly from
         PNode and can be place directly into a scene graph without needing to be wrapped in a
-        ZVisualLeaf type object. Piccolo has also built many of the most common decorator classes
+        ZVisualLeaf type object. Piccolo2D has also built many of the most common decorator classes
         used in Jazz directly into the PNode class. For example every PNode has a affine transform,
-        supports children, and can have its transparency set. So in Piccolo to create a movable
+        supports children, and can have its transparency set. So in Piccolo2D to create a movable
         rectangle all you need is a:
       </p>
       <dl>
@@ -496,39 +498,39 @@
         </dd>
       </dl>
       <p>
-        Since the Piccolo is a complete rewrite, and a smaller code base we also put a lot of time
-        into making the Piccolo source code as readable and strait forward as possible. It's our
-        hope that this should make it much easier to add your own new features to Piccolo then it
-        was to do with Jazz.
+        Since the Piccolo2D is a complete rewrite, and a smaller code base we also put a lot of
+        time into making the Piccolo2D source code as readable and strait forward as possible. It's
+        our hope that this should make it much easier to add your own new features to Piccolo2D
+        then it was to do with Jazz.
       </p>
       <h3>
         Speed/Memory
       </h3>
       <p>
-        The speed differences between Piccolo and Jazz for most applications are not large, most
-        time is still spent painting with Java's Graphics2D. With that said Piccolo has made
+        The speed differences between Piccolo2D and Jazz for most applications are not large, most
+        time is still spent painting with Java's Graphics2D. With that said Piccolo2D has made
         significant improvements in the time required to manipulate the scene graph. So if your
-        program is moving around larger numbers of nodes at the same time then Piccolo should be
+        program is moving around larger numbers of nodes at the same time then Piccolo2D should be
         faster.
       </p>
       <p>
-        It turns out that for most cases Piccolo uses less memory then Jazz. Since instead of
+        It turns out that for most cases Piccolo2D uses less memory then Jazz. Since instead of
         needing three different objects to support the normal situation of a movable visible object
         it only needs one. This together with better bounds management also makes it much faster to
-        create a large number of new objects in Piccolo then in Jazz.
+        create a large number of new objects in Piccolo2D then in Jazz.
       </p>
       <p>
         The piccolo.jar size is approximately 65k, while the jazz.jar was about 450k. So for applet
-        based applications the Piccolo framework will be much faster to download over the web.
+        based applications the Piccolo2D framework will be much faster to download over the web.
       </p>
       <h3>
         Features
       </h3>
       <p>
-        Piccolo and Jazz support the same basic feature set. They both have structured graphics,
+        Piccolo2D and Jazz support the same basic feature set. They both have structured graphics,
         and cameras that can look onto that structure using a view transform. So you should be able
-        to build anything in Piccolo that was possible in Jazz. At the moment their are some
-        specific features that we have not ported over to Piccolo from Jazz yet:
+        to build anything in Piccolo2D that was possible in Jazz. At the moment their are some
+        specific features that we have not ported over to Piccolo2D from Jazz yet:
       </p>
       <dl>
         <dt>
@@ -547,14 +549,14 @@
           ZConstraintGroup
         </dt>
         <dd>
-          used to constrain a transform based on some calculation. See Piccolo Patterns for an
-          easier way to do this in Piccolo.
+          used to constrain a transform based on some calculation. See Piccolo2D Patterns for an
+          easier way to do this in Piccolo2D.
         </dd>
         <dt>
           ZFadeGroup
         </dt>
         <dd>
-          all piccolo nodes support transparency, something that ZFadeGroup was used for. But
+          all piccolo2d nodes support transparency, something that ZFadeGroup was used for. But
           ZFadeGroup also supported automatically changing an objects transparency based on scale
           that it was being viewed at.
         </dd>
@@ -562,7 +564,7 @@
           Layout managers
         </dt>
         <dd>
-          Piccolo doesn't come with any layout managers, but all PNodes have a method
+          Piccolo2D doesn't come with any layout managers, but all PNodes have a method
           layoutChildren() that is easily overridden and will get called for you automatically when
           the size of any of the children changes.
         </dd>
@@ -584,17 +586,17 @@
           ZSwing
         </dt>
         <dd>
-          Piccolo does not support embedding Swing objects into the PCanvas.
+          Piccolo2D does not support embedding Swing objects into the PCanvas.
         </dd>
       </dl>
       <p>
-        Any needed features should be fairly easy to port to Piccolo, please let us know if you
+        Any needed features should be fairly easy to port to Piccolo2D, please let us know if you
         need something and well do our best to include it. We will put most of these features in
-        piccolox (Piccolo extras) so that if we do add them the don't complicate Piccolo's core
+        piccolox (Piccolo2D extras) so that if we do add them the don't complicate Piccolo2D's core
         classes.
       </p>
       <p>
-        Jazz has some features that will most likely never be supported by Piccolo
+        Jazz has some features that will most likely never be supported by Piccolo2D
       </p>
       <dl>
         <dt>
@@ -602,34 +604,34 @@
         </dt>
         <dd>
           Our recommendation is that applications that need a file format should use define their
-          own and it will make life much easier for everyone. Piccolo does support Java
+          own and it will make life much easier for everyone. Piccolo2D does support Java
           serialization for short term persistence.
         </dd>
       </dl>
       <p>
-        To learn more about the difference between Jazz and Piccolo and why we made this
+        To learn more about the difference between Jazz and Piccolo2D and why we made this
         architectural change, you can read <a href='Toolkit_Design_2004.pdf'>Toolkit Design for
         Interactive Structured Graphics</a>.
       </p>
       <h2 id='other'>
-        Piccolo and Other Toolkits
+        Piccolo2D and Other Toolkits
       </h2>
       <p>
         There are numerous graphical toolkits available.&nbsp; This section will explain how
-        Piccolo fits in with the myriad of other available toolkits.
+        Piccolo2D fits in with the myriad of other available toolkits.
       </p>
       <h3>
         Structured Architecture
       </h3>
       <p>
-        Piccolo is a toolkit for building structured 2D graphics programs.&nbsp; This means piccolo
-        maintains a hierarchy of visual nodes that can be grouped, oriented and manipulated in
-        interesting ways.&nbsp; As such, it is very useful for application developers who wish to
-        build custom user interface components and smoothly integrate them with standard
-        application code.&nbsp; Most standard 2D UI toolkits provide little support for building
-        custom components.&nbsp; There are a number of other structured graphics toolkits
-        available.&nbsp; But, many provide a fixed set of shapes that can be added to the canvas,
-        making it difficult to define new classes of objects.
+        Piccolo2D is a toolkit for building structured 2D graphics programs.&nbsp; This means
+        piccolo2d maintains a hierarchy of visual nodes that can be grouped, oriented and
+        manipulated in interesting ways.&nbsp; As such, it is very useful for application
+        developers who wish to build custom user interface components and smoothly integrate them
+        with standard application code.&nbsp; Most standard 2D UI toolkits provide little support
+        for building custom components.&nbsp; There are a number of other structured graphics
+        toolkits available.&nbsp; But, many provide a fixed set of shapes that can be added to the
+        canvas, making it difficult to define new classes of objects.
       </p>
       <p>
         There are also a number of information visualization toolkits available, such as the
@@ -655,8 +657,8 @@
         types, which can be very confusing for a programmer to manage.
       </p>
       <p>
-        Piccolo takes a more traditional 2D graphics approach, using compile-time inheritance to
-        extend functionality.&nbsp; Piccolo defines a large base class that supports all of the
+        Piccolo2D takes a more traditional 2D graphics approach, using compile-time inheritance to
+        extend functionality.&nbsp; Piccolo2D defines a large base class that supports all of the
         functionality commonly used by different types of visual nodes.&nbsp; New node types are
         created by extending this base class.&nbsp; We believe this monolithic design approach is
         much easier for the application developer to use.
@@ -665,8 +667,8 @@
         Multiple Views, Zooming and Panning
       </h3>
       <p>
-        Part of the goal of piccolo was to build a toolkit that would enable highly innovative
-        visualization and interaction.&nbsp; To that end, Piccolo provides support for multiple
+        Part of the goal of piccolo2d was to build a toolkit that would enable highly innovative
+        visualization and interaction.&nbsp; To that end, Piccolo2D provides support for multiple
         cameras, arbitrary node transforms and full-screen zooming and panning.&nbsp; This makes it
         very easy to build sophisticated data displays, from fisheye visualizations to Zoomable
         User Interfaces.&nbsp; A number of other toolkits provide support for building innovative

@@ -160,7 +160,7 @@
         1. Setup
       </h2>
       <p class='preamble'>
-        We need to create a window with a Piccolo canvas, so that we can add the interface
+        We need to create a window with a Piccolo2D canvas, so that we can add the interface
         components to the canvas.
       </p>
       <ol>
@@ -193,8 +193,8 @@ using UMD.HCIL.PiccoloX;
 </pre>
           </div>
           <p>
-            The first line adds the base Piccolo types, such as <code>PNode</code>. The second line
-            includes the default node types that Piccolo provides, all of which extend
+            The first line adds the base Piccolo2D types, such as <code>PNode</code>. The second
+            line includes the default node types that Piccolo2D provides, all of which extend
             <code>PNode</code>.&nbsp; The third line includes the basic event types.&nbsp; The
             fourth line includes several utility classes.&nbsp; And the last line includes various
             "extras," such as <code>PForm</code> in .NET and <code>PFrame</code> in Java, which
@@ -205,9 +205,9 @@ using UMD.HCIL.PiccoloX;
           <p>
             Next we will extend the <code>PForm</code> class in .NET or the <code>PFrame</code>
             class in Java. This is a convenience class that adds a <code>PCanvas</code> to a
-            window. When you extend this class, you should NOT add your Piccolo code to the
+            window. When you extend this class, you should NOT add your Piccolo2D code to the
             constructor. Instead, you should override the <code>initialize</code> method and add
-            all of your Piccolo code there.&nbsp; See the <a href='dev-faq.html'>FAQ</a> for more
+            all of your Piccolo2D code there.&nbsp; See the <a href='dev-faq.html'>FAQ</a> for more
             details.
           </p>
           <p class='toggle'>
@@ -221,14 +221,14 @@ using UMD.HCIL.PiccoloX;
             <pre class='snippet java' id='java2'>
 public class InteractionFrame extends PFrame {
         public void initialize() {
-                //Add Piccolo code here.
+                //Add Piccolo2D code here.
         }
 }
 </pre>
             <pre class='snippet csharp' id='csharp2'>
 public class InteractionForm : PForm {
         public override void Initialize() {
-                //Add Piccolo code here.
+                //Add Piccolo2D code here.
         }
 }
 </pre>
@@ -245,17 +245,17 @@ public class InteractionForm : PForm {
         mouse is over some other node.
       </p>
       <p class='preamble'>
-        As explained in <a href='patterns.html'>Piccolo Patterns</a>, events are dispatched to the
-        <code>PPickPath</code> associated with the appropriate focus node (MouseOver, MouseFocus or
-        KeyboardFocus).&nbsp; They percolate up the pick path, giving each node along the way a
-        chance to handle the event if that node has a registered event handler.&nbsp;&nbsp; The
-        events will keep percolating up the pick path until they are consumed by a node's event
-        handler or they reach the originating camera node.&nbsp; Often you will attach event
-        handlers directly to the main camera, in order to receive all events that come from the
-        canvas.
+        As explained in <a href='patterns.html'>Piccolo2D Patterns</a>, events are dispatched to
+        the <code>PPickPath</code> associated with the appropriate focus node (MouseOver,
+        MouseFocus or KeyboardFocus).&nbsp; They percolate up the pick path, giving each node along
+        the way a chance to handle the event if that node has a registered event
+        handler.&nbsp;&nbsp; The events will keep percolating up the pick path until they are
+        consumed by a node's event handler or they reach the originating camera node.&nbsp; Often
+        you will attach event handlers directly to the main camera, in order to receive all events
+        that come from the canvas.
       </p>
       <p class='preamble'>
-        Piccolo comes with event listeners that let the user zoom and pan the viewpoint and drag
+        Piccolo2D comes with event listeners that let the user zoom and pan the viewpoint and drag
         nodes in the interface.&nbsp; You can use the default event listeners directly or you can
         define your own.&nbsp; Here, we will create a new kind of event listener and add it to the
         camera.
@@ -265,7 +265,7 @@ public class InteractionForm : PForm {
           <p>
             We will create a squiggle event handler, that draws squiggles as the mouse is dragged
             along the canvas.&nbsp; To do this, we will extend PBasicInputEventHandler, the
-            standard class in Piccolo that is used to register for mouse and keyboard events on a
+            standard class in Piccolo2D that is used to register for mouse and keyboard events on a
             PNode.&nbsp; Add the following internal class beneath the <code>initialize</code>
             method.
           </p>
@@ -423,8 +423,8 @@ class SquiggleHandler : PBasicInputEventHandler {
           <p>
             Finally, you might notice that the C# version of this code snippet, overrides the
             DoesAcceptEvent method.&nbsp; This method is part of the PInputEventListener interface
-            and is used to implement event filtering in Piccolo.NET.&nbsp; Any event handler class
-            can override this method and return true if it wants to accept an event, or false
+            and is used to implement event filtering in Piccolo2D.NET.&nbsp; Any event handler
+            class can override this method and return true if it wants to accept an event, or false
             otherwise.&nbsp; Filtered events will never be dispatched to the event handler.&nbsp;
             In this case, we only accept left mouse button events, so that the right mouse button
             cannot be used to draw squiggles.
@@ -472,7 +472,7 @@ Canvas.AddInputEventListener(squiggleHandler);
           <p>
             Next we create our squiggle event handler.&nbsp; Notice that the Java version of this
             code snippet calls the <code>setEventFilter()</code> method and passes it a new
-            instance of <code>PInputEventFilter</code>.&nbsp; In Piccolo.Java, event filtering is
+            instance of <code>PInputEventFilter</code>.&nbsp; In Piccolo2D.Java, event filtering is
             accomplished by creating a new event filter object and setting various masks on that
             object.&nbsp; In particular, an event will be accepted if it contains all the modifiers
             listed in the <code>andMask</code>, at least one of the modifiers listed in the
@@ -625,7 +625,7 @@ protected void nodeGreen_KeyDown(object sender, PInputEventArgs e) {
           <p>
             The first thing you might notice is that the C# version of this code snippet does not
             extend <code>PBasicInputEventHandler</code>.&nbsp; Instead, it consists of several
-            distinct methods.&nbsp; In Piccolo.NET there are actually two ways to create event
+            distinct methods.&nbsp; In Piccolo2D.NET there are actually two ways to create event
             handlers.&nbsp; The first is to use the standard approach of extending the event
             handler classes.&nbsp; But, you can also add event handler methods directly to a node,
             in the same way that you can add event handler methods directly to Control.&nbsp; PNode
@@ -640,7 +640,7 @@ protected void nodeGreen_KeyDown(object sender, PInputEventArgs e) {
             ensures that all future keyboard events will be dispatched to that pick path.&nbsp;
             Otherwise, our key pressed event handler would never get called.&nbsp; For more
             information about focus nodes, picking and event dispatch, see
-            <a href='patterns.html'>Piccolo Patterns</a>.&nbsp; Finally, we consume the event by
+            <a href='patterns.html'>Piccolo2D Patterns</a>.&nbsp; Finally, we consume the event by
             marking it as handled.&nbsp; If we did not do this, the event would percolate up to the
             camera and get dispatched to our squiggle event handler.
           </p>

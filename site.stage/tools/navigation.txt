@@ -18,14 +18,14 @@ index.html Piccolo2D Home
 			#Intro Intro
 				#ZUIs ZUIs
 			#Usage_Patterns Usage
-				#Building_Piccolo Build
+				#Building_Piccolo2D Build
 				#Creating_Nodes Creating&nbsp;Nodes
 				#Adding_User_Interaction Adding&nbsp;Interaction
 				#Layout_Constraints Layout&nbsp;Constraints
 				#Activities Activities
 				#SWT SWT
-			#Implementation_Patterns_for_Piccolo Implementation
-				#Piccolo_Framework_Design Framework&nbsp;Design
+			#Implementation_Patterns_for_Piccolo2D Implementation
+				#Piccolo2D_Framework_Design Framework&nbsp;Design
 				#Full_Terminology Full&nbsp;Terminology
 				#Coordinate_Systems Coordinates
 				#UI_Cycle UI&nbsp;Cycle
@@ -78,12 +78,12 @@ index.html Piccolo2D Home
 				#Affine Affine&nbsp;Transformations 
 				#Composition Matrix&nbsp;Composition 
 				#Coordinate Coordinate&nbsp;Systems 
-			#Piccolo Piccolo 
+			#Piccolo2D Piccolo2D
 	contribute.html Contribute
 	applications/index.html Applications
-		#piccolo_net Piccolo2D .Net
-		#pocketpiccolo_net PocketPiccolo2D .Net
-		#piccolo_java Piccolo2D Java
+		#piccolo2d_net Piccolo2D .Net
+		#pocketpiccolo2d_net PocketPiccolo2D .Net
+		#piccolo2d_java Piccolo2D Java
 	press.html Press
 	sponsors.html Sponsors
 #	download.html Download
