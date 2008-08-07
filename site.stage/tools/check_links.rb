@@ -21,7 +21,7 @@ protected
 		i = @Ids[src]
 		if i.nil?
 			x = loadXhtml src
-			raise "Http 404    : #{src}" if x.nil?
+			raise "File 404    : #{src}" if x.nil?
 			hash = {}
 			x.each_element("//*[@id]") do |elem|
 				v = elem.attribute('id').value
@@ -62,9 +62,9 @@ protected
 			if !check_anchor || m[2].nil?
 				begin
 					stat = File.stat(m[1])
-					raise "Http 404    : #{href}" if !stat.file?
+					raise "File 404    : #{href}" if !stat.file?
 				rescue Errno::ENOENT => e
-					raise "Http 404    : #{href}"
+					raise "File 404    : #{href}"
 				end
 			else
 				ids = findIdNodes m[1], m[2]
@@ -179,13 +179,14 @@ end
 if ARGV[0] == '--help' || ARGV[0] == '-help' || ARGV[0] == '-?'
 	puts <<END_OF_HELP
 Search broken navigation, links and images references.
+Based on #{File.dirname(__FILE__)}/navigation.txt
 
 Usage:
-	1) cd to the root of the website
+	1) "cd" to the root of the website
 	2) call this script without parameters
 
 Example:
-	$ cd ~/work/piccolo2d/site.stage
+	$ cd ~/work/piccolo2d/site
 	$ #{__FILE__}
 
 END_OF_HELP
