@@ -176,7 +176,7 @@ END_OF_HAVIGATION_HEAD
 			href = child.attribute('href').value
 			href = prefix + href if href[0,1] != '#' # don't prefix anchors
 			if child == node
-				_dst << title # could also add a class
+				_dst << "<a class='selected' href='#{href}'>#{title}</a>"
 			else
 				_dst << "<a href='#{href}'>#{title}</a>"
 			end

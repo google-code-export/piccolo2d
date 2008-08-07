@@ -9,9 +9,12 @@
 # $3 link text
 index.html Piccolo2D Home
 	play/index.html Play
+		play/applet/fisheyecalendar.html Fisheye&nbsp;Calendar
+		play/applet/grapheditor.html Graph&nbsp;Editor
+		play/applet/presentation.html Presentation&nbsp;Tool
 	learn/index.html Learn
-		learn/about.html About Piccolo2D
-		learn/patterns.html Piccolo2D Patterns
+		learn/about.html About&nbsp;Piccolo2D
+		learn/patterns.html Piccolo2D&nbsp;Patterns
 			#Intro Intro
 				#ZUIs ZUIs
 			#Usage_Patterns Usage
@@ -36,16 +39,16 @@ index.html Piccolo2D Home
 				#Sticky_Objects Sticky&nbsp;Objects
 		learn/get-started.html Getting Started
 			learn/out-of-box-java.html Java:&nbsp;Out&nbsp;of&nbsp;the&nbsp;Box
-			learn/out-of-box-dotnet.html .Net: Out of the Box
+			learn/out-of-box-dotnet.html .Net:&nbsp;Out&nbsp;of&nbsp;the&nbsp;Box
 			learn/interface.html The Interface
 			learn/interaction.html User Interaction
 			learn/effects.html Special Effects
 			learn/fisheye.html Fisheye Calendar
 			learn/grapheditor.html Graph Editor
-		learn/api.html API Documentation
-		learn/comparison.html Piccolo2D in Comparison
-			#todo Piccolo2D Version
-			#todo Piccolo2D and Jazz
+		learn/api.html API&nbsp;Documentation
+		learn/comparison.html Piccolo2D&nbsp;in&nbsp;Comparison
+			#todo Piccolo2D&nbsp;Version
+			#todo Piccolo2D&nbsp;and&nbsp;Jazz
 			#todo Other Toolkits
 		learn/publications.html Publications
 		learn/dev-faq.html Developer FAQ
@@ -77,6 +80,10 @@ index.html Piccolo2D Home
 				#Coordinate Coordinate&nbsp;Systems 
 			#Piccolo Piccolo 
 	contribute.html Contribute
+	applications/index.html Applications
+		#piccolo_net Piccolo2D .Net
+		#pocketpiccolo_net PocketPiccolo2D .Net
+		#piccolo_java Piccolo2D Java
 	press.html Press
 	sponsors.html Sponsors
 #	download.html Download
