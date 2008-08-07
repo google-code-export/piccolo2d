@@ -3,6 +3,114 @@
 require 'rexml/document'
 require 'net/http'
 
+
+# Helper to read a textual navigation structure from a file.
+class Navigation
+	# Read the textual navigation structure and provide an
+	# iterator (level,url,title) of each entry.
+	# Comment lines starting with # are ignored.
+	# 
+	# Yields level, url, title
+	# [src] either a path to the navigation.txt file or an IO or something else supporting each_line.
+	def self.tokenize_navigation src
+		src = File.new src if src.kind_of? String
+		# Parse the navigation txt
+		comment = /^(#.*?)?\s*$/
+		pat = /^(\t*)(\S+)\s+(.+?)\s*$/
+		src.each_line do |line|
+			#puts line.strip
+			next if !comment.match(line).nil?
+			m = pat.match line
+			if m.nil?
+				$stderr.puts "Mismatching entry: [#{line}]"
+				next
+			end
+			yield m[1].length, m[2], m[3]
+		end
+	end
+
+	# Read the textual navigation structure and return a xml document
+	# for further processing.
+	# [src] input for tokenize_navigation(src)
+	def self.parse_navigation_xml src
+		xml = REXML::Document.new
+		current = xml
+		curr_lev = -1
+		self.tokenize_navigation(src) do |level,href,title|
+			# keep html entities in the title - don't escape the &:
+			elem = REXML::Document.new "<node title='#{title}'/>"
+			elem = elem.root
+			elem.add_attribute 'href', href
+			elem.add_attribute 'level', level.to_s
+			if level == curr_lev
+				pa = current.parent
+			elsif level > curr_lev
+				pa = current
+				curr_lev += 1
+			else
+				pa = current.parent
+				while level < curr_lev
+					pa = pa.parent
+					curr_lev -= 1
+				end
+			end
+			pa.add(current=elem)
+		end
+		xml
+	end
+
+	# Render the navigation structure (xml as from parse_navigation_xml)
+	# into nested <ul> lists.
+	#
+	# Titles only, no links.
+	#
+	# [parent] the xml node to print
+	# [dst] destination. Must support <<
+	# [level] indentation level
+	def self.print_tree_xml parent, dst=$stdout, level=0
+		self.walk_tree_xml(parent, dst, "  ", level) do |dst,child|
+			dst << child.attribute('title').value
+		end
+	end
+
+	# Closure to render the navigation structure (xml as from parse_navigation_xml)
+	# into nested <ul> lists.
+	# 
+	# yields dst,child
+	#
+	# [parent] the xml node to print
+	# [dst] destination. Must support <<
+	# [indent] indentation atom
+	# [level] indentation level
+	def self.walk_tree_xml parent, dst, indent="\t", level=0, &block
+		# yield and recursion: 
+		# http://www.google.com/search?q=ruby+yield+recursive
+		# http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/76211
+		indent = indent * level
+		dst << "<ul class='nav'>\n"
+		parent.each_child do |child|
+			dst << "#{indent}<li>"
+			block.call(dst,child)
+			walk_tree_xml(child, dst, indent, level+1, &block) if child.has_elements?
+			dst << "</li>\n"
+		end
+		dst << "#{indent}</ul>"
+	end
+
+	def initialize src
+		@Xml = Navigation.parse_navigation_xml(src)
+		# $stderr.puts @Xml
+	end
+
+protected
+	# delegates to Page.loadXml
+	def loadXhtml src
+		Page.loadXml src
+	end
+
+end
+
+
 class Page
 
 	def self.makeAbsoluteUrl(href)

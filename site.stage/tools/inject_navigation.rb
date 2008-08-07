@@ -1,6 +1,6 @@
 #!/usr/bin/ruby -w
 #
-# Call without parameters to get help.
+# Call with parameter --help to get help.
 #
 # http://www.ruby-doc.org/docs/ProgrammingRuby/
 require File.dirname(__FILE__) + '/xhtml.rb'
@@ -8,105 +8,10 @@ require File.dirname(__FILE__) + '/xhtml.rb'
 # Helper to inject navigation into html pages, 
 # TODO link-check and 
 # TODO visualise as site-map.
-class Navigation
-
-	# Read the textual navigation structure and provide an
-	# iterator (level,url,title) of each entry.
-	# Comment lines starting with # are ignored.
-	# 
-	# Yields level, url, title
-	# [src] either a path to the navigation.txt file or an IO or something else supporting each_line.
-	def self.tokenize_navigation src
-		src = File.new src if src.kind_of? String
-		# Parse the navigation txt
-		comment = /^#.*$/
-		pat = /^(\t*)(\S+)\s+(.+)*$/
-		src.each_line do |line|
-			#puts line.strip
-			next if !comment.match(line).nil?
-			m = pat.match line
-			if m.nil?
-				$stderr.puts "Mismatching entry: [#{line}]"
-				next
-			end
-			yield m[1].length, m[2], m[3]
-		end
-	end
-
-	# Read the textual navigation structure and return a xml document
-	# for further processing.
-	# [src] input for tokenize_navigation(src)
-	def self.parse_navigation_xml src
-		xml = REXML::Document.new
-		current = xml
-		curr_lev = -1
-		self.tokenize_navigation(src) do |level,href,title|
-			# keep html entities in the title - don't escape the &:
-			elem = REXML::Document.new "<node title='#{title}'/>"
-			elem = elem.root
-			elem.add_attribute 'href', href
-			elem.add_attribute 'level', level.to_s
-			if level == curr_lev
-				pa = current.parent
-			elsif level > curr_lev
-				pa = current
-				curr_lev += 1
-			else
-				pa = current.parent
-				while level < curr_lev
-					pa = pa.parent
-					curr_lev -= 1
-				end
-			end
-			pa.add(current=elem)
-		end
-		xml
-	end
-
-	# Render the navigation structure (xml as from parse_navigation_xml)
-	# into nested <ul> lists.
-	#
-	# Titles only, no links.
-	#
-	# [parent] the xml node to print
-	# [dst] destination. Must support <<
-	# [level] indentation level
-	def self.print_tree_xml parent, dst=$stdout, level=0
-		self.walk_tree_xml(parent, dst, "  ", level) do |dst,child|
-			dst << child.attribute('title').value
-		end
-	end
-
-	# Closure to render the navigation structure (xml as from parse_navigation_xml)
-	# into nested <ul> lists.
-	# 
-	# yields dst,child
-	#
-	# [parent] the xml node to print
-	# [dst] destination. Must support <<
-	# [indent] indentation atom
-	# [level] indentation level
-	def self.walk_tree_xml parent, dst, indent="\t", level=0, &block
-		# yield and recursion: 
-		# http://www.google.com/search?q=ruby+yield+recursive
-		# http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/76211
-		indent = indent * level
-		dst << "<ul class='nav'>\n"
-		parent.each_child do |child|
-			dst << "#{indent}<li>"
-			block.call(dst,child)
-			walk_tree_xml(child, dst, indent, level+1, &block) if child.has_elements?
-			dst << "</li>\n"
-		end
-		dst << "#{indent}</ul>"
-	end
+class NavigationInjector < Navigation
 
 	def initialize src
-		@Xml = Navigation.parse_navigation_xml(src)
-		# $stderr.puts @Xml
-	end
-
-	def check_structure
+		super src
 	end
 
 	# Iterate and delegate to inject_single
@@ -117,11 +22,6 @@ class Navigation
 	end
 
 private
-	# delegates to Page.loadXml
-	def loadXhtml src
-		Page.loadXml src
-	end
-
 	# Inject navigation into one html page.
 	# [dst] relative path of the page to inject into. 
 	# The path is interpreted both as the path to the physical
@@ -155,14 +55,11 @@ private
 		xpath << 'node[starts-with(@href,\'#\')]/node[starts-with(@href,\'#\')]'
 		node.each_element(xpath.join('|')) { |c| c.add_attribute 'keep', 'true' }
 
-		# log.puts x
-
 		# remove all unmarked elements
 		x.each_element("descendant::node[not(@keep='true')]") {|e| e.remove}
-		# log.puts x
 
 		# create xhtml snippet to inject
-		div = <<END_OF_HAVIGATION_HEAD
+		div = <<END_OF_NAVIGATION_HEAD
 <div id='navigation'>
 <!-- 
 	this navigation node is auto-generated and injected
@@ -170,7 +67,7 @@ private
 	
 	DO NOT EDIT IT MANUALLY!!!	
 -->
-END_OF_HAVIGATION_HEAD
+END_OF_NAVIGATION_HEAD
 		Navigation.walk_tree_xml(x, div, "  ") do |_dst,child|
 			title = child.attribute('title').value
 			href = child.attribute('href').value
@@ -195,9 +92,9 @@ END_OF_HAVIGATION_HEAD
 	<a href='http://code.google.com/p/piccolo2d/issues/entry?template=User%20defect%20report'>I
 	found an error!</a>
 </p>
+</div>
 END_OF_NAVIGATION_FOOT
-
-		div << "</div>"
+		# parse
 		div = REXML::Document.new div
 
 		# inject
@@ -210,41 +107,13 @@ END_OF_NAVIGATION_FOOT
 		# write back the injected file
 		xhtml.write File.open(dst, "w")
 	end
-
-	# DEPRECATED will be removed soon.
-	def self.parse_navigation_hash src, parent, labels
-#		$stderr.puts "parse_navigation src, #{parent.nil? ? 'nil' : 'ok'}, labels"
-		stack = [parent]
-		prev = nil
-		self.tokenize_navigation(src) do |level,href,title|
-			labels[href] = title
-			level += 1
-			while level < stack.length
-				stack.pop
-			end
-			stack.push(prev) if level > stack.length
-			stack.last[href] = prev = {}			
-		end		
-	end
-
-	# DEPRECATED will be removed soon.
-	def self.print_tree_hash parent, dst=$stdout, level=0
-		indent = "\t" * level
-		dst.puts "<ul>"
-		parent.each do |file,children|
-			dst.write "#{indent}<li>#{file}"
-			print_tree_hash(children, dst, level+1) if children.length > 0
-			dst.puts "</li>"
-		end
-		dst.write "#{indent}</ul>"
-	end
 end
 
 ###########################################################
 #### main program #########################################
 ###########################################################
 
-if ARGV.length < 2 || ARGV[1] == '--help' || ARGV[1] == '-help' || ARGV[1] == '-?'
+if ARGV.length < 2 || ARGV[0] == '--help' || ARGV[0] == '-help' || ARGV[0] == '-?'
 	puts <<END_OF_HELP
 Inject navigation into html pages.
 
@@ -261,7 +130,7 @@ END_OF_HELP
 end
 
 # use the first parameter as navigation structure file path
-n = Navigation.new ARGV[0]
+n = NavigationInjector.new ARGV[0]
 # and the rest as paths to html pages to inject into.
 ARGV[0] = nil
 ARGV.compact!
