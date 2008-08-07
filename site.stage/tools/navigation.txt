@@ -1,0 +1,79 @@
+# Navigation structure of the piccolo2d website
+# the entries here are parsed and injected into the html pages
+# 
+# the entries must match the regular exp /(\t)*(\S+) (.+)
+# with
+# $1 level
+# $2 relative url from site base or intra page anchor
+# $3 link text
+index.html Piccolo2D
+	play/index.html Play
+	learn/index.html Learn
+		learn/patterns.html Piccolo2D Patterns
+			#Intro Intro
+				#ZUIs ZUIs
+			#Usage_Patterns Usage
+				#Building_Piccolo Build
+				#Creating_Nodes Creating&nbsp;Nodes
+				#Adding_User_Interaction Adding&nbsp;Interaction
+				#Layout_Constraints Layout&nbsp;Constraints
+				#Activities Activities
+				#SWT SWT
+			#Implementation_Patterns_for_Piccolo Implementation
+				#Piccolo_Framework_Design Framework&nbsp;Design
+				#Full_Terminology Full&nbsp;Terminology
+				#Coordinate_Systems Coordinates
+				#UI_Cycle UI&nbsp;Cycle
+				#Threads Threads
+				#Dispatching_Events Dispatching&nbsp;Events
+				#Processing_Activities Processing&nbsp;Activities
+				#Validating_Bounds Validating&nbsp;Bounds
+				#Updating_the_Display Updating&nbsp;Display
+			#Desing_Patterns_for_ZUI_Interfaces ZUI&nbsp;Design
+				#Semantic_Zooming Semantic&nbsp;Zooming
+				#Sticky_Objects Sticky&nbsp;Objects
+		learn/get-started.html Getting Started
+			learn/out-of-box-java.html Java: Out of the Box
+			learn/out-of-box-dotnet.html .Net: Out of the Box
+			learn/interface.html The Interface
+			learn/interaction.html User Interaction
+			learn/effects.html Special Effects
+			learn/fisheye.html Fisheye Calendar
+			learn/grapheditor.html Graph Editor
+		learn/api.html API Documentation
+		learn/comparison.html Piccolo2D in Comparison
+			#todo Piccolo2D Version
+			#todo Piccolo2D and Jazz
+			#todo Other Toolkits
+		learn/publications.html Publications
+		learn/dev-faq.html Developer FAQ
+#		learn/maillists.html Mailing Lists
+		learn/graphics.html Graphics Primer
+			#Basics Basics
+				#Drawing Drawing&nbsp;Abstraction 
+				#Coordinates Coordinates 
+				#Models Description&nbsp;Models 
+				#Shapes Drawing&nbsp;Shapes 
+				#Rendering Rendering 
+				#Text Text 
+				#Color Color 
+				#Clipping Clipping 
+				#Efficiency Efficiency 
+			#Equations Geometric&nbsp;Equations 
+				#Implicit Implicit&nbsp;Forms 
+				#Explicit Explicit&nbsp;Forms 
+				#Parametric Parametric&nbsp;Forms 
+				#Control Control&nbsp;Points 
+			#Transformations Geometric&nbsp;Transformations 
+				#Matrix Matrix&nbsp;Transformations 
+				#Scaling Scaling 
+				#Rotation Rotation 
+				#Translation Translation 
+				#Homogeneous Homogeneous&nbsp;Coordinates 
+				#Affine Affine&nbsp;Transformations 
+				#Composition Matrix&nbsp;Composition 
+				#Coordinate Coordinate&nbsp;Systems 
+			#Piccolo Piccolo 
+	contribute.html Contribute
+	press.html Press
+#	download.html Download
