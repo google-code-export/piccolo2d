@@ -141,7 +141,7 @@ public
 					check_resource href, false
 #					log.puts "Link OK     : #{file} -> #{href}"
 				rescue Exception => e
-					log.puts "#{e.message} [#{file}]"
+					log.puts "#{e.message} <- #{file}"
 				end
 			end
 		end
@@ -164,7 +164,7 @@ public
 					check_resource href, false
 #					log.puts "Link OK     : #{file} -> #{href}"
 				rescue Exception => e
-					log.puts "#{e.message} [#{file}]"
+					log.puts "#{e.message} <- #{file}"
 				end
 			end
 		end
