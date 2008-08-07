@@ -23,3 +23,5 @@ The java version is built on Java 2 and relies on the Java2D API to do its graph
 The .NET version is built on the .NET Framework and relies on the GDI+ API to do its graphics rendering. This makes it easy for Java and C# programmers, even those targeting PDAs, to build their own animated graphical applications. 
 
 And best of all, Piccolo2D is _free_ and _open source!_
+
+Learn more at the [http://piccolo2d.googlecode.com/svn/site.stage/index.html Piccolo2D Homepage].
