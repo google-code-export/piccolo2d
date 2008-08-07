@@ -1,16 +1,18 @@
 #!/usr/bin/ruby -w
 #
-# Call with parameters to get help.
+# Call without parameters to get help.
 #
 # http://www.ruby-doc.org/docs/ProgrammingRuby/
 require File.dirname(__FILE__) + '/xhtml.rb'
 
-# Helper to inject navigation into html pages, link-check and visualise as site-map.
+# Helper to inject navigation into html pages, 
+# TODO link-check and 
+# TODO visualise as site-map.
 class Navigation
 
-	# Read the textual navigation structure and provide and
-	# iterator over regxp match objects of each entry.
-	# Comments ignored.
+	# Read the textual navigation structure and provide an
+	# iterator (level,url,title) of each entry.
+	# Comment lines starting with # are ignored.
 	# 
 	# Yields level, url, title
 	# [src] either a path to the navigation.txt file or an IO or something else supporting each_line.
@@ -63,6 +65,9 @@ class Navigation
 
 	# Render the navigation structure (xml as from parse_navigation_xml)
 	# into nested <ul> lists.
+	#
+	# Titles only, no links.
+	#
 	# [parent] the xml node to print
 	# [dst] destination. Must support <<
 	# [level] indentation level
@@ -72,8 +77,11 @@ class Navigation
 		end
 	end
 
-	# Render the navigation structure (xml as from parse_navigation_xml)
+	# Closure to render the navigation structure (xml as from parse_navigation_xml)
 	# into nested <ul> lists.
+	# 
+	# yields dst,child
+	#
 	# [parent] the xml node to print
 	# [dst] destination. Must support <<
 	# [indent] indentation atom
@@ -203,7 +211,7 @@ END_OF_NAVIGATION_FOOT
 		xhtml.write File.open(dst, "w")
 	end
 
-	# will be removed soon.
+	# DEPRECATED will be removed soon.
 	def self.parse_navigation_hash src, parent, labels
 #		$stderr.puts "parse_navigation src, #{parent.nil? ? 'nil' : 'ok'}, labels"
 		stack = [parent]
@@ -219,7 +227,7 @@ END_OF_NAVIGATION_FOOT
 		end		
 	end
 
-	# will be removed soon.
+	# DEPRECATED will be removed soon.
 	def self.print_tree_hash parent, dst=$stdout, level=0
 		indent = "\t" * level
 		dst.puts "<ul>"
@@ -236,7 +244,7 @@ end
 #### main program #########################################
 ###########################################################
 
-if ARGV.length == 0 || ARGV[1] == '--help' || ARGV[1] == '-help' || ARGV[1] == '-?'
+if ARGV.length < 2 || ARGV[1] == '--help' || ARGV[1] == '-help' || ARGV[1] == '-?'
 	puts <<END_OF_HELP
 Inject navigation into html pages.
 
@@ -259,7 +267,7 @@ ARGV[0] = nil
 ARGV.compact!
 n.inject ARGV
 puts <<END_OF_HELP
-...finished. Now please run
+...finished. Now please run html tidy on all files:
 $ for f in #{ARGV.join ' '}; do echo $f;tidy -asxhtml -m -i -wrap 100 \$f; done
 END_OF_HELP
 
