@@ -11,4 +11,4 @@ The steps migrating the content from UMD here are
 7) feature on the project homepage
 
 P.S.: As the .../svn/site/ has no trunk/branches/tags I version
-      the changes with git and push them to .../svn/site/user/
+      the changes with git and push them to .../svn/site.stage/

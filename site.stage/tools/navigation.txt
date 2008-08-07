@@ -1,14 +1,16 @@
 # Navigation structure of the piccolo2d website
 # the entries here are parsed and injected into the html pages
+# by the script ./inject_navigation.rb
 # 
 # the entries must match the regular exp /(\t)*(\S+) (.+)
 # with
 # $1 level
 # $2 relative url from site base or intra page anchor
 # $3 link text
-index.html Piccolo2D
+index.html Piccolo2D Home
 	play/index.html Play
 	learn/index.html Learn
+		learn/about.html About Piccolo2D
 		learn/patterns.html Piccolo2D Patterns
 			#Intro Intro
 				#ZUIs ZUIs
@@ -33,7 +35,7 @@ index.html Piccolo2D
 				#Semantic_Zooming Semantic&nbsp;Zooming
 				#Sticky_Objects Sticky&nbsp;Objects
 		learn/get-started.html Getting Started
-			learn/out-of-box-java.html Java: Out of the Box
+			learn/out-of-box-java.html Java:&nbsp;Out&nbsp;of&nbsp;the&nbsp;Box
 			learn/out-of-box-dotnet.html .Net: Out of the Box
 			learn/interface.html The Interface
 			learn/interaction.html User Interaction
@@ -76,4 +78,5 @@ index.html Piccolo2D
 			#Piccolo Piccolo 
 	contribute.html Contribute
 	press.html Press
+	sponsors.html Sponsors
 #	download.html Download

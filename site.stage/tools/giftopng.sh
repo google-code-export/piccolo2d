@@ -1,5 +1,8 @@
 #!/bin/sh
-# typical usage:
+#
+# Convert a single gif image to png
+#
+# Typical usage:
 #
 # find . -name "*.gif" -exec sh giftopng.sh {} \;
 #

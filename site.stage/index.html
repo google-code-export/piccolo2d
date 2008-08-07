@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <meta name='generator'
@@ -11,33 +11,38 @@
     content='piccolo2d, piccolo2d.net, piccolo, piccolo.net, zoomable, zui, user interfaces, human-computer interaction, HCI, visualization, education' />
     <meta name='relation' content='(contained in)=http://www.piccolo2d.org' />
     <title>
-      Piccolo2D - About
+      Piccolo2D - A Structured 2D Graphics Framework
     </title>
     <link href='piccolo2d.css' rel='stylesheet' type='text/css' />
   </head>
   <body>
     <div id='navigation'>
-      <h1>
-        <a href='./index.html'>About Piccolo2D</a>
-      </h1>
+      <!-- 
+                                this navigation node is auto-generated and injected
+                                by the script tools/inject_navigation.rb
+                                
+                                DO NOT EDIT IT MANUALLY!!!      
+                        -->
       <ul class='nav'>
         <li>
-          <a href='./play/index.html'>Play</a>
-        </li>
-        <li>
-          <a href='./learn/index.html'>Learn</a>
-        </li>
-        <li>
-          <a href='./contribute/index.html'>Contribute</a>
-        </li>
-        <li>
-          <a href='./applications/index.html'>Applications</a>
-        </li>
-        <li>
-          <a href='./press/index.html'>Press</a>
-        </li>
-        <li>
-          <a href='./download/index.html'>Download</a>
+          Piccolo2D Home 
+          <ul class='nav'>
+            <li>
+              <a href='play/index.html'>Play</a>
+            </li>
+            <li>
+              <a href='learn/index.html'>Learn</a>
+            </li>
+            <li>
+              <a href='contribute.html'>Contribute</a>
+            </li>
+            <li>
+              <a href='press.html'>Press</a>
+            </li>
+            <li>
+              <a href='sponsors.html'>Sponsors</a>
+            </li>
+          </ul>
         </li>
       </ul>
       <p>
@@ -57,7 +62,7 @@
     <div id='main'>
       <div id='main-head'>
         <h1>
-          About Piccolo
+          A Structured 2D Graphics Framework
         </h1>
         <p>
           <em>Welcome to Piccolo!</em> A revolutionary way to create robust, full-featured
@@ -93,134 +98,55 @@
         </p>
       </div>
       <h2>
-        How many versions of Piccolo are there?
+        Announcements
       </h2>
       <p>
-        There three versions of Piccolo: <em>Piccolo.Java</em>, <em>Piccolo.NET</em>, and
-        <em>PocketPiccolo.NET</em>. They contain the same core functionality with a few
-        differences. We will examine each separately here. For a detailed comparison, see
-        <a href='comparison.shtml'>Piccolo in Comparison</a>.
-      </p>
-      <dl>
-        <dt>
-          Piccolo.Java
-        </dt>
-        <dd>
-          Piccolo.Java is written in 100% java, and the great thing about Java is that it runs on
-          lots of machines including Windows, Mac OS X, Linux and Solaris. It is based on the
-          Java2D API.
-        </dd>
-        <dt>
-          Piccolo.NET
-        </dt>
-        <dd>
-          Piccolo.NET is written in 100% C#.&nbsp; It runs on platforms that support the .NET
-          Framework.&nbsp; This means mainly Windows machines. Piccolo.NET provides the same
-          functionality as Piccolo.Java, enabling .NET users to easily integrate advanced 2D
-          graphics and zooming with standard Windows application code.&nbsp; It is a deep port of
-          the&nbsp;&nbsp;Java version.&nbsp; The API is very similar,&nbsp;&nbsp;but there
-          are&nbsp;a few differences to better support .NET style guidelines and constructs.&nbsp;
-          Piccolo.NET is based on the GDI+ API.
-        </dd>
-        <dt>
-          PocketPiccolo.NET
-        </dt>
-        <dd>
-          PocketPiccolo.NET is also written in C#.&nbsp; It runs on platforms that support the
-          Compact .NET Framework.&nbsp; This means mainly PDAs.&nbsp; Current platforms include
-          Pocket PCs, Pocket PC Phones, Smart Phones, and Windows CE.NET devices.
-        </dd>
-      </dl>
-      <h2>
-        What do you mean by "Structured Graphics"?
-      </h2>
-      <p>
-        Piccolo provides support for developers of 2D (+ zooming) object-oriented graphics programs
-        in Java and C#. It uses a "scenegraph" model that is common to 3D environments. Basically,
-        this means that Piccolo keeps a hierarchal structure of objects and cameras. Each node in
-        the hierarchy has a general 2D affine transform which allows every object to be arbitrarily
-        translated, scaled, rotated, and sheared. In addition, the cameras have affine transforms
-        that specify their view into the scene.
+        <b>Reduced effort on Piccolo</b> (Nov 1, 2006): We are reducing public support of Piccolo.
+        We continue to use it internally and are aware of a number of external research and
+        commercial uses of Piccolo. We will continue to distribute it open source and maintain the
+        mailing lists, but we no longer have funds for continued development or help for others
+        using Piccolo. We will be happy to continue to fold in external distributions, and do our
+        best to maintain Piccolo, but with significantly reduced resources.
       </p>
       <p>
-        This simple approach is very powerful because is enables a very decoupled object oriented
-        approach to graphical applications. Piccolo defines several visual components, and
-        applications can readily extend them or define their own. Piccolo supports dynamic and
-        constrained objects that respond to various kinds of context (such as the current camera
-        view). And, the camera model supports multiple views, overviews, and even embedded views
-        (where a camera looks at another camera within the scene).
-      </p>
-      <h2>
-        What development directions are you following?
-      </h2>
-      <p>
-        We are continuing to expand and maintain all three versions of Piccolo.&nbsp; But,
-        internally, most of our new research projects are being implemented in Piccolo.NET.
-      </p>
-      <h2>
-        How do I get a Piccolo License?
-      </h2>
-      <p>
-        It's free! Piccolo is completely open source. You can download and use Piccolo however you
-        like. The only restriction is that you must follow the guidelines set forth in the
-        <a href='http://opensource.org/licenses/bsd-license.php'>BSD</a> public license.&nbsp; To
-        read more about using the public license, visit the
-        <a href='../download/open-source.shtml'>license</a> page.
+        <a href='download/svn.html'>Switching from CVS to Subversion (SVN)</a> (Oct 5, 2006)
       </p>
       <p>
-        Note that you are not obligated to make your <em>applications</em> open source. You are
-        free to protect your applications in any way you see fit.
-      </p>
-      <h2>
-        How do I contact the Piccolo team and Piccolo users?
-      </h2>
-      <p>
-        There are several ways.&nbsp; You can subscribe to the <a href='maillists.shtml'>mailing
-        lists</a> if you would like to ask technical questions or receive announcements about
-        Piccolo.&nbsp; You can also <a href='../contact/index.shtml'>contact us</a> directly if you
-        would prefer to do so.&nbsp; Or, if you find a problem with Piccolo, you can send us a
-        <a href='mailto:piccolo-bug@cs.umd.edu'>bug report</a>.
-      </p>
-      <h2>
-        Where did Piccolo come from?
-      </h2>
-      <p>
-        Ken Perlin at New York University came up with the initial zoomable surface concept. He and
-        David Fox implemented the first versions of <em>Pad</em> (described in the 1993 SIGGRAPH
-        paper available <a href='publications.shtml'>here</a>). Perlin and Fox's original work was
-        supported in part originally by NYNEX, and then NSF.
+        <a href='download/index.shtml#source'>Piccolo.NET 1.2 now available!</a> (Dec 6,
+        2005)<br />
+         <em>Includes Direct3D Implementation</em>
       </p>
       <p>
-        The next major step was <em>Pad++</em>, designed by Ben Bederson and Jim Hollan while at
-        Bellcore. They both moved to the University of New Mexico where they developed the bulk of
-        Pad++ in collaboration with Jon Meyer and Ken Perlin at NYU. This was supported largely by
-        a DARPA initiative in HCI.
+        <a href='download/index.shtml#source'>Piccolo.Java 1.2 now available!</a> (Dec 6, 2005)
+      </p>
+      <hr />
+      <p>
+        The primary paper describing and analyzing the Piccolo architecture: Bederson, B. B.,
+        Grosjean, J., &amp; Meyer, J. (2004). <a href='learn/Toolkit_Design_2004.pdf'>Toolkit
+        Design for Interactive Structured Graphics</a>, IEEE Transactions on Software Engineering,
+        30 (8), pp. 535-546.
       </p>
       <p>
-        Then there was <em>Jazz</em>, a rewrite in Java by Ben Bederson and his team at the
-        University of Maryland. It was a rich toolkit and supported all kinds of features including
-        embedded Swing widgets and SVG. However, it grew too big, and more importantly it had a
-        very general design that actually made it somewhat hard to use because there were so many
-        objects.
-      </p>
-      <p>
-        <em>Piccolo</em>, the current incarnation, is a direct successor to Jazz. Piccolo takes all
-        that we have learned over the years, and rolls it into a lean and mean tiny engine that is
-        very easy to understand, use and extend. It was built by&nbsp; Jesse Grosjean and then
-        ported to .NET by Aaron Clamage under the direction of Ben Bederson at the University of
-        Maryland.
-      </p>
-      <h2>
-        What happened to Jazz?
-      </h2>
-      <p>
-        Jazz has lived a healthy and prosperous life.&nbsp; It has enabled us to perform our
-        research on Zoomable User Interfaces, and it has spawned a new toolkit, Piccolo.&nbsp;
-        Piccolo is now replacing Jazz and now supports everything Jazz does (except embedded Swing
-        widgets which we never found to be crucial anyway).&nbsp; Jazz remains open source, and we
-        will keep it on this website but we are not actively maintaining it, and are instead
-        focusing all of our current efforts on Piccolo.
+        <a href='learn/Piccolo.NET.ppt'>PowerPoint presentation about Piccolo.NET</a> [4.5 MB] -
+        given by Ben Bederson at Microsoft Faculty Summit - Aug 2, 2004.
       </p>
     </div>
+    <table cellspacing='0' border='0' summary='Piccolo2D Impressions' cellpadding='5' cols='4'
+    width='100%'>
+      <tr>
+        <td width='265'>
+          <img src='images/spacetree.jpg' alt='Spacetree Screenshot' />
+        </td>
+        <td>
+          <img src='images/icdl-small.png' alt='ICDL Screenshot' />
+        </td>
+        <td>
+          <img src='images/photomesa-small.JPG' alt='Photomesa Screenshot' />
+        </td>
+        <td>
+          <img src='images/kidpad.jpg' alt='KidPad Screenshot' />
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
