@@ -113,27 +113,23 @@ end
 #### main program #########################################
 ###########################################################
 
-if ARGV.length < 2 || ARGV[0] == '--help' || ARGV[0] == '-help' || ARGV[0] == '-?'
+if ARGV.length < 1 || ARGV[0] == '--help' || ARGV[0] == '-help' || ARGV[0] == '-?'
 	puts <<END_OF_HELP
 Inject navigation into html pages.
 
 Usage:
 	1) cd to the root of the website
-	2) call this script with first parameter navigation.txt and multiple html pages following
+	2) call this script with multiple html files as parameters
 
 Example:
 	$ cd ~/work/piccolo2d/site.stage
-	$ #{__FILE__} #{File.dirname(__FILE__)}/navigation.txt index.html about.html
+	$ #{__FILE__} index.html about.html
 
 END_OF_HELP
 	exit
 end
 
-# use the first parameter as navigation structure file path
-n = NavigationInjector.new ARGV[0]
-# and the rest as paths to html pages to inject into.
-ARGV[0] = nil
-ARGV.compact!
+n = NavigationInjector.new "#{File.dirname(__FILE__)}/navigation.txt"
 n.inject ARGV
 puts <<END_OF_HELP
 ...finished. Now please run html tidy on all files:

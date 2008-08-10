@@ -6,7 +6,7 @@ Usually they must be started with the site's root as current
 directory, e.g.
 $ svn checkout http://piccolo2d.googlecode.com/svn/site.stage
 $ cd site.stage
-$ tools/inject_navigation.rb tools/navigation.txt index.html learn/about.html
+$ tools/inject_navigation.rb index.html learn/about.html
 
 Each file starts with a brief description of it's purpose.
 
