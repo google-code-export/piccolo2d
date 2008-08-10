@@ -165,5 +165,6 @@ ul.nav li {
 	/* make a link look like ordinary text to mark the currently active selection */
 	color: #000000;
 	text-decoration: none;
+	font-weight: normal;
 }
 

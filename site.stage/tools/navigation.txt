@@ -47,12 +47,11 @@ index.html Piccolo2D Home
 			learn/grapheditor.html Graph Editor
 		learn/api.html API&nbsp;Documentation
 		learn/comparison.html Piccolo2D&nbsp;in&nbsp;Comparison
-			#todo Piccolo2D&nbsp;Version
-			#todo Piccolo2D&nbsp;and&nbsp;Jazz
-			#todo Other Toolkits
+			#versions Piccolo2D&nbsp;Version
+			#jazz Piccolo2D&nbsp;and&nbsp;Jazz
+			#other Other Toolkits
 		learn/publications.html Publications
 		learn/dev-faq.html Developer FAQ
-#		learn/maillists.html Mailing Lists
 		learn/graphics.html Graphics Primer
 			#Basics Basics
 				#Drawing Drawing&nbsp;Abstraction 
@@ -79,7 +78,7 @@ index.html Piccolo2D Home
 				#Composition Matrix&nbsp;Composition 
 				#Coordinate Coordinate&nbsp;Systems 
 			#Piccolo2D Piccolo2D
-	contribute.html Contribute
+	community.html Community
 	applications/index.html Applications
 		#piccolo2d_net Piccolo2D .Net
 		#pocketpiccolo2d_net PocketPiccolo2D .Net
