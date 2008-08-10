@@ -62,10 +62,10 @@ private
 		div = <<END_OF_NAVIGATION_HEAD
 <div id='navigation'>
 <!-- 
-	this navigation node is auto-generated and injected
-	by the script #{__FILE__}
-	
-	DO NOT EDIT IT MANUALLY!!!	
+this navigation node is auto-generated and injected
+by the script #{__FILE__}
+
+DO NOT EDIT IT MANUALLY!!!	
 -->
 END_OF_NAVIGATION_HEAD
 		Navigation.walk_tree_xml(x, div, "  ") do |_dst,child|
