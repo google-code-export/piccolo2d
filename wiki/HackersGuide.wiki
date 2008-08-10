@@ -14,21 +14,21 @@ Piccolo2D was originally sponsored and hosted by the [http://www.cs.umd.edu/hcil
 
 The community exists mainly through mailing lists and a Subversion repository. To participate:
 
-Go to http://code.google.com/p/piccolo2d/ and
+Go to http://piccolo2d.googlecode.com/ and
 
  * Join the "[http://groups.google.com/group/piccolo2d-dev piccolo2d-dev]", "[http://groups.google.com/group/piccolo2d-users piccolo2d-users]", and "[http://groups.google.com/group/piccolo2d-announce piccolo2d-announce]" groups. The piccolo2d-dev list, piccolo2d-dev@googlegroups.com, is where almost all discussion takes place. All development questions should go there, though you might want to check the list archives first.
  * Get a copy of the latest development sources as described in http://code.google.com/p/piccolo2d/wiki/CheckoutInstructions#Developer_access. 
 New development always takes place on trunk. Bugfixes, enhancements, and new features are backported from there to the various release branches.
 
-There are many ways to join the project, either by writing code, or by testing and/or helping to manage the bug database. If you'd like to contribute, then look at:
+There are many ways to join the project, either by *writing code*, or by *testing* and/or helping to *manage the bug database*. If you'd like to contribute, then look at:
 
  * The bugs/issues database http://code.google.com/p/piccolo2d/issues/
 
-To submit code, simply send your patches to piccolo2d-dev@googlegroups.com. No, wait, first read the rest of this page, then start sending in patches.
+To submit code, simply send your patches to mailto:piccolo2d-dev@googlegroups.com. No, wait, first read the rest of this page, then start sending in patches.
 
-To help manage the issues database, read over the issue summaries, looking and testing for issues that are either invalid, or are duplicates of other issues. Both kinds are very common, the first because bugs often get unknowingly fixed as side effects of other changes in the code, and the second because people sometimes file an issue without noticing that it has already been reported. If you are not sure about an issue, post a question to piccolo2d-dev@googlegroups.com.
+To help manage the issues database, read over the issue summaries, looking and testing for issues that are either invalid, or are duplicates of other issues. Both kinds are very common, the first because bugs often get unknowingly fixed as side effects of other changes in the code, and the second because people sometimes file an issue without noticing that it has already been reported. If you are not sure about an issue, post a question to mailto:piccolo2d-dev@googlegroups.com.
 
-Another way to help is to set up automated builds and test suite runs of Piccolo2D on some platform, and have the output sent to the piccolo2d-dev@googlegroups.com mailing list.
+Another way to help is to *set up automated builds* and test suite runs of Piccolo2D on some platform, and have the output sent to the mailto:piccolo2d-dev@googlegroups.com mailing list.
 
 
 = Code to read =
@@ -37,16 +37,16 @@ Before you can contribute code, you'll need to familiarize yourself with the exi
 
 Check out a copy of Piccolo2D (anonymously, if you don't yet have an account with commit access) — so you can look at the code.
 
-Some good places to start are in the examples directory to see how Piccolo is used, and with the core Piccolo classes (PCanvas, PNode, PPath) to see how the graphics pipeline works.
+Some good places to start are in the examples directory to see how Piccolo2D is used, and with the core Piccolo2D classes (PCanvas, PNode, PPath) to see how the graphics pipeline works.
 
 = Directory layout =
 
 As Piccolo2D comes in three flavors, there's multiple repository roots:
 
 == Sources ==
- * {{{piccolo.java/trunk/}}} - Java
- * {{{piccolo.net/trunk/}}} - .Net
- * {{{pocketpiccolo.net/trunk/}}} - .Net targeted at mobile devices
+ * {{{piccolo2d.java/trunk/}}} - Java
+ * {{{piccolo2d.net/trunk/}}} - .Net
+ * {{{pocketpiccolo2d.net/trunk/}}} - .Net targeted at mobile devices
 == Documentation and supplementary material ==
  * {{{wiki/}}} - This wiki
  * {{{maven2/repository/}}} - decentral [http://maven.apache.org/ maven] (release) repository
