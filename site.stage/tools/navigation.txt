@@ -78,6 +78,7 @@ index.html Piccolo2D Home
 				#Composition Matrix&nbsp;Composition 
 				#Coordinate Coordinate&nbsp;Systems 
 			#Piccolo2D Piccolo2D
+	download.html Download
 	community.html Community
 	applications/index.html Applications
 		#piccolo2d_net Piccolo2D .Net

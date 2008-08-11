@@ -38,7 +38,7 @@ class Navigation
 		curr_lev = -1
 		self.tokenize_navigation(src) do |level,href,title|
 			# keep html entities in the title - don't escape the &:
-			elem = REXML::Document.new "<node title='#{title}'/>"
+			elem = REXML::Document.new "<node title='#{title.strip.gsub ' ', '&nbsp;'}'/>"
 			elem = elem.root
 			elem.add_attribute 'href', href
 			elem.add_attribute 'level', level.to_s
@@ -87,7 +87,7 @@ class Navigation
 		# http://www.google.com/search?q=ruby+yield+recursive
 		# http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/76211
 		indent = indent * level
-		dst << "<ul class='nav'>\n"
+		dst << "<ul>\n"
 		parent.each_child do |child|
 			dst << "#{indent}<li>"
 			block.call(dst,child)
