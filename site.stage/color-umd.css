@@ -1,0 +1,33 @@
+
+/* 
+ Color scheme as at http://www.cs.umd.edu/hcil/jazz/ 
+*/
+
+body {
+	color: black;
+	background-color: white;
+}
+
+.selected {
+	/* make a link look like ordinary text to mark the currently active selection */
+	color: red;
+}
+
+/*
+#navigation {
+	background-color: white;
+}
+*/
+
+#main {
+	background-color: #FFFD9C;
+}
+
+#main-head {
+	background-color: #D6D583;
+}
+
+.snippet {
+	background-color: #D6D583;
+}
+

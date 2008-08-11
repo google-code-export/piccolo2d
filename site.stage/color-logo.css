@@ -1,0 +1,40 @@
+
+/* 
+ Color scheme based on the logo colors:
+	atom blue: #8abee3
+	atom grey: #b5b5b5
+	text red:  #f11414
+	text grey: #737373
+*/
+
+body {
+	color: black;
+	/* atom grey */
+	background-color: #b5b5b5;
+}
+
+.selected {
+	/* make a link look like ordinary text to mark the currently active selection */
+	color: black;
+}
+
+#navigation {
+	/* a little less saturation than atom blue */
+	background-color: #aecde3;
+}
+
+#main {
+	/* a little less saturation than atom blue */
+	background-color: #aecde3;
+}
+
+#main-head {
+	/* atom blue */
+	background-color: #8abee3;
+}
+
+.snippet {
+	/* a little less value than atom blue */
+	background-color: #82b3d6;
+}
+

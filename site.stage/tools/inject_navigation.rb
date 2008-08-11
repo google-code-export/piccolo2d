@@ -67,6 +67,9 @@ by the script #{__FILE__}
 
 DO NOT EDIT IT MANUALLY!!!	
 -->
+<p>
+	<a href='#{prefix}index.html'><img src='#{prefix}images/Piccolo2D-Logo-small.png' alt='Piccolo2D Logo' /></a>
+</p>
 END_OF_NAVIGATION_HEAD
 		Navigation.walk_tree_xml(x, div, "  ") do |_dst,child|
 			title = child.attribute('title').value
@@ -80,7 +83,7 @@ END_OF_NAVIGATION_HEAD
 		end
 		div << <<END_OF_NAVIGATION_FOOT
 <p>
-	<img src='#{prefix}images/giny-small.jpg' alt='a nice graph' />
+	<img src='#{prefix}images/giny-small.png' alt='a nice graph' />
 </p>
 <p>
 	<a href='http://validator.w3.org/check/referer'><img src='http://www.w3.org/Icons/valid-xhtml10-blue'
