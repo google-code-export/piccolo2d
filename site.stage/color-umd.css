@@ -8,9 +8,13 @@ body {
 	background-color: white;
 }
 
+em {
+	color: blue;
+}
+
 .selected {
 	/* make a link look like ordinary text to mark the currently active selection */
-	color: red;
+	color: black;
 }
 
 /*

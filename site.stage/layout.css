@@ -4,8 +4,6 @@
 **********************************************************/
 
 body {
-	color: black;
-	background-color: white;
 	font-size: 115%;
 	font-family: Arial, Helvetica, sans-serif;
 }
@@ -39,10 +37,6 @@ dt {
 	font-weight: bold;
 }
 
-em {
-	color: blue;
-}
-
 a img {
 	border: 0;
 }
@@ -67,7 +61,7 @@ p.image {
 
 .selected {
 	/* make a link look like ordinary text to mark the currently active selection */
-	color: red;
+	color: black;
 	text-decoration: none;
 	font-weight: bold;
 }
@@ -82,7 +76,6 @@ p.image {
 	width: 15em;
 	margin: 0.0em 0;
 	padding: 0.25em;
-	background-color: white;
 	position: relative;
 	z-index: 10;
 }
@@ -101,14 +94,12 @@ ul.nav li {
 	margin: 0;
 	padding: 0 0.5em 0.1em 0.5em;
 	margin-left: 16em;
-	background-color: #FFFD9C;
 	min-width: 16em; /* Mindestbreite (der Ueberschrift) verhindert Anzeigefehler in modernen Browsern */
 	position: relative;
 	z-index: 10;
 }
 
 #main-head {
-	background-color: #D6D583;
 	margin: 0 -0.5em 0.25em -0.5em;
 	padding: 0.5em 0.5em 0.25em 0.5em;
 	position: relative;
@@ -140,7 +131,6 @@ ul.nav li {
 */
 
 .snippet {
-	background-color: #D6D583;
 	margin: 0;
 }
 .snippet.java {
@@ -166,34 +156,7 @@ ul.nav li {
 	padding: 0;
 }
 .toggle.selected {
-	/* make a link look like ordinary text to mark the currently active selection */
-	color: #000000;
 	text-decoration: none;
 	font-weight: normal;
-}
-
-/*
-Use a blue-ish colo scheme.
-*/
-
-body {
-	background-color: #737373;
-}
-
-.selected {
-	/* make a link look like ordinary text to mark the currently active selection */
-	color: black;
-}
-
-#main {
-	background-color: #8abee3;
-}
-
-#main-head {
-	background-color: #65afe3;
-}
-
-.snippet {
-	background-color: #82b3d6;
 }
 

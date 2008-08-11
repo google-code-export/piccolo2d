@@ -13,6 +13,10 @@ body {
 	background-color: #b5b5b5;
 }
 
+em {
+	color: blue;
+}
+
 .selected {
 	/* make a link look like ordinary text to mark the currently active selection */
 	color: black;
