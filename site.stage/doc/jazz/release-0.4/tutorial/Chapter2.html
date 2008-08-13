@@ -1,0 +1,663 @@
+<HTML>
+<HEAD>
+   <TITLE>2. Using Jazz</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BGCOLOR=BLACK BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+<TR BGCOLOR=505050 HEIGHT=14>
+    <TD BGCOLOR=BLACK HEIGHT=38 WIDTH=70 ROWSPAN=2 BORDER=0 VALIGN=TOP>
+        <A HREF="http://www.cs.umd.edu/hcil/index.html">
+	<IMG ALT="HCIL Logo" SRC="banner-logo.png"
+	HEIGHT=38 WIDTH=70 BORDER=0></A>
+    </TD>
+    <TD WIDTH=100% ALIGN=LEFT HEIGHT=14>
+        <A HREF="http://www.cs.umd.edu/hcil/index.html" BORDER=0>
+	<IMG SRC="banner-hcil-left.png" WIDTH=223 HEIGHT=14
+	ALIGN=LEFT BORDER=0></A>
+	<A HREF="http://www.umd.edu/" BORDER=0>
+	<IMG SRC="banner-hcil-right.png" WIDTH=145 HEIGHT=14 BORDER=0
+	ALIGN=LEFT></A> 
+    </TD>
+</TR>
+<TR BGCOLOR=BLACK>
+    <TD ALIGN=LEFT>&nbsp;</TD>
+</TR>
+</TABLE>
+<!------------- End of Header----------------->
+
+<A NAME="S2"><H1>2. Using Jazz</H1>
+
+<A NAME="S2.1"><H2>2.1. Transforms</H2>
+Jazz specifies all transformations of objects and cameras with a
+standard 2D affine transformations.  Affine transforms map 2D
+coordinate to other 2D coordinates in a manner that preserves
+straightness and "parallelness" of lines.  Affine transforms can
+represent any combination of translation, scale, rotation, and shear.
+In Jazz, affine transforms are implemented with the
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZTransform.html">jazz.scenegraph.ZTransform</A></TT>
+class which wraps around the standard Java class
+<TT>java.awt.geom.AffineTransform</TT>.  Affine transforms consist of 6 numbers
+which are typically represented in a 3x3 matrix where multiplying the
+transform T by the vector V results in V'.
+
+<PRE>
+         [V'] = [T][V]
+     or
+         [x']   [m00 m01 m02] [x]   [m00x + m01y + m02] 
+         [y'] = [m10 m11 m12] [y] = [m10x + m11y + m12] 
+         [1 ]   [  0   0   1] [1]   [1]
+</PRE>
+
+The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZTransform.html">ZTransform</A></TT>
+class has many methods for modifying a transform such as
+various versions of scale, rotate, and translate.  It is also possible
+to specify a <TT><A
+HREF="../api/edu/umd/cs/jazz/scenegraph/ZTransform.html">ZTransform</A></TT>
+with a Java <TT>AffineTransform</TT>, or to get a copy of
+the underlying <TT>AffineTransform</TT> that a
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZTransform.html">ZTransform</A></TT> holds.
+<P>
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZTransform.html">ZTransform</A></TT>
+also has some special methods for more sophisticated
+manipulation of the transform.  These are based on the fact that
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZTransform.html">ZTransforms</A></TT>
+maintain a pointer to the <TT>ZNode</TT> that uses them.  This allows
+the <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZTransform.html">ZTransform</A></TT>
+to manipulate itself based on the node.  One method,
+<PRE>
+        animate(java.awt.geom.AffineTransform tx, int millis)
+</PRE>
+will smoothly animate the node corresponding to the transform from its
+current position to the new one as specified by the transform over the
+specified time in milliseconds.  This animation occurs in real-time,
+taking into account the system performance.  So, fast systems will
+animate the transition with many in-between frames that are near each
+other, and slow systems may have fewer in-between frames.  But in all
+cases, the total time spent animating the node will be very close the
+specification. The method
+<PRE>
+        position(java.awt.geom.Point2D srcPt, java.awt.geom.Point2D destPt,
+	         ZNode refNode, int millis)
+</PRE>
+will calculate the necessary transform in order to make the
+corresponding node appear at a particular position relative to the
+specified bounding box.  The source point specifies a point in the
+unit square (0, 0) - (1, 1) that represents an anchor point on the
+corresponding node to this transform.  The destination point specifies
+an anchor point on the reference node.  The position method then
+computes the transform that results in transforming this node so that
+the source anchor point coincides with the reference anchor
+point. This can be useful for layout algorithms as it is
+straightforward to position one object relative to another.  For
+example, If you have two nodes, A and B, and you call
+<PRE>
+        Point2D srcPt = new Point2D.Float(1.0f, 0.0f);
+        Point2D destPt = new Point2D.Float(0.0f, 0.0f);
+        A.position(srcPt, destPt, B, 750);
+</PRE>
+The result is that A will move so that its upper-right corner is at
+the same place as the upper-left corner of B, and the transition will
+be smoothly animated over a period of 750 milliseconds.
+
+<A NAME="S2.1.1"><H3>2.1.1. Transforming Visual Elements</H3>
+The Jazz scenegraph specifies a hierarchy of objects that exist in the
+Jazz global coordinate system.  When objects are created as visual
+components within nodes, they exist at their default position in the
+world.  For instance, an image is positioned with its top-left corner
+at the origin extending to the right and down.  If you want the image
+to appear somewhere else, it must be moved (known as transforming) the
+object.
+<P>
+In Jazz, <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT>
+which is used to represent visual
+elements, do not have the ability to be transformed. Instead, the
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> to which the
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT>
+is attached has a
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZTransform.html">ZTransform</A></TT>
+transform that controls where its visual component
+(and children) appear.  Note that the transform is 
+stored in the node instead of the visual component because it is
+possible for the same visual component to be wrapped by multiple
+nodes.  In this way, a single visual component can appear in multiple
+places in the world.
+<P>
+Another reason that transforms are associated with nodes is that nodes
+are hierarchical.  In addition to wrapping a visual component, they
+are the root of a sub-tree of other nodes and visual components.  When
+you transform a node, you are affecting the associated visual
+component as well as all of the node's children.  For this reason, we
+often think of a node as <I>grouping</I> its children.  Just as in
+traditional drawing programs, if you translate a node, then all of its
+children will be translated right along with the node as if they all
+belong to a single group.
+<P>
+There are two equally valid ways of thinking about the effects of
+transforms.  The first (and typical) way of thinking about transforms
+is that the transform changes the place within the global coordinate
+system that the affected objects appear at.  For instance, if you have
+a node A that wraps an image visual component, and you call
+<PRE>
+        A.getTransform().translate(50.0f, 0.0f);
+</PRE>
+The result is that the visual component associated with A, and all of
+A's children gets translated 50 units to the right.
+<P>
+Alternatively, you can think of transforms as representing nested
+coordinate systems.  Then, that same call to translate would result in
+the A being associated with a new coordinate system that is shifted 50
+units to the right of the global coordinate system.  Then, the visual
+component associated with A and all of A's children would appear at
+their normal places within the new coordinate system, but to find out
+where those objects are in global coordinates, you would have to
+transform the local coordinate system to global coordinates.
+
+<A NAME="S2.1.2"><H3>2.1.2. Transforming Cameras</H3>
+Just as transforms are used to modify visual elements within a
+scenegraph, transforms can be used to modify where a camera looks onto
+the scenegraph.  The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZCamera.html">ZCamera</A></TT>
+class is a camera looking
+onto the scenegraph also has a
+<TT><A
+HREF="../api/edu/umd/cs/jazz/scenegraph/ZCamera.html">ZTransform</A></TT>
+(accessible with <TT>ZCamera.getCameraTransform()</TT>) which can be used to translate, scale, and
+animate camera changes in exactly the same way that individual objects
+are transformed as described previously.  The key thing to keep in
+mind here is that transforming internal nodes have the effect of
+moving objects within the scenegraph while transforming the camera
+doesn't affect the scenegraph, but instead changes how a particular
+camera looks onto the world represented by the scenegraph.
+
+<A NAME="S2.2"><H2>2.2. The Damage/Restore Cycle</H2>
+
+An important part of any interactive visual program is deciding
+exactly when things actually get rendered (or painted) onto the
+screen.  If we didn't have to worry about efficiency, we would just
+paint objects onto the screen as soon as we modified them.  However,
+in practice this is too inefficient.  Imagine a simple scenario where
+you modify the color, pen width, and size of an object.  If we weren't
+careful, this simple modification would result in the object getting
+painted three times - once after each modification.  A second
+complexity is that in Jazz, objects are not assumed to be either
+rectangular or opaque.  This means that when you modify an object, in
+order to be assured that the scene is painted properly, the system
+must repaint all the objects that overlap the bounds of the modified
+object.
+<P>
+Jazz implements a system of region management called <I>damage</I> and
+<I>restoration</I> to handle the complexities of keeping the screen up to
+date in an efficient manner.  The way it works is that each surface
+maintains a representation of what portion of the surface is out of
+date.  This area is called the damaged area.  Whenever an object is
+modified, the object's <TT>damage()</TT> method is called which notifies each
+camera that sees that object to add the area of the object to the 
+associated surface's
+<I>damaged area</I>.  Then, only when the application requests the surface to
+repaint the damaged area by calling the surface's <TT>restore()</TT> method, does
+the surface repaint the portion of the screen corresponding to the
+damaged area.  The surface then resets its damaged area, and the cycle
+begins anew.
+<P>
+This approach works well, but places some burden on the application
+because it must notify the surface when to restore the damaged portion of
+the screen.  In practice, this is easier than it may appear because
+most graphical applications are event-driven, and all the application
+has to do is to make the restore request at the end of every event.
+Note that the burden of calling the object's damage method is placed
+on Jazz, and not the application.  This is because all of the object
+methods that result in modification of the object are implemented with
+appropriate calls to <TT>damage()</TT>.
+<p>
+The default <TT>restore()</TT> method does not result in the component being
+repainted immediately, but instead queues a request on the Swing event 
+queue to repaint.  Swing is single threaded, and that request won't be 
+serviced until after the event listener that triggered the restore in the
+first place finishes.  If you want to paint immediately (such as is 
+necessary when painting within an animation loop), you must call 
+<TT>restore(true)</TT>.
+<p>
+If you define your own visual components, then you must be sure to call
+<TT>damage()</TT> whenever you modify the object.  See the next section for a
+description of how to use damage in this case.
+
+<A NAME="S2.3"><H2>2.3. Creating Your Own Components</H2>
+
+As we saw in <A HREF="Chapter1.html#S1.2.1">Section 1.2.1</A>, every
+visual element is represented as a 
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT>
+in the scenegraph. At this point, Jazz has
+four built-in visual elements:
+<UL>
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/component/ZRectangle.html">ZRectangle</A></TT></B>
+    is used to represent rectangles and squares. Each
+    <TT><A HREF="../api/edu/umd/cs/jazz/component/ZRectangle.html">ZRectangle</A></TT>
+    is defined by a location (x,y) and a width and a height.
+
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/component/ZPolyline.html">ZPolyline</A></TT></B>
+    is a displayable set of line segments defined by a set of end
+    points. The line segments are drawn between successive end
+    points.
+
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/component/ZImage.html">ZImage</A></TT></B> is an image.
+    
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/component/ZTextField.html">ZTextField</A></TT></B>
+    is a graphic object that paints a text string.
+</UL>
+In order to create additional visual elements,
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT> is extended. In addition to the general
+functionality that is provided by <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT>, every
+visual element is responsible for override the following functions:
+<OL>
+    <LI><TT>paint(ZRenderContext)</TT> tells Jazz how to render
+    the visual element.  Jazz guarantees that the Graphics2D transform,
+    clip, and composite are set before the component's paint method
+    is called.  However, the component must set the color, font, and stroke
+    if they are used.  The component does not have to restore any
+    of the Graphics2D state.
+    <LI><TT>computeLocalBounds()</TT> tells Jazz how to compute the
+    bounds of the visual element. Jazz does not compute local bounds
+    every time it needs them, rather it caches the result in
+    <TT>localBounds</TT>, and uses a dirty bit to know whether
+    the cached copy is out of date.
+</OL>
+In addition, visual components will frequently decide to override:
+<OL>
+    <LI><TT>boolean pick(Point2D)</TT>
+</OL>
+This tells Jazz how to "pick" the visual element.  Picking is used to
+determine if the object is under the pointer.  The default implementation
+for pick is just to check if the pointer is within the bounds of the component.
+If a new visual component's shape is not a filled rectangle that is the
+same as the bounds, then a new pick method should probably be defined.
+A simple example of this is a circle which should not be pickable outside
+of the circle.
+<p>
+Finally, the visual element is responsible for creating itself and
+for supporting manipulation of itself.  We must look at the details of
+manipulating an object in some detail.  This is because Jazz
+determines when to render an component based on its <em>bounds</em>,
+and because components are responsible for indicating to Jazz when they
+have changed through the <tt>damage</tt> method, which again uses the bounds.
+<p>
+Every visual component must maintain a "model", or an internal data
+structure that represents the object.  For a circle, this may be as
+simple as a center point, radius, and pen color.  For other objects,
+the model may be more complex.  Typical components will support
+methods that modify itself.  The circle may have methods, for
+instance, to modify its pen width or pen color.  It is the responsibility
+of these methods to indicate they have changed by calling <tt>damage()</tt>
+and by calling <tt>updateBounds()</tt> if their bounds have changed.  All
+modification methods fall under two cases, those which modify the component's
+bounds, and those that don't:
+<ul>
+<li>Method <b>doesn't</b> modify component's bounds:<br>
+In this case, after the method modifies the internal model to reflect
+the change, it must call <tt>damage()</tt>.  Since the bounds of the
+component haven't changed, it is enough to simply call <tt>damage()</tt> which
+requests that the area representing the component gets redrawn.
+The correct sequence of code for this situation is:
+<pre>
+    // Code that updates model goes here
+    damage();
+</pre>
+For example, see <tt>ZCircle.setPenColor</tt> below.
+<p>
+<li>Method <b>does</b> modify component's bounds:<br>
+This case is slightly more complex because, generally speaking, the
+change in the model could result in the bounds growing, shrinking, or moving.
+Thus, it is important that the area representing the <em>original</em> bounds
+of the component as well as the resulting bounds of the component get damaged.
+If we only damaged the area of the resulting bounds, and this method ended up
+reducing the size of the bounds, a portion of the screen representing the original
+model could be left unchanged.  
+The correct sequence of code for this situation is:
+<pre>
+    // Code that updates model goes here
+    damage(true);
+</pre>
+For example, see <tt>ZCircle.setPenWidth</tt> below.
+</ul>
+
+<A NAME="S2.3.1"><H3>2.3.1. An Example: <TT>ZCircle</TT></H3>
+A <TT>ZCircle</TT> is basically a <TT>Ellipse2D.Float</TT> whose height is
+equal to it's width. In addition, it also has a <TT>penWidth</TT>,
+<TT>penColor</TT>, and a <TT>fillColor</TT>.
+
+<A NAME="S2.3.2"><H3>2.3.2. Sample Code</H3>
+<PRE>
+public class ZCircle extends ZVisualComponent {
+				// default values for variables
+    static final public Color  DEFAULT_PEN_COLOR = Color.blue;
+    static final public Color  DEFAULT_FILL_COLOR = Color.yellow;
+    static final public float  DEFAULT_PEN_WIDTH = 5.0f;
+    
+				// member variables
+    protected Color penColor = DEFAULT_PEN_COLOR;
+    protected Color fillColor = DEFAULT_FILL_COLOR;
+    protected float penWidth = DEFAULT_PEN_WIDTH;
+    protected Ellipse2D.Float circle;
+
+    /***************************** Constructors **********************************/
+    
+				// creates circle at (0,0) with radius = 0
+    public ZCircle () {
+	circle = new Ellipse2D.Float();
+	localBounds = new ZBounds(); // Don't forget this must be allocated
+	updateBounds();
+    }
+    
+				// creates circle with center (x,y) and radius = r
+    public ZCircle(float x, float y, float r) {
+	float half = r / 2;
+	circle = new Ellipse2D.Float(x - half, y - half, r, r);
+	localBounds = new ZBounds(); // Don't forget this must be allocated
+	updateBounds();
+    }
+
+				// creates circle within bounding box defined by
+				// point (x,y) with width and height
+    public ZCircle(float x, float y, float width, float height) {
+	float smaller = (width < height ? width : height);
+	circle = new Ellipse2D.Float(x, y, smaller, smaller);
+	localBounds = new ZBounds(); // Don't forget this must be allocated
+	updateBounds();
+    }
+	
+
+    /*********** Get/Set functions for variables specific to the circle *********/
+    public float getPenWidth() { return penWidth; }
+    public void setPenWidth(float p) {
+	penWidth = p;
+	damage(true);
+    }
+
+    public Color getPenColor() { return penColor; }
+    public void setPenColor(Color c) {
+	penColor = c;		// Here, the circle's bounds are not being changed,
+	damage();		// so it is adequate to just damage once
+    }
+
+    public Color getFillColor() { return fillColor; }
+    public void setFillColor(Color c) {
+	fillColor = c;		// Here, the circle's bounds are not being changed,
+	damage();		// so it is adequate to just damage once
+    }
+
+    public Point2D getCenter() {
+	if (circle.getWidth() != circle.getHeight()) {
+	    System.out.println("ERROR: This is not a circle");
+	}
+	double x = circle.getX() + (circle.getWidth() / 2);
+	double y = circle.getY() + (circle.getHeight() / 2);
+	return (new Point2D.Float((float)x, (float)y));
+    }
+
+
+    /******************* Paint, ComputeLocalBounds, Pick **************************/
+
+				// tell Jazz how to paint yourself
+    public void paint(ZRenderContext renderContext) {
+	Graphics2D g2 = renderContext.getGraphics2D();
+
+	g2.setStroke(new BasicStroke(penWidth, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
+	if (fillColor != null) {
+	    g2.setColor(fillColor);
+	    g2.fill(circle);
+	}
+	if (penColor != null) {
+	    g2.setColor(penColor);
+	    g2.draw(circle);
+	}
+    }
+
+				// tell Jazz how big you are
+    protected void computeLocalBounds() {
+				// expand bounds to accomodate penWidth
+	float p = penWidth;
+	float p2 = 0.5f * penWidth;
+	Rectangle2D rect = localBounds.getBounds2D();
+	localBounds.setRect((float)(rect.getX() - p2), (float)(rect.getY() - p2),
+			    (float)(rect.getWidth() + p), (float)(rect.getHeight() + p));
+    }
+
+				// tell Jazz how to pick you
+				// this function does not need to be overloaded
+				// but it is a good idea to do so
+    public boolean pick(Rectangle2D rect) {
+	boolean picked = false;
+	if (fillColor != null) {
+	    picked = circle.contains(rect);
+	} else if (penColor != null) {
+	    float px = (float)(rect.getX() + (0.5f * rect.getWidth()));
+	    float py = (float)(rect.getY() + (0.5f * rect.getHeight()));
+	    Point2D pt = new Point2D.Float(px, py);
+	    double distance = pt.distance(getCenter());
+	    double radius = circle.getWidth() / 2;
+	    if ((distance >= (radius - penWidth/2)) && (distance <= (radius + penWidth/2))) {
+		picked = true;
+	    }
+	}
+	if (!picked) {
+	    picked = super.pick(rect);
+	}
+	return picked;
+    }
+}    
+</PRE>
+
+<A NAME="S2.4"><H2>2.4. Adding Your Own Event Handler</H2>
+
+User interaction is a fundamental part of any program and in Jazz this
+is no exception. In <A HREF="Chapter1.html#S1.5">Section 1.5</A> we
+introduced zooming and panning, the two most fundamental of these
+interactions for a ZUI application. At this point, Jazz has four
+standard event handlers:
+<UL>
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/event/ZoomEventHandlerRightButton.html">ZoomEventHandlerRightButton</A></TT></B>
+    provides basic zooming of a Jazz camera with the right mouse
+    button. The inital mouse press defines the zoom anchor
+    point. Moving the mouse to the right zooms in with a speed that is
+    proportional to the amount the mouse is moved and moving the mouse
+    to the left zooms out. 
+
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/event/ZPanEventHandler.html">ZPanEventHandler</A></TT></B>
+    provides basic panning of a Jazz camera with the left mouse
+    button. Clicking and dragging the mouse translates the camera so
+    that the point on the surface stays under the mouse.
+
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/event/ZNavEventHandlerKeyBoard.html">ZNavEventHandlerKeyBoard</A></TT></B>
+    provides event handlers for basic zooming and panning of a Jazz
+    camera with the keyboard. While the application can define which
+    keys are used for navigation and how much each key moves the camera,
+    the default is for PageUp to zoom in 25% and PageDown to zoom out
+    25% animated over 250 milliseconds. Auto-repeat is also supported.
+    
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/event/ZSelectionEventHandler.html">ZSelectionEventHandler</A></TT></B>
+    provides basic selection interaction. Visual elements are
+    selected/unselected by clicking on them. Shift-click will extend
+    the selection and click-and-drag the background to marquee
+    select. Once selected, visual elements can be moved by dragging
+    them on the screen.
+</UL>
+
+Obviously, it will become necessary to provide your own event handlers
+for the many things that you will want your application to do. Thus
+Jazz provides <TT><A HREF="../api/edu/umd/cs/jazz/event/ZEventHandler.html">ZEventHandler</A></TT>
+which is an abstract utility class that defines event handlers for
+both mouse and keyboard events so that a subclass can override the ones
+it wants to define. In addition, it provides a switch functionality
+that allows the entire set of handles to be temporarily turned on
+(<TT>activate</TT>) or off (<TT>deactivate</TT>).  This type of
+functionality is specifically designed for mode-driven
+applications. One event handler can be defined for each mode and then
+they can be activated or deactivated as needed.  The
+<TT><A HREF="../api/edu/umd/cs/jazz/event/ZEventHandler.html">ZEventHandler</A></TT>
+class contains definitions for each of the following:
+
+<PRE>
+     mouseMoved           keyPressed        activate
+     mousePressed         keyReleased       deactivate
+     mouseDragged         keyTyped
+     mouseReleased
+</PRE>
+
+<A NAME="S2.4.1"><H3>2.4.1 An Example: <TT>squiggleEventHandler</TT></H3>
+
+As an example of a event handler, we provide a
+<TT>squiggleEventHandler</TT> which allows for mouse interaction to
+draw squiggles on the desktop. A squiggle is drawn on the desktop by
+clicking the mouse button and then dragging the mouse. The squiggle
+stops when the mouse button is released. Thus, the
+<TT>squiggleEventHandler</TT> needs provide the following
+functionality:
+<UL>
+    <LI><TT>mousePressed</TT> event is what starts the act of drawing
+    a squiggle. The event handler will grab the position of the mouse
+    at the time that the mouse button was pressed, transform it to
+    world coordinates and store it. It then needs to create a polyline
+    that will be used to store the squiggle and add it to the
+    scenegraph.
+
+    <LI><TT>mouseDragged</TT> event gets the next position of the
+    mouse, transforms it to world coordinates, and adds it to the
+    already created polyline.
+
+    <LI><TT>mouseReleased</TT> event cleans up.
+</UL>
+And that's all it needs to do. By extending <TT>EventHandler</TT> we
+do not need to be concerned with any other functions besides those
+that we need to get the job done. The class
+<TT>squiggleEventHandler</TT> has three variables:
+<UL>
+    <LI><TT><A HREF="../api/edu/umd/cs/jazz/component/ZPolyline.html">ZPolyline</A></TT>
+    which holds the squiggle as it is being drawn
+    
+    <LI><TT>Point2D</TT> which holds the current location of the mouse
+    
+    <LI><TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT>
+    which holds the layer in the scenegraph
+    to which we are adding the squiggle. This is required so that
+    <TT>squiggleEventHandler</TT> so that it can find the world
+    coordinates and add squiggles to the scenegraph.
+</UL>
+<A NAME="S2.4.1.1"><H3>2.4.1.1. Sample Code</H3>
+
+<PRE>
+class sguiggleEventHandler extends ZEventHandler {
+    ZPolyline polyline;
+    Point2D pt;
+    ZNode drawingLayer;
+
+    public sguiggleEventHandler(ZNode layer, Component c, ZSurface v) {
+	super(c, v);
+	drawingLayer = layer;
+	pt = new Point2D.Float();
+    }
+    
+    public void mousePressed(MouseEvent e) {
+	if (!e.isAltDown() && !e.isMetaDown()) { // Left button only
+				// starting place of line segment
+	    pt.setLocation(e.getX(), e.getY());
+				// tranform to world coordinates
+	    getCamera().getCameraTransform().inverseTransform(pt, pt);
+	    (new ZTransform(drawingLayer.computeGlobalCoordinateFrame())).inverseTransform(pt, pt);
+				// create a new polyline and set the penWidth so that
+				// the thickness of the pen is relative to the window
+				// and sguiggles drawn at different zooms are of
+				// different thicknesses
+	    polyline = new ZPolyline(pt);
+	    polyline.setPenWidth(5.0f / getCamera().getMagnification());
+				// add polyline to the scenegraph
+	    drawingLayer.addChild(new ZNode(polyline));
+	    getSurface().restore();
+	}
+    }
+    
+    public void mouseDragged(MouseEvent e) {
+	if (!e.isAltDown() && !e.isMetaDown()) { // Left button only
+				// get mouse location
+	    pt.setLocation(e.getX(), e.getY());
+				// transform to world coordinates
+	    getCamera().getCameraTransform().inverseTransform(pt, pt);
+	    (new ZTransform(drawingLayer.computeGlobalCoordinateFrame())).inverseTransform(pt, pt);
+				// add point to polyline
+	    polyline.add(pt);
+				// request screen refresh
+	    getSurface().restore();
+	}
+    }
+    
+    public void mouseReleased(MouseEvent e) {
+	if (!e.isAltDown() && !e.isMetaDown()) { // Left button only
+	    polyline = null;
+	}
+    }
+}
+</PRE>
+
+<A NAME="S2.5"><H2>2.5. Jazz and Threads</H2>
+Jazz is <b>not</b> thread-safe.  Like Swing, Jazz has been designed from the
+start to run <b>only</b> in a single thread (usually the event dispatch thread).
+This constrains the way Jazz applications can be built, but we feel that overall,
+it increases usability by simplifying code, and eliminating thread-debugging issues.
+<p>
+An excellent starting point for learning about threads is to read what Sun has
+written about Swing and threads.  Almost all of their solutions for multi-threaded
+code works for Jazz as well.  Here are links to three major articles.
+<a href="http://www.javasoft.com/products/jfc/tsc/archive/tech_topics_arch/threads/threads.html">
+Threads and Swing</a>, 
+<a href="http://www.javasoft.com/products/jfc/tsc/archive/tech_topics_arch/swing_worker/swing_worker.html">
+Using a SwingWorker Thread</a>, and 
+<a href="http://www.javasoft.com/products/jfc/tsc/tech_topics/threads3/threads3.html">
+The Last Word in Swing Threads</a>.
+<p>
+There are a few good reasons where it may be appropriate to run some code in a separate
+thread, such as with asynchronous animation.  The following code will zoom in while 
+the rest of the application is still active, and responds to events.  It uses the Swing
+Timer class which will call an ActionListener at regular intervals.  The trick is that
+the listener is always called in the primary Swing event thread.
+<pre>
+import javax.swing.Timer;
+public class AnimTest implements ActionListener {
+    Timer timer;
+    static final int delay = 50;    // Milliseconds between timer ticks
+    ZCamera camera;                 // Caller must specify camera animation should occur within
+
+    public AnimTest(ZCamera aCamera) {
+        timer = new Timer(delay, this);
+        camera = aCamera;
+    }
+
+    // Start the animation
+    public void start() {
+        zoomTimer.start();
+    }
+
+    // Stop the animation
+    public void stop() {
+        zoomTimer.stop();
+    }
+
+    // This gets called whenever the timer ticks
+    public void actionPerformed(ActionEvent e) {
+        camera.getViewTransform().scale(1.1f, 0.0f, 0.0f);
+        camera.getSurface().restore();
+    }
+}
+</pre>
+<p>
+This is a summary of the reasons we chose to build Jazz to run within a single thread:
+<ul>
+<li>Swing is built this way, and most of their rational applies to Jazz.
+<li>It is easier to write and debug Jazz, and to extend it with new components.
+<li>It is easier to write applications, and to debug them.
+<li>Jazz applications can use Swing's utility functions (such as Timers, 
+        invokeLater, and invokeAndWait) to make it easier to use other threads
+        to do slow tasks, but synchronize them with Jazz.
+<li>Jazz runs faster because there is no synchronization
+</ul>
+    The primary disadvantage is that Jazz will not be directly speeded up when
+    run on machines with multiple processors.
+
+</BODY>
+</HTML>

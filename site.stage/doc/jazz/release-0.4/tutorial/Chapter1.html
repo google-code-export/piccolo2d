@@ -1,0 +1,436 @@
+<HTML>
+<HEAD>
+   <TITLE>1. Jazz Basics</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<TABLE BGCOLOR=BLACK BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+<TR BGCOLOR=505050 HEIGHT=14>
+    <TD BGCOLOR=BLACK HEIGHT=38 WIDTH=70 ROWSPAN=2 BORDER=0 VALIGN=TOP>
+        <A HREF="http://www.cs.umd.edu/hcil/index.html">
+	<IMG ALT="HCIL Logo" SRC="banner-logo.png"
+	HEIGHT=38 WIDTH=70 BORDER=0></A>
+    </TD>
+    <TD WIDTH=100% ALIGN=LEFT HEIGHT=14>
+        <A HREF="http://www.cs.umd.edu/hcil/index.html" BORDER=0>
+	<IMG SRC="banner-hcil-left.png" WIDTH=223 HEIGHT=14
+	ALIGN=LEFT BORDER=0></A>
+	<A HREF="http://www.umd.edu/" BORDER=0>
+	<IMG SRC="banner-hcil-right.png" WIDTH=145 HEIGHT=14 BORDER=0
+	ALIGN=LEFT></A> 
+    </TD>
+</TR>
+<TR BGCOLOR=BLACK>
+    <TD ALIGN=LEFT>&nbsp;</TD>
+</TR>
+</TABLE>
+
+
+<A NAME="S1"><H1>1. Jazz Basics</H1>
+
+Jazz is a Zoomable User Interface (ZUI) API that allows developers to quickly
+and easily build ZUI applications in Java 2.
+
+<A NAME="S1.1"><H2>1.1 The Coordinate System</H2>
+
+The Jazz Coordinate System is built on the Java 2D and as such the
+application's space origin is located in the upper-left corner of the
+space, with x values increasing to the right and y values increasing
+downward.
+<P>
+<CENTER><IMG SRC="ch1-coord-system.png" ></CENTER>
+
+<A NAME="S1.2"><H2>1.2. The Scenegraph</H2>
+
+A scenegraph is a hierarchial data structure that is used to store the
+visual elements in the ZUI. Each visual element consists of two types
+of objects in the scenegraph: nodes
+(<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT>) and
+visual components (<TT><A
+HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT>).
+The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT>
+is just a visual object that specifies the size of a visual element
+and how to render it. It cannot exist by itself in the scenegraph and,
+thus, is associated with a <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT>.
+The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> is
+responsible for maintaining the structure of the scenegraph and
+contains all characteristics (position, scale, transparancy, etc.)
+that are passed on to child nodes.  
+<P>
+In addition to visual elements that are represented in the ZUI, a properly
+formed scenegraph will also have exactly one root node
+(<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZRootNode.html">ZRootNode</A></TT>)
+and one or more cameras (<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZCamera.html">ZCamera</A></TT>).
+The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZRootNode.html">ZRootNode</A></TT>
+serves as  a holder to all of the elements in the virtual universe
+that is being represented. The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZCamera.html">ZCamera</A></TT>
+serves as a viewport into a portion of the scenegraph.
+<P>
+<CENTER><IMG SRC="ch1-sample-scenegraph.png"><br>
+<b>Run-time object structure in a typical application.  This scene
+contains a single camera looking onto a layer that contains an image,
+a rectangle, and a group consisting of two polylines.</b>
+</CENTER>
+<P>
+The hierarchy of the scenegraph encourages a natural spatial grouping
+of visual elements. Internal nodes act to group their children
+together passing on their object characteristics. This
+spatial grouping allows for efficient implementation of operations
+such as proximity detection, collision detection, and movement.
+
+<A NAME="S1.2.1"><H3>1.2.1. ZVisualComponent</H3>
+
+A visual element is stored as a
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT>
+object and is associated with a <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT>.
+The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT> 
+class is an abstract class on which visual elements are subclassed.
+It provides the basic functionality of every visual element. Each
+visual element is created by extending the
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT> 
+class. In Jazz, there are four built-in visual elements:
+<UL>
+    <LI><B><TT>ZRectangle</TT></B> is used to represent rectangles and
+    squares. Each <TT>ZRectangle</TT> is defined by a location (x,y)
+    and a width and a height.
+
+    <LI><B><TT>ZPolyline</TT></B> is a displayable set of line segments
+    defined by a set of end points. The line segments are drawn
+    between successive end points.
+
+    <LI><B><TT>ZImage</TT></B> is an image.
+    
+    <LI><B><TT>ZTextField</TT></B> is a graphic object that paints a text
+    string.
+</UL>
+In order to add a visual element to the scenegraph, it must be attached
+to a <TT>ZNode.</TT> It is important to note that every
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> 
+in the graph is assigned a <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html">ZVisualComponent</A></TT>.
+If identical visual components exist within a graph, then the
+component can be shared.
+
+<A NAME="S1.2.2"><H3>1.2.2. ZNode</H3>
+
+The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> class
+contains the basic containment heirarchies. It contains all element
+characteristics that are passed on to child nodes including but not
+limited to transforms, min/max scales, and transparency. In addition
+it maintains a set of 0 or more child nodes.
+<P>
+A <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> is an
+internal node if it has 1 or more children. In this case, the
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> is grouping
+together other objects that  share some common characteristic. In this
+case, the <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> 
+may not actually have a visual component and thus it's visual
+component is a "dummy" component (<TT>ZDummyVC</TT>) that does
+nothing. This dummy component gives the guarantee that every node has
+a component, and thus applications are not forced to check if the
+component reference is null before accessing it.
+<P>
+A <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> is a leaf
+node if it has 0 children. In this case, the
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> will
+display the visual element of the visual component in it's
+<TT>visualComponent</TT> slot. 
+
+<A NAME="S1.2.3"><H3>1.2.3. ZRootNode</H3>
+
+Every scenegraph begins with a
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZRootNode.html">ZRootNode</A></TT>
+which serves as a holder of the virtual universe represented in the
+ZUI. The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZRootNode.html">ZRootNode</A></TT>
+provides special functionality to a <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT>
+causing a <TT>OperationNotAllowedException</TT> to be thrown when an
+illegal action is requested. 
+
+<A NAME="S1.2.4"><H3>1.2.4. ZCamera</H3>
+
+In addition to the <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZRootNode.html">ZRootNode</A></TT>
+and the <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNodes</A></TT> of
+the graph, the scenegraph also needs to have at least one
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZCamera.html">ZCamera</A></TT> and one
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZSurface.html">ZSurface</A></TT>.
+The <TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZCamera.html">ZCamera</A></TT> is a
+viewport onto a scenegraph node. It can look anywhere onto a
+scenegraph scape as specified by an arbitrary affine transformation. A
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZNode.html">ZNode</A></TT> can have
+any number of cameras that look onto it. 
+
+<A NAME="S1.2.5"><H3>1.2.5. ZSurface</H3>
+
+Each camera can be associated with a <TT><A
+HREF="../api/edu/umd/cs/jazz/scenegraph/ZSurface.html">ZSurface</A></TT> that
+represents the thing the camera renders onto.  Typically, a surface
+will be associated with a Java Component (which is a window).
+However, a surface can also represent a printer, and thus rendering to
+a window and printer is implemented in the same way.  A <TT><A
+HREF="../api/edu/umd/cs/jazz/scenegraph/ZSurface.html">ZSurface</A></TT> is
+associated with a window or printer by specifying which Graphics2D to
+render onto.  In addition, if double buffering is desired, a back
+buffer must also be specified.  Most applications that use double
+buffering will just use a <TT><A
+HREF="../api/edu/umd/cs/jazz/scenegraph/ZBasicComponent.html">ZBasicComponent</A></TT>
+which takes care of 
+allocating the back buffer, and passing it to the surface.
+
+<A NAME="S1.2.6"><H3>1.2.6. Basic Utility Classes</H3>
+
+The final piece of any Jazz application is the window on which to
+draw the visual elements. Jazz has three utility classes to make it easier
+to get an application up and running.  The first,
+<TT><A HREF="../api/edu/umd/cs/jazz/util/ZBasicComponent.html">ZBasicComponent</A></TT>,
+is a component that creates a basic scenegraph with a root, surface, camera, and node.
+It extends <TT>JComponent</TT> providing an overloaded paintComponent method,
+plus a few other
+useful things. In this way it appropriately updates the screen based
+on a change in what the associated camera sees.
+An application is free to use or its own extended component.
+<p>
+The second,
+<TT><A HREF="../api/edu/umd/cs/jazz/util/ZBasicFrame.html">ZBasicFrame</A></TT>,
+creates a top-level window (or frame) with a basic component (and simple scenegraph).  Using this is the
+quickest way to get a simple application running.
+<p>
+The last,
+<TT><A HREF="../api/edu/umd/cs/jazz/util/ZBasicApplet.html">ZBasicApplet</A></TT>,
+creates an applet with a basic component (and simple scenegraph).  This can be
+used to create a standard Java applet that will run in any web browser with
+the Java 2 plugin installed.
+
+<A NAME="S1.3"><H2>1.3. Setting Up Your Scenegraph</H2>
+
+Now we are ready to create a Jazz application. For this example, we
+extend JFrame providing us with something visual. There are a few
+ordered steps to setting up a scenegraph completely for our Jazz
+application.  Here is some sample code that performs these steps.
+<OL>
+    <LI>Make a container window to hold the window that Jazz will render onto.
+    The container must have a size, and be visible (i.e., mapped to the screen)
+    <PRE>
+    JFrame frame = new JFrame();
+    frame.setSize(400, 400);
+    frame.setVisible(true);
+    </PRE>
+
+    <LI>Declare and initialize the pieces of the scenegraph.
+    <PRE>
+    ZRootNode root            = new ZRootNode();
+    ZCamera camera            = new ZCamera();
+    ZSurface surface          = new ZSurface(camera);
+    ZBasicComponent component = new ZBasicComponent();
+    </PRE>
+
+    <LI>Add the component to the JFrame, set its size, and make it visible.
+    <PRE>
+    frame.getContentPane().add(component);
+    component.setSize(frame.getContentPane().getSize());
+    setVisible(true);
+    </PRE>
+
+    <LI>Tell the <TT>camera</TT> where to start rendering.
+    This is typically done by creating one or more layer nodes, and pointing
+    the camera to look at it.
+    <PRE>
+    ZNode layer = new ZNode();
+    root.addChild(layer);
+    root.addChild(camera);
+    camera.addPaintStartPoint(layer);
+    </PRE>
+
+    <LI>Finally, don't forget to paint the scene when all is ready
+    <PRE>
+    surface.repaint();
+    </PRE>
+</OL>
+This is a lot of steps, and all applications must perform a similar
+sequence.  To alleviate this burdon, simply create a
+<TT><A HREF="../api/edu/umd/cs/jazz/util/ZBasicComponent.html">ZBasicComponent</A></TT>,
+which does them for you.
+From the component, an application can access the elements.
+Thus the setup of the scenegraph is complete, but there are no visual
+elements in it.
+
+<A NAME="S1.4"><H2>1.4. Adding Nodes</H2>
+
+There are three steps to adding a visual element to your scenegraph:
+<OL>
+    <LI>Create the visual component.
+    <PRE>
+    ZTextField text = new ZTextField("Hello World!");
+    </PRE>
+    <LI>Create a node with the visual component and translate it so
+    that it will be visible on the screen.
+    <PRE>
+    ZNode node = new ZNode(text);
+    node.getTransform().translate(150, 150);    
+    </PRE>
+    <LI>Add the node to it's parent in the scenegraph.
+    <PRE>
+    layer.addChild(node);
+    </PRE>
+</OL>
+
+<A NAME="S1.5"><H2>1.5. Adding Zooming and Panning</H2>
+
+For any ZUI application to be complete, it must support two
+fundamental interactions: zooming and panning. Jazz supplies various
+event handling that support navigation. An application could use any
+of these or create its own. For now, we will use these two event
+handlers:
+<UL>
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/event/ZoomEventHandlerRightButton.html">ZoomEventHandlerRightButton</A></TT></B>
+    provides basic zooming of a Jazz surface with the right mouse
+    button. The inital mouse press defines the zoom anchor
+    point. Moving the mouse to the right zooms in with a speed that is
+    proportional to the amount the mouse is moved and moving the mouse
+    to the left zooms out. 
+
+    <LI><B><TT><A HREF="../api/edu/umd/cs/jazz/event/ZPanEventHandler.html">ZPanEventHandler</A></TT></B>
+    provides basic panning of a Jazz surface with the left mouse
+    button. Clicking and dragging the mouse translates the camera associated
+    with the surface so that the point on the surface stays under the mouse.
+</UL>
+To add a Jazz event handler to an application, it simply needs to be
+declared and activated:
+<PRE>
+    ZEventHandler zoomHandler;
+    zoomHandler = new ZoomEventHandlerRightButton(component, surface);
+    zoomHandler.activate();
+</PRE>
+
+<A NAME="S1.6"><H2>1.6. Sample Application</H2>
+The following is a sample "Hello World" Jazz application which
+creates a very simple scenegraph, displays it on the screen, and
+allows the user to zoom and pan.
+<P>
+<CENTER><IMG SRC="ch1-basic-scenegraph.png"><BR>
+<b>The scenegraph created by the following application consists of a camera
+looking at a node with some text</b>
+</CENTER>
+
+<PRE>
+// This application is defined in the default package. But applications
+// typically are defined in a package. If you uncomment the next line,
+// then you must put this file in a subdirectory called 'basicpad',
+// and run it with 'java basicpad.BasicPad'
+//
+// package basicpad;
+//
+// Assuming this class is defined in the default package, save it into
+// the file 'BasicPad.java', and compile it with
+//
+//      javac BasicPad.java
+//
+// and run it with
+//
+//      java BasicPad
+//
+// Be sure to set your CLASSPATH environment variable to include the
+// directory that Jazz is installed in
+
+import java.awt.event.*;
+import javax.swing.*;
+
+import edu.umd.cs.jazz.scenegraph.*;
+import edu.umd.cs.jazz.component.*;
+import edu.umd.cs.jazz.event.*;
+import edu.umd.cs.jazz.util.*;
+
+public class BasicPad extends JFrame {
+
+    protected ZRootNode root;
+    protected ZNode layer;
+    protected ZCamera camera;
+    protected ZSurface surface;
+    protected ZBasicComponent component;
+
+    public BasicPad() {
+        setSize(400, 400);     // Give this window some dimensions
+        setVisible(true);      // Make this window visible
+                               // Create a basic Jazz scene, and attach it to this window
+        component = new ZBasicComponent();
+	component.setSize(400, 400);
+	getContentPane().add(component);
+
+                               // Extract the basic elements of the scenegraph
+        surface = component.getSurface();
+        camera = surface.getCamera();
+        root = camera.findRoot();
+        layer = (ZNode)camera.getPaintStartPoints().firstElement();
+
+                               // Watch for the user closing the window so we can exit gracefully
+        addWindowListener (new WindowAdapter () {
+            public void windowClosing (WindowEvent e) {
+                System.exit(0);
+            }
+        });
+        
+                                // Add some sample text
+        ZTextField text = new ZTextField("Hello World!");
+        ZNode node = new ZNode(text);
+        node.getTransform().translate(100, 100);
+        layer.addChild(node);
+
+        surface.repaint();      // Force modifications to all be updated
+
+                                // Add some basic event handlers
+        ZEventHandler zoomHandler = new ZoomEventHandlerRightButton(component, surface);
+        ZEventHandler panHandler = new ZPanEventHandler(component, surface);
+        zoomHandler.activate();
+        panHandler.activate();
+    }
+        
+    public static void main(String args[]) {
+        BasicPad app = new BasicPad();
+    }
+}
+</PRE>
+
+<A NAME="S1.7"><H2>1.7. Simplest "Hello World" Application</H2>
+Because this kind of application is so common, Jazz defines a simple class called
+<TT><A HREF="../api/edu/umd/cs/jazz/util/ZBasicframe.html">ZBasicFrame</A></TT>.
+ZBasicFrame does everything in the previous example except for actually creating the "Hello World" text,
+so that is all that is left for us to do.  So, actually, the simplest
+Jazz "Hello World" application looks like this:
+<PRE>
+// Assuming this class is defined in the default package, save it into
+// the file 'SimplestPad.java', and compile it with
+//
+//      javac SimplestPad.java
+//
+// and run it with
+//
+//      java SimplestPad
+//
+// Be sure to set your CLASSPATH environment variable to include the
+// directory that Jazz is installed in
+
+import edu.umd.cs.jazz.util.*;
+import edu.umd.cs.jazz.component.*;
+import edu.umd.cs.jazz.scenegraph.*;
+
+public class SimplestPad extends ZBasicFrame {
+
+    public SimplestPad() {
+                                // Add some sample text
+        ZTextField text = new ZTextField("Hello World!");
+        ZNode node = new ZNode(text);
+        node.getTransform().translate(100, 100);
+        getLayer().addChild(node);
+
+        surface.restore();
+    }
+        
+    public static void main(String args[]) {
+        SimplestPad app = new SimplestPad();
+    }
+}
+</PRE>
+By default, ZBasicFrame create a Jazz window in a simple Swing frame.
+However, if the constructor is called with the desktopRequested flag set to true,
+then it will create the Jazz window in an internal frame within a Swing desktop:
+<TT><A HREF="../api/edu/umd/cs/jazz/util/ZBasicFrame.html#ZBasicFrame(boolean)">ZBasicFrame</A></TT>.
+
+</BODY>
+</HTML>

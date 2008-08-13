@@ -1,0 +1,330 @@
+Jazz-0.4 ChangeLog
+------------------
+
+  INCOMPATIBLE CHANGES
+  --------------------
+
+  * 06/15/1999: BBB/JJM - Replaced ZTextField and ZTextArea with a
+    combined simpler ZText class.  The new ZText does what the
+    two previous classes did, and is a direct replacement.  The
+    primary difference is that it supports multi-line text.  In
+    addition, it has a different origin.  ZText has the origin
+    at the upper-left corner of the text.  ZTextField has the
+    origin at the lower-left corner.
+				   
+  * 06/10/1999: BBB - Reworked ZCamera.findNodes() mechanism.  It used
+    to be that this was a specific mechanism to find those nodes that
+    intersecte a given area.  It is now a generalized mechanism to find
+    those nodes that satisfy a filter criteria.  There is a basic filter
+    interface called scenegraph.ZFindFilter, and some specific instances
+    that can be used by applications.  Currently, there are 
+    util.ZFindFilterBounds and util.ZFindFilterMagBounds.  The former
+    finds all nodes that intersect the specified bounds.  The latter
+    find the nodes that intersect the specified bounds and who are 
+    visible within the specified magnification.
+
+    As part of this change, I added a new "findable" bit to ZVisualComponent
+    to complement "pickable".  Now, pickable only applies to the pick
+    function, and findable only applies to the find function.
+
+  * 06/09/1999: BBB - Changed ZBasicComponent constructor to accomodate
+    simplified repaint model (see below).  Now there is just a default
+    constructor that the caller must add to a container - in the traditional
+    Java style.  Note that there is now also another constructor that
+    that takes a root and a node, and makes the component look onto
+    an existing scenegraph.  ZBasicFrame now also has a similar new
+    constructor that allows it to look at an existing scenegraph.
+
+  * 06/06/1999: BBB - Renamed ZCamera.getMag() to ZCamera.getMagnification()
+
+  * 06/06/1999: BBB - Renamed ZBasicApplication to ZBasicFrame
+
+  * 06/06/1999: BBB - Moved scenegraph.ZDebug to util.ZDebug
+
+  * 06/06/1999: BBB - Reworked damage/restore a bit.  I removed the
+    damage methods that did a built-in restore: damage(boolean restoreNow)
+    and damage(boolean restoreNow, ZSurface surface).  More importantly,
+    I simplified the way objects need to call damage.  It used to be tha
+    when objects changed their bounds, they had to go through a four step
+    process (damage(), modify self, updateBounds(), damage()).  Now, the new
+    simplified method is to just use a two step process where the object
+    modifies itself, and then calls damage(true).
+
+    The new ZNode.damage(boolean boundsChanged) method should be called
+    whenever an object has changed its internal data structure that will
+    result in a bounds changed.  Calling this will result in the original
+    and new area of the object being damaged, plus the new bounds will
+    be computed by a call to updateBounds().
+
+  * 05/29/1999: BBB - Removed inadequate thread-safe protection from Jazz.
+    Now, Jazz is officially *not* thread-safe, and must be completely
+    modified, accessed, and painted from a single thread (usually the
+    event dispatch thread).  This was done for the following reasons:
+      - Swing is built this way, and most of their rational applies to Jazz.
+      - It is easier to write and debug Jazz, and to extend it with new components.
+      - It is easier to write applications, and to debug them.
+      - Jazz applications can use Swing's utility functions (such as Timers, 
+        invokeLater, and invokeAndWait) to make it easier to use other threads
+        to do slow tasks, but synchronize them with Jazz.
+      - Jazz runs faster because there is no synchronization
+    The primary disadvantage is that Jazz will not be directly speeded up when
+    run on machines with multiple processors.
+    Sun has written three articles on Swing and Threads that discuss threading
+    issues, and will be valuable to the Jazz application developer:
+    http://www.javasoft.com/products/jfc/tsc/archive/tech_topics_arch/threads/threads.html
+    http://www.javasoft.com/products/jfc/tsc/archive/tech_topics_arch/swing_worker/swing_worker.html
+    http://www.javasoft.com/products/jfc/tsc/tech_topics/threads3/threads3.html
+
+  * 05/26/1999: BBB - Renamed ZVisualComponentDecorator.insert()
+    to ZVisualComponentDecorator.insertAbove() to make it clear
+    that the decorator is being inserted *above* the component
+    parameter, and not below it.
+
+  * 05/23/1999: BBB - Moved ZLink from scenegraph to component package,
+    and renamed it to ZLinkDecorator.
+
+  * 05/23/1999: BBB - Renamed ZSelection to ZSelectionDecorator
+
+  BUG FIXES
+  ---------
+
+  * 06/12/1999: BBB - Fixed bug where strings with an embedded double quote
+    character in the first position didn't get written out properly.
+
+  * 06/10/1999: BBB - ZSurface.pick() now only picks items that are within
+    their valid size range.  That is, objects which are smaller than their
+    minimum size, or larger than their maximum size are not picked.    
+
+  * 06/10/1999: BBB - Fixed ZSurface.printSurface() method so it now
+    specifies that there is a single page to print so the dialog
+    box shows that properly.  
+
+  * 06/09/1999: BBB - Fixed the nagging problems associated with the connection
+    of Jazz to Swing components.  This includes problems where Jazz wouldn't 
+    always render onto the entire window, where overlapping Swing components 
+    would get overwritten, where the fonts would sometimes alternate between
+    high and low quality inconsistently, where Jazz mapped to Swing internal
+    frames would be buggy, etc.
+
+    The fixes are a result of a significant internal change where instead of 
+    caching the Swing Graphics object, Jazz now uses the standard Swing 
+    repaint/paint mechanism.  This simplifies a lot of code, but has the cost
+    of slightly slower repaints since the repainting now involves a transformation
+    of the dirty region into window coordinates and back again, and also means
+    going through the Swing painting code.  However, this is the only solution
+    that will work reliably that I could find.
+
+    These changes are mostly backwards compatible, but they introduce a subtle but
+    important change.  The default ZSurface.restore() call no longer paints
+    immediately - but instead queues a request on the Swing event queue to repaint.
+    Swing is single threaded, and that request won't be serviced until after 
+    the event listener that triggered the restore call finishes.  If you want
+    to paint immediately (such as is necessary when painting within an animation
+    loop), you must call restore(true).
+
+  * 06/01/1999: BBB - Fixed ZCamera to no longer assume that surface is non-null.
+
+  * 06/01/1999: BBB - Fixed ZTransform to lo longer assume that parent is non-null.
+
+  * 05/25/1999: BBB - Fixed bug where nodes that were added to children of 
+    cameras aren't caught as being sticky, and so they didn't get set to volatile.
+    The result is that sub-sticky objects didn't always get their
+    bounds computed properly.
+
+  NEW FEATURES
+  ------------
+
+  * 06/13/1999: BBB - Added new util.ZBasicWindow class.  It is similar
+    to ZBasicFrame, but extends JWindow instead of JFrame.  This provides
+    the ability to create a Jazz window without any window dressing.
+    ZBasicWindow defaults to filling up the entire screen to make it easy
+    to go into full-screen mode.
+
+  * 06/12/1999: BBB - Added "save" property to ZNode.  If you set it to false,
+    then that node (and its children) won't be saved.
+
+  * 06/12/1999: BBB - Made ZImage optionally write out link to filename instead
+    of embedded image.
+
+  * 06/10/1999: BBB - Substantially improved HiNote - including adding features for
+    fading, raising/lowering, hyperlinking, and accelerator keys.
+
+  * 06/10/1999: BBB - Made it so when max mag of ZNode is set to the -1, that feature is 
+    disabled, i.e., it is never culled for being too large.
+
+  * 06/10/1999: BBB - Added hyperlink event handler (jazz.event.ZLinkEventHandler)
+
+  * 06/06/1999: BBB - Added fourth chapter to tutorial describing the basics of
+    dynamic objects within Jazz.
+
+  * 05/25/1999: BBB - Changed behavior of hidden nodes slightly.  Now, they don't 
+    contribute to the bounds of their parents.  Stated from the parent's viewpoint,
+    a node's global bounds doesn't include their hidden children.
+
+  * 05/23/1999: BBB - Added new constraint decorator class (component.ZConstraintDecorator)
+    to make it easy to create simple constraints that affect where visual
+    components appear based on some state.  Used this class to create first
+    example constraint - component.ZStickyZDecorator that allows its child
+    to pan freely as the camera pans, but when the camera changes magnification,
+    the child will remain at the same size.  This can be useful for labels
+    on objects that zoom where the labels shouldn't zoom.  Constraint decorators
+    can also be used to create objects that don't go off the screen, don't
+    shrink below a certain size, or don't overlap certain objects.
+
+
+	
+Jazz-0.3 ChangeLog (Released 05/15/1999)
+----------------------------------------
+
+  INCOMPATIBLE CHANGES
+  --------------------
+
+  * 05/15/1999: BBB - Changed these method names in ZCamera:
+      getCameraTransform()        => getViewTransform()
+      getInverseCameraTransform() => getInverseViewTransform()
+      setCameraTransform()        => setViewTransform()
+      getCameraViewBounds()       => getViewBounds()
+
+  * 05/15/1999: BBB - Removed ZVisualComponent.appData slot.
+    Instead, an application can make a decorator that points to the application
+    if it needs this kind of pointer.  It is too big a waste to have every
+    visual component keep this pointer around for the few instances that
+    will actually use it.
+
+  * 05/10/1999: BBB - Changed package java.components to java.component
+    to be consistent with the other package names
+
+  * 05/09/1999: BBB - Replaced ZSerializable.isSavable() with a more 
+    general-purpose method - and also one that mimics java's Serializable.  
+    Now, there are optional writeReplace() and readResolve() methods that any
+    ZSerializable classes can implement.  If they do so, then they can replace
+    themselves with another object on the write out, or read in.  If they replace
+    themselves with null, then they just don't get written out (or read in).
+    In this case, any references to them will be replaced with null.
+
+  * 05/09/1999: BBB - Renamed ZSerializable.ZWriteObject() to writeObject() and
+    ZSerializable.ZWriteObjectRecurse() to writeObjectRecurse(). 
+    Also, ZWriteObjectRecurse now throws IOException.
+
+  * 05/01/1999: BBB - Changed ZNode.paint so that the visual component gets 
+    painted before the children.  This way, a group or camera can paint a 
+    background underneath the children.
+
+  * 05/01/1999: BBB - Renamed ZDebug.dumpSubGraph() to ZDebug.dump()
+
+  * 05/01/1999: BBB - Changed signature of ZDebug.setShowBounds(boolean) to
+    ZDebug.setShowBounds(boolean, ZCamera)
+
+  * 05/01/1999: BBB - Changed signature of ZVisualComponent.select() to 
+    ZVisualComponent.select(ZCamera).  Changed signature of 
+    ZVisualComponent.setSelected(boolean) to 
+    ZVisualComponent.setSelected(boolean, ZCamera).
+    Changed signature of ZNode.selectAll() to ZNode.selectAll(ZCamera)
+
+  BUG FIXES
+  ---------
+
+  * 05/15/1999: BBB - Fixed bug where restoration could result in screen turds.  
+    The visible area was sometimes one pixel too small, despite it being computed 
+    accurately.  This was because of rounding error and/or anti-aliasing.  
+    I fixed it by adding a single pixel to the visible area at paint time.
+
+  * 05/15/1999: BBB - Fixed ZImage to work properly even if internal 
+    java.awt.image slot is null.
+
+  * 05/15/1999: BBB - Fixed several components to not try to write out 
+    color if colors are null.
+
+  * 05/13/1999: BDM - Fixed ZSerialization so that special characters
+    in strings (such as double quotes) get properly escaped when written
+    out and unescaped when read back in, so all standard characters can
+    get written out safely.
+
+  * 05/09/1999: BBB - Wrote out pickable, volatile, and appData (if ZSerializable) 
+    fields for ZVisualComponent when ZSerialized.
+	
+  * 05/09/1999: BBB - Fixed bug in ZCamera.setFillColor() where it wasn't damaging
+    the camera - resulting in the camera not being redrawn upon a restore.
+
+  * 05/09/1999: BBB - Fixed ZBasicComponent so that setBackground() changes the
+    background color by changing the associated camera's bacground color.
+
+  * 05/09/1999: BBB - Fixed the strange bugs related to rendering within
+    components that change! This includes the bug where the bottom strip
+    of the drawpad window wouldn't get updated properly.  This also includes
+    the bug where Jazz didn't work propery when attached to JInternalFrames 
+    in JDesktopPanes.  This all works now.
+
+  * 05/01/1999: BBB - Fixed volatility of components and nodes.  Now, 
+    volatility gets properly passed up the tree, so if any component or 
+    node is volatile, then all of its parents are as well.
+
+  * 05/01/1999: BBB - Fixed ZSelection class to implement constant-thickness
+    rectangle properly. Now, scaling objects doesn't leave screen turds.
+
+  * 05/01/1999: BBB - Fixed show bounds debugging where it would also leave 
+    screen turds. 
+
+  NEW FEATURES
+  ------------
+
+  * 05/15/1999: BBB - Added new ZProperty class that replaces the old appData.  
+    Now, every ZNode can have an optional list of properties - which are just 
+    key/value pairs.  Properties get saved with ZSerialization (if the property 
+    is ZSerializable).  See ZNode.addProperty(), ZNode.getProperty(), etc.
+
+  * 05/15/1999: BBB - Added some new constructors to ZPolyline, and methods to 
+    access points in polyline.
+
+  * 05/15/1999: BBB - Added ZNode.isSticky() method.
+
+  * 05/09/1999: BBB - Renamed DrawPad to HiNote, and complete reorganized the code 
+    to allow the same code to either run as an application, or as an applet - but
+    each with different menubars.  And, it works as an applet!
+
+  * 05/09/1999: BBB - Created jazz.test package, and added first tester.  TwoSurfaces
+    test two surfaces looking onto a single surface.  For now, you can just run 
+    the test with the command line ('java TwoSurfaces'), but we will build 
+    a GUI to help run the tests.
+
+  * 05/09/1999: BBB - Reconsidered graphics state protocol.  The Graphics2D has the 
+    following state that we care about:
+        transform, clip, composite (transparency), color, stroke, font
+    It used to be that paint methods were required to restore the entire state 
+    to how they started.  Instead, now paint methods are not required to restore
+    anything.  Jazz now guarantees that the transform, clip, and composite will
+    be set properly before any paint methods are called, but a visual component
+    should make no assumptions about color and stroke, and thus should set those
+    two every time they are used, and don't bother resetting it.
+
+  * 05/09/1999: BBB - Used the new ZSerializable.writeResolve method so that 
+    ZSelection now doesn't get saved.  It just skips over itself, writing out
+    the next visual component in the chain.
+
+  * 05/09/1999: BBB - Changed the default visual component pick() method to 
+    pick using the bounds of the component - rather than just returning false 
+    as it was before.  This way, a sub-class doesn't have to override pick 
+    if it wants this basic behavior.
+
+  * 05/09/1999: BBB - Added ZArea.add(Rectangle2D) method
+	
+  * 05/09/1999: BBB - Made the ZBasicApplication constructor take an
+    option to either create a plain JFrame, or an internal frame within a desktop.
+
+  * 05/09/1999: BBB - Updated doc/ToDo.  From now on, this will be the
+    clearing house of prioritizing bugs and feature requests.
+
+  * 05/01/1999: BBB - Added missing ZTransform.scaleTo() methods.  There are 
+    now four that match the scale() methods.  You can now scale or scaleTo
+    around an optional point, and with optional animation.
+
+  * 05/01/1999: BBB - Added new static ZTransform.animate() method that 
+    animates an array of nodes simultaneously to an array of given transforms.  
+    See api docs on usage and example.
+
+  * 05/01/1999: BBB - Added ZTransform.concatenate() and preConcatenate() 
+    methods.
+
+  * 05/01/1999: BBB - Added new ZBasicApplication class that is a simple 
+    extendable application. It is intended to be used as the base for most 
+    applications using Jazz.
