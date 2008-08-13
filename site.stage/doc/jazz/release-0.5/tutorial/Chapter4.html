@@ -1,0 +1,228 @@
+<HTML>
+<HEAD>
+   <TITLE>4. Defining Dynamic Objects</TITLE>
+</HEAD>
+<body text=black bgcolor=white alink=red>
+<TABLE BGCOLOR=BLACK BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+<TR BGCOLOR=505050 HEIGHT=14>
+    <TD BGCOLOR=BLACK HEIGHT=38 WIDTH=70 ROWSPAN=2 BORDER=0 VALIGN=TOP>
+        <A HREF="http://www.cs.umd.edu/hcil/index.html">
+	<IMG ALT="HCIL Logo" SRC="banner-logo.png"
+	HEIGHT=38 WIDTH=70 BORDER=0></A>
+    </TD>
+    <TD WIDTH=100% ALIGN=LEFT HEIGHT=14>
+        <A HREF="http://www.cs.umd.edu/hcil/index.html" BORDER=0>
+	<IMG SRC="banner-hcil-left.png" WIDTH=223 HEIGHT=14
+	ALIGN=LEFT BORDER=0></A>
+	<A HREF="http://www.umd.edu/" BORDER=0>
+	<IMG SRC="banner-hcil-right.png" WIDTH=145 HEIGHT=14 BORDER=0
+	ALIGN=LEFT></A> 
+    </TD>
+</TR>
+<TR BGCOLOR=BLACK>
+    <TD ALIGN=LEFT>&nbsp;</TD>
+</TR>
+</TABLE>
+
+
+<A NAME="S4"><H1>4. Defining Dynamic Objects</H1>
+
+By default, Jazz visual components are static, or still.  That is, they have a persistent
+spatial position within the Jazz global coordinate system.  Unless a visual component
+is redefined, or the transform of one of its ancestor nodes is modified, it stays
+in the same place.  Of course, a camera can change its view so an object may 
+to move on the screen, but that is really just changing the viewpoint into the 
+scenegraph.  The object has not moved within the scene.
+
+<p>
+However, there are many times when an application may want to define objects
+that are more dynamic.  Perhaps they should be animated and move on their own,
+or should respond to some activity in the system.  An object might
+change something about itself based on the current camera view.
+For instance, an object might behave normally, but never be allowed to be rendered
+below a minimum size.  Or, it might pan normally with other objects, but when the
+camera changes magnification, the object wouldn't be magnified with the other
+objects, but instead would stay the same size.  This might be useful for a label
+on top of an image.  Or, an application might want to define a fisheye view where
+objects change their size and position based on the current camera view.
+
+<p>
+One obvious approach to creating dynamic objects would be to build the
+dynamic behavior into the object.  So, if you want a label that doesn't 
+shrink below 4 pixels, then you could define an object whose paint method
+would check the current magnification, and render itself bigger when the
+overall magnification was smaller.  This approach involves a few details, but
+the big problem is that every object must be modified to implement the desired
+behavior.  If you want to change behaviors, you must change all your objects!
+There is no way to change the behavior at run-time with this approach.
+
+<p>
+For completeness, the details involved in implementing a dynamic object this way involve
+two primary things.  1) Since the object may be different depending on the camera
+viewpoint, the bounds computation must also be changed to reflect this; 2) Since
+the object is dynamic, Jazz must be informed of this so it doesn't use some
+efficiency mechanisms to pre-compute and cache certain things, such as the object's
+position.  This is done by setting the <em>volatile</em> property of the visual
+component using
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponent.html#setVolatile(boolean)">ZVisualComponent.setVolatile()</A></TT>
+
+<p>
+A better approach to defining dynamic objects is to define the dynamic behavior
+completely separately from the visual components themselves.  This allows the
+behavior to be written independently of specific object types, and allows behaviors
+to be dynamically associated with objects.
+
+<p>
+Jazz supports a general-purpose mechanism for creating dynamic behavior in a way
+that decouples the behavior definition from the object itself.  The approach is
+to use a decorator chain.
+
+<A NAME="S4.1"><H2>4.1 The Decorator Chain</H2>
+A <em>Decorator</em> is a standard object-oriented Design Pattern, as described
+in several popular books (such as Gamma et. al., and now the new Java Design Patterns
+seris.)  A decorator is an object that wraps the basic functionality of
+another object, possibly adding some new functionality.  In Jazz, a ZNode always
+points to a ZVisualComponent.  The visual component represents a visual object
+that gets rendered.  Each visual component defines two crucial methods: paint()
+and computeLocalBounds(), that define how the component should get painted, and how
+big it is, respectively.  
+
+<p>
+We can insert a decorator between the node and the component.  The node points
+to the decorator and assumes it is the only visual component.  The decorator points
+to the original visual component as its child, and typically defines its paint
+and bounds methods to call the child paint and bounds methods, and then add some
+functionality.  The visual component doesn't know it is being wrapped by a decorator
+(unless it checks its parent).  Because there is a little bookkeeping involved in managing the
+data structure, Jazz defines a 
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZVisualComponentDecorator.html">ZVisualComponentDecorator</A></TT>
+class that is typically extended to define a new decorator.
+
+<p>
+Decorators can be used for may kinds of purposes.  Perhaps the simplest decorator
+just passes on the paint and bounds method calls to its child untouched, but stores
+some other information related to the component.  This doesn't define a dynamic
+behavior, but it does store some application-specific object along with the component
+in a way that doesn't modify the component.  Jazz uses this approach to define
+<TT><A HREF="../api/edu/umd/cs/jazz/component/ZLinkDecorator.html">ZLinkDecorator</A></TT>
+which stores the destination of a spatial hyperlink associated with a particular component.
+
+<p>
+Jazz also uses decorators to define some more complex decorators that are dynamic,
+and change the underlying component.  A simple one is
+<TT><A HREF="../api/edu/umd/cs/jazz/scenegraph/ZSelectionDecorator.html">ZSelectionDecorator</A></TT>
+which represents a selection rectangle around a visual component.  It expands the bounds of
+the object to represent the extra size of the selection handle it draws.  It is also dynamic
+because it draws the selection handle with constant width.  This means that as the camera
+view is zoomed in and out, the selection handle is always one pixel wide.
+
+<p>
+A more interesting use of decorators to create a dynamic object in Jazz is
+<TT><A HREF="../api/edu/umd/cs/jazz/component/ZConstraintDecorator.html">ZConstraintDecorator</A></TT>.
+The constraint decorator changes the transform based on the current camera view so that the
+child below it gets rendered with a different transform (resulting in arbitrary scaling, translation,
+rotation, or shear).  The first uses of this constraint decorator are to make various kinds
+of "sticky" objects.
+
+<p>
+<TT><A HREF="../api/edu/umd/cs/jazz/component/ZStickyDecorator.html">ZStickyDecorator</A></TT>
+is a decorator that makes objects "sticky" with respect to a camera.  That is, as the camera
+changes its viewpoint, and most objects pan and zoom, the sticky objects don't move.  It is 
+as if they are stuck to the camera's lens.  The decorator works by applying the inverse of
+current camera view transform, effectively removing the camera's view changes from the
+rendering pipeline.
+
+<p>
+<TT><A HREF="../api/edu/umd/cs/jazz/component/ZStickyZDecorator.html">ZStickyZDecorator</A></TT>
+is a slightly more complicated decorator that makes the child visual component 
+pan from side to side normally as the camera view pans,
+but when the camera view changes magnification, the sticky Z child doesn't.  This is designed for
+for labels which should stay with the relevant portion of the scene they are labelling, but
+shouldn't change size since a big or small label doesn't provide any useful function.
+
+<A NAME="S4.2"><H2>4.2 Fisheye Views</H2>
+Decorators can even be used to create certain kinds of fisheye views in Jazz.  A fisheye view
+is a general term to describe visualization systems that distort the content to show the
+focus area in more detail while showing the global context in less detail.  By putting a fisheye
+decorator above all the components that you want to be distorted, we can create a fisheye view.
+
+<p>
+The following very simple fisheye view decorator changes the magnification of the component
+below the decorator so that objects that are closer to the center of the screen are bigger,
+and objects that are further from the center of the screen are smaller.  To use this code,
+simply create a fisheye decorator for each object that you want to be affected by the fisheye view.
+A simple way to try this out is to modify the SquiggleEventHandler in the HiNote demo so
+that whenever you create a squiggle, it creates one wrapped by the fisheye decorator.  That is,
+in SquiggleEventHandler.mousePressed(), change the polyline creation code to look like this:
+<PRE>
+	    polyline = new ZPolyline(pt);
+	    ZFisheyeDecorator decorator = new ZFisheyeDecorator(getCamera(), polyline);
+	    ZNode node = new ZNode(decorator);
+</PRE>
+
+Here's the code for the sample fisheye decorator:
+
+<PRE>
+import java.awt.geom.*;
+
+import edu.umd.cs.jazz.util.*;
+import edu.umd.cs.jazz.scenegraph.*;
+import edu.umd.cs.jazz.component.*;
+
+public class ZFisheyeDecorator extends ZConstraintDecorator {
+    protected AffineTransform constraintTransform;
+
+    /**
+     * Constructs a new fisheye decorator with a specified camera.
+     * @param camera The camera the component is related to.
+     */
+    public ZFisheyeDecorator(ZCamera camera) {
+	super(camera);
+	constraintTransform = new AffineTransform();
+    }
+    
+    /**
+     * Constructs a new fisheye decorator with a specified camera that 
+     * decorates the specified child.
+     * @param camera The camera the component is related to.
+     * @param child The child that should go directly below this decorator.
+     */
+    public ZFisheyeDecorator(ZCamera camera, ZVisualComponent child) {
+	super(camera, child);
+	constraintTransform = new AffineTransform();
+    }
+
+    /**
+     * Computes the fisheye constraint that makes children larger in the 
+     * center of the screen as the camera view changes.
+     * @return the affine transform the defines the constraint.
+     */
+    protected AffineTransform computeTransform() {
+	constraintTransform.setToIdentity();
+
+	if (camera != null) {
+	    Point2D viewCtr = camera.getViewBounds().getCenter2D();
+	    float mag = camera.getMagnification();
+
+				// We want to get the child's global bounds, but we 
+                                // can't do it directly by calling node.getGlobalBounds() 
+                                // because that would result in an infinitely recursive 
+                                // call to this.  So, instead, we manually compute it.
+	    ZBounds childBounds = child.getLocalBounds();
+	    AffineTransform globalFrame = findNode().computeGlobalCoordinateFrame();
+	    childBounds.transform(globalFrame);
+
+	    Point2D childCtr = childBounds.getCenter2D();
+	    float dist = (float)(viewCtr.distance(childCtr) / mag);
+	    float s = 100.0f / dist;
+	    constraintTransform.translate(childCtr.getX(), childCtr.getY());
+	    constraintTransform.scale(s, s);
+	    constraintTransform.translate(- childCtr.getX(), - childCtr.getY());
+	}
+
+	return constraintTransform;
+    }
+}
+</PRE>
+</body>
+</html>
