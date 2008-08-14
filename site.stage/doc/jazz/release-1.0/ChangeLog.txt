@@ -1,0 +1,1031 @@
+Jazz-1.0 ChangeLog (Released July 4, 2000)
+------------------------------------------
+
+  * INCOMPATIBLE CHANGE: Added a method to ZLayoutManager for the
+    future to support animation of layout changes.  It is not yet
+    implemented, but added this now to avoid future incompatible
+    changes.  This only affects you if you implemented a new layout
+    manager.
+
+  * Fixed bug in implementation of ZVisualGroup.updateVolatility().
+
+  * Fixed some bugs in scenegraph browser used for debugging
+    (ZSceneGraphTreeModel).  Now the first letter of the class name
+    isn't cut off.  Also, ZNameGroup displays the name of the group.
+   
+  * Made some methods access less restrictive - from package access
+    to protected access, giving subclasses the opportunity to access them.
+
+  * Updated API documentation to be generally clearer.
+
+  * Added ZLayerGroup.getCameras() and ZLayerGroup.getNumCameras() methods.
+
+  * Fixed bug in hinote where new views wouldn't look at
+    same location as original view.
+
+  * Fixed several bugs relating to picking through internal cameras:
+    - Added camera list to ZSceneGraphPath so it maintains a special
+      list of cameras along the path.  For picking, the camera list
+      contains the cameras under the mouse pointer even if the 
+      path is empty.
+    - Fixed bug with picking objects through internal cameras.  The
+      terminal object in the path would be the internal camera
+      rather than object that was picked.  Now it properly contains
+      the picked object.
+    - Fixed bug with picking through internal cameras where the path
+      would not contain the transforms of the internal cameras if
+      nothing was picked.  Now, the path goes through all the cameras
+      the mouse pointer is over, regardless of whether anything was
+      picked.
+
+Jazz-1.0rc1 ChangeLog (Released June 19, 2000)
+----------------------------------------------
+
+  * INCOMPATIBLE CHANGE: Jazz now uses doubles instead of floats wherever
+    possible, including all API calls. This results in increased resolution,
+    from about 10 to about 20 orders of magnitude of zooming, at the cost of
+    increased memory usage. This should not require any application source
+    code changes since floats get cast to doubles automatically.  However,
+    you may choose to change your applications to use doubles to avoid the
+    casting cost - and to take advantage of the higher resolution.
+
+    Old .jazz probably will not load correctly now, because of a casting problem:
+    ClassCastException: java.lang.Float. You can fix this by editing
+    the old .jazz files, changing all instances of "float" to "double", and
+    changing all floating point values followed by "f" to be followed by "d" instead.
+    You can do the latter change using emacs Regexp Replacement command:
+    M-x replace-regexp <return> \(\.[0-9]+\)f <return> \1d <return>
+	
+  * INCOMPATIBLE CHANGE: ZVisualLeaf now supports a list of visual components
+    under a single leaf node, instead of just one visual component per leaf.
+    You can now create a group of visual components that are indivisible
+    (e.g. a rectangle with a label). See ZVisualLeaf documentation for details.
+    To update old code: replace getVisualComponent() with getFirstVisualComponent()
+
+  * INCOMPATIBLE CHANGE: ZGroup.remove() has been renamed ZGroup.extract().
+    The behavior has not changed, ZGroup.extract() removes one node from the
+    tree, any children are reparented.  
+
+    WARNING: A new method named remove has been added which removes
+    the entire subtree (see below).  If you do not rename your
+    application 'remove' calls to 'extract' you will likely introduce
+    bugs into your application.
+
+  * INCOMPATIBLE CHANGE:  Added method globalBoundsChanged() to
+    the ZNodeListener interface.  This method notifies listeners of global
+    bounds events that get fired when the global bounds of a node change.
+    These events function much the same as BOUNDS_CHANGED events and
+    percolate up the scenegraph until they are consumed.  Implementers of
+    this interface must now also implement this method.
+
+  * INCOMPATIBLE CHANGE:  Renamed ZCamera.setTranslate() to
+    ZCamera.setTranslation() to be consistent with the getter
+    and with ZTransformGroup terminology.
+
+  * INCOMPATIBLE CHANGE: Added isActive to the ZEventHandler interface, 
+    and implemented it in all of Jazz's event handlers
+
+  * INCOMPATIBLE CHANGE: Added setAbsPenWidth() and getAbsPenWidth() methods
+    to the ZStroke interface.  Added support for absolute pen widths
+    (independent of camera magnification) to ZPolyline, ZPolygon, ZRectangle,
+    ZEllipse, and ZShape.
+
+  * HiNote bug fix: When a full screen hinote view is closed, it's camera is
+    removed from the scenegraph.
+
+  * New method: ZGroup.removeChild(int index). Removes the child node at the specified
+    position from the group node's children.
+	
+  * makefiles no longer copy hinote hinote/resources into hinote/src/classes/resources
+
+  * HiNote bug fix: When a scenegraph tree browser window is closed, it can now
+    be re-opened.
+
+  * New visual component: ZLabel: supports a node containing a simple text label.
+
+  * New group node: ZNameGroup: Provides the ability to name a portion of the
+    scenegraph. You can assign a name to a ZNameGroup, then retrieve a
+    reference to this group node using the name. Any ZNameGroup node
+    can be retrieved by a static call to ZNameGroup.getNameGroup(String name).
+
+  * ZMouseEvent now has methods for retrieving the mouse position in the
+    coordinate system of the object that the mouse is over.
+	
+  * ZCanvas now supports scrollBars when it is added to a JScrollPane.
+  		
+  * Modified method that ZDrawingSurface uses to determine the render
+    quality.  In a backwards compatible way, there is now a regular
+    and an interacting quality.  The interacting quality is used whenever
+    the user is interacting with the surface *or* objects are being
+    animated on the surface.  The regular quality is used other times.
+    There are new methods for accessing the interacting render quality.
+
+  * Method mouseReleased() in ZoomEventHandler and in ZPanEventHandler
+    now cause the camera to fire a CAMERA_VIEW_CHANGED event. You can now
+    use a ZCameraListener to detect when zooming or panning is finished
+    by checking ZDrawingSurface.isInteracting() in this method.
+	
+  * ZText and ZImage now contain an x/y translation offset. This allows use of
+    multiple image/text nodes under a single ZGroup without needing separate
+    transforms for each one. 
+
+  * ZAnchorGroup links are now updated when their destination node's global
+    bounds change.
+	
+  * New method: ZGroup.removeAllChildren(): Removes all children from a group node.
+	
+  * New method: ZNode.remove(): remove this node and its children from the tree.
+
+  * Added ZGroupEvent.isModificationEvent() to better determine if a group
+    event is part of a movement/modification or if it represents a true
+    addition or removal.  This bit allows a program to distinguish between
+    the ZNode.reparent(), ZGroup.insertAbove(), and ZGroup.remove()
+    modification operations and the regular ZGroup.addChild() and
+    ZGroup.removeChild() operations.
+	
+  * Added GraphIt, a new Jazz demo program, in the demo directory.
+    This is a simple program that lets users draw graphs with circular
+    nodes and then connect them with lines.  It keeps the graph edges
+    connected when the nodes are moved.  It supports grouping and multiple
+    views.  This program was intended to be a simpler starting point for
+    new Jazz users than HiNote which is fairly complex.
+	
+  * ZFadeGroup now implements four types of fading:
+    a) Fade on camera magnification
+    b) Fade on composite magnification
+    c) Fade on absolute screen size in pixels
+    d) Fade on percentage of window size in pixels
+    Set the type of fading with setFadeType.
+	
+  * ZGroupEvents are now only fired by Jazz classes at a point in which
+    the scenegraph is temporarily stable.  Therefore, to determine whether 
+    a node has been *truly* added or removed, you can now check to see
+    if the node in question is still a descendent of a given ancestor.  
+    This change affects the methods ZNode.reparent(), ZGroup.insertAbove(),
+    ZGroup.remove(), ZGroup.addChild(), and ZGroup.removeChild().  See
+    the ZGroupEvent documentation for a simple code example.
+	
+  * Changed repaint mechanism to prepare for support for fixed penwidth lines,
+    and other context-dependent objects.  I left in the repaint(Bounds) methods,
+    but added new ones of repaint(ZSceneGraphObject obj, AffineTransform at, ZBounds clip).
+    Now, when an object is repainted, instead of passing up its bounds, it passes
+    up itself plus its transform.  Only when it gets up to the camera is the
+    bounds looked at.  In this way, the camera can set the rendercontext
+    appropriately to refer to itself when retrieving the bounds.  This way,
+    bounds computation can be implemented per camera.
+    This is a backwards-compatible change.
+
+  * Fixed bug in ZCamera.getRoot().  It was implemented by getting the root
+    of the tree the camera was in rather than the root of the tree the
+    camera looked at (as was documented).
+
+  * Added ZVisualComponent.getRoot() which returns the root of the
+    tree the component's first parent is in.
+
+  * Fixed bug in computation of volatile bounds for ZVisualLeaf, ZGroup,
+    and ZVisualGroup.  They were never computed properly.  However, now
+    than absolute pen width objects actually use volatility, they need
+    to work!
+
+  * Added ZVisualLeaf.removeVisualComponent().  This method was 
+    just missing - apparently it was never added when ZVisualLeaf
+    went from one to multiple visual components.
+
+  * Made a factory class for creating new instances of ZRenderContext.
+    Now that they are more important, and are used for general-purpose
+    context-sensitive rendering, it is important that applications
+    have the ability to define their own in case they want to define
+    new kinds of context.
+
+Jazz-1.0b ChangeLog (Released April 14, 2000)
+---------------------------------------------
+  * Moved SceneGraphBrowser from HiNote to Jazz. Added new jazz class
+    ZSceneGraphTreeView.
+	
+  * Added support in ZMouseEvent for getting the target of a MOUSE_RELEASED
+    event.
+
+  * Jazz and HiNote now mask out mouse button events that are in combination
+    with other buttons or keys, like SHIFT or CONTROL. This allows developers
+    to use these combinations for their custom controls.
+	
+  * New visual component ZEllipse added to jazz, along with an ellipse tool for
+    HiNote. Code donated by Wayne Westerman.
+
+  * Fixed several of the "set" methods (eg. setLayer()) in ZCanvas
+	
+  * Fixed ZGroup.indexOf() to check its own children instead of its
+    parent's children.
+	
+  * Added new ZVisualComponent ZShape. Users can create a new visual component
+    from a java.awt.Shape
+	
+  * Added workaround for bug in JDK1.3rc1 and earlier where it 
+    would occasionly get in an infinite loop in Rectangle2D.intersectsLine().
+    This could happen in ZPolygon.pick.  I reported the bug to Sun
+    March 10, 2000, and added a correct implementation in
+    ZUtil.rectIntersectsLine(), and use that instead.
+
+  * When a ZIndexGroup event ADD_NODE or REMOVE_NODE is fired on a node, the
+    event is percolated up the scenegraph, looking for listeners at each node,
+    until the event is consumed.
+
+  * New event creator and listener added: ZNodeEvent and ZNodeListener,
+    providing a new event BOUNDS_CHANGED.
+    This event is fired whenever a node's bounds change. It is percolated up
+    the scenegraph, looking for listeners, until consumed. ZSpatialIndexGroup
+    use these events to detect when indexed nodes bounds have changed, by
+    attaching a listener to the ZTransformGroup edit node of any spatial-indexed node.
+
+  * The "Browse Scene Graph" viewer on the debug menu now lets you 
+    edit the properties of selected nodes.
+
+  * Rewrote the Jazz cloning code. From an application standpoint, the
+    ZSceneGraphObject.clone() method is functioally the same, except that
+    cloning an object no longer clones the listener table for the object 
+    into the new object (cloned objects start out with no listeners). However, 
+    there are several bug fixes and efficiency improvements.
+
+  * There is now a ZDebug.dumpString method, which obtains a textual printout
+    of a node as a string.
+
+  * Added a new debugging tool to HiNote for browsing the Jazz scene
+    graph (see Help->Debug->Browse Scene graph). 
+ 
+  * Fixed Copy/Paste bug in HiNote. Now you can copy/paste groups. Pasting
+    multiple times also works properly.
+
+  * Fixed bug in ZFadeGroup where magnified objects that had fade groups
+    did not get picked properly.
+
+  * Smooth fading is currently unbearably slow if many objects are
+    being faded, so I added the ability to specify the "fadeRange"
+    of a ZFadeGroup.  Default is 0.3 (fade in/out over 30% of its
+    magnification).  However, setting it to 0 makes objects jump
+    in and out of visibility as they reach their min/max size.
+
+  * Added a new group node: ZSpatialIndexGroup, which can be managed by 
+    ZSceneGraphEditor. The purpose of this group node is to provide faster
+    rendering when an application must display a large number of visual components. 
+    It implements the algorithm "RTree Indexing" to quickly find which nodes
+    are currently visible. The indexing algorithm applies to the children of the
+    primary node that has a ZSpatialIndexGroup in its edit chain. 
+
+    Note: A ZSpatialIndexGroup node must appear at the bottom of the edit node chain:
+    ie its child must be a ZGroup node. ZSceneGraphEditor supports this constraint.
+
+  * Fixed bug in ZCamera where internal cameras were not being clipped properly.
+
+  * Added test code for internal cameras - see test/PortalTest.java
+
+  * Fixed bug in Swing event handler caused by calling 'cameraToLocal'
+    for a node after the node had been deleted (eg. when the node was
+    deleted on mouse pressed).
+	
+  * Added a constructor in ZPathLayoutManager to accept a Shape
+
+Jazz-0.6 ChangeLog (Released October 22, 1999)
+----------------------------------------------
+
+This is a maintenance release, fixing several bugs from the beta
+version of Jazz 0.6b.  There is one incompatible change:
+
+  * INCOMPATIBLE CHANGE: ZCanvas.setEventHandlersActive() renamed to
+    setNavEventHandlersActive().  ZCanvas.setEnableSwingEvents() 
+    removed - instead use ZCanvas.setSwingEventHandlersActive().
+
+The rest are backwards compatible bug fixes:
+
+  * The Swing event handlers have been moved to become a standard
+    Jazz node event handler - giving applications more flexibility
+    about when Swing event handlers get called.
+
+  * ZImage will now write an embedded binary image when using
+    Java Serialization.
+
+  * Improved a few documentation glitches.
+
+  * Fixed several bugs in the tree layout manager.  It seems to work
+    properly now - except there are still some layout bugs when nodes
+    being layed out are scaled or rotated.  We are reworking the layout
+    algorithm for a more stable tree layout in the next release.
+
+  * HiNote improvements:
+      - Added a font chooser
+      - Merged binary (Serialization) I/O into regular save/open menu
+
+  * Printing works again - it worked in 0.5, but was broken in 0.6b.
+
+  * Made ZSelectionGroup Serializable and ZSerializable - so now
+    if you save something that is selected, the selection will get
+    written out.
+
+  * ZSwing now supports combo boxes, pull-down menus, and pop-up menus.
+    However, in order to use these, you must use the special classes
+    ZComboBox instead of JComboBox, and ZMenu instead of JMenu.
+
+  * ZSceneGraphEditor private fields were changed to protected so
+    the class can be extended.
+
+  * All pick methods were made public so that they could be overrided
+    by classes outside of the package.
+
+Jazz-0.6b ChangeLog (Released October 1, 1999)
+----------------------------------------------
+
+This version of Jazz reflects a substantial reorganization of code
+with extensive incompatible changes.  Rather than list every single
+change one by one, we describe here the basic changes that were made
+to Jazz.  Special thanks to Jon Meyer who worked closely with me (Ben)
+to work out the details of this redesign.  Also, credit goes to Lance
+Good for work on the Swing widget support, and to Jim Mokwa who worked
+on HiNote improvements.
+
+  * The biggest change is that node structure was fundamentally
+    changed.  There are no more visual component decorators.  Instead,
+    those have all moved to nodes.  Visual components now have
+    (possibly) multiple parents so that a single visual component can
+    be reused in multiple places in the scenegraph.  And, most
+    importantly, ZNode was split up into 14 different classes, derived
+    from a vastly simplified ZNode class.  The basic motivation was
+    that you should only pay for the feature that you use, and ZNode
+    had grown so big that every node typically had several features
+    that weren't used.  The actual class structure is listed below.
+    
+    Now a typical scenegraph will have a layer group with a bunch of
+    visual leaves below it, each with a visual component.  To group
+    several leaves together, insert a group node above them.  To
+    transform a leaf, or a group, insert a transform node above the
+    relevant nodes.  Similarly, select, fade, or make something sticky
+    by inserting the appropriate node above the nodes to be operated
+    on.
+
+  * Jazz now supports standard Java Serialization for all scenegraph
+    objects.  Note that event handlers and layout managers are not
+    currently supported.
+
+  * Jazz now supports internal cameras (aka 'portals' or simple
+    'lenses')!  If a scenegraph contains a camera that looks onto the
+    scenegraph, then the scenegraph will be seen within that internal
+    camera.  See ZCamera docs for more details.
+
+  * Jazz now does all internal computation in the local coordinate
+    system of the node being processed.  Nodes no longer cache their
+    bounds in global coordinates.  That turned out to be expensive
+    because if the root node changed, all of its children would have
+    to have their bounds recomputed.  Now, nodes only depend on their
+    children, never on their parents.  Parameters for such functions
+    as render, repaint, pick, and findNodes now are all in local
+    coordinates.
+
+  * The pick interface was changed so that now pick generates and
+    returns a path which contains the full pathway of objects from the
+    drawing surface through the camera(s) through nodes to a visual
+    component.  This path is encapsulated in a ZSceneGraphPath object,
+    and is passed into and returned from various pick() methods.
+
+  * The layout mechanism was revamped.  There is a new general purpose
+    tree layout manager which will lay out hierarchical trees
+    horizontally or vertically with some control over the algorithm.
+    In addition, the layout mechanism now automatically lays out the
+    nodes when needed (i.e., when the layout node has been reshaped).
+    So, it is no longer to ever call doLayout() manually.  Instead, it
+    coalesces layout requests, generating an event to actually perform
+    the layout.
+
+  * Jazz now supports embedding Java Swing widgets within the Jazz
+    scenegraph.  Almost all Swing widgets, including compound widgets,
+    can used directly with no modification whatsoever. They look and
+    interact like regular Swing widgets, but pan and zoom like Jazz
+    visual components, and are acted upon by the Jazz hierarchy - thus
+    they can be faded, transformed, made sticky, etc.  It works with
+    the use of a new visual component called ZSwing which wraps the
+    Swing base class, JComponent.  Just make any Swing component, and
+    then wrap it with ZSwing, and add it to the hierarchy - that's it.
+    A typical example is: group.addChild(new ZSwing(new JButton("Hello
+    there"))); Known limitations: ZSwing does not and is not likely to
+    ever support heavy-weight components (JWindow, JFrame, and
+    JApplet).  There currently are bugs that make it so Swing does not
+    tooltips and internal cursor changes.  Menus and ComboBoxes are now
+    available though ZMenu and ZComboBox must be used (rather than 
+    their Swing counterparts) within a ZSwing visual component.
+
+  * Jazz event handling has been improved.  There are now three kinds
+    of special internal events: Camera events handle view transform
+    changes, transform events handle transform changes, and group
+    events handle add/remove changes.
+
+    In addition, Jazz now supports mouse and mouse motionevent
+    handling per node.  So, it is possible to register a mouse
+    listener directly with a node, and it will be called directly when
+    a mouse event occurs on that node.  This includes ZMouseEvent
+    (mouseClicked, mousePressed, mouseReleased, mouseEntered, and
+    mouseExited) and ZMouseMotionEvent (mouseDragged, mouseMoved).
+
+    If an event occurs on a node, and that node does not have any
+    event listeners, then the event is percolated up to the node's
+    parent, and fired on it (recursively), unless the event has been
+    consumed.
+
+  * Reworked damage/restore mechanism.  Replaced internal
+    implementation of region management and double buffering to use
+    Swing's implementation.  We now automatically queue repaint
+    requests when there has been damage so there is no longer any need
+    to call restore(), and in fact that method is now gone.  And, the
+    two versions of damage() have been renamed to repaint() and
+    reshape().  repaint() should be called when the bounds of an
+    object need to be repainted, and reshape() should be called when
+    an object has changed so that its bounds need to be recomputed,
+    and then repainted.
+
+  * General improvement of the way that Jazz deals with coordinate
+    systems.  There are several utility methods to convert from one
+    coordinate system to another.  ZNode.localToGlobal(),
+    ZNode.globalToLocal, ZCamera.localToGlobal(),
+    ZCamera.globalToLocal, ZNode.getLocalToGlobalTransform(),
+    ZNode.getGlobalToLocalTransform().  This also fixed some bugs
+    related to coordinate systems.  For instance, the selection event
+    handler now properly works when selecting objects several levels
+    deep in the hierarchy.  Also, sticky objects now get selected and
+    moved around properly.
+  
+  * Replaced internal implementation of region management and double
+    buffering to use Swing's implementation.  This allows better
+    integration of Jazz into Swing, and simplifies the Jazz code.
+
+  * Changed debugging implementation so now when debugging is turned
+    off (by changing ZDebug.debug = false in the source code), then
+    there is zero overhead in Jazz for having the debugging code in
+    the system.  Also, the debug menu in hinote goes away if compiled
+    without debugging.
+
+  * Renamed many classes and methods to be internally consistent,
+    and to be more bean-like.  Here are some, but not all of the changes:
+      ZSceneGraphObject.setVolatile()      -> setVolatileBounds()
+      ZSceneGraphObject.isVolatile()       -> getVolatileBounds()
+      ZCamera.paintStartPoint              -> layer (throughout ZCamera)
+      ZNode.isDescendent()                 -> isDescendentOf()
+      ZNode.isAncestor()                   -> isAncestorOf()
+      ZNode.replace()                      -> replaceWith()
+      ZNode.getSavable()                   -> isSavable()
+      ZNode.computeGlobalCoordinateFrame() -> getLocalToGlobalTransform()
+      ZNode.findRoot()                     -> getRoot()
+      ZNode.paint()                        -> render()
+      ZSurface                             -> ZDrawingSurface
+      ZBasicComponent                      -> ZCanvas
+      ZRootNode                            -> ZRoot
+
+  * Changed policy about the Graphics2D state.  It used to be that
+    Jazz promised to keep the transform, clip, and composite up to
+    date - even if a visual component changed it.  This was
+    inefficient because Jazz regularly had to save and restore that
+    state even though it rarely changed.
+
+    The new policy is that all objects (nodes and visual components)
+    are required to restore the transform, clip, and composite if they
+    change them.  Jazz continues to leave font, stroke, and color
+    unspecified - it is up to visual components to set those things if
+    they use them.
+
+  * Here is the new object structure:
+   
+        ZSceneGraphObject
+        |
+        +-ZNode
+        | |
+        | +-ZLeaf
+        | | +-ZVisualLeaf
+        | |
+        | +-ZGroup
+        |   +-ZFadeGroup
+        |   +-ZLayerGroup
+        |   +-ZRoot
+        |   +-ZAnchorGroup
+	|   +-ZInvisibleGroup
+        |   +-ZTransformGroup
+        |   | +-ZConstraintGroup
+        |   |   +-ZStickyGroup
+        |   |
+        |   +-ZVisualGroup
+        |     +-ZSelectionGroup
+        |     +-ZLayoutGroup
+        | 
+        +-ZVisualComponent
+          +-ZCamera
+          +-ZSwing
+          +-ZText
+          +-ZRectangle
+          +-ZImage
+          +-ZCoordList
+            +-ZPolyline
+            +-ZPolygon
+
+Jazz-0.5 ChangeLog (Released July 30, 1999)
+-------------------------------------------
+  INCOMPATIBLE CHANGES
+  --------------------
+
+  * 07/20/1999: BBB - Updated ZNode.raise and lower methods.
+    raise() and lower() are unchanged, and raiseTo() and lowerTo()
+    are now implemented to support raising and lowering to
+    a particular position.  However, the old raise(ZNode) and
+    lower(ZNode) are now removed.  They were duplicitive - doing
+    the same thing as the current raise() and lower().
+
+  * 07/19/1999: BBB - Moved ZFindFilter from scenegraph package
+    to util package to be consistent with other utility interfaces.
+
+  * 07/02/1999: BBB - Changed ZNode.hidden bit to be called visible
+    (with the opposite meaning) to be more similar to Swing.  The
+    new method names are setVisible(), getVisible(), and isVisible().
+
+  * 06/29/1999: JJM - ZImage converts absolute path of an image
+    file name into a relative path name.
+
+  NEW FEATURES
+  ------------
+
+  * 07/27/1999: BBB - Added ZLoadable objects which can be dynamically
+    loaded into Jazz, and be made aware of the basic scenegraph
+    structure so that it can add itself to the application and do
+    something useful.  When a ZLoadable object is loaded into Jazz,
+    all of its ZLoadable methods are guaranteed to be called which
+    specify the primary menubar of the application, and the basic
+    elements of the scenegraph (camera, surface, and top node).
+
+  * 07/23/1999: BBB - Removed the jazz.external.jpeg package, and now
+    instead use com.sun.images.codec.jpeg that is included with the
+    JDK.  If an application needs to write out jpeg images, it should
+    use Sun's codec.
+
+  * 07/20/1999: BBB - Reworked Jazz directory structure.  Now, all
+    source code sits in the src subdirectory, and there are
+    subdirectories for demos, documentation, libraries (jar files),
+    and testing code.  The Jazz source code is still in the
+    edu.umd.cs.jazz package, and no source code was changed as a
+    result of this movement.  However, HiNote is no longer part of the
+    jazz package.
+
+  * 07/19/1999: BBB - Added mechanism to control the timing of the
+    animation in ZTransform.animate().  There are new versions of the
+    animate method which take an extra jazz.util.ZLerp parameter.
+    This parameter specifies a function that controls the animation.
+    The original animate methods now pass in a slow-in, slow-out
+    animation function, but an application can specify a different
+    function (or null for a standard linear interpolation.)
+
+  * 07/14/1999: BBB - Added new convenience functions to ZCamera to
+    convert points and rectangles through the camera's view from
+    screen to global coordinates and back again.  See
+    ZCamera.cameraToScene and ZCamera.sceneToCamera.
+
+  * 07/14/1999: BBB - Added feature to
+    jazz.event.ZoomEventHandlerRightButton and to
+    ZNavEventHandlerKeyBoard to enable applications to set the min and
+    max magnification that can be zoomed to with this event handler.
+    See setMinMagnification() and setMaxMagnification() in each class.
+
+  * 07/14/1999: BBB - Enabled application to directly turn off event
+    handlers in ZBasicFrame and ZBasicApplet with
+    deactivateEventHandlers(), and turn them back on again with
+    activateEventHandlers().
+
+  * 07/12/1999: BBB - Added new jazz.component.ZPolygon class.  It is
+    as basic component for drawing polygons with a pen and/or fill
+    color.  Note that ZPolygon and ZPolyline now both subclass a new
+    ZCoordList class to share common code, however, this should not
+    introduce any incompatible changes to ZPolyline.
+	
+  * 07/07/1999: JJM - Added method selectGroup and selectNode to
+    support grouping and ungrouping selected nodes in
+    ZSelectionEventHandler.  Grouping and ungrouping groups of groups
+    works correctly: subgroups are preserved.
+	
+  * 07/02/1999: BBB - Added timing functions to ZText.
+    setTimingTest(boolean) enables the timing test. long
+    getRenderTime() returns the time in milliseconds of the last
+    render of the ZText object. This allows users to compare rendering
+    times of text under different render quality settings.
+	
+  * 07/02/1999: BBB - Added new event mechanism to Jazz.  There are
+    three new event types that let applications track when certain
+    things change within the Jazz scenegraph.  ZNodeEvent tracks when
+    nodes state has changed (transform and visibility for now).
+    ZNodeContainerEvent tracks when nodes have been added or removed
+    from a node.  And, ZAncestorEvent tracks when an ancestral node
+    has been hidden or shown.  See ZNode.addAncestorListener,
+    ZNode.addNodeListener, and ZNode.addNodeContainerListener - and
+    the related classes.
+
+  * 06/29/1999: JJM - Added ZSurface.RENDER_QUALITY_MEDIUM, which
+    turns on general anti-aliasing, but turns off text anti-aliasing,
+    and sets rendering for speed, not quality.
+
+  * 06/28/1999: JJM - Added setArrowHeadType(arrowHeadType) to
+    ZPolyline.  arrowHeadType can be ZPolyline.ARROW_OPEN or
+    ZPolyline.ARROW_CLOSED to specify that arrow heads are drawn as
+    open, or as a closed, filled triangle.
+	
+  BUG FIXES
+  ---------
+  * 07/15/1999: JJM - Fixed bug in ZText.  One of the constructors did not
+    parse multiline input text properly.
+	
+  * 07/08/1999: BBB - Fixed bug where ZPolyline.getXCoords and
+    getYCoords would return an array that could be larger than the
+    actual number of coordinates.
+
+  * 06/29/1999: JJM - Fixed a problem in which ZTransform.position()
+    failed to move objects when given a parent node with no visual
+    component.  Changed ZTransform.position() to use getGlobalbounds()
+    instead of getCompBounds().
+
+  * 06/28/1999: JJM - When an arrow head is added to a ZPolyline, the
+    line is now shortened a bit to the beginning of the
+    arrowhead. This cleans up some ugliness around the arrowheads when
+    they were zoomed.
+	
+  HINOTE
+  ------
+  * 11/23/1999: JJM - Added "File" option to "Insert" Menu. Saved Jazz
+    files can now be added to the current scenegraph.
+	
+  * 08/19/1999: JJM - Added color chooser tool to toolbar.
+
+  * 08/06/1999: JJM - HiNoteApplet will load a .jazz file on
+    startup. The name of the file is the value of the html parameter
+    "startupfile". It is loaded from help.jar, unless another jar file
+    is specified through the html parameter "starupJarFile".
+	
+  * 08/05/1999: JJM - HiNote builds the Help menu from entries in
+    the help.jar file.
+	
+  * 07/26/1999: JJM - HiNote can now be run out of any directory, and
+    properly find internal icons.
+	
+  * 07/23/1999: BBB/JJM - Changed HiNote directories to be like new
+    jazz directory structure.
+	
+  * 06/15/1999: JJM - When saving a HiNote application to a .jazz file,
+    HiNote converts ZImage filenames to be relative to the directory that
+    the .jazz file is in. 
+	
+  * 07/07/1999: JJM - Added Group and Ungroup to HiNote.
+
+  * 07/01/1999: JJM - Added "render quality" radio buttons: High, Medium
+    and Low to Edit menu in HiNote. 
+	
+Jazz-0.4 ChangeLog (Released 06/18/1999)
+----------------------------------------
+
+  INCOMPATIBLE CHANGES
+  --------------------
+
+  * 06/15/1999: BBB/JJM - Replaced ZTextField and ZTextArea with a
+    combined simpler ZText class.  The new ZText does what the
+    two previous classes did, and is a direct replacement.  The
+    primary difference is that it supports multi-line text.  In
+    addition, it has a different origin.  ZText has the origin
+    at the upper-left corner of the text.  ZTextField has the
+    origin at the lower-left corner.
+				   
+  * 06/10/1999: BBB - Reworked ZCamera.findNodes() mechanism.  It used
+    to be that this was a specific mechanism to find those nodes that
+    intersecte a given area.  It is now a generalized mechanism to
+    find those nodes that satisfy a filter criteria.  There is a basic
+    filter interface called scenegraph.ZFindFilter, and some specific
+    instances that can be used by applications.  Currently, there are
+    util.ZFindFilterBounds and util.ZFindFilterMagBounds.  The former
+    finds all nodes that intersect the specified bounds.  The latter
+    find the nodes that intersect the specified bounds and who are
+    visible within the specified magnification.
+
+    As part of this change, I added a new "findable" bit to
+    ZVisualComponent to complement "pickable".  Now, pickable only
+    applies to the pick function, and findable only applies to the
+    find function.
+
+  * 06/09/1999: BBB - Changed ZBasicComponent constructor to
+    accomodate simplified repaint model (see below).  Now there is
+    just a default constructor that the caller must add to a container
+    - in the traditional Java style.  Note that there is now also
+    another constructor that that takes a root and a node, and makes
+    the component look onto an existing scenegraph.  ZBasicFrame now
+    also has a similar new constructor that allows it to look at an
+    existing scenegraph.
+
+  * 06/06/1999: BBB - Renamed ZCamera.getMag() to ZCamera.getMagnification()
+
+  * 06/06/1999: BBB - Renamed ZBasicApplication to ZBasicFrame
+
+  * 06/06/1999: BBB - Moved scenegraph.ZDebug to util.ZDebug
+
+  * 06/06/1999: BBB - Reworked damage/restore a bit.  I removed the
+    damage methods that did a built-in restore: damage(boolean restoreNow)
+    and damage(boolean restoreNow, ZSurface surface).  More importantly,
+    I simplified the way objects need to call damage.  It used to be tha
+    when objects changed their bounds, they had to go through a four step
+    process (damage(), modify self, updateBounds(), damage()).  Now, the new
+    simplified method is to just use a two step process where the object
+    modifies itself, and then calls damage(true).
+
+    The new ZNode.damage(boolean boundsChanged) method should be called
+    whenever an object has changed its internal data structure that will
+    result in a bounds changed.  Calling this will result in the original
+    and new area of the object being damaged, plus the new bounds will
+    be computed by a call to updateBounds().
+
+  * 05/29/1999: BBB - Removed inadequate thread-safe protection from Jazz.
+    Now, Jazz is officially *not* thread-safe, and must be completely
+    modified, accessed, and painted from a single thread (usually the
+    event dispatch thread).  This was done for the following reasons:
+      - Swing is built this way, and most of their rational applies to Jazz.
+      - It is easier to write and debug Jazz, and to extend it with new components.
+      - It is easier to write applications, and to debug them.
+      - Jazz applications can use Swing's utility functions (such as Timers, 
+        invokeLater, and invokeAndWait) to make it easier to use other threads
+        to do slow tasks, but synchronize them with Jazz.
+      - Jazz runs faster because there is no synchronization
+    The primary disadvantage is that Jazz will not be directly speeded up when
+    run on machines with multiple processors.
+    Sun has written three articles on Swing and Threads that discuss threading
+    issues, and will be valuable to the Jazz application developer:
+    http://www.javasoft.com/products/jfc/tsc/archive/tech_topics_arch/threads/threads.html
+    http://www.javasoft.com/products/jfc/tsc/archive/tech_topics_arch/swing_worker/swing_worker.html
+    http://www.javasoft.com/products/jfc/tsc/tech_topics/threads3/threads3.html
+
+  * 05/26/1999: BBB - Renamed ZVisualComponentDecorator.insert()
+    to ZVisualComponentDecorator.insertAbove() to make it clear
+    that the decorator is being inserted *above* the component
+    parameter, and not below it.
+
+  * 05/23/1999: BBB - Moved ZLink from scenegraph to component package,
+    and renamed it to ZLinkDecorator.
+
+  * 05/23/1999: BBB - Renamed ZSelection to ZSelectionDecorator
+
+  BUG FIXES
+  ---------
+
+  * 06/12/1999: BBB - Fixed bug where strings with an embedded double quote
+    character in the first position didn't get written out properly.
+
+  * 06/10/1999: BBB - ZSurface.pick() now only picks items that are within
+    their valid size range.  That is, objects which are smaller than their
+    minimum size, or larger than their maximum size are not picked.    
+
+  * 06/10/1999: BBB - Fixed ZSurface.printSurface() method so it now
+    specifies that there is a single page to print so the dialog
+    box shows that properly.  
+
+  * 06/09/1999: BBB - Fixed the nagging problems associated with the
+    connection of Jazz to Swing components.  This includes problems
+    where Jazz wouldn't always render onto the entire window, where
+    overlapping Swing components would get overwritten, where the
+    fonts would sometimes alternate between high and low quality
+    inconsistently, where Jazz mapped to Swing internal frames would
+    be buggy, etc.
+
+    The fixes are a result of a significant internal change where
+    instead of caching the Swing Graphics object, Jazz now uses the
+    standard Swing repaint/paint mechanism.  This simplifies a lot of
+    code, but has the cost of slightly slower repaints since the
+    repainting now involves a transformation of the dirty region into
+    window coordinates and back again, and also means going through
+    the Swing painting code.  However, this is the only solution that
+    will work reliably that I could find.
+
+    These changes are mostly backwards compatible, but they introduce
+    a subtle but important change.  The default ZSurface.restore()
+    call no longer paints immediately - but instead queues a request
+    on the Swing event queue to repaint.  Swing is single threaded,
+    and that request won't be serviced until after the event listener
+    that triggered the restore call finishes.  If you want to paint
+    immediately (such as is necessary when painting within an
+    animation loop), you must call restore(true).
+
+  * 06/01/1999: BBB - Fixed ZCamera to no longer assume that surface
+    is non-null.
+
+  * 06/01/1999: BBB - Fixed ZTransform to lo longer assume that parent
+    is non-null.
+
+  * 05/25/1999: BBB - Fixed bug where nodes that were added to
+    children of cameras aren't caught as being sticky, and so they
+    didn't get set to volatile.  The result is that sub-sticky objects
+    didn't always get their bounds computed properly.
+
+  NEW FEATURES
+  ------------
+
+  * 06/13/1999: BBB - Added new util.ZBasicWindow class.  It is
+    similar to ZBasicFrame, but extends JWindow instead of JFrame.
+    This provides the ability to create a Jazz window without any
+    window dressing.  ZBasicWindow defaults to filling up the entire
+    screen to make it easy to go into full-screen mode.
+
+  * 06/12/1999: BBB - Added "save" property to ZNode.  If you set it
+    to false, then that node (and its children) won't be saved.
+
+  * 06/12/1999: BBB - Made ZImage optionally write out link to
+    filename instead of embedded image.
+
+  * 06/10/1999: BBB - Substantially improved HiNote - including adding
+    features for fading, raising/lowering, hyperlinking, and
+    accelerator keys.
+
+  * 06/10/1999: BBB - Made it so when max mag of ZNode is set to the
+    -1, that feature is disabled, i.e., it is never culled for being
+    too large.
+
+  * 06/10/1999: BBB - Added hyperlink event handler
+    (jazz.event.ZLinkEventHandler)
+
+  * 06/06/1999: BBB - Added fourth chapter to tutorial describing the
+    basics of dynamic objects within Jazz.
+
+  * 05/25/1999: BBB - Changed behavior of hidden nodes slightly.  Now,
+    they don't contribute to the bounds of their parents.  Stated from
+    the parent's viewpoint, a node's global bounds doesn't include
+    their hidden children.
+
+  * 05/23/1999: BBB - Added new constraint decorator class
+    (component.ZConstraintDecorator) to make it easy to create simple
+    constraints that affect where visual components appear based on
+    some state.  Used this class to create first example constraint -
+    component.ZStickyZDecorator that allows its child to pan freely as
+    the camera pans, but when the camera changes magnification, the
+    child will remain at the same size.  This can be useful for labels
+    on objects that zoom where the labels shouldn't zoom.  Constraint
+    decorators can also be used to create objects that don't go off
+    the screen, don't shrink below a certain size, or don't overlap
+    certain objects.
+
+
+	
+Jazz-0.3 ChangeLog (Released 05/15/1999)
+----------------------------------------
+
+  INCOMPATIBLE CHANGES
+  --------------------
+
+  * 05/15/1999: BBB - Changed these method names in ZCamera:
+      getCameraTransform()        => getViewTransform()
+      getInverseCameraTransform() => getInverseViewTransform()
+      setCameraTransform()        => setViewTransform()
+      getCameraViewBounds()       => getViewBounds()
+
+  * 05/15/1999: BBB - Removed ZVisualComponent.appData slot.  Instead,
+    an application can make a decorator that points to the application
+    if it needs this kind of pointer.  It is too big a waste to have
+    every visual component keep this pointer around for the few
+    instances that will actually use it.
+
+  * 05/10/1999: BBB - Changed package java.components to java.component
+    to be consistent with the other package names
+
+  * 05/09/1999: BBB - Replaced ZSerializable.isSavable() with a more
+    general-purpose method - and also one that mimics java's
+    Serializable.  Now, there are optional writeReplace() and
+    readResolve() methods that any ZSerializable classes can
+    implement.  If they do so, then they can replace themselves with
+    another object on the write out, or read in.  If they replace
+    themselves with null, then they just don't get written out (or
+    read in).  In this case, any references to them will be replaced
+    with null.
+
+  * 05/09/1999: BBB - Renamed ZSerializable.ZWriteObject() to
+    writeObject() and ZSerializable.ZWriteObjectRecurse() to
+    writeObjectRecurse().  Also, ZWriteObjectRecurse now throws
+    IOException.
+
+  * 05/01/1999: BBB - Changed ZNode.paint so that the visual component
+    gets painted before the children.  This way, a group or camera can
+    paint a background underneath the children.
+
+  * 05/01/1999: BBB - Renamed ZDebug.dumpSubGraph() to ZDebug.dump()
+
+  * 05/01/1999: BBB - Changed signature of
+    ZDebug.setShowBounds(boolean) to ZDebug.setShowBounds(boolean,
+    ZCamera)
+
+  * 05/01/1999: BBB - Changed signature of ZVisualComponent.select() to 
+    ZVisualComponent.select(ZCamera).  Changed signature of 
+    ZVisualComponent.setSelected(boolean) to 
+    ZVisualComponent.setSelected(boolean, ZCamera).
+    Changed signature of ZNode.selectAll() to ZNode.selectAll(ZCamera)
+
+  BUG FIXES
+  ---------
+
+  * 05/15/1999: BBB - Fixed bug where restoration could result in screen turds.  
+    The visible area was sometimes one pixel too small, despite it being computed 
+    accurately.  This was because of rounding error and/or anti-aliasing.  
+    I fixed it by adding a single pixel to the visible area at paint time.
+
+  * 05/15/1999: BBB - Fixed ZImage to work properly even if internal 
+    java.awt.image slot is null.
+
+  * 05/15/1999: BBB - Fixed several components to not try to write out 
+    color if colors are null.
+
+  * 05/13/1999: BDM - Fixed ZSerialization so that special characters
+    in strings (such as double quotes) get properly escaped when written
+    out and unescaped when read back in, so all standard characters can
+    get written out safely.
+
+  * 05/09/1999: BBB - Wrote out pickable, volatile, and appData (if
+    ZSerializable) fields for ZVisualComponent when ZSerialized.
+	
+  * 05/09/1999: BBB - Fixed bug in ZCamera.setFillColor() where it
+    wasn't damaging the camera - resulting in the camera not being
+    redrawn upon a restore.
+
+  * 05/09/1999: BBB - Fixed ZBasicComponent so that setBackground()
+    changes the background color by changing the associated camera's
+    bacground color.
+
+  * 05/09/1999: BBB - Fixed the strange bugs related to rendering
+    within components that change! This includes the bug where the
+    bottom strip of the drawpad window wouldn't get updated properly.
+    This also includes the bug where Jazz didn't work propery when
+    attached to JInternalFrames in JDesktopPanes.  This all works now.
+
+  * 05/01/1999: BBB - Fixed volatility of components and nodes.  Now,
+    volatility gets properly passed up the tree, so if any component
+    or node is volatile, then all of its parents are as well.
+
+  * 05/01/1999: BBB - Fixed ZSelection class to implement constant-thickness
+    rectangle properly. Now, scaling objects doesn't leave screen turds.
+
+  * 05/01/1999: BBB - Fixed show bounds debugging where it would also leave 
+    screen turds. 
+
+  NEW FEATURES
+  ------------
+
+  * 05/15/1999: BBB - Added new ZProperty class that replaces the old appData.  
+    Now, every ZNode can have an optional list of properties - which are just 
+    key/value pairs.  Properties get saved with ZSerialization (if the property 
+    is ZSerializable).  See ZNode.addProperty(), ZNode.getProperty(), etc.
+
+  * 05/15/1999: BBB - Added some new constructors to ZPolyline, and methods to 
+    access points in polyline.
+
+  * 05/15/1999: BBB - Added ZNode.isSticky() method.
+
+  * 05/09/1999: BBB - Renamed DrawPad to HiNote, and complete
+    reorganized the code to allow the same code to either run as an
+    application, or as an applet - but each with different menubars.
+    And, it works as an applet!
+
+  * 05/09/1999: BBB - Created jazz.test package, and added first
+    tester.  TwoSurfaces test two surfaces looking onto a single
+    surface.  For now, you can just run the test with the command line
+    ('java TwoSurfaces'), but we will build a GUI to help run the
+    tests.
+
+  * 05/09/1999: BBB - Reconsidered graphics state protocol.  The
+    Graphics2D has the following state that we care about: transform,
+    clip, composite (transparency), color, stroke, font It used to be
+    that paint methods were required to restore the entire state to
+    how they started.  Instead, now paint methods are not required to
+    restore anything.  Jazz now guarantees that the transform, clip,
+    and composite will be set properly before any paint methods are
+    called, but a visual component should make no assumptions about
+    color and stroke, and thus should set those two every time they
+    are used, and don't bother resetting it.
+
+  * 05/09/1999: BBB - Used the new ZSerializable.writeResolve method
+    so that ZSelection now doesn't get saved.  It just skips over
+    itself, writing out the next visual component in the chain.
+
+  * 05/09/1999: BBB - Changed the default visual component pick()
+    method to pick using the bounds of the component - rather than
+    just returning false as it was before.  This way, a sub-class
+    doesn't have to override pick if it wants this basic behavior.
+
+  * 05/09/1999: BBB - Added ZArea.add(Rectangle2D) method
+	
+  * 05/09/1999: BBB - Made the ZBasicApplication constructor take an
+    option to either create a plain JFrame, or an internal frame
+    within a desktop.
+
+  * 05/09/1999: BBB - Updated doc/ToDo.  From now on, this will be the
+    clearing house of prioritizing bugs and feature requests.
+
+  * 05/01/1999: BBB - Added missing ZTransform.scaleTo() methods.
+    There are now four that match the scale() methods.  You can now
+    scale or scaleTo around an optional point, and with optional
+    animation.
+
+  * 05/01/1999: BBB - Added new static ZTransform.animate() method
+    that animates an array of nodes simultaneously to an array of
+    given transforms.  See api docs on usage and example.
+
+  * 05/01/1999: BBB - Added ZTransform.concatenate() and
+    preConcatenate() methods.
+
+  * 05/01/1999: BBB - Added new ZBasicApplication class that is a
+    simple extendable application. It is intended to be used as the
+    base for most applications using Jazz.
