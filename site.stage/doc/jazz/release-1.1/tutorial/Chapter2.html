@@ -1,0 +1,883 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <title>2. Using Jazz</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" alink="#FF0000">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td width="48" rowspan="2"><img border="0" src="banner-logo.png" width="48" height="38"></td>
+    <td bgcolor="#575757"><img border="0" src="banner-hcil-left.png" width="223" height="14"><img border="0" src="banner-hcil-right.png" width="145" height="14"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#000000">&nbsp;</td>
+  </tr>
+</table>
+
+<a NAME="S2"></a>
+<h1>
+2. Using Jazz</h1>
+Now that you've seen the basic components of Jazz, and have created a simple
+program, lets look at making a more interesting scene. We'll start with
+one of the most important node types - <tt>ZTransformGroup</tt> which allows
+you to move things within the Jazz world.&nbsp;<a NAME="S2.1"></a>
+<h2>
+2.1. Transforms</h2>
+Jazz specifies all transformations of objects and cameras with standard
+2D affine transformations. Affine transforms map 2D coordinate to other
+2D coordinates in a manner that preserves straightness and "parallelness"
+of lines. Affine transforms can represent any combination of translation,
+scale, rotation, and shear. In Jazz, affine transforms are implemented
+using standard Java2D affine transforms. They are contained within the
+<tt><a href="../api/edu/umd/cs/jazz/ZTransformGroup.html">ZTransformGroup</a></tt>
+group node. Inserting one of these nodes in the scenegraph applies its
+transform to the entire subtree below that node.
+<p>Affine transforms consist of 6 numbers which are typically represented
+in a 3x3 matrix where multiplying the transform T by the vector V results
+in V'.
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [V'] = [T][V]
+&nbsp;&nbsp;&nbsp;&nbsp; or
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [x']&nbsp;&nbsp; [m00 m01 m02] [x]&nbsp;&nbsp; [m00x + m01y + m02]&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [y'] = [m10 m11 m12] [y] = [m10x + m11y + m12]&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [1 ]&nbsp;&nbsp; [&nbsp; 0&nbsp;&nbsp; 0&nbsp;&nbsp; 1] [1]&nbsp;&nbsp; [1]</pre>
+The documentation for ZTransformGroup explains affine transforms in more
+detail.
+<tt>ZTransformGroup</tt> has several methods for modifying aspects
+of the transform, such as scale, rotate, and translate. It is also possible
+to animate those changes over time with those methods - or to specify the
+new transform with a standard Java2D AffineTransform.&nbsp;<a NAME="S2.1.1"></a>
+<h3>
+2.1.1. Transforming Visual Elements</h3>
+The Jazz scenegraph specifies a hierarchy of objects that exist in the
+Jazz global coordinate system. When objects are created as visual components
+within nodes, they exist at their default position in the world. For instance,
+an image is positioned with its top-left corner at the origin extending
+to the right and down. If you want the image to appear somewhere else,
+it must be moved (also called 'transformed').
+<p>In Jazz, <tt><a href="../api/edu/umd/cs/jazz/ZVisualComponent.html">ZVisualComponent</a></tt>
+which is used to represent visual elements, do not have the ability to
+be transformed. Instead, a transform node must be inserted above the node
+that contains the visual component. The transform applies to the entire
+subtree of that node. So, if there are several children of that node, a
+single transform node will apply to all of those children. Note that a
+single visual component can be reused in several places in the scenegraph.
+If those places are each transformed differently, a single visual component
+can appear in multiple places.
+<p>There are two equally valid ways of thinking about the effects of transforms.
+The first (and typical) way of thinking about transforms is that the transform
+changes the place within the global coordinate system that the affected
+objects appear at. For instance, if you have a transform node 'transformNode',
+and you call:
+<pre>&nbsp;&nbsp;&nbsp;&nbsp; transformNode.translate(50.0f, 0.0f);</pre>
+The result is that the children of 'transformNode' (and their descendants)
+all get translated 50 units to the right.
+<p>Alternatively, you can think of transforms as representing nested coordinate
+systems. Then, that same call to <tt>translate</tt> would result in 'transformNode'
+being associated with a new coordinate system that is shifted 50 units
+to the right of the global coordinate system. Then, the visual component
+associated with transformNode and all of its children would appear at their
+normal places within the new coordinate system, but to find out where those
+objects are in global coordinates, you would have to transform the local
+coordinate system to global coordinates.
+<p>Jazz has several utility methods for converting between different coordinate
+systems. By definition, we say that the root of the Jazz scenegraph is
+in global coordinates. Every other node is in its own local coordinate
+system. These utility methods (such as <tt>ZNode.localToGlobal</tt> and
+<tt>ZNode.globalToLocal</tt>)
+convert points and rectangles from one coordinate system to the other.&nbsp;<a NAME="S2.1.2"></a>
+<h3>
+2.1.2. Transforming Cameras</h3>
+Just as transforms are used to modify visual elements within a scenegraph,
+transforms can be used to modify where a camera looks onto the scenegraph.
+<tt><a href="../api/edu/umd/cs/jazz/ZCamera.html">ZCamera</a></tt>
+has a view transform with methods for manipulating the view which are very
+similar to those in <tt>ZTransformGroup</tt>. These methods let you translate,
+scale, rotate, and animate camera view changes.
+<p>The key thing to keep in mind here is that transforming internal nodes
+have the effect of moving objects within the scenegraph while transforming
+the camera doesn't affect the scenegraph, but instead changes where a particular
+camera looks onto the world represented by the scenegraph.&nbsp;<a NAME="S2.2"></a>
+<h2>
+2.2. Edit Groups</h2>
+For an application to use a transform as just described, it would have
+to create an instance of a transform node, and insert it into the scenegraph
+in the appropriate place. Similarly, an application might insert other
+node types, such as fade or selection nodes above a particular node in
+order to add those features. This can become somewhat complicated because
+for each node that the application cares about, there could be a few extra
+nodes modifying that node. In addition, there is typically a preferred
+ordering to these nodes (i.e., transform goes above selection so that the
+selection moves with the transform).
+<p>To support applications in managing these sets of nodes, Jazz has a
+utility called an "editor" that manages these "edit groups". Lets start
+by thinking about a single node that an application knows about and wants
+to manipulate. The application first decides that it wants to add a transform
+to that node. It does this by getting the editor for that node, and requesting
+a transform:
+<pre>&nbsp;&nbsp;&nbsp; ZTransformGroup transformNode = node.editor().getTransformGroup();</pre>
+This will create a new transform node, and insert it above the node. Editors
+are careful in managing these extra nodes, and the next time you ask for
+the transform of that node, it will return the same transform. We use the
+terminology that the node that we start with is called the "primary node",
+all the extra nodes that are created by the editor are called "edit nodes",
+and the collection of primary and edit nodes altogether are called an "edit
+group". Given any member of an edit group, you can access the primary node
+with <tt>editor.getNode()</tt>, and you can access the top-most member
+of the edit group with <tt>editor.getTop()</tt>.
+<p>The editor manages these edit nodes types:
+<ul>
+
+<li>
+ZNameGroup</li>
+
+<li>
+ZInvisibleGroup</li>
+
+<li>
+ZLayoutGroup</li>
+
+<li>
+ZAnchorGroup</li>
+
+<li>
+ZTransformGroup</li>
+
+<li>
+ZStickyGroup</li>
+
+<li>
+ZSelectionGroup</li>
+
+<li>
+ZClipGroup</li>
+
+<li>
+ZFadeGroup</li>
+
+<li>
+ZSpatialIndexGroup</li>
+
+</ul>
+Edit groups are defined through the use of <tt>ZGroup</tt>'s <tt>hasOneChild</tt>
+bit. Any group can have this bit set which then does not allow that group
+to have more than one child. Given a primary node, those immediate ancestors
+which have that bit set are considered to edit the primary node. The first
+ancestor which does not have that bit set starts a new edit group.
+<p>Jazz provides a default editor with
+<tt><a href="../api/edu/umd/cs/jazz/util/ZSceneGraphEditor.html">ZSceneGraphEditor</a></tt>.
+An instance of the editor is created whenever <tt>node.editor()</tt> is
+called. However, an application can extend or change the definition of
+th editor by specifying that a different editor should be used. This is
+done by defining an application-specific editor, and calling the static
+method
+<tt>ZNode.setEditorFactory()</tt>, and specifying a factory that
+creates that special editor.&nbsp;<a NAME="S2.3"></a>
+<h2>
+2.3. Creating New Visual Components</h2>
+As we saw in <a href="Chapter1.html#S1.2.1">Section 1.2.1</a>, every visual
+element is represented as a <tt><a href="../api/edu/umd/cs/jazz/ZVisualComponent.html">ZVisualComponent</a></tt>
+in the scenegraph. Jazz has several standard visual components, but applications
+may want to create their own. In order to create new component types, applications
+must extend <tt>ZVisualComponent</tt>. Minimally, an application must define:
+<ul>
+<li>
+<tt>paint(Graphics2D)</tt> which tells Jazz how to render the visual element.
+Jazz guarantees that the Graphics2D transform, clip, and composite are
+set before the component's paint method is called. However, the component
+must set the color, font, and stroke if they are used. The component must
+restore Graphics2D transform, clip, and composite state if they are changed.</li>
+
+<li>
+<tt>computeBounds()</tt> which tells Jazz how to compute the bounds of
+the visual component. Jazz does not compute the bounds every time it needs
+it, rather it caches the result, and only recomputes it when the component
+has been reshaped.</li>
+</ul>
+In addition, visual components will frequently decide to override:
+<ul>
+<li>
+<tt>boolean pick(Rectangle2D, ZSceneGraphPath path)</tt></li>
+</ul>
+This tells Jazz how to "pick" the visual element. Picking is used to determine
+if the object is under the pointer. The default implementation for pick
+is just to check if the pointer is within the bounds of the component.
+If a new visual component's shape is not a filled rectangle that is the
+same as the bounds, then a new pick method should probably be defined.
+A simple example of this is a circle which should not be pickable outside
+of the circle.
+<p>Finally, the visual element is responsible for creating itself and for
+supporting manipulation of itself. We must look at the details of manipulating
+an object in some detail. This is because Jazz determines when to render
+an component based on its <i>bounds</i>, and because components are responsible
+for indicating to Jazz when they have changed through the <tt>repaint()</tt>
+and <tt>reshape()</tt> methods.
+<p>Every visual component must maintain a "model", or an internal data
+structure that represents the object. For a circle, this may be as simple
+as a center point, radius, and pen color. For other objects, the model
+may be more complex. Typical components will support methods that modify
+itself. The circle may have methods, for instance, to modify its pen width
+or pen color. It is the responsibility of these methods to indicate they
+have changed by calling <tt>repaint()</tt> if the object needs repainting,
+but the bounds have not changed (i.e., see ZCircle.setPenColor below) -
+or by calling <tt>reshape()</tt> if their bounds have changed (i.e., see
+ZCircle.setPenWidth below).&nbsp;<a NAME="S2.3.1"></a>
+<h3>
+2.3.1. An Example: <tt>ZCircle</tt></h3>
+<tt>ZCircle</tt> maintains a model of a <tt>Ellipse2D.Float</tt> whose
+height is equal to it's width. In addition, it also has a <tt>penWidth</tt>,
+<tt>penColor</tt>,
+and a <tt>fillColor</tt>.&nbsp;<a NAME="S2.3.2"></a>
+<h3>
+2.3.2. Sample Code</h3>
+
+<pre>import java.awt.*;
+import java.awt.geom.*;
+import edu.umd.cs.jazz.*;
+import edu.umd.cs.jazz.util.*;
+
+public class ZCircle extends ZVisualComponent {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // default values for variables
+&nbsp;&nbsp;&nbsp; static final public Color&nbsp; penColor_DEFAULT = Color.blue;
+&nbsp;&nbsp;&nbsp; static final public Color&nbsp; fillColor_DEFAULT = Color.yellow;
+&nbsp;&nbsp;&nbsp; static final public float&nbsp; penWidth_DEFAULT = 5.0f;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // member variables
+&nbsp;&nbsp;&nbsp; protected Color penColor = penColor_DEFAULT;
+&nbsp;&nbsp;&nbsp; protected Color fillColor = fillColor_DEFAULT;
+&nbsp;&nbsp;&nbsp; protected float penWidth = penWidth_DEFAULT;
+&nbsp;&nbsp;&nbsp; protected Ellipse2D.Float circle;
+
+&nbsp;&nbsp;&nbsp; /***************************** Constructors **********************************/
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // creates circle at (0,0) with radius = 0
+&nbsp;&nbsp;&nbsp; public ZCircle () {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle = new Ellipse2D.Float();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reshape();
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // creates circle with center (x,y) and radius = r
+&nbsp;&nbsp;&nbsp; public ZCircle(float x, float y, float r) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float half = r / 2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle = new Ellipse2D.Float(x - half, y - half, r, r);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reshape();
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // creates circle within bounding box defined by
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // point (x,y) with width and height
+&nbsp;&nbsp;&nbsp; public ZCircle(float x, float y, float width, float height) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float smallerDim = (width &lt; height ? width : height);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; circle = new Ellipse2D.Float(x, y, smallerDim, smallerDim);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reshape();
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp; /*********** Get/Set functions for variables specific to the circle *********/
+&nbsp;&nbsp;&nbsp; public float getPenWidth() { return penWidth; }
+&nbsp;&nbsp;&nbsp; public void setPenWidth(float p) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; penWidth = p;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; reshape();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Changing the pen width results in the bounds changing
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; public Color getPenColor() { return penColor; }
+&nbsp;&nbsp;&nbsp; public void setPenColor(Color c) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; penColor = c;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repaint();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Changing the pen color does not result in a bounds change
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; public Color getFillColor() { return fillColor; }
+&nbsp;&nbsp;&nbsp; public void setFillColor(Color c) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; fillColor = c;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; repaint();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Changing the fill color does not result in a bounds change
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; public Point2D getCenter() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (circle.getWidth() != circle.getHeight()) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.out.println(&quot;ERROR: This is not a circle&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double x = circle.getX() + (circle.getWidth() / 2);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double y = circle.getY() + (circle.getHeight() / 2);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (new Point2D.Float((float)x, (float)y));
+&nbsp;&nbsp;&nbsp; }
+
+
+&nbsp;&nbsp;&nbsp; /******************* paint, computeBounds, pick **************************/
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // tell Jazz how to paint yourself
+&nbsp;&nbsp;&nbsp; public void paint(Graphics2D g2) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g2.setStroke(new BasicStroke(penWidth, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (fillColor != null) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g2.setColor(fillColor);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g2.fill(circle);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (penColor != null) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g2.setColor(penColor);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; g2.draw(circle);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // tell Jazz how big you are
+&nbsp;&nbsp;&nbsp; protected void computeBounds() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // expand bounds to accomodate penWidth
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float p = penWidth;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float p2 = 0.5f * penWidth;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Rectangle2D rect = circle.getBounds2D();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bounds.setRect((float)(rect.getX() - p2), (float)(rect.getY() - p2),
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (float)(rect.getWidth() + p), (float)(rect.getHeight() + p));
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // tell Jazz how to pick you
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // this function does not need to be overloaded
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // but it is a good idea to do so
+&nbsp;&nbsp;&nbsp; public boolean pick(Rectangle2D rect, ZSceneGraphPath path) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boolean picked = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (fillColor != null) {&nbsp;&nbsp; // If there is a fill color, then pick the inside of the circle
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; picked = circle.contains(rect);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (penColor != null) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Else, if there is a pen color, pick just the perimeter of the circle
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float px = (float)(rect.getX() + (0.5f * rect.getWidth()));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; float py = (float)(rect.getY() + (0.5f * rect.getHeight()));
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Point2D pt = new Point2D.Float(px, py);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double distance = pt.distance(getCenter());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; double radius = circle.getWidth() / 2;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((distance &gt;= (radius - penWidth/2)) &amp;&amp; (distance &lt;= (radius + penWidth/2))) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; picked = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return picked;
+&nbsp;&nbsp;&nbsp; }
+}</pre>
+<a NAME="S2.4"></a>
+<h2>
+2.4. Adding Custom Event Handlers</h2>
+User interaction is a fundamental part of any program and in Jazz this
+is no exception. Jazz directly supports event processing by allowing applications
+to create event handlers for mouse events, and attach them directly to
+any node in the Jazz scenegraph. If a user clicks on a visual component,
+any nodes it is attached to will be searched for event handlers, and if
+there any, they will be fired. Then, if the event is not consumed, the
+event will percolate up the tree firing event handlers as it goes up until
+either the event is consumed, or it reaches the root.
+<p>With this percolation model, applications can write an event handler
+for a specific node by putting the event handler on that node. Or, it can
+write an event handler for all nodes by putting the event handler at the
+root of the tree. Finally, an application can write a different event handler
+for each camera by putting the event handler on the node that contains
+the camera.
+<p>Jazz has several standard event handlers which can be used directly
+by applications. They are:
+<ul>
+<li>
+<b><tt><a href="../api/edu/umd/cs/jazz/event/ZPanEventHandler.html">ZPanEventHandler</a></tt></b>
+provides basic panning of a Jazz camera with the left mouse button. Clicking
+and dragging the mouse translates the camera so that the point on the surface
+stays under the mouse.</li>
+
+<li>
+<b><tt><a href="../api/edu/umd/cs/jazz/event/ZoomEventHandler.html">ZoomEventHandler</a></tt></b>
+provides basic zooming of a Jazz camera with the right mouse button. The
+inital mouse press defines the zoom anchor point. Moving the mouse to the
+right zooms in with a speed that is proportional to the amount the mouse
+is moved and moving the mouse to the left zooms out.</li>
+
+<li>
+<b><tt><a href="../api/edu/umd/cs/jazz/event/ZoomToEventHandler.html">ZoomToEventHandler</a></tt></b>
+provides zooming of a Jazz camera into a particular ZNode. Depending on the handlers settings
+it will either zoom the camera so that the chosen node is displayed in the center of the screen 
+at 100 percent, or zoom to camera so that the node fills the screen minus some insets.</li>
+
+<li>
+<b><tt><a href="../api/edu/umd/cs/jazz/event/ZNavEventHandlerKeyBoard.html">ZNavEventHandlerKeyBoard</a></tt></b>
+provides event handlers for basic zooming and panning of a Jazz camera
+with the keyboard. While the application can define which keys are used
+for navigation and how much each key moves the camera, the default is for
+PageUp to zoom in 25% and PageDown to zoom out 25% animated over 250 milliseconds.
+Auto-repeat is also supported.</li>
+
+<li>
+<b><tt><a href="../api/edu/umd/cs/jazz/event/ZSelectionEventHandler.html">ZSelectionEventHandler</a></tt></b>
+provides basic selection interaction. Visual elements are selected/unselected
+by clicking on them. Shift-click will extend the selection and click-and-drag
+the background to marquee select. Once selected, visual elements can be
+moved by dragging them on the screen.</li>
+
+<li>
+<b><tt><a href="../api/edu/umd/cs/jazz/event/ZLinkEventHandler.html">ZLinkEventHandler</a></tt></b>
+provides interaction for authoring hyperlinks. Click on an object to define
+a link from that object, and then click on another object to define a link
+to that second object as a destination. This inserts a ZAnchorGroup which
+can then be used to follow the link.</li>
+</ul>
+The built-in event handlers are straight-forward to use. They must simply
+be instantiated (attaching it to the appropriate node in the scenegraph),
+and activated. For instance, ZCanvas attaches the pan and zoom event handlers
+by default by doing this:
+<pre>&nbsp;&nbsp;&nbsp; panEventHandler = new ZPanEventHandler(cameraNode);
+&nbsp;&nbsp;&nbsp; zoomEventHandler = new ZoomEventHandler(cameraNode);
+&nbsp;&nbsp;&nbsp; panEventHandler.setActive(true);
+&nbsp;&nbsp;&nbsp; zoomEventHandler.setActive(true);</pre>
+Obviously, it will become necessary to provide your own event handlers
+for the many things that you will want your application to do. Thus Jazz
+provides <tt><a href="../api/edu/umd/cs/jazz/event/ZEventHandler.html">ZEventHandler</a></tt>
+which is an interface that may be implemented when defining Jazz event
+handlers. Although the use of ZEventHandler is not required, it is useful
+because that way a single object can be marked as being an event handler,
+and it can be passed around, and made active or inactive.
+<p>When writing per-node Jazz event handlers, it is important to understand
+the algorithm that Jazz follows to fire event handlers when events arrive.
+For each mouse or mouse motion event, Jazz calls <tt><a href="../api/edu/umd/cs/jazz/ZDrawingSurface.html#pick(int, int)">ZDrawingSurface.pick</a></tt>
+which identifies the object that the pointer was over. The path returned
+by the pick call is used to identify event handlers as follows:
+<p>Starting at the <i>end</i> of the path, the first node is found and
+<ol>
+<li>
+Each event handler on that node is fired starting at the
+<i>most-recently
+added</i> one. If the event is consumed, then no more event handlers are
+fired.</li>
+
+<li>
+If the event is consumed, stop. Else, the next node up the path is found,
+and Jazz returns to step 1.</li>
+</ol>
+<a NAME="S2.4.1"></a>
+<h3>
+2.4.1 An Example: <tt>squiggleEventHandler</tt></h3>
+As an example of a event handler, we provide a
+<tt>squiggleEventHandler</tt>
+which allows for mouse interaction to draw squiggles on the desktop. A
+squiggle is drawn on the desktop by clicking the mouse button and then
+dragging the mouse. The squiggle stops when the mouse button is released.
+Thus, the
+<tt>squiggleEventHandler</tt> needs provide the following functionality:
+<ul>
+<li>
+<tt>mousePressed</tt> event is what starts the act of drawing a squiggle.
+The event handler will grab the position of the mouse at the time that
+the mouse button was pressed, transform it to world coordinates and store
+it. It then needs to create a polyline that will be used to store the squiggle
+and add it to the scenegraph.</li>
+
+<li>
+<tt>mouseDragged</tt> event gets the next position of the mouse, transforms
+it to world coordinates, and adds it to the already created polyline.</li>
+
+<li>
+<tt>mouseReleased</tt> event cleans up.</li>
+</ul>
+<a NAME="S2.4.2"></a>
+<h3>
+2.4.2. Sample Code</h3>
+
+<pre>import java.awt.*;
+import java.awt.geom.*;
+import java.awt.event.*;
+
+import edu.umd.cs.jazz.*;
+import edu.umd.cs.jazz.util.*;
+import edu.umd.cs.jazz.event.*;
+import edu.umd.cs.jazz.component.*;
+
+public class SquiggleEventHandler implements ZEventHandler, ZMouseListener, ZMouseMotionListener {
+&nbsp;&nbsp;&nbsp; private boolean active = false;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // True when event handlers are attached to a node
+&nbsp;&nbsp;&nbsp; private ZNode&nbsp;&nbsp; node = null;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // The node the event handlers are attached to
+
+&nbsp;&nbsp;&nbsp; private ZGroup&nbsp; drawingLayer;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // The node under which to add the new squiggle
+&nbsp;&nbsp;&nbsp; private ZPolyline polyline;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // The polyline currently being drawn
+&nbsp;&nbsp;&nbsp; private Point2D pt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // A reusable point
+
+&nbsp;&nbsp;&nbsp; public SquiggleEventHandler(ZGroup drawingLayer, ZNode node) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.drawingLayer = drawingLayer;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.node = node;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pt = new Point2D.Float();
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; /**
+&nbsp;&nbsp;&nbsp;&nbsp; * Specifies whether this event handler is active or not.
+&nbsp;&nbsp;&nbsp;&nbsp; * @param active True to make this event handler active
+&nbsp;&nbsp;&nbsp;&nbsp; */
+&nbsp;&nbsp;&nbsp; public void setActive(boolean active) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (this.active &amp;&amp; !active) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Turn off event handlers
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.active = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; node.removeMouseListener(this);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; node.removeMouseMotionListener(this);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (!this.active &amp;&amp; active) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Turn on event handlers
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.active = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; node.addMouseListener(this);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; node.addMouseMotionListener(this);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; public boolean isActive() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return active;
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; public void mousePressed(ZMouseEvent e) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((e.getModifiers() &amp; MouseEvent.BUTTON1_MASK) == MouseEvent.BUTTON1_MASK) {&nbsp;&nbsp; // Left button only
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZSceneGraphPath path = e.getPath();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZCamera camera = path.getTopCamera();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pt.setLocation(e.getX(), e.getY());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path.screenToGlobal(pt);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polyline = new ZPolyline(pt);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZVisualLeaf leaf = new ZVisualLeaf(polyline);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polyline.setPenWidth(5.0f);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polyline.setPenColor(Color.red);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; drawingLayer.addChild(leaf);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; public void mouseDragged(ZMouseEvent e) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((e.getModifiers() &amp; MouseEvent.BUTTON1_MASK) == MouseEvent.BUTTON1_MASK) {&nbsp;&nbsp; // Left button only
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZSceneGraphPath path = e.getPath();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pt.setLocation(e.getX(), e.getY());
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path.screenToGlobal(pt);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polyline.add(pt);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; public void mouseReleased(ZMouseEvent e) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if ((e.getModifiers() &amp; MouseEvent.BUTTON1_MASK) == MouseEvent.BUTTON1_MASK) {&nbsp;&nbsp; // Left button only
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; polyline = null;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; /**
+&nbsp;&nbsp;&nbsp;&nbsp; * Invoked when the mouse enters a component.
+&nbsp;&nbsp;&nbsp;&nbsp; */
+&nbsp;&nbsp;&nbsp; public void mouseEntered(ZMouseEvent e) {
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; /**
+&nbsp;&nbsp;&nbsp;&nbsp; * Invoked when the mouse exits a component.
+&nbsp;&nbsp;&nbsp;&nbsp; */
+&nbsp;&nbsp;&nbsp; public void mouseExited(ZMouseEvent e) {
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; /**
+&nbsp;&nbsp;&nbsp;&nbsp; * Invoked when the mouse has been clicked on a component.
+&nbsp;&nbsp;&nbsp;&nbsp; */
+&nbsp;&nbsp;&nbsp; public void mouseClicked(ZMouseEvent e) {
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; /**
+&nbsp;&nbsp;&nbsp;&nbsp; * Invoked when the mouse button has been moved on a node
+&nbsp;&nbsp;&nbsp;&nbsp; * (with no buttons no down).
+&nbsp;&nbsp;&nbsp;&nbsp; */
+&nbsp;&nbsp;&nbsp; public void mouseMoved(ZMouseEvent e) {
+&nbsp;&nbsp;&nbsp; }
+}</pre>
+<a NAME="S2.5"></a>
+<h2>
+2.5. Jazz and Threads</h2>
+Jazz is <b>not</b> thread-safe. Like Swing, Jazz has been designed from
+the start to run <b>only</b> in a single thread (usually the event dispatch
+thread). This constrains the way Jazz applications can be built, but we
+feel that overall, it increases usability by simplifying code, and eliminating
+thread-debugging issues.
+<p>An excellent starting point for learning about threads is to read what
+Sun has written about Swing and threads. Almost all of their solutions
+for multi-threaded code work for Jazz as well. Here are links to three
+major articles.
+<a href="http://www.javasoft.com/products/jfc/tsc/archive/tech_topics_arch/threads/threads.html">Threads
+and Swing</a>, <a href="http://www.javasoft.com/products/jfc/tsc/archive/tech_topics_arch/swing_worker/swing_worker.html">Using
+a SwingWorker Thread</a>, and <a href="http://www.javasoft.com/products/jfc/tsc/tech_topics/threads3/threads3.html">The
+Last Word in Swing Threads</a>.
+<p>One specific issue raised in these articles that often causes people
+problems is that the method
+<pre>&nbsp;&nbsp;&nbsp; public static void main(String[] args)</pre>
+used to start a java program, is called from a thread that is <b>not </b>the
+primary event dispatch thread.&nbsp; As a result, once events begin accessing
+the Jazz scenegraph (ie. when the ZCanvas has been made visible), this
+main thread (as well as any other) should not modify the scenegraph.&nbsp;
+This includes animation, changing transforms, adding or deleting nodes,
+etc.
+<p>There are a few good reasons where it may be appropriate to run some
+code in a separate thread, such as with asynchronous animation. The following
+code will zoom in while the rest of the application is still active, and
+responds to events. The trick is that scaling the camera is always called
+in the primary Swing event dispatch thread.
+<pre>import javax.swing.SwingUtilities;
+import edu.umd.cs.jazz.*;
+
+public class AnimTest {
+&nbsp;&nbsp;&nbsp; private boolean zooming = false;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // True during animated zooming
+&nbsp;&nbsp;&nbsp; private ZCamera camera = null;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Caller must specify camera animation should occur within
+
+&nbsp;&nbsp;&nbsp; public AnimTest(ZCamera camera) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.camera = camera;
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; // Start the animation
+&nbsp;&nbsp;&nbsp; public void startZooming() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zooming = true;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zoomOneStep();
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; // Stop the animation
+&nbsp;&nbsp;&nbsp; public void stopZooming() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zooming = false;
+&nbsp;&nbsp;&nbsp; }
+
+&nbsp;&nbsp;&nbsp; // This gets called to zoom one step
+&nbsp;&nbsp;&nbsp; public void zoomOneStep() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (zooming) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; camera.scale(1.1f, 0.0f, 0.0f);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; try {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // The sleep here is necessary.&nbsp; Otherwise, there won't be
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // time for the primary event thread to get and respond to
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // input events.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thread.sleep(20);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // If the sleep was interrupted, then cancel the zooming,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // so don't do the next zooming step
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SwingUtilities.invokeLater(new Runnable() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; public void run() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AnimTest.this.zoomOneStep();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } catch (InterruptedException e) {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; zooming = false;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }
+&nbsp;&nbsp;&nbsp; }
+}</pre>
+This is a summary of the reasons we chose to build Jazz to run within a
+single thread:
+<ul>
+<li>
+Swing is built this way, and most of Sun's rational applies to Jazz.</li>
+
+<li>
+It is easier to write and debug Jazz, and to extend it with new components.</li>
+
+<li>
+It is easier to write applications, and to debug them.</li>
+
+<li>
+Jazz applications can use Swing's utility functions (such as Timers, invokeLater,
+and invokeAndWait) to make it easier to use other threads to do slow tasks,
+but synchronize them with Jazz.</li>
+
+<li>
+Jazz runs faster because there is no synchronization</li>
+</ul>
+The primary disadvantage is that Jazz will not be directly speeded up when
+run on machines with multiple processors.&nbsp;<a NAME="S2.6"></a>
+<h2>
+2.6. Swing and Jazz</h2>
+Clearly, Jazz is not independent from Swing. In fact, Jazz functions as
+a Swing widget itself through <tt><a href="../api/edu/umd/cs/jazz/util/ZCanvas.html">ZCanvas</a></tt>
+where it displays a Jazz <tt><a href="../api/edu/umd/cs/jazz/ZDrawingSurface.html">ZDrawingSurface</a></tt>.
+However, Swing widgets themselves can also be embedded within Jazz through
+<tt><a href="../api/edu/umd/cs/jazz/component/ZSwing.html">ZSwing</a></tt>.
+<tt>ZSwing</tt>
+acts as a Jazz Visual Component wrapper for the Swing widget to ensure
+its proper rendering, focusing, and bounds management within Jazz.
+<p>One Swing widget that requires special attention in Jazz is the
+<tt>JPopupMenu</tt>.
+Unfortunately, this also affects <tt>JMenu</tt> and <tt>JComboBox</tt>
+as these both maintain an instance of
+<tt>JPopupMenu</tt>. The fundamental
+problem with <tt>JPopupMenu</tt> is that it is always potentially heavyweight
+(for instance, the popup can extend outside the bounds of its parent window).
+Consequently, care must be excercised when using a <tt>JPopupMenu</tt>
+in Jazz. A
+<tt>JPopupMenu</tt> should likely be managed at the level of
+the <tt><a href="../api/edu/umd/cs/jazz/util/ZCanvas.html">ZCanvas</a></tt>
+rather than at the level of embedded Swing widgets. <tt>JMenu</tt> and
+<tt>JComboBox</tt>
+should also <b>not</b> be used with <tt><a href="../api/edu/umd/cs/jazz/component/ZSwing.html">ZSwing</a></tt>.
+Instead, use
+<tt><a href="../api/edu/umd/cs/jazz/component/ZMenu.html">ZMenu</a></tt>
+and
+<tt><a href="../api/edu/umd/cs/jazz/component/ZComboBox.html">ZComboBox</a></tt>
+exactly as you would their Swing counterparts, then add them to a
+<tt><a href="../api/edu/umd/cs/jazz/ZSwing.html">ZSwing</a></tt>.&nbsp;<a NAME="S2.7"></a>
+<h2>
+2.7. Saving Jazz Scenegraphs</h2>
+Jazz supports two mechanisms for saving scenegraphs. Jazz classes support
+standard Java Serialization which allows a class, or an entire scenegraph
+to be written to disk in a compact binary format. This is the recommended
+way to save Jazz scenegraphs. However, the risk with this format is that
+as Jazz is still under active development, we expect that until release
+1.0, the Jazz internal structure will continue to change, and Serialized
+files will not be readable with future versions of Jazz.
+<p>To address this problem of incompatible file formats, Jazz also supports
+a custom file format which is more (although not completely) version resistant.
+It is a more bulky and also text-based file format. We expect that after
+Jazz stabilizes, we may introduce an XML based file format, and will eliminate
+this special format. This special file format is directly analogous to
+Java Serialization. Jazz classes implement the ZSerializable method and
+has similar readObject and writeObject methods that can be used just like
+Serializable objects.
+<p>Note that one difference between Java Serialization and Jazz ZSerialization
+is that Serialization follows all internal references, and thus if you
+try to write out any single node, all the pointers will be followed, and
+it will end up writing out the entire scenegraph including the cameras.
+ZSerialization, on the other hand, does not write out "up" pointers, and
+so if you write out a node with ZSerialization, it will only write out
+the sub-tree rooted at the node you specify. If you want to accomplish
+this functionality using Serialization, your best bet is to disconnect
+that subtree from the rest of the scenegraph with
+<tt>"getParent().removeChild(this);"</tt>,
+write it out, and then add the subtree back.
+<p>Unlike Java Serialization, Jazz ZSerialization is not completely automated.
+In order to make a class ZSerializable, the class must implement the
+<tt><a href="../api/edu/umd/cs/jazz/io/ZSerializable.html">ZSerializable</a></tt>.
+interface, <i>and</i> it must write out and read the slots it cares about.
+It does not automatically write out non-transient slots like Serialization
+does. In addition, A ZSerializable must have a public no-arg constructor,
+or it will generate a ClassCastException when being read back in.&nbsp;<a NAME="S2.8"></a>
+<h2>
+2.8. Jazz Class Structure</h2>
+The best way to learn the details of Jazz is look at the API docs. However,
+is a summary of the Jazz class structure that may be helpful in understanding
+all the pieces in one overview. The following figure shows the Jazz scenegraph
+class structure. Then the following sections discuss each node type, and
+the functionality they provide.
+<center>
+<p><img SRC="ch2-class-structure.png" >
+<br><b>The class hierarchy of the Jazz scenegraph objects.</b></center>
+
+<p>Nodes are of two basic types: leaves and groups. A leaf node is one
+that has no children. A group node has children. Some leaves (<tt>ZVisualLeaf</tt>)
+and some groups (<tt>ZVisualGroup</tt>) can render visual components. Other
+node types do not cause any actual rendering, but can provide functionality
+in other ways. For instance, a <tt>ZTransformGroup</tt> modifies the transform
+for all of its children. Let us look at each node type.&nbsp;<a NAME="S2.8.1"></a>
+<h3>
+2.8.1. ZRoot</h3>
+Every scenegraph begins with a
+<tt><a href="../api/edu/umd/cs/jazz/ZRoot.html">ZRoot</a></tt>
+which serves as the root of the entire scenegraph tree. Each scenegraph
+has exactly one root.&nbsp;<a NAME="S2.8.2"></a>
+<h3>
+2.8.2. ZLeaf</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZLeaf.html">ZLeaf</a></tt> serves as
+a tag, identifying all sub-classes as being leaves. <tt>ZLeaf</tt> provides
+no other function, and there is no reason to instantiate a ZLeaf object.&nbsp;<a NAME="S2.8.3"></a>
+<h3>
+2.8.3. ZVisualLeaf</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZVisualLeaf.html">ZVisualLeaf</a></tt>
+is a leaf node that has one or more visual components
+that can be rendered. Many applications will attach all of their visual
+components to ZVisualLeafs.<a NAME="S2.8.4"></a>
+<h3>
+2.8.4. ZGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZGroup.html">ZGroup</a></tt> is a node
+with children. Applications may use <tt>ZGroup</tt> to "group" children.
+By inserting a group node above several children, the group node can then
+be manipulated which will affect all of its children. Groups are typically
+used when several objects should be treated as a semantic unit.&nbsp;<a NAME="S2.8.5"></a>
+<h3>
+2.8.5. ZFadeGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZFadeGroup.html">ZFadeGroup</a></tt>
+is a group node that controls transparency and fading of its sub-tree.
+Inserting a fade node into the tree lets you control transparency and minimum/maximum
+magnification of all its descendants. If this node is rendered below its
+minimum magnification, or above its maximum magnification, it and its children
+will not be rendered. The node and its subtree will be smoothly faded out
+as the minimum or maximum magnification is approached.&nbsp;<a NAME="S2.8.6"></a>
+<h3>
+2.8.6. ZLayerGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZLayerGroup.html">ZLayerGroup</a></tt>
+is used exclusively to specify the portion of the scenegraph that a camera
+can see. It has no other function. See <tt>ZCamera</tt> for more detail.&nbsp;<a NAME="S2.8.7"></a>
+<h3>
+2.8.7. ZAnchorGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZAnchorGroup.html">ZAnchorGroup</a></tt>
+holds the information for a spatial hyperlink. An anchor represents a hyperlink
+from its children to an internally specified destination. Anchors can link
+to either another node, or to a bounds. There is an associated event handler
+<tt>ZLinkEventHandler</tt>
+that provides interaction for specifying these links.&nbsp;<a NAME="S2.8.8"></a>
+<h3>
+2.8.8. ZInvisibleGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZInvisibleGroup.html">ZInvisibleGroup</a></tt>
+makes all the nodes below it completely invisible. This can be inserted
+into a scenegraph when a portion of the tree needs to be temporarily hidden.&nbsp;<a NAME="S2.8.9"></a>
+<h3>
+2.8.9. ZVisualGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZVisualGroup.html">ZVisualGroup</a></tt>
+is a group node with visual components. It has two visual components (either
+or both of which could be null) which get rendered before and after the
+node's children, respectively.&nbsp;<a NAME="S2.8.10"></a>
+<h3>
+2.8.10. ZSelectionGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZSelectionGroup.html">ZSelectionGroup</a></tt>
+is a visual group that provides functionality for specifying selection.
+Inserting a selection group in the scenegraph will visually select its
+subtree. It has utility methods for selecting and unselecting nodes. It
+manages a visual component that actually represents the selection. This
+class could be extended to replace the visual component if an application
+wants to define a different visual look.&nbsp;<a NAME="S2.8.11"></a>
+<h3>
+2.8.11. ZLayoutGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZLayoutGroup.html">ZLayoutGroup</a></tt>
+is a visual group that wraps a layout manager that can position the node's
+children. The layout manager may also include a visual component that aids
+the layout. For instance, the tree layout manager adds links connecting
+the tree nodes.&nbsp;<a NAME="S2.8.12"></a>
+<h3>
+2.8.12. ZTransformGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZTransformGroup.html">ZTransformGroup</a></tt>
+is a group node that specifies an arbitrary affine transform. This provides
+the capability to translate, scale, rotate, or shear the subtree of this
+node.&nbsp;<a NAME="S2.8.13"></a>
+<h3>
+2.8.13. ZConstraintGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZConstraintGroup.html">ZConstraintGroup</a></tt>
+is a transform group that changes its transform based on a computation
+defined in a specified method. Every time the camera view is changed, the
+method is called, recomputing the transform. Thus, depending on the algorithm
+chosen, various dynamic behaviors can be created. See ZStickyGroup.&nbsp;<a NAME="S2.8.14"></a>
+<h3>
+2.8.14. ZStickyGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZStickyGroup.html">ZStickyGroup</a></tt>
+is a constraint group that moves its children inversely to the camera view,
+so that the children stay visually on the same place on the screen, even
+as the camera view changes. The sticky node has a variation called sticky
+"Z" which allows its children to pan with camera changes, but not zoom.&nbsp;<a NAME="S2.8.15"></a>
+<h3>
+2.8.15. ZDrawingSurface</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZDrawingSurface.html">ZDrawingSurface</a></tt>
+represents the thing the camera renders onto. Typically, a drawing surface
+will be associated with a ZCanvas window. However, a drawing surface can
+also represent a printer, and thus rendering to a window and printer is
+implemented in the same way. The drawing surface is associated with a window
+or printer by specifying which Graphics2D to render onto.
+<h3>
+2.8.16. ZNameGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZNameGroup.html">ZNameGroup</a></tt>
+is a group node that names a portion of the scenegraph.
+A name group node can be inserted into the tree when an application wants to 
+assign a name to that section of the scenegraph. A static method 
+ZNameGroup.getNameGroup(String name) returns the name group node associated with
+the specified name.
+<h3>
+2.8.17. ZSpatialIndexGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZSpatialIndexGroup.html">ZSpatialIndexGroup</a></tt>
+is a group node that supports R-tree indexing
+for a group of visual components. This indexing can provide faster rendering
+when a large number of visual components are being displayed. Currently, significant
+speed improvements become apparent when a few thousand or more nodes are being
+rendered. Using a ZSpatialIndexGroup group node with a small number of nodes
+can actually slow down rendering, due to the indexing overhead.<P>
+<h3>
+2.8.19. ZClipGroup</h3>
+<tt><a href="../api/edu/umd/cs/jazz/ZClipGroup.html">ZClipGroup</a></tt>
+is a group node that clips the current rendering context with a ZShape before rendering its children. It can
+also optionally use the ZShape when rendering and picking itself.<P>
+
+</body>
+</html>

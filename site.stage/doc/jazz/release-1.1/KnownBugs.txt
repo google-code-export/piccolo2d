@@ -1,0 +1,72 @@
+This file describes known bugs in Jazz, or bugs in Java that affect Jazz.
+
+  * 9/13/2000: JAG - On Win/98 you may get an "Out of Environment Space" 
+    error message when running build.bat. This happens if Windows provides 
+    too small a space for environment variables. To work around this limitation: 
+        Close the DOS window (the error can corrupt its CLASSPATH variable). 
+        Open a new DOS window. Click on the MS-DOS icon at the top left of the window. 
+        Select the Properties option.
+        Click on the Memory tab. 
+        Adjust the "Initial Environment" drop-down box from "Auto" to "2816". 
+        Click OK. 
+    Then try building again.
+
+  * 10/16/1999: LEG - Undesired results will occur if a ZComboBox receives 
+    focus through 'tab' traversal and its JPopup is then invoked. Similarly,
+    when the parent container of a ZMenu is receiving keyboard events and the 
+    ZMenu has not yet been clicked, any keyboard accelerators for the ZMenu
+    will produce undesired results.  This is a result of ZVisualComponent's
+    ability to be reused - ie. have multiple representations.  Hence, if the
+    ZMenu or ZComboBox has not received a ZMouseEvent, it is not clear for 
+    which ZNode the action has been requested.
+
+  * 10/16/1999: LEG - The ZTreeLayoutManager is currently unstable when 
+    objects in the tree have scaling (and shear or rotation, though not 
+    tested).  This is an artifact of using Java's Area class with floating 
+    point arithmetic and the current implementation of the method to find 
+    overlap between two subtrees.
+
+  * 10/15/99: BBB - Java's fonts apparently allocate a *lot* of memory
+    when text is rendered at a large scale.  Since this it is so easy
+    to render very large text in Jazz, it is fairly easy to eat up 
+    all available memory, and Jazz applications will die because there
+    is no memory left.  We will contact Sun about this, but for now,
+    the best work-around is to make text objects fade out before they
+    get too big.
+
+  * 9/30/99: JJM - Layout managers and event handlers are not yet Serializable.
+
+  * 09/11/1999: BBB - Jazz text sometimes leaves screen turds for ZText objects.
+    That is, little bits of graphics on the screen that don't get refreshed
+    properly.  This is because the internal bounds that Jazz uses for 
+    the text objects are computed incorrectly.  This is because of known
+    characteristic of the way that Sun's java implementation renders
+    text.  In particular, text does not keep consistent bounds when
+    rendered at different fractional scales.  We have been in touch with
+    Sun about this, and they promised to fix this.  They decided to make
+    the FRACTIONAL_METRICS rendering hint force text to be rendered at
+    the precise position in non-antialiased mode.  I (Ben Bederson)
+    discussed this issue with the Java2D manager, Jeannette Hung in August 99,
+    and she suggested this would get done in the release after JDK1.3.
+
+  * 07/14/1999: BBB - Java does not manage very small fonts properly.  
+    If you create a Java font that is less than one pixel high, and use 
+    it to create a Jazz text object, then that text object will not work
+    properly, or perhaps not at all.  The text may not be rendered properly, 
+    or not at all.
+
+    The workaround is to create a larger font, but scale down the Jazz node
+    that contains the text object that uses that font.  I.e., if you want
+    a font that is 0.1 pixels high, you should create a font that is 10
+    pixels high, but then set the scale of the corresponding node to 0.01.
+
+    This bug existed as of Sun JDK 1.3
+
+  * 05/07/1999: BBB - Jazz doesn't run within components with Borders.
+    It probably never will for various efficiency reasons.  For a workaround,
+    put a Jazz ZCanvas inside a JPanel with a Border.
+
+
+
+
+

@@ -1,0 +1,39 @@
+Jazz ToDo List
+--------------
+
+  BUGS
+  ----
+
+  See the KnownBugs file
+
+  * Change event listeners to use active bit ala Jon Meyer's suggestion.
+
+  FEATURES NEEDED
+  ---------------
+
+  * 7/1/2000:   BBB - Layout manager should support optionally enable
+    layout changes to be animated over time.  I added 
+    ZLayoutManager.doLayout(ZGroup node, int millis) so this can
+    be added without incompatible changes in the future.
+
+  * 5/28/2000:  BBB - There should be some kind of text label that
+    display at a fixed size, but disappear when there is not enough
+    space for them.  They should appear at a fixed (or possibly two
+    sizes) when there is enough space.  (Requested by Jon Meyer)
+
+  * 1/22/2000:  BBB - Make the editor a bit more sophisticated so that
+    it supports user-defined types better, and also multiple instances
+    of the same type.  See jazz-chat thread on Multiple Hyperlinks.
+
+  * 10/23/1999: BBB - Add property change events to all components
+    so applications can be notified when, for example, rectangle
+    coordinates change.
+
+  * 09/15/1999: BBB - Add support for Advanced Imaging API
+
+  * 09/01/1999: BBB - General purpose Animation support, including
+    asynchronous animation.
+
+  * 07/15/1999: BBB - Add tutorial chapter describing how to build and install jazz.
+
+  * 05/07/1999: BBB - Design complex composable Lenses
