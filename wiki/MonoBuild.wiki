@@ -1,0 +1,14 @@
+#summary Rough paper how I try to build piccolo2d.net using mono
+#labels Phase-Implementation
+
+See issue#60
+
+= Development Enviroment =
+
+ * [http://www.gentoo.org/ gentoo linux]
+ * dev-lang/mono 1.9.1
+ * dev-util/mono-tools 1.2.1
+ * dev-util/monodoc 1.9
+ * dev-dotnet/nant 0.85
+ * dev-util/git 1.5.6.4
+ * dev-util/monodevelop 1.0
