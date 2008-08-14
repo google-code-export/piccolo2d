@@ -1,7 +1,7 @@
 #summary Rough paper how I try to build piccolo2d.net using mono
 #labels Phase-Implementation
 
-See issue#60
+See http://code.google.com/p/piccolo2d/issues/detail?id=60
 
 = Development Enviroment =
 
