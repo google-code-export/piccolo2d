@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+   <TITLE>3. Using Jazz</TITLE>
+</HEAD>
+<body text=black bgcolor=white alink=red>
+<TABLE BGCOLOR=BLACK BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=100%>
+<TR BGCOLOR=505050 HEIGHT=14>
+    <TD BGCOLOR=BLACK HEIGHT=38 WIDTH=70 ROWSPAN=2 BORDER=0 VALIGN=TOP>
+        <A HREF="http://www.cs.umd.edu/hcil/index.html">
+	<IMG ALT="HCIL Logo" SRC="banner-logo.png"
+	HEIGHT=38 WIDTH=70 BORDER=0></A>
+    </TD>
+    <TD WIDTH=100% ALIGN=LEFT HEIGHT=14>
+        <A HREF="http://www.cs.umd.edu/hcil/index.html" BORDER=0>
+	<IMG SRC="banner-hcil-left.png" WIDTH=223 HEIGHT=14
+	ALIGN=LEFT BORDER=0></A>
+	<A HREF="http://www.umd.edu/" BORDER=0>
+	<IMG SRC="banner-hcil-right.png" WIDTH=145 HEIGHT=14 BORDER=0
+	ALIGN=LEFT></A> 
+    </TD>
+</TR>
+<TR BGCOLOR=BLACK>
+    <TD ALIGN=LEFT>&nbsp;</TD>
+</TR>
+</TABLE>
+<!------------- End of Header----------------->
+
+<A NAME="S3"><H1>3. Multiple Representations of Objects</H1>
+One of the basic things that Jazz supports is the ability to present
+different visual representations of data in different circumstances.
+Because many different kinds of context can be used to influence how
+and what gets drawn, we sometimes call this <em>context-sensitive rendering</em>.
+While an application can use any context whatsoever to control an object's
+rendering (such as author or time), two especially common contexts are
+magnification and camera.  We sometimes use the more specific term <em>semantic zooming</em>
+to refer to objects that change the way they appear based on the current
+magnification.  When an object appears differently when viewed with
+different camera, we sometimes use the term <em>lens</em> or <em>filter</em>.
+
+<A NAME="S3.1"><H2>3.1. Context-Sensitive Rendering</H2>
+The standard visual components that Jazz is packaged with always render themselves
+the same way.  That is, a rectangle is always rendered as a rectangle.  However,
+an application can define a new visual component whose paint method depends on
+various contexts.  The context could include just about anything, ranging
+from the time or author, to an underlying data model that this object represents.
+<P>
+Imagine an application that wants to render a scatter plot.  It could create
+a new <tt>ScatterPlot</tt> class that extends <tt>ZVisualComponent</tt> and whose
+<tt>paint</tt> method references an underlying data model.  Whenever the data model
+changes, the ScatterPlot class would be notified, and would re-render itself based
+on the new data.  Similarly, the ScatterPlot class might include in its paint method
+the ability to control which points get rendered based on a GUI.  So, this really 
+is just a fancy way of saying that an application-defined visual component can
+render itself any way that it wants.
+<P>
+An application might define a Model class to aid in this whose sole purpose is
+to generate events when a model has changed to notify the visual component of
+the change.
+<p>
+<CENTER><IMG SRC="ch3-model-based-component.png"><br>
+<b>Basic model-based visual component</b>
+</CENTER>
+<p>
+This simple approach is fine except that it couples the different representations
+of the data.  This might make perfect sense if there is really is only kind of
+representation, but the details change based on some underlying data.  However,
+it is also possible that an application wants the opportunity to have
+several completely different visual representations of some data.  For instance,
+a basic data model might also support a textual table view, or a bar chart view
+in addition to a scatter plot view.
+<p>
+An important design consideration for multiple representations is to implement
+each representation separate from the others.  This allows the application builder
+to design new representations, and modify old ones without affecting the other
+representations.  Thus, it would be nice to design a different class for each
+visual representation of the data.  One design that accomplishes this is to
+make a special visual component that acts as a <em>delegator</em> for other
+visual components, and can switch between them.
+<p>
+<CENTER><IMG SRC="ch3-multiple-visual-components.png"><br>
+<b>Multiple visual components accessed through a delegator</b>
+</CENTER>
+<p>
+Such a delegator is fairly straightforward to build.  It would maintain a
+list of ancillary visual components and exactly one of them would be
+active at a time.  It would then define its <tt>paint</tt>, <tt>pick</tt>, 
+and <tt>computeBounds</tt> methods to call the active visual component.
+
+<A NAME="S3.2"><H2>3.2. Semantic Zooming</H2>
+Alternatively, we may want to use the magnification of a camera to choose 
+the representation for the data.
+This might make sense if you wanted to show more detail when you zoom in.
+<P>
+Assuming that you have defined a vector of visual components, the following
+code snippet will call a different component to paint every time you zoom in
+by a factor of 4.
+<PRE>
+    public void render(ZRenderContext renderContext) {
+	float mag = renderContext.getCompositeMagnification();
+	level = (int)(mag / 4);
+	try {
+	    ZVisualComponent vis = (ZVisualComponent)visualizers.get(level);
+	    vis.render(renderContext);
+	} catch (Exception e) {
+				// Level not loaded
+	    Graphics2D g2 = renderContext.getGraphics2D();
+	    g2.setColor(Color.red);
+	    g2.fill3DRect(0, 0, 100, 100, true);
+	    g2.setColor(Color.black);
+	    g2.setFont(new Font("Helvetica", Font.PLAIN, 10));
+	    g2.drawString("Level not loaded", 5, 50);
+	}
+    }
+</PRE>
+
+Note that this overrides the <tt>render</tt> method of ZVisualComponent
+instead of <tt>paint</tt>.  This gives us access to the 
+<TT><A HREF="../api/edu/umd/cs/jazz/util/ZRenderContext.html">ZRenderContext</A></TT>
+class which hold various kinds of state that describe the render in progress - 
+including the current magnification.
+
+<A NAME="S3.3"><H2>3.3. Internal Cameras (Lenses)</H2>
+Some previous systems have used an interface technique sometimes called
+<em>lenses</em> or <em>filters</em> to switch between different visual representations.
+The idea is that there is an object on the screen that you can drag around,
+and when you drag it it looks onto the scene, but some things look different
+when seen through these special objects.
+<P>
+Jazz supports this representation-switching interface simply by putting another
+camera in the scenegraph, and setting up the top-level camera to see the
+internal camera.  The internal camera then gets rendered as a regular object
+that happens to render itself by painting all things that it sees.  The trick is
+that by using multiple visual components with a component switcher as we just
+described, we can then use the current rendering camera as the context to decide
+which visual component to show.  As long as the cameras can be uniquely
+identified, this simple approach works fine.
+
+<P>
+Let us start by creating an internal camera.
+
+<PRE>
+    ZCamera lens = new ZCamera();                 // Create the new internal camera
+    lens.setBounds(100, 100, 200, 200);
+    lens.setFillColor(Color.red);
+    ZVisualLeaf leaf = new ZVisualLeaf(lens);     // Attach it to a leaf node
+    ZVisualGroup border = new ZVisualGroup(leaf); // Put a visible border around the camera
+    ZRectangle rect = new ZRectangle(100, 100, 200, 200);
+    rect.setPenColor(Color.blue);
+    rect.setFillColor(null);
+    rect.setPenWidth(5.0f);
+    border.setFrontVisualComponent(rect);
+    ZLayerGroup layer = new ZLayerGroup(border);  // Create a new layer for the internal camera
+    canvas.getRoot().addChild(layer);             // Add it to the scenegraph
+    canvas.getCamera().addLayer(layer);           // Notify the primary camera to see this lens layer
+    lens.addLayer(canvas.getLayer());             // Finally, make this lens look at the primary layer
+</PRE>
+
+Then, we'd have to make an event handler that lets you drag this internal camera
+around, and changed the viewpoint of the internal camera so that it always looked
+directly at the location it was at.
+
+<P>
+Then, with a general camera metaphor and a general approach to supporting
+multiple representations, we can support an interface for changing
+the way things look based on the camera that looks at them.  The following
+code snippet will call a different component to paint itself based
+on which camera is painting the object.
+
+<PRE>
+    public void render(ZRenderContext renderContext) {
+        ZCamera camera = renderContext.getRenderingCamera();
+                          // Some code to determine which camera is looking at us
+	// int id = ...;
+	try {
+	    ZVisualComponent vis = (ZVisualComponent)visualizers.get(id);
+	} catch (Exception e) {
+				// We don't recognize this camera, use default vis.
+	    ZVisualComponent vis = defaultVis;
+	}
+	vis.paint(renderContext);
+    }
+</PRE>
