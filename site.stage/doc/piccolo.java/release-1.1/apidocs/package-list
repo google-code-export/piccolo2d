@@ -1,0 +1,13 @@
+edu.umd.cs.piccolo
+edu.umd.cs.piccolo.activities
+edu.umd.cs.piccolo.event
+edu.umd.cs.piccolo.nodes
+edu.umd.cs.piccolo.util
+edu.umd.cs.piccolox
+edu.umd.cs.piccolox.activities
+edu.umd.cs.piccolox.event
+edu.umd.cs.piccolox.handles
+edu.umd.cs.piccolox.nodes
+edu.umd.cs.piccolox.swing
+edu.umd.cs.piccolox.swt
+edu.umd.cs.piccolox.util
