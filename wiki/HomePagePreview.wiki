@@ -1,6 +1,6 @@
 http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo.png
 
-If you're interested in using the structured 2D graphics toolkit Piccolo2D, see the [http://piccolo2d.googlecode.com/svn/site.stage/index.html Piccolo2D Homepage]. This page here is about the development of the toolkit itself.
+If you're interested in using the structured 2D graphics toolkit Piccolo2D, see the [http://piccolo2d.googlecode.com/svn/site/index.html Piccolo2D Homepage]. This page here is about the development of the toolkit itself.
 
 = Welcome to Piccolo2D! =
 A revolutionary way to create robust, full-featured graphical applications in Java and C#, with striking visual effects such as _zooming_, _animation_ and _multiple representations_.
@@ -24,4 +24,4 @@ The .NET version is built on the .NET Framework and relies on the GDI+ API to do
 
 And best of all, Piccolo2D is _free_ and _open source!_
 
-Learn more at the [http://piccolo2d.googlecode.com/svn/site.stage/index.html Piccolo2D Homepage].
+Learn more at the [http://piccolo2d.googlecode.com/svn/site/index.html Piccolo2D Homepage].
