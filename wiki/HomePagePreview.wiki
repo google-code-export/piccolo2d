@@ -1,6 +1,6 @@
-http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo.png
+[http://www.piccolo2d.org/ http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo.png]
 
-If you're interested in using the structured 2D graphics toolkit Piccolo2D, see the [http://www.piccolo2d.org/ Piccolo2D Homepage]. This page here is about the development of the toolkit itself.
+If you're interested in _using_ the structured 2D graphics toolkit Piccolo2D, see the [http://www.piccolo2d.org/ Piccolo2D Homepage]. This page here is about the development of the toolkit itself.
 
 = Welcome to Piccolo2D! =
 A revolutionary way to create robust, full-featured graphical applications in Java and C#, with striking visual effects such as _zooming_, _animation_ and _multiple representations_.
@@ -13,7 +13,7 @@ We use a [http://en.wikipedia.org/wiki/Scene_graph scene-graph] model that is co
 It will allow you to build structured graphical applications without worrying so much about the low level details. The infrastructure provides efficient repainting of the screen, bounds management, event handling and dispatch, picking (determining which visual object the mouse is over), animation, layout, and more. Normally, you would have to write all of this code from scratch. Additionally, if you want to build an application with zooming, that’s built right into the framework too.
 
 = What exactly is it? =
-Piccolo2D is a layer built on top of a lower level graphics API. There are currently three versions of the toolkit: 
+Piccolo2D is a layer built on top of a lower level graphics API. There are currently [http://www.piccolo2d.org/learn/comparison.html three versions] of the toolkit: 
  * Piccolo2D.Java, 
  * Piccolo2D.NET and 
  * PocketPiccolo2D.NET (for the .NET Compact Framework). 
