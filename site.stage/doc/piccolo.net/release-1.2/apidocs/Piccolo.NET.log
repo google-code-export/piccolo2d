@@ -1,0 +1,35 @@
+Microsoft HTML Help Compiler 4.74.8702
+
+Compiling c:\Piccolo.NET 1.1 Docs\Web\ndoc_msdn_temp\Piccolo.NET.chm
+
+HHC4006: Warning: The file "UMD.HCIL.Piccolo.PNode.Bounds.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.Piccolo.Event.PPropertyEventArgs.NewValue.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.Piccolo.Event.PPropertyEventArgs.OldValue.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.Piccolo.Nodes.PImage.Image.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.Piccolo.Util.PPaintContext.Canvas.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.Piccolo.Util.PPaintContext.Graphics.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.Piccolo.Util.PPaintContext.RenderQuality.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Activities.PPathActivity.Knots.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Activities.PPositionPathActivity.Positions.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Activities.PPositionPathActivity.Target.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Components.PScrollableControl.AnimateScrollDuration.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Components.PScrollableControl.AnimateScrolls.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Components.PScrollableControl.AutoLargeChange.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Components.PScrollableControl.HsbPolicy.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Components.PScrollableControl.Scrollable.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Components.PScrollableControl.ScrollDirector.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Components.PScrollableControl.VsbPolicy.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Components.PScrollableControl.Scroll.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Events.PNotification.Name.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Events.PNotificationCenter.CompoundValue.MethodInfo.html" is already listed in the [FILES] section of the project file.
+HHC4006: Warning: The file "UMD.HCIL.PiccoloX.Util.PNodeLocator.Node.html" is already listed in the [FILES] section of the project file.
+
+Compile time: 0 minutes, 19 seconds
+1,691	Topics
+19,438	Local links
+6,987	Internet links
+10	Graphics
+
+
+Created c:\Piccolo.NET 1.1 Docs\Web\ndoc_msdn_temp\Piccolo.NET.chm, 1,301,328 bytes
+Compression decreased file by 6,803,762 bytes.
