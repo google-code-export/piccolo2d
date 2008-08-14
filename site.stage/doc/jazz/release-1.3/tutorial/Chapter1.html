@@ -1,0 +1,282 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>1. Jazz Basics</title>
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" alink="#FF0000">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td rowspan="2" width="48"><img src="banner-logo.png"
+        width="48" height="38"></td>
+        <td bgcolor="#575757"><img src="banner-hcil-left.png"
+        width="223" height="14"><img src="banner-hcil-right.png"
+        width="145" height="14"></td>
+    </tr>
+    <tr>
+        <td bgcolor="#000000">&nbsp;</td>
+    </tr>
+</table>
+
+<h1><a name="S1">1. Jazz Basics</a></h1>
+
+<p><a name="S1">Jazz is a platform that provides a Java API for
+building Zoomable User Interfaces (ZUI). It provides support for
+a general-purpose scenegraph with multiple cameras (views). Jazz
+provides support for many basic operations, visualizations, and
+interactions - but is defined to be completely extensible. Jazz
+makes no specific policy about visual or interaction design, but
+instead provides overridable default behaviors. </a></p>
+
+<p><a name="S1">Jazz is completely open source. Initially
+developed, and currently managed at the University of Maryland's
+Human-Computer Interaction Lab, Jazz is already being used
+internationally, and is contributed to by people around the
+world. Our intention is to support a world-wide community of
+users and developers of this toolkit. </a></p>
+
+<p><a name="S1">This tutorial explains the Jazz technology. It
+describes how to write Java programs on top of Jazz. It assumes
+the reader is familiar with Java, and basic 2D graphics.</a> </p>
+
+<h2><a name="S1.1">1.1 The Coordinate System</a></h2>
+
+<p><a name="S1.1">The Jazz Coordinate System is built on the Java
+2D and as such the application's space origin is located in the
+upper-left corner of the space, with x values increasing to the
+right and y values increasing downward. </a></p>
+
+<p align="center"><a name="S1.1"><img src="ch1-coord-system.png"
+width="174" height="174"> </a></p>
+
+<h2><a name="S1.2">1.2. The Scenegraph</a></h2>
+
+<p><a name="S1.2">A scenegraph is a hierarchical data structure
+that is used to store the visual elements in the ZUI. Each visual
+element consists of two types of objects in the scenegraph: nodes
+and visual components. The </a><a
+href="../api/edu/umd/cs/jazz/ZVisualComponent.html"><tt>ZVisualComponent</tt></a>
+is just a visual object that specifies the size of a visual
+element and how to render it. It cannot exist by itself in the
+scenegraph and, thus, is always associated with a node. The <a
+href="../api/edu/umd/cs/jazz/ZNode.html"><tt>ZNode</tt></a> is
+responsible for maintaining the structure of the scenegraph and
+contains all characteristics (position, scale, transparency,
+etc.) that are passed on to child nodes. </p>
+
+<p>In addition to visual elements that are represented in the
+ZUI, a properly formed scenegraph will also have exactly one root
+node (<a href="../api/edu/umd/cs/jazz/ZRoot.html"><tt>ZRoot</tt></a>)
+and one or more cameras (<a
+href="../api/edu/umd/cs/jazz/ZCamera.html"><tt>ZCamera</tt></a>).
+The root serves as a holder to all of the elements in the virtual
+universe that is being represented. The camera serves as a
+viewport into a portion of the scenegraph. </p>
+
+<p align="center"><img src="ch1-sample-scenegraph.png"
+width="396" height="218"><br>
+<b>Run-time object structure in a typical application. This scene
+contains a single camera looking onto a layer that contains a
+rectangle and a group consisting of two polylines.</b> </p>
+
+<p>The hierarchy of the scenegraph encourages a natural spatial
+grouping of visual elements. Internal nodes act to group their
+children together passing on their object characteristics. This
+spatial grouping allows for efficient implementation of
+operations such as proximity detection, collision detection, and
+movement. </p>
+
+<h3><a name="S1.2.1">1.2.1. Visual Components</a></h3>
+
+<p><a name="S1.2.1">A visual element is represented by a </a><a
+href="../api/edu/umd/cs/jazz/ZVisualComponent.html"><tt>ZVisualComponent</tt></a>
+object and is associated with a <a
+href="../api/edu/umd/cs/jazz/ZNode.html"><tt>ZNode</tt></a>. The <a
+href="../api/edu/umd/cs/jazz/ZVisualComponent.html"><tt>ZVisualComponent</tt></a>
+class is the base class for all other visual elements. Jazz
+provides several built-in visual elements: </p>
+
+<ul>
+    <li><b><tt>ZShape</tt></b> is an abstract class meant to be
+        extended by visual components that wrap the standard
+        java.awt.Shapes.<ul>
+            <li><b><tt>ZPath</tt></b> is a simple ZShape
+                implementation that uses a GeneralPath as the
+                underlying shape model.</li>
+            <li><b><tt>ZArc</tt></b> is a simple ZShape
+                implementation that uses a Arc2D as the
+                underlying shape model.</li>
+            <li><b><tt>ZCubicCurve</tt></b> is a simple ZShape
+                implementation that uses a CubicCurve2D as the
+                underlying shape model.</li>
+            <li><b><tt>ZQuadCurve</tt></b> is a simple ZShape
+                implementation that uses a QuadCurve2D as the
+                underlying shape model.</li>
+            <li><b><tt>ZLine</tt></b> is a simple ZShape
+                implementation that uses a Line2D as the
+                underlying shape model.</li>
+            <li><b><tt>ZRectangle</tt></b> is used to represent
+                rectangles and squares. Each <tt>ZRectangle</tt>
+                is defined by a location (x,y) and a width and a
+                height. </li>
+            <li><b><tt>ZRoundedRectangle</tt></b> is a simple
+                ZShape implementation that uses a
+                RoundedRectangle2D as the underlying shape model.
+            </li>
+            <li><b><tt>ZPolyline</tt></b> is a set of line
+                segments that connects a set of points. </li>
+            <li><b><tt>ZPolygon</tt></b> fills in the polygon
+                between a set of points. </li>
+            <li><b><tt>ZEllipse</tt></b> is a graphic object that
+                represents a hard-cornered or rounded ellipse.</li>
+        </ul>
+    </li>
+    <li><b><tt>ZImage</tt></b> is an image. </li>
+    <li><b><tt>ZLabel</tt></b> creates a lightweight visual
+        component to support a label containing one line of text.
+    </li>
+    <li><b><tt>ZText</tt></b> is a graphic object that paints a
+        text string. </li>
+    <li><b><tt>ZCamera</tt></b> represents a view onto a portion
+        of the scenegraph. Jazz scenes are only visible through
+        cameras, so all applications will have at least one
+        camera attached to a top-level window. Jazz supports
+        multiple cameras looking onto the same portion of a
+        scenegraph. In addition, Jazz supports &quot;internal
+        cameras&quot;. These are cameras that are part of the
+        scenegraph. They act like other objects in that they can
+        be picked and moved around, but are rendered by showing a
+        portion of the scenegraph within the camera. </li>
+    <li><b><tt>ZSwing</tt></b> wraps a standard Java Swing
+        widget. ZSwing provides the capability to embed any
+        light-weight Swing widget within the Jazz scenegraph.
+        This means that custom 2D graphics can be combined with
+        Swing widgets. </li>
+</ul>
+
+<p>Visual components are added to the scenegraph by attaching
+them to either a <a
+href="../api/edu/umd/cs/jazz/ZVisualLeaf.html"><tt>ZVisualLeaf</tt></a>,
+or a <a href="../api/edu/umd/cs/jazz/ZVisualGroup.html"><tt>ZVisualGroup</tt></a>.
+These are each node types that accept visual components. <tt>ZVisualLeaf</tt>
+is a leaf node and does not have any other children. <tt>ZVisualGroup</tt>
+is a group node and maintains a list of child ZNodes. It accepts <em>two</em>
+visual components - a front one and a back one. The <tt>ZVisualGroup</tt>
+first renders the back visual component, then its children, and
+finally its front visual component. </p>
+
+<p>Visual components can be shared in different parts of the
+scenegraph. The same visual component can be attached to multiple
+nodes. If this happens, then that visual component is rendered
+multiple times - once per node that it is attached to. If the
+visual component is modified or interacted with, then all
+references to that visual component are immediately updated. </p>
+
+<h3><a name="S1.2.2">1.2.2. Nodes</a></h3>
+
+<p><a href="../api/edu/umd/cs/jazz/ZNode.html"><tt>ZNode</tt></a>
+is the base class for all nodes. Nodes are the basic element that
+forms the Jazz scenegraph structure. The <tt>ZNode</tt> class by
+itself does very little, but there are subclasses of it, each
+providing one bit of special functionality. Applications will
+typically chain together several node types to get the
+functionality they need. In this way, applications only pay for
+the features they need. In addition, Jazz is fundamentally
+extensible. If a new feature is needed, an application can create
+a new node type, and insert it into the tree. </p>
+
+<h2><a name="S1.3">1.3. Hello World</a></h2>
+
+<p><a name="S1.3">Now, lets create the simplest Jazz application
+we can that creates a bit of text on the screen that lets you pan
+and zoom. We'll use </a><a
+href="../api/edu/umd/cs/jazz/util/ZCanvas.html"><tt>ZCanvas</tt></a>,
+a basic Swing component that creates a minimal scenegraph with a
+root, a drawing surface, camera, and a layer. It also adds event
+handlers for simple pan and zoom navigation (which can be turned
+off). </p>
+
+<p align="center"><img src="ch1-basic-scenegraph.png" width="272"
+height="154"><br>
+<b>The scenegraph created by the following application consists
+of a camera looking at a node with some text</b> </p>
+
+<pre>
+//
+// Save this into the file 'HelloWorld.java', and compile it with
+//
+//      javac HelloWorld.java OR
+//	javac -classpath &quot;./jazz.jar&quot; HelloWorld.java (to explicitly set out your path)
+//
+// and run it with
+//
+//      java HelloWorld OR
+//	java -cp &quot;./;jazz.jar&quot; HelloWorld (to explicitly set out your path)
+//
+// Be sure to set your CLASSPATH environment variable to include
+// jazz.jar. The jazz.jar file is located in the root directory of the
+// Jazz binary distribution. If you have the Jazz source distribution see
+// the build.xml file in the root directory for build instructions. 
+//
+
+import java.awt.event.*;
+import javax.swing.*;
+import edu.umd.cs.jazz.*;
+import edu.umd.cs.jazz.util.*;
+import edu.umd.cs.jazz.component.*;
+
+public class HelloWorld extends JFrame {
+
+    public HelloWorld() {
+				// Support exiting application
+	addWindowListener(new WindowAdapter() {
+	    public void windowClosing(WindowEvent e) {
+		System.exit(0);
+	    }
+	});
+
+				// Set up basic frame
+	setBounds(100, 100, 400, 400);
+	setVisible(true);
+	ZCanvas canvas = new ZCanvas();
+	getContentPane().add(canvas);
+	validate();
+
+                                // Add some sample text
+        ZText text = new ZText(&quot;Hello World!&quot;);
+	ZVisualLeaf leaf = new ZVisualLeaf(text);
+        canvas.getLayer().addChild(leaf);
+    }
+        
+    public static void main(String args[]) {
+        HelloWorld app = new HelloWorld();
+    }
+}
+</pre>
+
+<p>This program extends JFrame which creates a top-level window.
+The two sections of code are standard java code to create a
+window. The first bit exits the application if the window is
+closed. The second bit sets the bounds of the frame, and makes it
+visible, and then makes a Jazz ZCanvas, and adds it to the
+window. </p>
+
+<p>Finally, the main Jazz-specific code is the last three lines
+of the constructor. This first creates a new text visual
+component. Then, it creates a leaf node that renders that text.
+Finally, it adds the leaf node to the canvas. Jazz takes care of
+repainting the scene when it is modified, and the canvas has
+default navigation event handlers, so that's it. </p>
+
+<p>To try out this program, compile and run it according to the
+comment in the header. Then, when it comes up and you can see
+&quot;Hello World&quot;, click and drag with the left button, and
+you can pan the scene (i.e., drag left/right, up/down). If you
+click the right button and drag left or right, you can zoom
+out/in, respectively. </p>
+</body>
+</html>
