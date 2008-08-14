@@ -1,0 +1,133 @@
+Piccolo 1.0 ChangeLog
+------------------
+
+piccolo/examples
+	- added AngleNodeExample
+	- added CenterExample
+	- added PulseExample
+	- added StickyHandleExample
+	- added TooltipExample
+	- added swtexamples
+
+extras
+	- catch security exception thrown by setDefaultCloseOperation in PFrame.
+	- added decorateSelectedNode() methods to PSelectionEventHandler
+	- improved the way that PBoundsHandle manages the cursor
+	- changed PHandle and PBoundsHandle implementations so that it doesn't assume that it's 
+	  manipulating its parent.
+	- added better support for insets to PStyledText
+	- changed PLocator class so that its locate methods don't take a node parameter.
+	- added a PNodeLocator class
+	- added preliminary support for SWT (see www.eclipse.org) piccolo rendering
+	
+src
+	- added toString() debug methods throughout the framework
+	- added static final keys for property change names throughout the framework. Keys are 
+	  defined in the classes that fire the events.
+	- added PComponent, and abstraction of PCanvas. This is so that piccolo can be used with SWT.
+	- added PColorActivity
+	- changed var names and method names in PActivity, hopefully will make the class clearer.
+	- removed PActivities starte and ended runnables, replaced with PActivityDelegate
+	- modified PActivityScheduler to allow for some control over the order that activities run in.
+	- added different interpolation modes to PInterpolatingActivity
+	- added the ability to loop to PInterpolatingActivity
+	- added MouseWheelEvent support
+	- added min/max scale constraints ot PZoomEventHandler
+	- PNode setBounds with zero width or height will reset the bounds to empty
+	- fixed PNode.rotate
+	- added print method to PNode
+	- ported Jazz's ZTransformGroup.postion() method to PNode
+	- don't use media tracker to load images in PImage if the image is a BufferedImage
+	- fixed PAffineTransform.getRotation() method
+	- fixed PPaintContext so that it can be created with a Graphics2D that has a null clip
+	
+Piccolo 1.0-beta2 ChangeLog
+------------------
+
+  * Removed Piccolo abstract rendered and OpenGL support code, instead we are planning to use
+    a new library, Agile2D. Agile2D provides its own OpenGL implementation of the
+    java.awt.Graphics2D class.
+
+piccolo/examples
+	- added clip example
+	- added internal lens example
+	- added panToExample to illustrate Pcamera’s animateViewToIncludeBounds method
+	- added scrolling example
+	- added selection example
+	- added text example to show how to use PStyledTextEventHandler to edit text
+	  directly on the piccolo canvas.
+
+extras
+	- added PSelectionEventHandler
+	- added PStyledTextEventHandler
+	- added PClip
+	- added PLens
+	- added PStyledText, used together with PStyledTextEvent handler to edit text
+	  on the piccolo canvas.
+	- added a number of scroll supported classes in the extras swing package.
+
+PCamera
+	- renamed centerView to animateViewToBounds
+	- added animateViewToIncludeBounds
+
+PNode
+	- renamed translateRelativeToParent() to offset()
+	- transform var is only created when needed, otherwise it's now left as null
+	- added getClientPropertyKeysIterator()
+	- added rotateInPlace()
+	- renamed getTranslation() to getOffset()
+	- renamed setTranslation() to setOffset()
+	- renamed translateRelativeToParent() to offset()
+	- renamed deltete() to removeFromParent()
+
+PInputManager
+	- added tracking for individual mouse button pressed. This way if you press down on 
+	  a node with button1 that node will stay as mouse focus as long as button1 is pressed, 
+	  event if button2 is repeatedly pressed and released.
+
+PCanvas
+	- added animating render quality, this quality is used if any of the scheduled activities
+	  return true when sent the message isAnimation().
+	- added checks to make sure that every mouse press gets matched with a mouse released, 
+	  something to does not always happen in swing.
+
+PCamera
+	- added some view constraint options. These are used to constrain the cameras view to 
+	  the bounds of the layers that the camera is viewing.
+	- renamed centerView() to animateViewToBounds()
+	- added animateViewToIncludeBounds()
+
+PInputEvent
+	- removed consume() replaced with setHandled(). Previously consuming an event would
+	  completely stop it from getting dispatched to anyone else. Set handled is a weaker
+	  command, the event continues to get dispatched to other event handlers but they
+	  are expected to ignore it unless they are trying to do something special.
+
+PImage
+	- changed the default so that images are NOT accelerated.
+
+PPath
+	- removed getStrokeWidth(), Strokes are now just dealt with as shapes that are created 
+	  by stroke.createStrokedShape(path). 
+
+PText 
+	- added setConstrainWidthToTextWidth()
+	- added setConstrainHeightToTextHeight()
+
+PAffineTransform
+	- renamed setTranslation to setOffset()
+
+PBounds
+	-added deltaRequiredToContain()
+
+PDebug
+	- added options to debugMemoryUse and set the frame rate at which debug results are 
+	  calculated.
+
+PPaintContext
+	- removed drawing methods, and abstract renderer in general. Instead all drawing 
+	  should be done directly with the Graphics2D object.
+
+PUtil
+	- added DEFAULT_ACTIVITY_STEP_RATE = 20;
+	- added ACTIVITY_SCHEDULER_FRAME_DELAY = 10;
