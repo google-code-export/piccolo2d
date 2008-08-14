@@ -1,0 +1,177 @@
+Piccolo.NET 1.1 Beta ChangeLog
+------------------
+(December 22, 2004)
+
+Piccolo.NET/Source/Piccolo
+
+	- many generalizations to support plugging in a different renderer
+
+PNode
+	- added GetUnionOfChildrenBounds overload to PNode that takes a PNodeFilter
+
+PDebug
+	- a added DebugThreading property
+
+PInputManager
+	- fixed bug where drag and drop events weren't generated properly
+
+Piccolo.NET/Samples
+
+	- added RangeSlider
+	- added GraphEditorDirect3D
+
+Piccolo.NET/Source/PiccoloX
+
+	- added PControl
+	- added PControlEventHandler
+
+PForm
+	- changed to revert to its original non-fullscreen bounds when Escape is pressed
+	- changed to listen to the 'M' key in full-screen mode which minimizes the window
+
+PSelectionEventHandler
+	- changed BoundsFilter fields to protected
+
+PDefaultScrollDirector
+	- fixed bug that GetViewPosition didn't check for empty layerBounds
+
+PPositionPathActivity
+	- fixed bug that caused intermittent exception
+
+Piccolo.NET/Source/Piccolo Direct3D/
+
+	- added D3DNode
+	- added P3PaintContext
+	- added P3Util
+	- added P3Camera
+	- added P3Canvas
+	- added P3Form
+	- added P3Node
+	- added P3Image
+	- added P3Line
+	- added P3Rect
+	- added Direct3DTester
+
+
+Piccolo.NET 1.0
+------------------
+(August 1, 2004)
+
+Changed from Mozilla to BSD style license.
+
+Piccolo.NET/Source/Piccolo
+
+	- added PNodeList
+	- added PCameraList
+	- added PLayerList
+	- added PActivityList
+	- added MatrixSurrogate
+	- added GraphicsPathSurrogate
+	
+
+PInterpolatingActivity
+	- added terminate method
+	- added new constructor with startime parameter method
+
+PBasicInputEventHandler
+	- added OnGotFocus event method
+	- added OnLostFocus event method
+
+PDragSequenceEventHandler
+	- added DragActivity Accessor
+
+
+PPanEventHandler
+	- changed unit of autopan speed to pixels per second
+
+PPath
+	- added CreateLine method
+	- changed to InternalUpdateBounds to manage path bounds
+
+PText
+	- added greeking code
+	- added TextBrush property
+	- added TextAlignment property
+
+PCamera
+	- added AnimateViewToPanToBounds method
+	- added ViewConstraint property
+
+PCanvas
+	- added notification when interaction quality changes
+
+PInputManager
+	- fixed bug in the order that mouse entered and mouse moved events were delivered
+
+PNode
+	- added GlobalBounds method
+	- added MoveInFrontOf method
+	- added MoveInBackOf method
+	- added Occluded property
+	- added AnimateToColor method
+	- added CenterFullBoundsOnPoint method
+	- added FindIntersectingNodes method
+	- added InternalUpdateBounds method
+	- added IsOpaque method
+	- removed MoveToBack(PNode child) method
+	- removed MoveToFront(PNode child) method
+	- changed SetBounds to send InternalUpdateBounds message.
+	- changed IndexOfChild to check for case of null child
+	- changed FullPick method to check of PPickPath accepts this node
+	- fixed various update bugs
+	- made inner classes public	
+
+PDebug
+	- added DebugPaintCalls mode
+	- changed PDebug flags from public fields to properties
+
+PPaintContext
+	- added RenderQuality accessor
+
+PPickPath
+	- added AcceptsNode method
+
+PUtil
+	- added GreekTreshold property
+	- added ReadPen method
+	- added WritePen method
+	- added ReadBrush
+	- added WriteBrush
+	- added FrameworkSurrogateSelector
+	- added DelataRequiredToCenter method
+
+Piccolo.NET/Samples
+
+	- renamed/restructured all examples
+	- added CompositeExample class
+	- added GridExample class
+	- added GroupExample class
+	- added NodeCacheExample class
+	- added PositionPathActivityExample class
+
+PresentationTool
+	-fixed bug where example crashes if no slides loaded
+
+Piccolo.NET/Source/PiccoloX
+
+	- added PPathActivity class
+	- added PPositionPathActivity class
+	- added PNotification class
+	- added PNotificationCenter class
+	- added PComposite class
+	- added PNodeCache class
+	- added experimental POcclusionDetection class
+
+PForm
+	- added BeforeInitialize method
+
+PScrollableControl
+	-Fixed problem w/ scrollable where scrolling would break if given a bad view
+
+PSelectionEventHandler
+	- numerous changes
+
+Piccolo.NET/Doc
+
+	- added Piccolo Help Setup
+	- added Piccolo.NET.chm
