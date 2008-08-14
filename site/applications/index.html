@@ -13,6 +13,17 @@
     <title>
       Piccolo2D - Applications Built on Piccolo2D
     </title>
+    <style type='text/css'>
+    /*<![CDATA[*/
+        div.box { 
+                float:left; 
+                border: 1px solid black; 
+                margin: 0.5ex 1ex;
+                padding: 0.5ex 1ex;
+        }
+        .box ul { margin: 0; padding: 0 0 0 1em;}
+    /*]]>*/
+    </style>
     <link href='../piccolo2d.css' rel='stylesheet' type='text/css' />
     <style type='text/css'>
     /*<![CDATA[*/
@@ -25,6 +36,18 @@
         vertical-align: baseline;
         width: 200px; 
     }
+        div.box { 
+                float:left; 
+                border: 1px none black;  
+                margin: 0.5ex 1ex;
+                padding: 0.5ex 1ex;
+                height: 225px;
+                text-align: center;     
+        }
+        div.box.high { 
+                height: 310px;
+        }
+        .box ul { margin: 0; padding: 0 0 0 1em;}
     -->
     /*]]>*/
     </style>
@@ -32,18 +55,18 @@
   <body>
     <div id='navigation'>
       <!-- 
-      this navigation node is auto-generated and injected
-      by the script tools/inject_navigation.rb
+                  this navigation node is auto-generated and injected
+                  by the script tools/inject_navigation.rb
 
-      DO NOT EDIT IT MANUALLY!!!      
-      -->
+                  DO NOT EDIT IT MANUALLY!!!      
+                  -->
       <p>
         <a href='../index.html'><img src='../images/Piccolo2D-Logo-small.png'
         alt='Piccolo2D Logo' /></a>
       </p>
       <ul>
         <li>
-          <a href='../index.html'>Piccolo2D&nbsp;Home</a>
+          <a href='../index.html'>Piccolo2D&nbsp;Home</a> 
           <ul>
             <li>
               <a href='../play/index.html'>Play</a>
@@ -58,7 +81,7 @@
               <a href='../community.html'>Community</a>
             </li>
             <li>
-              <a href='../applications/index.html' class='selected'>Applications</a>
+              <a href='../applications/index.html' class='selected'>Applications</a> 
               <ul>
                 <li>
                   <a href='#piccolo2d_net'>Piccolo2D&nbsp;.Net</a>
@@ -119,223 +142,210 @@
       <h2 id='piccolo2d_net'>
         Piccolo2D.NET Applications
       </h2>
-      <table summary='Piccolo2D.NET Applications'>
-        <tr>
-          <td>
-            <a href='http://www.photomesa.com'><img src='photomesa3.png' height='132' alt='todo'
-            width='180' /><br />
-             PhotoMesa<br />
-             University of Maryland</a>
-          </td>
-          <td>
-            <a href='http://www.cs.umd.edu/hcil/saphari/'><img src='saphari.png' height='145'
-            alt='todo' width='180' /><br />
-             Saphari<br />
-             University of Maryland</a>
-          </td>
-          <td>
-            <a href='http://www.cs.umd.edu/hcil/biodiversity/'><img src='treeplus.png' height='136'
-            alt='todo' width='180' /><br />
-             TreePlus<br />
-             University of Maryland</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href='http://www.cs.umd.edu/hcil/paperlens/'><img src='paperlens.png' height='140'
-            alt='todo' width='180' /><br />
-             PaperLens<br />
-             University of Maryland</a>
-          </td>
-          <td>
-            <a href='../play/applet/presentation.html'><img src='piccolo2d-presentation.png'
-            height='146' alt='todo' width='180' /><br />
-             Presentation Tool<br />
-             University of Maryland</a>
-          </td>
-          <td>
-            <a href='http://www.childrenslibrary.org'><img src='bookbuilder_sm.png' alt='todo'
-            width='180' /><br />
-             ICDL Communities<br />
-             University of Maryland</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href='http://www.cs.umd.edu/hcil/netlens/'><img src='NetLens.jpg'
-            alt='todo' /><br />
-             NetLens<br />
-             University of Maryland</a>
-          </td>
-          <td>
-            <a href='http://www.k-sketch.org'><img src='ksketch.png' alt='todo' /><br />
-             K-Sketch<br />
-             University of California, Berkeley</a>
-          </td>
-          <td>
-            &nbsp;
-          </td>
-        </tr>
-      </table>
+      <div class='box'>
+        <a href='http://www.photomesa.com'><img src='photomesa3.png' height='132' alt='todo'
+        width='180' /><br />
+         PhotoMesa<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.cs.umd.edu/hcil/saphari/'><img src='saphari.png' height='145'
+        alt='todo' width='180' /><br />
+         Saphari<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.cs.umd.edu/hcil/biodiversity/'><img src='treeplus.png' height='136'
+        alt='todo' width='180' /><br />
+         TreePlus<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.cs.umd.edu/hcil/paperlens/'><img src='paperlens.png' height='140'
+        alt='todo' width='180' /><br />
+         PaperLens<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='../play/applet/presentation.html'><img src='piccolo2d-presentation.png'
+        height='146' alt='todo' width='180' /><br />
+         Presentation Tool<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.childrenslibrary.org'><img src='bookbuilder_sm.png' alt='todo'
+        width='180' /><br />
+         ICDL Communities<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.cs.umd.edu/hcil/netlens/'><img src='NetLens.jpg' alt='todo' /><br />
+         NetLens<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.k-sketch.org'><img src='ksketch.png' alt='todo' /><br />
+         K-Sketch<br />
+         University of California, Berkeley</a>
+      </div>
+      <div style='clear:left'>
+        &nbsp;
+      </div>
       <h2 id='pocketpiccolo2d_net'>
         PocketPiccolo2D.NET Applications
       </h2>
-      <table summary='PocketPiccolo2D.NET Applications'>
-        <tr>
-          <td>
-            <a href='http://www.cs.umd.edu/hcil/jazz/learn/papers/chi-applens-launchtile.pdf'><img src='applens.png'
-                 height='240' alt='todo' width='180' /><br />
-             AppLens<br />
-             University of Maryland<br />
-             Microsoft Research</a>
-          </td>
-          <td>
-            <a href='http://www.cs.umd.edu/hcil/jazz/learn/papers/chi-applens-launchtile.pdf'><img src='launchtile.png'
-                 height='240' alt='todo' width='180' /><br />
-             LaunchTile<br />
-             University of Maryland<br />
-             Microsoft Research</a>
-          </td>
-        </tr>
-      </table>
+      <div class='box high'>
+        <a href='http://www.cs.umd.edu/hcil/jazz/learn/papers/chi-applens-launchtile.pdf'><img src='applens.png'
+             height='240' alt='todo' width='180' /><br />
+         AppLens<br />
+         University of Maryland<br />
+         Microsoft Research</a>
+      </div>
+      <div class='box high'>
+        <a href='http://www.cs.umd.edu/hcil/jazz/learn/papers/chi-applens-launchtile.pdf'><img src='launchtile.png'
+             height='240' alt='todo' width='180' /><br />
+         LaunchTile<br />
+         University of Maryland<br />
+         Microsoft Research</a>
+      </div>
+      <div style='clear:left'>
+        &nbsp;
+      </div>
       <h2 id='piccolo2d_java'>
         Piccolo2D.Java Applications
       </h2>
-      <table summary='Piccolo2D.Java Applications'>
-        <tr>
-          <td>
-            <a href='http://www.thechiselgroup.org/creole'><img src='creole/creole.png'
-            height='121' alt='todo' width='176' /><br />
-             Creole<br />
-             University of Victoria</a>
-          </td>
-          <td>
-            <a href='http://www.thechiselgroup.org/shrimp'><img src='shrimp/shrimp_sm.png'
-            height='138' alt='todo' width='190' /><br />
-             SHriMP Views<br />
-             University of Victoria</a>
-          </td>
-          <td>
-            <a href='http://www.thechiselgroup.org/jambalaya'><img src='jambalaya/jambalaya.png'
-            height='139' alt='todo' width='187' /><br />
-             Jambalaya<br />
-             University of Victoria</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href='http://hisee.sourceforge.net/'><img src='HiSee/hisee.png' alt='todo'
-            width='170' /><br />
-             HiSee<br />
-             visualizing high-dimensional datasets<br />
-             hisee.sourcefourge.net</a>
-          </td>
-          <td>
-            <a href='http://www.cytoscape.org'><img src='cytoscape.png' height='172'
-            alt='todo' /><br />
-             Cytoscape<br />
-             Visualizing molecular interaction networks</a>
-          </td>
-          <td>
-            <a href='http://www.jdai.dk/'><img src='jdai/jdai.jpeg' height='129' alt='todo'
-            width='161' /><br />
-             Java Digital Album Infrastructure</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href='http://www.gentleware.com'><img src='poseidon-small.jpg' height='154'
-            alt='todo' width='197' /><br />
-             Poseidon UML CASE tool<br />
-             Gentleware</a>
-          </td>
-          <td>
-            <a href='http://simbrain.sourceforge.net/'><img src='simbrain/simbrain.jpg'
-            height='154' alt='todo' width='172' /><br />
-             Simbrain<br />
-             simbrain.sourceforge.net</a>
-          </td>
-          <td>
-            <a href='http://www.cs.umd.edu/hcil/spacetree/'><img src='spacetree.jpg' height='78'
-            alt='todo' /><br />
-             SpaceTree<br />
-             University of Maryland</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href='http://graphexploration.cond.org/'><img src='guess/guess_sm.jpg' height='150'
-            alt='todo' /> Guess<br />
-             Visualizing Zoomable Data Driven Graphs<br />
-             Hewlett-Packard</a>
-          </td>
-          <td>
-            <a href='http://goodle.org/niagara.html'><img src='niagra.jpg' height='144' alt='todo'
-            width='180' /> Niagara<br />
-             University of Maryland</a>
-          </td>
-          <td>
-            <a href='http://www.parc.com/research/publications/details.php?id=5175'><img src='ibookplex.png'
-                 height='161' alt='todo' width='180' /> Instant Bookplex<br />
-             PARC</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href='http://www-2.cs.cmu.edu/~jernst/stem/'><img src='stem2.png' alt='todo'
-            width='197' /> STEM<br />
-             Carnegie Mellon</a>
-          </td>
-          <td>
-            <a href='http://www.cc.gatech.edu/gvu/ii/dnm'><img src='dnm-small.jpg'
-            alt='todo' /><br />
-             Dust &amp; Magnet<br />
-             Georgia Tech</a>
-          </td>
-          <td>
-            <a href='http://www.kerika.com'><img src='kerika.png' alt='todo' /><br />
-             Kerika<br />
-             Kerika, Inc.</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href='http://csbi.sourceforge.net/'><img src='gini.png' alt='todo' width='197' />
-            Gini<br />
-             Institute for Systems Biology</a>
-          </td>
-          <td>
-            <a href='http://www.wavedna.com/'><img src='wavedna.jpg' alt='todo' width='197' />
-            WaveDNA<br />
-             The WaveDNA Project</a>
-          </td>
-          <td>
-            <a href='http://flexo.cismet.de/gadgets/cismap-ogc-client-editor-api/'><img src='cismap.png'
-                 alt='todo' width='197' /> Cismap<br />
-             Cismet Gadgets</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href='http://www.rimey.com/ray/projects.html#anlan'><img src='anlan.jpg'
-            height='150' alt='todo' /><br />
-             Analytic Landscape (Anlan)<br />
-             Lockheed Martin Corporation</a>
-          </td>
-          <td>
-            <a href='http://phet.colorado.edu'><img src='phet.png' height='120' alt='todo'
-            width='172' /><br />
-             Physics Education Technology<br />
-             University of Colorado</a>
-          </td>
-          <td>
-            <a href='http://andrea.l.vitali.googlepages.com/'><img src='zdesktop.png' height='126'
-            alt='todo' /><br />
-             ZDesktop<br />
-             Andrea Lorenzo Vitali</a>
-          </td>
-        </tr>
-      </table>
+      <div class='box'>
+        <a href='http://www.thechiselgroup.org/creole'><img src='creole/creole.png' height='121'
+        alt='todo' width='176' /><br />
+         Creole<br />
+         University of Victoria</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.thechiselgroup.org/shrimp'><img src='shrimp/shrimp_sm.png' height='138'
+        alt='todo' width='190' /><br />
+         SHriMP Views<br />
+         University of Victoria</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.thechiselgroup.org/jambalaya'><img src='jambalaya/jambalaya.png'
+        height='139' alt='todo' width='187' /><br />
+         Jambalaya<br />
+         University of Victoria</a>
+      </div>
+      <div class='box'>
+        <a href='http://hisee.sourceforge.net/'><img src='HiSee/hisee.png' alt='todo'
+        width='170' /><br />
+         HiSee<br />
+         visualizing high-dimensional datasets<br />
+         hisee.sourcefourge.net</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.cytoscape.org'><img src='cytoscape.png' height='172'
+        alt='todo' /><br />
+         Cytoscape<br />
+         Visualizing molecular interaction networks</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.jdai.dk/'><img src='jdai/jdai.jpeg' height='129' alt='todo'
+        width='161' /><br />
+         Java Digital Album Infrastructure</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.gentleware.com'><img src='poseidon-small.jpg' height='154' alt='todo'
+        width='197' /><br />
+         Poseidon UML CASE tool<br />
+         Gentleware</a>
+      </div>
+      <div class='box'>
+        <a href='http://simbrain.sourceforge.net/'><img src='simbrain/simbrain.jpg' height='154'
+        alt='todo' width='172' /><br />
+         Simbrain<br />
+         simbrain.sourceforge.net</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.cs.umd.edu/hcil/spacetree/'><img src='spacetree.jpg' height='78'
+        alt='todo' /><br />
+         SpaceTree<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='http://graphexploration.cond.org/'><img src='guess/guess_sm.jpg' height='150'
+        alt='todo' /><br />
+        Guess<br />
+         Visualizing Zoomable Data Driven Graphs<br />
+         Hewlett-Packard</a>
+      </div>
+      <div class='box'>
+        <a href='http://goodle.org/niagara.html'><img src='niagra.jpg' height='144' alt='todo'
+        width='180' /><br />
+        Niagara<br />
+         University of Maryland</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.parc.com/research/publications/details.php?id=5175'><img src='ibookplex.png'
+             height='161' alt='todo' width='180' /><br />
+        Instant Bookplex<br />
+         PARC</a>
+      </div>
+      <div class='box'>
+        <a href='http://www-2.cs.cmu.edu/~jernst/stem/'><img src='stem2.png' alt='todo'
+        width='197' /><br />
+        STEM<br />
+         Carnegie Mellon</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.cc.gatech.edu/gvu/ii/dnm'><img src='dnm-small.jpg' alt='todo' /><br />
+         Dust &amp; Magnet<br />
+         Georgia Tech</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.kerika.com'><img src='kerika.png' alt='todo' /><br />
+         Kerika<br />
+         Kerika, Inc.</a>
+      </div>
+      <div class='box'>
+        <a href='http://csbi.sourceforge.net/'><img src='gini.png' alt='todo' width='197' /><br />
+         Gini<br />
+         Institute for Systems Biology</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.wavedna.com/'><img src='wavedna.jpg' alt='todo' width='197' /><br />
+         WaveDNA<br />
+         The WaveDNA Project</a>
+      </div>
+      <div class='box'>
+        <a href='http://flexo.cismet.de/gadgets/cismap-ogc-client-editor-api/'><img src='cismap.png'
+             alt='todo' width='197' /><br />
+        Cismap<br />
+         Cismet Gadgets</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.rimey.com/ray/projects.html#anlan'><img src='anlan.jpg' height='150'
+        alt='todo' /><br />
+         Analytic Landscape (Anlan)<br />
+         Lockheed Martin Corporation</a>
+      </div>
+      <div class='box'>
+        <a href='http://phet.colorado.edu'><img src='phet.png' height='120' alt='todo'
+        width='172' /><br />
+         Physics Education Technology<br />
+         University of Colorado</a>
+      </div>
+      <div class='box'>
+        <a href='http://andrea.l.vitali.googlepages.com/'><img src='zdesktop.png' height='126'
+        alt='todo' /><br />
+         ZDesktop<br />
+         Andrea Lorenzo Vitali</a>
+      </div>
+      <div class='box'>
+        <a href='http://www.jcurl.org/wiki/JCurlShotPlanner'><img src='jcurlshotplanner.png'
+        alt='todo' /><br />
+         JCurlShotPlanner<br />
+         www.jcurl.org</a>
+      </div>
+      <div style='clear:left'>
+        &nbsp;
+      </div>
     </div>
   </body>
 </html>
