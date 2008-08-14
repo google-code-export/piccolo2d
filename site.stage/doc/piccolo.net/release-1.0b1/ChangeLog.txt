@@ -1,0 +1,3 @@
+Piccolo 1.0-beta1 ChangeLog
+------------------
+
