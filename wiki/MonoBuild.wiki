@@ -13,8 +13,8 @@ See http://code.google.com/p/piccolo2d/issues/detail?id=60
  * dev-util/git 1.5.6.4
  * dev-util/monodevelop 1.0
 
-Building monodevelop 1.0 required (on a stable amd64) the following keywords:
-<pre>
+Building monodevelop 1.0 required (on a stable amd64) the following `/etc/portage/package.keywords`:
+{{{
 # Mono Develop
 dev-util/monodevelop ~amd64
 dev-util/monodoc ~amd64
@@ -23,4 +23,4 @@ dev-lang/mono ~amd64
 dev-dotnet/libgdiplus ~amd64
 dev-dotnet/gtksourceview-sharp ~amd64
 dev-dotnet/gtk-sharp ~amd64
-</pre>
+}}}
