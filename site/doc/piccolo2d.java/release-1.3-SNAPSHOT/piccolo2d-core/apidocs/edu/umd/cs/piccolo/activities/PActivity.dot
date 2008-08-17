@@ -69,10 +69,10 @@ digraph G {
 	c1679:p -> c1678:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// edu.umd.cs.piccolo.activities.PActivity NAVASSOC edu.umd.cs.piccolo.activities.PActivity.PActivityDelegate
 	c1679:p -> c1680:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
-	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PActivity
-	c1654:p -> c1679:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PInterpolatingActivity
 	c1654:p -> c1673:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PActivity
+	c1654:p -> c1679:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PRoot DEPEND edu.umd.cs.piccolo.activities.PActivityScheduler
 	c1656:p -> c1678:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PRoot DEPEND edu.umd.cs.piccolo.activities.PActivity

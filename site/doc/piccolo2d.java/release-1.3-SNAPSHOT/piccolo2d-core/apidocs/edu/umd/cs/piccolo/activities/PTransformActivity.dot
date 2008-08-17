@@ -50,9 +50,9 @@ digraph G {
 	c1562:p -> c1563:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open];
 	// edu.umd.cs.piccolo.PCamera DEPEND edu.umd.cs.piccolo.activities.PTransformActivity
 	c1539:p -> c1562:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
-	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PTransformActivity
-	c1540:p -> c1562:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PInterpolatingActivity
 	c1540:p -> c1559:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
+	// edu.umd.cs.piccolo.PNode DEPEND edu.umd.cs.piccolo.activities.PTransformActivity
+	c1540:p -> c1562:p [taillabel="", label="", headlabel="", fontname="Helvetica", fontcolor="black", fontsize=10.0, color="black", arrowhead=open, style=dashed];
 }
 

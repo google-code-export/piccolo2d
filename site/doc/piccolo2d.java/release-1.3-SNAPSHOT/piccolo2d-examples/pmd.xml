@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.2" timestamp="2008-07-31T03:50:59.001">
-<file name="/home/m/work/piccolo2d/piccolo2d.java/examples/src/main/java/edu/umd/cs/piccolo/examples/ScrollingExample.java">
-<violation beginline="173" endline="215" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.examples" class="ScrollingExample$DocumentScrollDirector" method="setViewPosition" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<pmd version="4.2.2" timestamp="2008-08-17T23:39:02.488">
+<file name="/home/m/work/piccolo2d/piccolo2d.java.git/examples/src/main/java/edu/umd/cs/piccolo/examples/ScrollingExample.java">
+<violation beginline="174" endline="215" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.examples" class="ScrollingExample$DocumentScrollDirector" method="setViewPosition" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
 </file>
-<file name="/home/m/work/piccolo2d/piccolo2d.java/examples/src/main/java/edu/umd/cs/piccolo/swtexamples/SWTBenchTest.java">
-<violation beginline="194" endline="195" begincolumn="19" endcolumn="17" rule="EmptyCatchBlock" ruleset="Basic Rules" package="edu.umd.cs.piccolo.swtexamples" class="SWTBenchTest" method="loadImage" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
+<file name="/home/m/work/piccolo2d/piccolo2d.java.git/examples/src/main/java/edu/umd/cs/piccolo/swtexamples/SWTBenchTest.java">
+<violation beginline="175" endline="176" begincolumn="9" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="edu.umd.cs.piccolo.swtexamples" class="SWTBenchTest" method="loadImage" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
 </file>

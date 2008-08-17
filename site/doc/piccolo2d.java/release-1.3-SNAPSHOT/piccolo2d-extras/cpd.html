@@ -42,7 +42,7 @@
   
     
             <div class="xleft">
-        Last Published: 2008-07-31
+        Last Published: 2008-08-17
                       </div>
             <div class="xright">      
   
@@ -117,6 +117,10 @@
       
             
       
+            
+      
+            
+      
               
         <li class="collapsed">
                     <a href="project-info.html">Project Information</a>
@@ -128,7 +132,13 @@
             
       
             
+      
             
+            
+            
+      
+            
+      
             
       
             
@@ -153,6 +163,10 @@
                   <ul>
                   
     <li class="none">
+                    <a href="changelog.html">Change Log</a>
+          </li>
+                  
+    <li class="none">
                     <a href="checkstyle.html">Checkstyle</a>
           </li>
                   
@@ -163,6 +177,14 @@
     <li class="none">
               <strong>CPD Report</strong>
         </li>
+                  
+    <li class="none">
+                    <a href="dev-activity.html">Developer Activity</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="file-activity.html">File Activity</a>
+          </li>
                   
     <li class="none">
                     <a href="findbugs.html">FindBugs Report</a>
@@ -218,7 +240,7 @@
     <div id="bodyColumn">
       <div id="contentBox">
         <div class="section"><h2>CPD Results</h2>
-<p>The following document contains the results of PMD's  <a href="http://pmd.sourceforge.net/cpd.html" class="externalLink">CPD</a>
+<p>The following document contains the results of PMD's  <a class="externalLink" href="http://pmd.sourceforge.net/cpd.html">CPD</a>
  4.2.2.</p>
 </div>
 <div class="section"><h2>Duplications</h2>
@@ -226,125 +248,126 @@
 <th>Line</th>
 </tr>
 <tr class="b"><td>edu/umd/cs/piccolox/handles/PBoundsHandle.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/handles/PBoundsHandle.html#114">114</a>
+<td><a href="./xref/edu/umd/cs/piccolox/handles/PBoundsHandle.html#116">116</a>
 </td>
 </tr>
 <tr class="a"><td>edu/umd/cs/piccolox/swt/PSWTBoundsHandle.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTBoundsHandle.html#114">114</a>
+<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTBoundsHandle.html#117">117</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>					if (focus == null || focus.getPickedNode() != PSWTBoundsHandle.this) {
-						aEvent.popCursor();
-						cursorPushed = false;
-					}
-				}
-			}
-			public void mouseReleased(PInputEvent event) {
-				if (cursorPushed) {
-					event.popCursor();
-					cursorPushed = false;
-				}
-			}
-		};
-		addInputEventListener(handleCursorHandler);
-	}	
+<tr class="b"><td colspan='2'><div class="source"><pre>                    if (focus == null || focus.getPickedNode() != PSWTBoundsHandle.this) {
+                        aEvent.popCursor();
+                        cursorPushed = false;
+                    }
+                }
+            }
 
-	/**
-	 * Return the event handler that is responsible for setting the mouse
-	 * cursor when it enters/exits this handle.
-	 */
-	public PBasicInputEventHandler getHandleCursorEventHandler() {
-		return handleCursorHandler;
-	}
-	
-	public void startHandleDrag(Point2D aLocalPoint, PInputEvent aEvent) {
-		PBoundsLocator l = (PBoundsLocator) getLocator();
-		l.getNode().startResizeBounds();
-	}
-	
-	public void dragHandle(PDimension aLocalDimension, PInputEvent aEvent) {
-	    PBoundsLocator l = (PBoundsLocator) getLocator();
-				
-		PNode n = l.getNode();
-		PBounds b = n.getBounds();
+            public void mouseReleased(PInputEvent event) {
+                if (cursorPushed) {
+                    event.popCursor();
+                    cursorPushed = false;
+                }
+            }
+        };
+        addInputEventListener(handleCursorHandler);
+    }
 
-		PNode parent = getParent();
-		if (parent != n &amp;&amp; parent instanceof PCamera) {
-			((PCamera)parent).localToView(aLocalDimension);
-		}
+    /**
+     * Return the event handler that is responsible for setting the mouse cursor
+     * when it enters/exits this handle.
+     */
+    public PBasicInputEventHandler getHandleCursorEventHandler() {
+        return handleCursorHandler;
+    }
 
-		localToGlobal(aLocalDimension);
-		n.globalToLocal(aLocalDimension);
-		
-		double dx = aLocalDimension.getWidth();
-		double dy = aLocalDimension.getHeight();
-			
-		switch (l.getSide()) {
-			case SwingConstants.NORTH:
-				b.setRect(b.x, b.y + dy, b.width, b.height - dy);
-				break;
-			
-			case SwingConstants.SOUTH:
-				b.setRect(b.x, b.y, b.width, b.height + dy);
-				break;
-			
-			case SwingConstants.EAST:
-				b.setRect(b.x, b.y, b.width + dx, b.height);
-				break;
-			
-			case SwingConstants.WEST:
-				b.setRect(b.x + dx, b.y, b.width - dx, b.height);
-				break;
-			
-			case SwingConstants.NORTH_WEST:
-				b.setRect(b.x + dx, b.y + dy, b.width - dx, b.height - dy);
-				break;
-			
-			case SwingConstants.SOUTH_WEST:
-				b.setRect(b.x + dx, b.y, b.width - dx, b.height + dy);
-				break;
-			
-			case SwingConstants.NORTH_EAST:
-				b.setRect(b.x, b.y + dy, b.width + dx, b.height - dy);
-				break;
-			
-			case SwingConstants.SOUTH_EAST:
-				b.setRect(b.x, b.y, b.width + dx, b.height + dy);
-				break;
-		}
-		
-		boolean flipX = false;
-		boolean flipY = false;
-		
-		if (b.width &lt; 0) {
-			flipX = true;
-			b.width = -b.width;
-			b.x -= b.width;
-		}
-		
-		if (b.height &lt; 0) {
-			flipY = true;
-			b.height = -b.height;
-			b.y -= b.height;
-		}
-		
-		if (flipX || flipY) {
-			flipSiblingBoundsHandles(flipX, flipY);
-		}
-		
-		n.setBounds(b);
-	}
-	
-	public void endHandleDrag(Point2D aLocalPoint, PInputEvent aEvent) {
-		PBoundsLocator l = (PBoundsLocator) getLocator();
-		l.getNode().endResizeBounds();
-	}	
-	
-	public void flipSiblingBoundsHandles(boolean flipX, boolean flipY) {
-		Iterator i = getParent().getChildrenIterator();
-		while (i.hasNext()) {
-			Object each = i.next();
-			if (each instanceof PSWTBoundsHandle) {</pre>
+    public void startHandleDrag(Point2D aLocalPoint, PInputEvent aEvent) {
+        PBoundsLocator l = (PBoundsLocator) getLocator();
+        l.getNode().startResizeBounds();
+    }
+
+    public void dragHandle(PDimension aLocalDimension, PInputEvent aEvent) {
+        PBoundsLocator l = (PBoundsLocator) getLocator();
+
+        PNode n = l.getNode();
+        PBounds b = n.getBounds();
+
+        PNode parent = getParent();
+        if (parent != n &amp;&amp; parent instanceof PCamera) {
+            ((PCamera) parent).localToView(aLocalDimension);
+        }
+
+        localToGlobal(aLocalDimension);
+        n.globalToLocal(aLocalDimension);
+
+        double dx = aLocalDimension.getWidth();
+        double dy = aLocalDimension.getHeight();
+
+        switch (l.getSide()) {
+            case SwingConstants.NORTH:
+                b.setRect(b.x, b.y + dy, b.width, b.height - dy);
+                break;
+
+            case SwingConstants.SOUTH:
+                b.setRect(b.x, b.y, b.width, b.height + dy);
+                break;
+
+            case SwingConstants.EAST:
+                b.setRect(b.x, b.y, b.width + dx, b.height);
+                break;
+
+            case SwingConstants.WEST:
+                b.setRect(b.x + dx, b.y, b.width - dx, b.height);
+                break;
+
+            case SwingConstants.NORTH_WEST:
+                b.setRect(b.x + dx, b.y + dy, b.width - dx, b.height - dy);
+                break;
+
+            case SwingConstants.SOUTH_WEST:
+                b.setRect(b.x + dx, b.y, b.width - dx, b.height + dy);
+                break;
+
+            case SwingConstants.NORTH_EAST:
+                b.setRect(b.x, b.y + dy, b.width + dx, b.height - dy);
+                break;
+
+            case SwingConstants.SOUTH_EAST:
+                b.setRect(b.x, b.y, b.width + dx, b.height + dy);
+                break;
+        }
+
+        boolean flipX = false;
+        boolean flipY = false;
+
+        if (b.width &lt; 0) {
+            flipX = true;
+            b.width = -b.width;
+            b.x -= b.width;
+        }
+
+        if (b.height &lt; 0) {
+            flipY = true;
+            b.height = -b.height;
+            b.y -= b.height;
+        }
+
+        if (flipX || flipY) {
+            flipSiblingBoundsHandles(flipX, flipY);
+        }
+
+        n.setBounds(b);
+    }
+
+    public void endHandleDrag(Point2D aLocalPoint, PInputEvent aEvent) {
+        PBoundsLocator l = (PBoundsLocator) getLocator();
+        l.getNode().endResizeBounds();
+    }
+
+    public void flipSiblingBoundsHandles(boolean flipX, boolean flipY) {
+        Iterator i = getParent().getChildrenIterator();
+        while (i.hasNext()) {
+            Object each = i.next();
+            if (each instanceof PSWTBoundsHandle) {</pre>
 </div>
 </td></tr>
 <table class="bodyTable"></p>
@@ -352,85 +375,78 @@
 <th>Line</th>
 </tr>
 <tr class="b"><td>edu/umd/cs/piccolox/nodes/PStyledText.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/nodes/PStyledText.html#225">225</a>
+<td><a href="./xref/edu/umd/cs/piccolox/nodes/PStyledText.html#231">231</a>
 </td>
 </tr>
 <tr class="a"><td>edu/umd/cs/piccolox/nodes/PStyledText.java</td>
 <td><a href="./xref/edu/umd/cs/piccolox/nodes/PStyledText.html#303">303</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>			else {
-				// Before each pass, start at the root
-				curElement = rootElement;
+<tr class="b"><td colspan='2'><div class="source"><pre>            else {
+                // Before each pass, start at the root
+                curElement = rootElement;
 
-				// Now we descend the hierarchy until we get to a leaf
-				while (!curElement.isLeaf()) {
-					curElement =
-						curElement.getElement(curElement.getElementIndex(pos));
-				}
+                // Now we descend the hierarchy until we get to a leaf
+                while (!curElement.isLeaf()) {
+                    curElement = curElement.getElement(curElement.getElementIndex(pos));
+                }
 
-				// These are the mandatory attributes
-				
-				AttributeSet attributes = curElement.getAttributes();
-				Color foreground = style.getForeground(attributes);
+                // These are the mandatory attributes
 
-				((AttributedString)stringContents.get(i)).addAttribute(
-					TextAttribute.FOREGROUND,
-					foreground,
-					(int)Math.max(0,curElement.getStartOffset()-pEnd.runStart),
-					(int)Math.min(pEnd.runLimit-pEnd.runStart,curElement.getEndOffset()-pEnd.runStart));			
+                AttributeSet attributes = curElement.getAttributes();
+                Color foreground = style.getForeground(attributes);
 
-				// These are the optional attributes
+                ((AttributedString) stringContents.get(i)).addAttribute(TextAttribute.FOREGROUND, foreground,
+                        (int) Math.max(0, curElement.getStartOffset() - pEnd.runStart), (int) Math.min(pEnd.runLimit
+                                - pEnd.runStart, curElement.getEndOffset() - pEnd.runStart));
 
-				Font font = (attributes.isDefined(StyleConstants.FontSize) || attributes.isDefined(StyleConstants.FontFamily)) ? style.getFont(attributes) : null;
-				if (font == null) {
-				    if (document instanceof DefaultStyledDocument) {
-				        font = style.getFont(((DefaultStyledDocument)document).getCharacterElement(pos).getAttributes());
-				        if (font == null) {
-				            font = style.getFont(((DefaultStyledDocument)document).getParagraphElement(pos).getAttributes());
-				        }
-				        if (font == null) {
-				            font = style.getFont(rootElement.getAttributes());
-				        }
-				    }
-				    else {
-				        font = style.getFont(rootElement.getAttributes());
-				    }
-				}					
-				if (font != null) {
-					((AttributedString)stringContents.get(i)).addAttribute(
-							TextAttribute.FONT,
-							font,
-							(int)Math.max(0,curElement.getStartOffset()-pEnd.runStart),
-							(int)Math.min(pEnd.runLimit-pEnd.runStart,curElement.getEndOffset()-pEnd.runStart));				    
-				}				
-				
-				Color background = (attributes.isDefined(StyleConstants.Background)) ? style.getBackground(attributes) : null;
-				if (background != null) {
-					((AttributedString)stringContents.get(i)).addAttribute(
-							TextAttribute.BACKGROUND,
-							background,
-							(int)Math.max(0,curElement.getStartOffset()-pEnd.runStart),
-							(int)Math.min(pEnd.runLimit-pEnd.runStart,curElement.getEndOffset()-pEnd.runStart));					    
-				}
-				
-				boolean underline = StyleConstants.isUnderline(attributes);
-				if (underline) {
-					((AttributedString)stringContents.get(i)).addAttribute(
-						TextAttribute.UNDERLINE,
-						Boolean.TRUE,
-						(int)Math.max(0,curElement.getStartOffset()-pEnd.runStart),
-						(int)Math.min(pEnd.runLimit-pEnd.runStart,curElement.getEndOffset()-pEnd.runStart));						
-				}
-					
-				boolean strikethrough = StyleConstants.isStrikeThrough(attributes);
-				if (strikethrough) {
-					((AttributedString)stringContents.get(i)).addAttribute(
-						TextAttribute.STRIKETHROUGH,
-						Boolean.TRUE,
-						(int)Math.max(0,curElement.getStartOffset()-pEnd.runStart),
-						(int)Math.min(pEnd.runLimit-pEnd.runStart,curElement.getEndOffset()-pEnd.runStart));						
-				}</pre>
+                // These are the optional attributes
+
+                Font font = (attributes.isDefined(StyleConstants.FontSize) || attributes
+                        .isDefined(StyleConstants.FontFamily)) ? style.getFont(attributes) : null;
+                if (font == null) {
+                    if (document instanceof DefaultStyledDocument) {
+                        font = style.getFont(((DefaultStyledDocument) document).getCharacterElement(pos)
+                                .getAttributes());
+                        if (font == null) {
+                            font = style.getFont(((DefaultStyledDocument) document).getParagraphElement(pos)
+                                    .getAttributes());
+                        }
+                        if (font == null) {
+                            font = style.getFont(rootElement.getAttributes());
+                        }
+                    }
+                    else {
+                        font = style.getFont(rootElement.getAttributes());
+                    }
+                }
+                if (font != null) {
+                    ((AttributedString) stringContents.get(i)).addAttribute(TextAttribute.FONT, font, (int) Math.max(0,
+                            curElement.getStartOffset() - pEnd.runStart), (int) Math.min(pEnd.runLimit - pEnd.runStart,
+                            curElement.getEndOffset() - pEnd.runStart));
+                }
+
+                Color background = (attributes.isDefined(StyleConstants.Background)) ? style.getBackground(attributes)
+                        : null;
+                if (background != null) {
+                    ((AttributedString) stringContents.get(i)).addAttribute(TextAttribute.BACKGROUND, background,
+                            (int) Math.max(0, curElement.getStartOffset() - pEnd.runStart), (int) Math.min(
+                                    pEnd.runLimit - pEnd.runStart, curElement.getEndOffset() - pEnd.runStart));
+                }
+
+                boolean underline = StyleConstants.isUnderline(attributes);
+                if (underline) {
+                    ((AttributedString) stringContents.get(i)).addAttribute(TextAttribute.UNDERLINE, Boolean.TRUE,
+                            (int) Math.max(0, curElement.getStartOffset() - pEnd.runStart), (int) Math.min(
+                                    pEnd.runLimit - pEnd.runStart, curElement.getEndOffset() - pEnd.runStart));
+                }
+
+                boolean strikethrough = StyleConstants.isStrikeThrough(attributes);
+                if (strikethrough) {
+                    ((AttributedString) stringContents.get(i)).addAttribute(TextAttribute.STRIKETHROUGH, Boolean.TRUE,
+                            (int) Math.max(0, curElement.getStartOffset() - pEnd.runStart), (int) Math.min(
+                                    pEnd.runLimit - pEnd.runStart, curElement.getEndOffset() - pEnd.runStart));
+                }</pre>
 </div>
 </td></tr>
 <table class="bodyTable"></p>
@@ -438,130 +454,138 @@
 <th>Line</th>
 </tr>
 <tr class="b"><td>edu/umd/cs/piccolox/handles/PBoundsHandle.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/handles/PBoundsHandle.html#226">226</a>
+<td><a href="./xref/edu/umd/cs/piccolox/handles/PBoundsHandle.html#229">229</a>
 </td>
 </tr>
 <tr class="a"><td>edu/umd/cs/piccolox/swt/PSWTBoundsHandle.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTBoundsHandle.html#226">226</a>
+<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTBoundsHandle.html#230">230</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>				((PSWTBoundsHandle)each).flipHandleIfNeeded(flipX, flipY);
-			}
-		}
-	}
-	
-	public void flipHandleIfNeeded(boolean flipX, boolean flipY) {		
-		PBoundsLocator l = (PBoundsLocator) getLocator();	
-		
-		if (flipX || flipY) {		
-			switch (l.getSide()) {
-				case SwingConstants.NORTH: {
-					if (flipY) {
-						l.setSide(SwingConstants.SOUTH);
-					}					
-					break;
-				}
-				
-				case SwingConstants.SOUTH: {
-					if (flipY) {
-						l.setSide(SwingConstants.NORTH);
-					}					
-					break;
-				}
-				
-				case SwingConstants.EAST: {
-					if (flipX) {
-						l.setSide(SwingConstants.WEST);
-					}					
-					break;
-				}
-				
-				case SwingConstants.WEST: {
-					if (flipX) {
-						l.setSide(SwingConstants.EAST);
-					}					
-					break;
-				}
-								
-				case SwingConstants.NORTH_WEST: {
-					if (flipX &amp;&amp; flipY) {
-						l.setSide(SwingConstants.SOUTH_EAST);
-					} else if (flipX) {
-						l.setSide(SwingConstants.NORTH_EAST);
-					} else if (flipY) {
-						l.setSide(SwingConstants.SOUTH_WEST);
-					}
-					
-					break;
-				}
-				
-				case SwingConstants.SOUTH_WEST: {
-					if (flipX &amp;&amp; flipY) {
-						l.setSide(SwingConstants.NORTH_EAST);
-					} else if (flipX) {
-						l.setSide(SwingConstants.SOUTH_EAST);
-					} else if (flipY) {
-						l.setSide(SwingConstants.NORTH_WEST);
-					}
-					break;
-				}
-				
-				case SwingConstants.NORTH_EAST: {
-					if (flipX &amp;&amp; flipY) {
-						l.setSide(SwingConstants.SOUTH_WEST);
-					} else if (flipX) {
-						l.setSide(SwingConstants.NORTH_WEST);
-					} else if (flipY) {
-						l.setSide(SwingConstants.SOUTH_EAST);
-					}
-					break;
-				}
-				
-				case SwingConstants.SOUTH_EAST: {
-					if (flipX &amp;&amp; flipY) {
-						l.setSide(SwingConstants.NORTH_WEST);
-					} else if (flipX) {
-						l.setSide(SwingConstants.SOUTH_WEST);
-					} else if (flipY) {
-						l.setSide(SwingConstants.NORTH_EAST);
-					}
-					break;
-				}
-			}
-		}
-		
-		// reset locator to update layout
-		setLocator(l);
-	}
-	
-	public Cursor getCursorFor(int side) {
-		switch (side) {
-			case SwingConstants.NORTH:
-				return new Cursor(Cursor.N_RESIZE_CURSOR);
+<tr class="b"><td colspan='2'><div class="source"><pre>                ((PSWTBoundsHandle) each).flipHandleIfNeeded(flipX, flipY);
+            }
+        }
+    }
 
-			case SwingConstants.SOUTH:
-				return new Cursor(Cursor.S_RESIZE_CURSOR);
-				
-			case SwingConstants.EAST:
-				return new Cursor(Cursor.E_RESIZE_CURSOR);
-				
-			case SwingConstants.WEST:
-				return new Cursor(Cursor.W_RESIZE_CURSOR);
-				
-			case SwingConstants.NORTH_WEST:
-				return new Cursor(Cursor.NW_RESIZE_CURSOR);
-				
-			case SwingConstants.SOUTH_WEST:
-				return new Cursor(Cursor.SW_RESIZE_CURSOR);
-				
-			case SwingConstants.NORTH_EAST:
-				return new Cursor(Cursor.NE_RESIZE_CURSOR);
-				
-			case SwingConstants.SOUTH_EAST:
-				return new Cursor(Cursor.SE_RESIZE_CURSOR);
-		}
-		return null;
-	}
+    public void flipHandleIfNeeded(boolean flipX, boolean flipY) {
+        PBoundsLocator l = (PBoundsLocator) getLocator();
+
+        if (flipX || flipY) {
+            switch (l.getSide()) {
+                case SwingConstants.NORTH: {
+                    if (flipY) {
+                        l.setSide(SwingConstants.SOUTH);
+                    }
+                    break;
+                }
+
+                case SwingConstants.SOUTH: {
+                    if (flipY) {
+                        l.setSide(SwingConstants.NORTH);
+                    }
+                    break;
+                }
+
+                case SwingConstants.EAST: {
+                    if (flipX) {
+                        l.setSide(SwingConstants.WEST);
+                    }
+                    break;
+                }
+
+                case SwingConstants.WEST: {
+                    if (flipX) {
+                        l.setSide(SwingConstants.EAST);
+                    }
+                    break;
+                }
+
+                case SwingConstants.NORTH_WEST: {
+                    if (flipX &amp;&amp; flipY) {
+                        l.setSide(SwingConstants.SOUTH_EAST);
+                    }
+                    else if (flipX) {
+                        l.setSide(SwingConstants.NORTH_EAST);
+                    }
+                    else if (flipY) {
+                        l.setSide(SwingConstants.SOUTH_WEST);
+                    }
+
+                    break;
+                }
+
+                case SwingConstants.SOUTH_WEST: {
+                    if (flipX &amp;&amp; flipY) {
+                        l.setSide(SwingConstants.NORTH_EAST);
+                    }
+                    else if (flipX) {
+                        l.setSide(SwingConstants.SOUTH_EAST);
+                    }
+                    else if (flipY) {
+                        l.setSide(SwingConstants.NORTH_WEST);
+                    }
+                    break;
+                }
+
+                case SwingConstants.NORTH_EAST: {
+                    if (flipX &amp;&amp; flipY) {
+                        l.setSide(SwingConstants.SOUTH_WEST);
+                    }
+                    else if (flipX) {
+                        l.setSide(SwingConstants.NORTH_WEST);
+                    }
+                    else if (flipY) {
+                        l.setSide(SwingConstants.SOUTH_EAST);
+                    }
+                    break;
+                }
+
+                case SwingConstants.SOUTH_EAST: {
+                    if (flipX &amp;&amp; flipY) {
+                        l.setSide(SwingConstants.NORTH_WEST);
+                    }
+                    else if (flipX) {
+                        l.setSide(SwingConstants.SOUTH_WEST);
+                    }
+                    else if (flipY) {
+                        l.setSide(SwingConstants.NORTH_EAST);
+                    }
+                    break;
+                }
+            }
+        }
+
+        // reset locator to update layout
+        setLocator(l);
+    }
+
+    public Cursor getCursorFor(int side) {
+        switch (side) {
+            case SwingConstants.NORTH:
+                return new Cursor(Cursor.N_RESIZE_CURSOR);
+
+            case SwingConstants.SOUTH:
+                return new Cursor(Cursor.S_RESIZE_CURSOR);
+
+            case SwingConstants.EAST:
+                return new Cursor(Cursor.E_RESIZE_CURSOR);
+
+            case SwingConstants.WEST:
+                return new Cursor(Cursor.W_RESIZE_CURSOR);
+
+            case SwingConstants.NORTH_WEST:
+                return new Cursor(Cursor.NW_RESIZE_CURSOR);
+
+            case SwingConstants.SOUTH_WEST:
+                return new Cursor(Cursor.SW_RESIZE_CURSOR);
+
+            case SwingConstants.NORTH_EAST:
+                return new Cursor(Cursor.NE_RESIZE_CURSOR);
+
+            case SwingConstants.SOUTH_EAST:
+                return new Cursor(Cursor.SE_RESIZE_CURSOR);
+        }
+        return null;
+    }
 }</pre>
 </div>
 </td></tr>
@@ -570,135 +594,137 @@
 <th>Line</th>
 </tr>
 <tr class="b"><td>edu/umd/cs/piccolox/handles/PHandle.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/handles/PHandle.html#97">97</a>
+<td><a href="./xref/edu/umd/cs/piccolox/handles/PHandle.html#99">99</a>
 </td>
 </tr>
 <tr class="a"><td>edu/umd/cs/piccolox/swt/PSWTHandle.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTHandle.html#96">96</a>
+<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTHandle.html#99">99</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>				endHandleDrag(event.getPositionRelativeTo(PSWTHandle.this), event);
-			}
-		};
+<tr class="b"><td colspan='2'><div class="source"><pre>                endHandleDrag(event.getPositionRelativeTo(PSWTHandle.this), event);
+            }
+        };
 
-		addPropertyChangeListener(PNode.PROPERTY_TRANSFORM, new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent evt) {
-				relocateHandle();
-			}
-		}); 	
-		
-		handleDragger.setEventFilter(new PInputEventFilter(InputEvent.BUTTON1_MASK));
-		handleDragger.getEventFilter().setMarksAcceptedEventsAsHandled(true);
-		handleDragger.getEventFilter().setAcceptsMouseEntered(false);
-		handleDragger.getEventFilter().setAcceptsMouseExited(false);
-		handleDragger.getEventFilter().setAcceptsMouseMoved(false); 	// no need for moved events for handle interaction, 
-																		// so reject them so we don't consume them
-		addInputEventListener(handleDragger);
-	}
-	
-	/**
-	 * Return the event handler that is responsible for the drag handle
-	 * interaction.
-	 */
-	public PDragSequenceEventHandler getHandleDraggerHandler() {
-		return handleDragger;
-	}	
+        addPropertyChangeListener(PNode.PROPERTY_TRANSFORM, new PropertyChangeListener() {
+            public void propertyChange(PropertyChangeEvent evt) {
+                relocateHandle();
+            }
+        });
 
-	/**
-	 * Get the locator that this handle uses to position itself on its
-	 * parent node.
-	 */
-	public PLocator getLocator() {
-		return locator;
-	}
-	
-	/**
-	 * Set the locator that this handle uses to position itself on its
-	 * parent node.
-	 */
-	public void setLocator(PLocator aLocator) {
-		locator = aLocator;
-		invalidatePaint();
-		relocateHandle();
-	}
-	
-	//****************************************************************
-	// Handle Dragging - These are the methods the subclasses should
-	// normally override to give a handle unique behavior.
-	//****************************************************************
-	
-	/**
-	 * Override this method to get notified when the handle starts to get dragged.
-	 */
-	public void startHandleDrag(Point2D aLocalPoint, PInputEvent aEvent) {
-	}
-	
-	/**
-	 * Override this method to get notified as the handle is dragged.
-	 */
-	public void dragHandle(PDimension aLocalDimension, PInputEvent aEvent) {
-	}
-	
-	/**
-	 * Override this method to get notified when the handle stops getting dragged.
-	 */
-	public void endHandleDrag(Point2D aLocalPoint, PInputEvent aEvent) {
-	}
-	
-	//****************************************************************
-	// Layout - When a handle's parent's layout changes the handle
-	// invalidates its own layout and then repositions itself on its
-	// parents bounds using its locator to determine that new
-	// position.
-	//****************************************************************
-	
-	public void setParent(PNode newParent) {
-		super.setParent(newParent);
-		relocateHandle();
-	}
-	
-	public void parentBoundsChanged() {
-		relocateHandle();
-	}
-		
-	/**
-	 * Force this handle to relocate itself using its locator.
-	 */
-	public void relocateHandle() {
-		if (locator != null) {
-			PBounds b = getBoundsReference();
-			Point2D aPoint = locator.locatePoint(null);
-			
-			if (locator instanceof PNodeLocator) {
-				PNode located = ((PNodeLocator)locator).getNode();
-				PNode parent = getParent();
-				
-				located.localToGlobal(aPoint);
-				globalToLocal(aPoint);
-				
-				if (parent != located &amp;&amp; parent instanceof PCamera) {
-					((PCamera)parent).viewToLocal(aPoint);
-				}
-			}
-			
-			double newCenterX = aPoint.getX();
-			double newCenterY = aPoint.getY();
+        handleDragger.setEventFilter(new PInputEventFilter(InputEvent.BUTTON1_MASK));
+        handleDragger.getEventFilter().setMarksAcceptedEventsAsHandled(true);
+        handleDragger.getEventFilter().setAcceptsMouseEntered(false);
+        handleDragger.getEventFilter().setAcceptsMouseExited(false);
+        // no need for moved events for handle interaction,
+        handleDragger.getEventFilter().setAcceptsMouseMoved(false);
+        // so reject them so we don't consume them
+        addInputEventListener(handleDragger);
+    }
 
-			if (newCenterX != b.getCenterX() ||
-				newCenterY != b.getCenterY()) {
-				centerBoundsOnPoint(newCenterX, newCenterY);
-			}
-		}
-	}
-		
-	//****************************************************************
-	// Serialization
-	//****************************************************************
-	
-	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
-		in.defaultReadObject();
-		installHandleEventHandlers();
-	}
+    /**
+     * Return the event handler that is responsible for the drag handle
+     * interaction.
+     */
+    public PDragSequenceEventHandler getHandleDraggerHandler() {
+        return handleDragger;
+    }
+
+    /**
+     * Get the locator that this handle uses to position itself on its parent
+     * node.
+     */
+    public PLocator getLocator() {
+        return locator;
+    }
+
+    /**
+     * Set the locator that this handle uses to position itself on its parent
+     * node.
+     */
+    public void setLocator(PLocator aLocator) {
+        locator = aLocator;
+        invalidatePaint();
+        relocateHandle();
+    }
+
+    // ****************************************************************
+    // Handle Dragging - These are the methods the subclasses should
+    // normally override to give a handle unique behavior.
+    // ****************************************************************
+
+    /**
+     * Override this method to get notified when the handle starts to get
+     * dragged.
+     */
+    public void startHandleDrag(Point2D aLocalPoint, PInputEvent aEvent) {
+    }
+
+    /**
+     * Override this method to get notified as the handle is dragged.
+     */
+    public void dragHandle(PDimension aLocalDimension, PInputEvent aEvent) {
+    }
+
+    /**
+     * Override this method to get notified when the handle stops getting
+     * dragged.
+     */
+    public void endHandleDrag(Point2D aLocalPoint, PInputEvent aEvent) {
+    }
+
+    // ****************************************************************
+    // Layout - When a handle's parent's layout changes the handle
+    // invalidates its own layout and then repositions itself on its
+    // parents bounds using its locator to determine that new
+    // position.
+    // ****************************************************************
+
+    public void setParent(PNode newParent) {
+        super.setParent(newParent);
+        relocateHandle();
+    }
+
+    public void parentBoundsChanged() {
+        relocateHandle();
+    }
+
+    /**
+     * Force this handle to relocate itself using its locator.
+     */
+    public void relocateHandle() {
+        if (locator != null) {
+            PBounds b = getBoundsReference();
+            Point2D aPoint = locator.locatePoint(null);
+
+            if (locator instanceof PNodeLocator) {
+                PNode located = ((PNodeLocator) locator).getNode();
+                PNode parent = getParent();
+
+                located.localToGlobal(aPoint);
+                globalToLocal(aPoint);
+
+                if (parent != located &amp;&amp; parent instanceof PCamera) {
+                    ((PCamera) parent).viewToLocal(aPoint);
+                }
+            }
+
+            double newCenterX = aPoint.getX();
+            double newCenterY = aPoint.getY();
+
+            if (newCenterX != b.getCenterX() || newCenterY != b.getCenterY()) {
+                centerBoundsOnPoint(newCenterX, newCenterY);
+            }
+        }
+    }
+
+    // ****************************************************************
+    // Serialization
+    // ****************************************************************
+
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        installHandleEventHandlers();
+    }
 }</pre>
 </div>
 </td></tr>
@@ -714,50 +740,50 @@
 <td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTStickyHandleManager.html#44">44</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>		PSWTBoundsHandle.addBoundsHandlesTo(this);
-	}
+<tr class="b"><td colspan='2'><div class="source"><pre>        PSWTBoundsHandle.addBoundsHandlesTo(this);
+    }
 
-	public void setCameraTarget(PCamera newCamera, PNode newTarget) {
-		camera = newCamera;
-		camera.addChild(this);
-		target = newTarget;
-	}
-	
-	public boolean setBounds(double x, double y, double width, double height) {
-		PBounds b = new PBounds(x, y, width, height);
-		camera.localToGlobal(b);
-		camera.localToView(b);
-		target.globalToLocal(b);
-		target.setBounds(b);
-		return super.setBounds(x, y, width, height);
-	}
-	
-	protected boolean getBoundsVolatile() {
-		return true;
-	}
+    public void setCameraTarget(PCamera newCamera, PNode newTarget) {
+        camera = newCamera;
+        camera.addChild(this);
+        target = newTarget;
+    }
 
-	public PBounds getBoundsReference() {
-		PBounds targetBounds = target.getFullBounds();
-		camera.viewToLocal(targetBounds);
-		camera.globalToLocal(targetBounds);
-		PBounds bounds = super.getBoundsReference();
-		bounds.setRect(targetBounds);
-		return super.getBoundsReference();
-	}
+    public boolean setBounds(double x, double y, double width, double height) {
+        PBounds b = new PBounds(x, y, width, height);
+        camera.localToGlobal(b);
+        camera.localToView(b);
+        target.globalToLocal(b);
+        target.setBounds(b);
+        return super.setBounds(x, y, width, height);
+    }
 
-	public void startResizeBounds() {
-		super.startResizeBounds();
-		target.startResizeBounds();
-	}
+    protected boolean getBoundsVolatile() {
+        return true;
+    }
 
-	public void endResizeBounds() {
-		super.endResizeBounds();
-		target.endResizeBounds();
-	}
+    public PBounds getBoundsReference() {
+        PBounds targetBounds = target.getFullBounds();
+        camera.viewToLocal(targetBounds);
+        camera.globalToLocal(targetBounds);
+        PBounds bounds = super.getBoundsReference();
+        bounds.setRect(targetBounds);
+        return super.getBoundsReference();
+    }
 
-	public boolean pickAfterChildren(PPickPath pickPath) {
-		return false;
-	}
+    public void startResizeBounds() {
+        super.startResizeBounds();
+        target.startResizeBounds();
+    }
+
+    public void endResizeBounds() {
+        super.endResizeBounds();
+        target.endResizeBounds();
+    }
+
+    public boolean pickAfterChildren(PPickPath pickPath) {
+        return false;
+    }
 }</pre>
 </div>
 </td></tr>
@@ -766,40 +792,40 @@
 <th>Line</th>
 </tr>
 <tr class="b"><td>edu/umd/cs/piccolox/swt/PSWTKeyEvent.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTKeyEvent.html#30">30</a>
+<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTKeyEvent.html#31">31</a>
 </td>
 </tr>
 <tr class="a"><td>edu/umd/cs/piccolox/swt/PSWTMouseEvent.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTMouseEvent.html#50">50</a>
+<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTMouseEvent.html#51">51</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>	}
-	
-	public boolean isShiftDown() {
-		return (swtEvent.stateMask &amp; SWT.SHIFT) != 0;
-	}
+<tr class="b"><td colspan='2'><div class="source"><pre>    }
 
-	public boolean isControlDown() {
-		return (swtEvent.stateMask &amp; SWT.CONTROL) != 0;
-	}
-	
-	public boolean isAltDown() {
-		return (swtEvent.stateMask &amp; SWT.ALT) != 0;
-	}
-	
-	public int getModifiers() {
-		int modifiers = 0;
-		
-		if (swtEvent != null) {
-			if ((swtEvent.stateMask &amp; SWT.ALT) != 0) {
-				modifiers = modifiers | InputEvent.ALT_MASK;	
-			}
-			if ((swtEvent.stateMask &amp; SWT.CONTROL) != 0) {
-				modifiers = modifiers | InputEvent.CTRL_MASK;
-			}
-			if ((swtEvent.stateMask &amp; SWT.SHIFT) != 0) {
-				modifiers = modifiers | InputEvent.SHIFT_MASK;	
-			}</pre>
+    public boolean isShiftDown() {
+        return (swtEvent.stateMask &amp; SWT.SHIFT) != 0;
+    }
+
+    public boolean isControlDown() {
+        return (swtEvent.stateMask &amp; SWT.CONTROL) != 0;
+    }
+
+    public boolean isAltDown() {
+        return (swtEvent.stateMask &amp; SWT.ALT) != 0;
+    }
+
+    public int getModifiers() {
+        int modifiers = 0;
+
+        if (swtEvent != null) {
+            if ((swtEvent.stateMask &amp; SWT.ALT) != 0) {
+                modifiers = modifiers | InputEvent.ALT_MASK;
+            }
+            if ((swtEvent.stateMask &amp; SWT.CONTROL) != 0) {
+                modifiers = modifiers | InputEvent.CTRL_MASK;
+            }
+            if ((swtEvent.stateMask &amp; SWT.SHIFT) != 0) {
+                modifiers = modifiers | InputEvent.SHIFT_MASK;
+            }</pre>
 </div>
 </td></tr>
 <table class="bodyTable"></p>
@@ -807,28 +833,28 @@
 <th>Line</th>
 </tr>
 <tr class="b"><td>edu/umd/cs/piccolox/swt/SWTGraphics2D.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/swt/SWTGraphics2D.html#548">548</a>
+<td><a href="./xref/edu/umd/cs/piccolox/swt/SWTGraphics2D.html#563">563</a>
 </td>
 </tr>
 <tr class="a"><td>edu/umd/cs/piccolox/swt/SWTGraphics2D.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/swt/SWTGraphics2D.html#570">570</a>
+<td><a href="./xref/edu/umd/cs/piccolox/swt/SWTGraphics2D.html#585">585</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>	public void fillRoundRect(double x, double y, double width, double height, double arcWidth, double arcHeight) {
-		RECT.setRect(x,y,width,height);
-		SWTShapeManager.transform(RECT,transform);		
-		x = RECT.getX();
-		y = RECT.getY();
-		width = RECT.getWidth();
-		height = RECT.getHeight();
+<tr class="b"><td colspan='2'><div class="source"><pre>    public void fillRoundRect(double x, double y, double width, double height, double arcWidth, double arcHeight) {
+        RECT.setRect(x, y, width, height);
+        SWTShapeManager.transform(RECT, transform);
+        x = RECT.getX();
+        y = RECT.getY();
+        width = RECT.getWidth();
+        height = RECT.getHeight();
 
-		RECT.setRect(0,0,arcWidth,arcHeight);
-		SWTShapeManager.transform(RECT,transform);
-		arcWidth = RECT.getWidth();
-		arcHeight = RECT.getHeight();
+        RECT.setRect(0, 0, arcWidth, arcHeight);
+        SWTShapeManager.transform(RECT, transform);
+        arcWidth = RECT.getWidth();
+        arcHeight = RECT.getHeight();
 
-		gc.setLineWidth(getTransformedLineWidth());
-		gc.fillRoundRectangle((int)(x+0.5),(int)(y+0.5),(int)(width+0.5),(int)(height+0.5),(int)(arcWidth+0.5),(int)(arcHeight+0.5));		</pre>
+        gc.setLineWidth(getTransformedLineWidth());
+        gc.fillRoundRectangle((int) (x + 0.5), (int) (y + 0.5), (int) (width + 0.5), (int) (height + 0.5),</pre>
 </div>
 </td></tr>
 <table class="bodyTable"></p>
@@ -840,27 +866,29 @@
 </td>
 </tr>
 <tr class="a"><td>edu/umd/cs/piccolox/swt/PSWTBoundsHandle.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTBoundsHandle.html#97">97</a>
+<td><a href="./xref/edu/umd/cs/piccolox/swt/PSWTBoundsHandle.html#98">98</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>	public PSWTBoundsHandle(PBoundsLocator aLocator) {
-		super(aLocator);
-	}
-	
-	protected void installHandleEventHandlers() {
-		super.installHandleEventHandlers();
-		handleCursorHandler = new PBasicInputEventHandler() {
-			boolean cursorPushed = false;			
-			public void mouseEntered(PInputEvent aEvent) {
-				if (!cursorPushed) {
-					aEvent.pushCursor(getCursorFor(((PBoundsLocator)getLocator()).getSide()));
-					cursorPushed = true;
-				}
-			}
-			public void mouseExited(PInputEvent aEvent) {
-				PPickPath focus = aEvent.getInputManager().getMouseFocus();
-				if (cursorPushed) {
-					if (focus == null || focus.getPickedNode() != PSWTBoundsHandle.this) {</pre>
+<tr class="b"><td colspan='2'><div class="source"><pre>    public PSWTBoundsHandle(PBoundsLocator aLocator) {
+        super(aLocator);
+    }
+
+    protected void installHandleEventHandlers() {
+        super.installHandleEventHandlers();
+        handleCursorHandler = new PBasicInputEventHandler() {
+            boolean cursorPushed = false;
+
+            public void mouseEntered(PInputEvent aEvent) {
+                if (!cursorPushed) {
+                    aEvent.pushCursor(getCursorFor(((PBoundsLocator) getLocator()).getSide()));
+                    cursorPushed = true;
+                }
+            }
+
+            public void mouseExited(PInputEvent aEvent) {
+                PPickPath focus = aEvent.getInputManager().getMouseFocus();
+                if (cursorPushed) {
+                    if (focus == null || focus.getPickedNode() != PSWTBoundsHandle.this) {</pre>
 </div>
 </td></tr>
 <table class="bodyTable"></p>
@@ -868,35 +896,34 @@
 <th>Line</th>
 </tr>
 <tr class="b"><td>edu/umd/cs/piccolox/event/PSelectionEventHandler.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/event/PSelectionEventHandler.html#458">458</a>
+<td><a href="./xref/edu/umd/cs/piccolox/event/PSelectionEventHandler.html#470">470</a>
 </td>
 </tr>
 <tr class="a"><td>edu/umd/cs/piccolox/event/PSelectionEventHandler.java</td>
-<td><a href="./xref/edu/umd/cs/piccolox/event/PSelectionEventHandler.html#485">485</a>
+<td><a href="./xref/edu/umd/cs/piccolox/event/PSelectionEventHandler.html#497">497</a>
 </td>
 </tr>
-<tr class="b"><td colspan='2'><div class="source"><pre>				unselectList.add(node);
-			}
-		}
-		unselect(unselectList);
-		
+<tr class="b"><td colspan='2'><div class="source"><pre>                unselectList.add(node);
+            }
+        }
+        unselect(unselectList);
 
-		// Then select the rest
-		selectionEn = allItems.keySet().iterator();
-		while (selectionEn.hasNext()) {
-			PNode node = (PNode) selectionEn.next();
-			if (!selection.containsKey(node) &amp;&amp; !marqueeMap.containsKey(node) &amp;&amp; isSelectable(node)) {
-				marqueeMap.put(node,Boolean.TRUE);
-			}
-			else if (!isSelectable(node)) {
-				selectionEn.remove();
-			}
-		}
+        // Then select the rest
+        selectionEn = allItems.keySet().iterator();
+        while (selectionEn.hasNext()) {
+            PNode node = (PNode) selectionEn.next();
+            if (!selection.containsKey(node) &amp;&amp; !marqueeMap.containsKey(node) &amp;&amp; isSelectable(node)) {
+                marqueeMap.put(node, Boolean.TRUE);
+            }
+            else if (!isSelectable(node)) {
+                selectionEn.remove();
+            }
+        }
 
-		select(allItems);	
-	}
+        select(allItems);
+    }
 
-	protected PNodeFilter createNodeFilter(PBounds bounds) {</pre>
+    protected PNodeFilter createNodeFilter(PBounds bounds) {</pre>
 </div>
 </td></tr>
 <table class="bodyTable"></p>

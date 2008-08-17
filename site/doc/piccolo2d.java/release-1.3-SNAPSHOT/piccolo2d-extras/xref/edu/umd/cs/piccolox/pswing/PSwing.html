@@ -122,7 +122,7 @@
 <a name="112" href="#112">112</a> 
 <a name="113" href="#113">113</a> <em class="jxr_javadoccomment">/**</em>
 <a name="114" href="#114">114</a> <em class="jxr_javadoccomment"> * &lt;b&gt;PSwing&lt;/b&gt; is used to add Swing Components to a Piccolo canvas.</em>
-<a name="115" href="#115">115</a> <em class="jxr_javadoccomment"> * &lt;p/&gt;</em>
+<a name="115" href="#115">115</a> <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
 <a name="116" href="#116">116</a> <em class="jxr_javadoccomment"> * Example: adding a swing JButton to a PCanvas:</em>
 <a name="117" href="#117">117</a> <em class="jxr_javadoccomment"> * &lt;pre&gt;</em>
 <a name="118" href="#118">118</a> <em class="jxr_javadoccomment"> *     PSwingCanvas canvas = new PSwingCanvas();</em>
@@ -130,430 +130,436 @@
 <a name="120" href="#120">120</a> <em class="jxr_javadoccomment"> *     swing = new PSwing(canvas, button);</em>
 <a name="121" href="#121">121</a> <em class="jxr_javadoccomment"> *     canvas.getLayer().addChild(swing);</em>
 <a name="122" href="#122">122</a> <em class="jxr_javadoccomment"> * &lt;pre&gt;</em>
-<a name="123" href="#123">123</a> <em class="jxr_javadoccomment"> * &lt;p/&gt;</em>
-<a name="124" href="#124">124</a> <em class="jxr_javadoccomment"> * NOTE: PSwing has the current limitation that it does not listen for</em>
-<a name="125" href="#125">125</a> <em class="jxr_javadoccomment"> *       Container events.  This is only an issue if you create a PSwing</em>
-<a name="126" href="#126">126</a> <em class="jxr_javadoccomment"> *       and later add Swing components to the PSwing's component hierarchy</em>
-<a name="127" href="#127">127</a> <em class="jxr_javadoccomment"> *       that do not have double buffering turned off or have a smaller font</em>
-<a name="128" href="#128">128</a> <em class="jxr_javadoccomment"> *       size than the minimum font size of the original PSwing's component</em>
-<a name="129" href="#129">129</a> <em class="jxr_javadoccomment"> *       hierarchy.</em>
-<a name="130" href="#130">130</a> <em class="jxr_javadoccomment"> * &lt;p/&gt;</em>
-<a name="131" href="#131">131</a> <em class="jxr_javadoccomment"> *       For instance, the following bit of code will give unexpected</em>
-<a name="132" href="#132">132</a> <em class="jxr_javadoccomment"> *       results:</em>
-<a name="133" href="#133">133</a> <em class="jxr_javadoccomment"> *       &lt;pre&gt;</em>
-<a name="134" href="#134">134</a> <em class="jxr_javadoccomment"> *            JPanel panel = new JPanel();</em>
-<a name="135" href="#135">135</a> <em class="jxr_javadoccomment"> *            PSwing swing = new PSwing(panel);</em>
-<a name="136" href="#136">136</a> <em class="jxr_javadoccomment"> *            JPanel newChild = new JPanel();</em>
-<a name="137" href="#137">137</a> <em class="jxr_javadoccomment"> *            newChild.setDoubleBuffered(true);</em>
-<a name="138" href="#138">138</a> <em class="jxr_javadoccomment"> *            panel.add(newChild);</em>
-<a name="139" href="#139">139</a> <em class="jxr_javadoccomment"> *       &lt;/pre&gt;</em>
-<a name="140" href="#140">140</a> <em class="jxr_javadoccomment"> * &lt;p/&gt;</em>
-<a name="141" href="#141">141</a> <em class="jxr_javadoccomment"> * NOTE: PSwing cannot be correctly interacted with through multiple cameras.</em>
-<a name="142" href="#142">142</a> <em class="jxr_javadoccomment"> * There is no support for it yet.</em>
-<a name="143" href="#143">143</a> <em class="jxr_javadoccomment"> * &lt;p/&gt;</em>
-<a name="144" href="#144">144</a> <em class="jxr_javadoccomment"> * NOTE: PSwing is java.io.Serializable.</em>
-<a name="145" href="#145">145</a> <em class="jxr_javadoccomment"> * &lt;p/&gt;</em>
-<a name="146" href="#146">146</a> <em class="jxr_javadoccomment"> * &lt;b&gt;Warning:&lt;/b&gt; Serialized objects of this class will not be</em>
-<a name="147" href="#147">147</a> <em class="jxr_javadoccomment"> * compatible with future Piccolo releases. The current serialization support is</em>
-<a name="148" href="#148">148</a> <em class="jxr_javadoccomment"> * appropriate for short term storage or RMI between applications running the</em>
-<a name="149" href="#149">149</a> <em class="jxr_javadoccomment"> * same version of Piccolo. A future release of Piccolo will provide support for long</em>
-<a name="150" href="#150">150</a> <em class="jxr_javadoccomment"> * term persistence.</em>
-<a name="151" href="#151">151</a> <em class="jxr_javadoccomment"> *</em>
-<a name="152" href="#152">152</a> <em class="jxr_javadoccomment"> * @author Sam R. Reid</em>
-<a name="153" href="#153">153</a> <em class="jxr_javadoccomment"> * @author Benjamin B. Bederson</em>
-<a name="154" href="#154">154</a> <em class="jxr_javadoccomment"> * @author Lance E. Good</em>
-<a name="155" href="#155">155</a> <em class="jxr_javadoccomment"> *</em>
-<a name="156" href="#156">156</a> <em class="jxr_javadoccomment"> * 3-23-2007 edited to automatically detect PCamera/PSwingCanvas to allow single-arg constructor usage</em>
-<a name="157" href="#157">157</a> <em class="jxr_javadoccomment"> */</em>
-<a name="158" href="#158">158</a> <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwing.html">PSwing</a> <strong class="jxr_keyword">extends</strong> PNode implements Serializable, PropertyChangeListener {
-<a name="159" href="#159">159</a> 
-<a name="160" href="#160">160</a> 
-<a name="161" href="#161">161</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="162" href="#162">162</a> <em class="jxr_javadoccomment">     * Used as a hashtable key for this object in the Swing component's</em>
-<a name="163" href="#163">163</a> <em class="jxr_javadoccomment">     * client properties.</em>
-<a name="164" href="#164">164</a> <em class="jxr_javadoccomment">     */</em>
-<a name="165" href="#165">165</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String PSWING_PROPERTY = <span class="jxr_string">"PSwing"</span>;
-<a name="166" href="#166">166</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> AffineTransform IDENTITY_TRANSFORM = <strong class="jxr_keyword">new</strong> AffineTransform();
-<a name="167" href="#167">167</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> PBounds TEMP_REPAINT_BOUNDS2 = <strong class="jxr_keyword">new</strong> PBounds();
-<a name="168" href="#168">168</a> 
-<a name="169" href="#169">169</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="170" href="#170">170</a> <em class="jxr_javadoccomment">     * The cutoff at which the Swing component is rendered greek</em>
-<a name="171" href="#171">171</a> <em class="jxr_javadoccomment">     */</em>
-<a name="172" href="#172">172</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> renderCutoff = 0.3;
-<a name="173" href="#173">173</a>     <strong class="jxr_keyword">private</strong> JComponent component = <strong class="jxr_keyword">null</strong>;
-<a name="174" href="#174">174</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> minFontSize = Double.MAX_VALUE;
-<a name="175" href="#175">175</a>     <strong class="jxr_keyword">private</strong> Stroke defaultStroke = <strong class="jxr_keyword">new</strong> BasicStroke();
-<a name="176" href="#176">176</a>     <strong class="jxr_keyword">private</strong> Font defaultFont = <strong class="jxr_keyword">new</strong> Font( <span class="jxr_string">"Serif"</span>, Font.PLAIN, 12 );
-<a name="177" href="#177">177</a>     <strong class="jxr_keyword">private</strong> BufferedImage buffer;
-<a name="178" href="#178">178</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Color BUFFER_BACKGROUND_COLOR = <strong class="jxr_keyword">new</strong> Color( 0, 0, 0, 0 );
-<a name="179" href="#179">179</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwingCanvas.html">PSwingCanvas</a> canvas;
-<a name="180" href="#180">180</a> 
-<a name="181" href="#181">181</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
-<a name="182" href="#182">182</a>     <em class="jxr_comment">///////Following fields are for automatic canvas/camera detection</em>
-<a name="183" href="#183">183</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
-<a name="184" href="#184">184</a>     <em class="jxr_comment">/*<em class="jxr_comment">/keep track of which nodes we've attached listeners to since no built in support in PNode*/</em></em>
-<a name="185" href="#185">185</a>     <strong class="jxr_keyword">private</strong> ArrayList listeningTo = <strong class="jxr_keyword">new</strong> ArrayList();
+<a name="123" href="#123">123</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a name="124" href="#124">124</a> <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a name="125" href="#125">125</a> <em class="jxr_javadoccomment"> * NOTE: PSwing has the current limitation that it does not listen for</em>
+<a name="126" href="#126">126</a> <em class="jxr_javadoccomment"> *       Container events.  This is only an issue if you create a PSwing</em>
+<a name="127" href="#127">127</a> <em class="jxr_javadoccomment"> *       and later add Swing components to the PSwing's component hierarchy</em>
+<a name="128" href="#128">128</a> <em class="jxr_javadoccomment"> *       that do not have double buffering turned off or have a smaller font</em>
+<a name="129" href="#129">129</a> <em class="jxr_javadoccomment"> *       size than the minimum font size of the original PSwing's component</em>
+<a name="130" href="#130">130</a> <em class="jxr_javadoccomment"> *       hierarchy.</em>
+<a name="131" href="#131">131</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a name="132" href="#132">132</a> <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a name="133" href="#133">133</a> <em class="jxr_javadoccomment"> *       For instance, the following bit of code will give unexpected</em>
+<a name="134" href="#134">134</a> <em class="jxr_javadoccomment"> *       results:</em>
+<a name="135" href="#135">135</a> <em class="jxr_javadoccomment"> *       &lt;pre&gt;</em>
+<a name="136" href="#136">136</a> <em class="jxr_javadoccomment"> *            JPanel panel = new JPanel();</em>
+<a name="137" href="#137">137</a> <em class="jxr_javadoccomment"> *            PSwing swing = new PSwing(panel);</em>
+<a name="138" href="#138">138</a> <em class="jxr_javadoccomment"> *            JPanel newChild = new JPanel();</em>
+<a name="139" href="#139">139</a> <em class="jxr_javadoccomment"> *            newChild.setDoubleBuffered(true);</em>
+<a name="140" href="#140">140</a> <em class="jxr_javadoccomment"> *            panel.add(newChild);</em>
+<a name="141" href="#141">141</a> <em class="jxr_javadoccomment"> *       &lt;/pre&gt;</em>
+<a name="142" href="#142">142</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a name="143" href="#143">143</a> <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a name="144" href="#144">144</a> <em class="jxr_javadoccomment"> * NOTE: PSwing cannot be correctly interacted with through multiple cameras.</em>
+<a name="145" href="#145">145</a> <em class="jxr_javadoccomment"> * There is no support for it yet.</em>
+<a name="146" href="#146">146</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a name="147" href="#147">147</a> <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a name="148" href="#148">148</a> <em class="jxr_javadoccomment"> * NOTE: PSwing is java.io.Serializable.</em>
+<a name="149" href="#149">149</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a name="150" href="#150">150</a> <em class="jxr_javadoccomment"> * &lt;p&gt;</em>
+<a name="151" href="#151">151</a> <em class="jxr_javadoccomment"> * &lt;b&gt;Warning:&lt;/b&gt; Serialized objects of this class will not be</em>
+<a name="152" href="#152">152</a> <em class="jxr_javadoccomment"> * compatible with future Piccolo releases. The current serialization support is</em>
+<a name="153" href="#153">153</a> <em class="jxr_javadoccomment"> * appropriate for short term storage or RMI between applications running the</em>
+<a name="154" href="#154">154</a> <em class="jxr_javadoccomment"> * same version of Piccolo. A future release of Piccolo will provide support for long</em>
+<a name="155" href="#155">155</a> <em class="jxr_javadoccomment"> * term persistence.</em>
+<a name="156" href="#156">156</a> <em class="jxr_javadoccomment"> * &lt;/p&gt;</em>
+<a name="157" href="#157">157</a> <em class="jxr_javadoccomment"> *</em>
+<a name="158" href="#158">158</a> <em class="jxr_javadoccomment"> * @author Sam R. Reid</em>
+<a name="159" href="#159">159</a> <em class="jxr_javadoccomment"> * @author Benjamin B. Bederson</em>
+<a name="160" href="#160">160</a> <em class="jxr_javadoccomment"> * @author Lance E. Good</em>
+<a name="161" href="#161">161</a> <em class="jxr_javadoccomment"> *</em>
+<a name="162" href="#162">162</a> <em class="jxr_javadoccomment"> * 3-23-2007 edited to automatically detect PCamera/PSwingCanvas to allow single-arg constructor usage</em>
+<a name="163" href="#163">163</a> <em class="jxr_javadoccomment"> */</em>
+<a name="164" href="#164">164</a> <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwing.html">PSwing</a> <strong class="jxr_keyword">extends</strong> PNode implements Serializable, PropertyChangeListener {
+<a name="165" href="#165">165</a> 
+<a name="166" href="#166">166</a> 
+<a name="167" href="#167">167</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="168" href="#168">168</a> <em class="jxr_javadoccomment">     * Used as a hashtable key for this object in the Swing component's</em>
+<a name="169" href="#169">169</a> <em class="jxr_javadoccomment">     * client properties.</em>
+<a name="170" href="#170">170</a> <em class="jxr_javadoccomment">     */</em>
+<a name="171" href="#171">171</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String PSWING_PROPERTY = <span class="jxr_string">"PSwing"</span>;
+<a name="172" href="#172">172</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> AffineTransform IDENTITY_TRANSFORM = <strong class="jxr_keyword">new</strong> AffineTransform();
+<a name="173" href="#173">173</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> PBounds TEMP_REPAINT_BOUNDS2 = <strong class="jxr_keyword">new</strong> PBounds();
+<a name="174" href="#174">174</a> 
+<a name="175" href="#175">175</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="176" href="#176">176</a> <em class="jxr_javadoccomment">     * The cutoff at which the Swing component is rendered greek</em>
+<a name="177" href="#177">177</a> <em class="jxr_javadoccomment">     */</em>
+<a name="178" href="#178">178</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> renderCutoff = 0.3;
+<a name="179" href="#179">179</a>     <strong class="jxr_keyword">private</strong> JComponent component = <strong class="jxr_keyword">null</strong>;
+<a name="180" href="#180">180</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> minFontSize = Double.MAX_VALUE;
+<a name="181" href="#181">181</a>     <strong class="jxr_keyword">private</strong> Stroke defaultStroke = <strong class="jxr_keyword">new</strong> BasicStroke();
+<a name="182" href="#182">182</a>     <strong class="jxr_keyword">private</strong> Font defaultFont = <strong class="jxr_keyword">new</strong> Font( <span class="jxr_string">"Serif"</span>, Font.PLAIN, 12 );
+<a name="183" href="#183">183</a>     <strong class="jxr_keyword">private</strong> BufferedImage buffer;
+<a name="184" href="#184">184</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Color BUFFER_BACKGROUND_COLOR = <strong class="jxr_keyword">new</strong> Color( 0, 0, 0, 0 );
+<a name="185" href="#185">185</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwingCanvas.html">PSwingCanvas</a> canvas;
 <a name="186" href="#186">186</a> 
-<a name="187" href="#187">187</a>     <em class="jxr_comment">/*<em class="jxr_comment">The parent listener for camera/canvas changes*/</em></em>
-<a name="188" href="#188">188</a>     <strong class="jxr_keyword">private</strong> PropertyChangeListener parentListener = <strong class="jxr_keyword">new</strong> PropertyChangeListener() {
-<a name="189" href="#189">189</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> propertyChange( PropertyChangeEvent evt ) {
-<a name="190" href="#190">190</a>             PNode source = (PNode)evt.getSource();
-<a name="191" href="#191">191</a>             PNode parent = source.getParent();
-<a name="192" href="#192">192</a>             <strong class="jxr_keyword">if</strong>( parent != <strong class="jxr_keyword">null</strong> ) {
-<a name="193" href="#193">193</a>                 listenForCanvas( parent );
-<a name="194" href="#194">194</a>             }
-<a name="195" href="#195">195</a> 
-<a name="196" href="#196">196</a>         }
-<a name="197" href="#197">197</a>     };
-<a name="198" href="#198">198</a> 
-<a name="199" href="#199">199</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="200" href="#200">200</a> <em class="jxr_javadoccomment">     * Constructs a new visual component wrapper for the Swing component.</em>
-<a name="201" href="#201">201</a> <em class="jxr_javadoccomment">     *</em>
-<a name="202" href="#202">202</a> <em class="jxr_javadoccomment">     * @param component The swing component to be wrapped</em>
-<a name="203" href="#203">203</a> <em class="jxr_javadoccomment">     */</em>
-<a name="204" href="#204">204</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwing.html">PSwing</a>(JComponent component) {
-<a name="205" href="#205">205</a>         <strong class="jxr_keyword">this</strong>.component = component;
-<a name="206" href="#206">206</a>         component.putClientProperty( PSWING_PROPERTY, <strong class="jxr_keyword">this</strong> );
-<a name="207" href="#207">207</a>         init( component );
-<a name="208" href="#208">208</a>         component.revalidate();
-<a name="209" href="#209">209</a>         component.addPropertyChangeListener( <strong class="jxr_keyword">new</strong> PropertyChangeListener() {
-<a name="210" href="#210">210</a>             <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> propertyChange( PropertyChangeEvent evt ) {
-<a name="211" href="#211">211</a>                 reshape();
-<a name="212" href="#212">212</a>             }
-<a name="213" href="#213">213</a>         } );
-<a name="214" href="#214">214</a>         reshape();
-<a name="215" href="#215">215</a>         listenForCanvas( <strong class="jxr_keyword">this</strong> );
-<a name="216" href="#216">216</a>     }
-<a name="217" href="#217">217</a> 
-<a name="218" href="#218">218</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="219" href="#219">219</a> <em class="jxr_javadoccomment">     * Deprecated constructor for application code still depending on this signature. </em>
-<a name="220" href="#220">220</a> <em class="jxr_javadoccomment">     * @param pSwingCanvas</em>
-<a name="221" href="#221">221</a> <em class="jxr_javadoccomment">     * @param component</em>
-<a name="222" href="#222">222</a> <em class="jxr_javadoccomment">     * @deprecated </em>
-<a name="223" href="#223">223</a> <em class="jxr_javadoccomment">     */</em>
-<a name="224" href="#224">224</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwing.html">PSwing</a>(<a href="../../../../../edu/umd/cs/piccolox/pswing/PSwingCanvas.html">PSwingCanvas</a> pSwingCanvas, JComponent component) {
-<a name="225" href="#225">225</a>         <strong class="jxr_keyword">this</strong>(component);
-<a name="226" href="#226">226</a>     }
-<a name="227" href="#227">227</a> 
-<a name="228" href="#228">228</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="229" href="#229">229</a> <em class="jxr_javadoccomment">     * Ensures the bounds of the underlying component are accurate, and sets the bounds of this PNode.</em>
-<a name="230" href="#230">230</a> <em class="jxr_javadoccomment">     */</em>
-<a name="231" href="#231">231</a>     <strong class="jxr_keyword">void</strong> reshape() {
-<a name="232" href="#232">232</a>         component.setBounds( 0, 0, component.getPreferredSize().width, component.getPreferredSize().height );
-<a name="233" href="#233">233</a>         setBounds( 0, 0, component.getPreferredSize().width, component.getPreferredSize().height );
-<a name="234" href="#234">234</a>     }
-<a name="235" href="#235">235</a> 
-<a name="236" href="#236">236</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="237" href="#237">237</a> <em class="jxr_javadoccomment">     * Determines if the Swing component should be rendered normally or</em>
-<a name="238" href="#238">238</a> <em class="jxr_javadoccomment">     * as a filled rectangle.</em>
-<a name="239" href="#239">239</a> <em class="jxr_javadoccomment">     * &lt;p/&gt;</em>
-<a name="240" href="#240">240</a> <em class="jxr_javadoccomment">     * The transform, clip, and composite will be set appropriately when this object</em>
-<a name="241" href="#241">241</a> <em class="jxr_javadoccomment">     * is rendered.  It is up to this object to restore the transform, clip, and composite of</em>
-<a name="242" href="#242">242</a> <em class="jxr_javadoccomment">     * the Graphics2D if this node changes any of them. However, the color, font, and stroke are</em>
-<a name="243" href="#243">243</a> <em class="jxr_javadoccomment">     * unspecified by Piccolo.  This object should set those things if they are used, but</em>
-<a name="244" href="#244">244</a> <em class="jxr_javadoccomment">     * they do not need to be restored.</em>
-<a name="245" href="#245">245</a> <em class="jxr_javadoccomment">     *</em>
-<a name="246" href="#246">246</a> <em class="jxr_javadoccomment">     * @param renderContext Contains information about current render.</em>
-<a name="247" href="#247">247</a> <em class="jxr_javadoccomment">     */</em>
-<a name="248" href="#248">248</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paint( PPaintContext renderContext ) {
-<a name="249" href="#249">249</a>         Graphics2D g2 = renderContext.getGraphics();
-<a name="250" href="#250">250</a> 
-<a name="251" href="#251">251</a>         <strong class="jxr_keyword">if</strong>( defaultStroke == <strong class="jxr_keyword">null</strong> ) {
-<a name="252" href="#252">252</a>             defaultStroke = <strong class="jxr_keyword">new</strong> BasicStroke();
-<a name="253" href="#253">253</a>         }
-<a name="254" href="#254">254</a>         g2.setStroke( defaultStroke );
-<a name="255" href="#255">255</a> 
-<a name="256" href="#256">256</a>         <strong class="jxr_keyword">if</strong>( defaultFont == <strong class="jxr_keyword">null</strong> ) {
-<a name="257" href="#257">257</a>             defaultFont = <strong class="jxr_keyword">new</strong> Font( <span class="jxr_string">"Serif"</span>, Font.PLAIN, 12 );
-<a name="258" href="#258">258</a>         }
-<a name="259" href="#259">259</a> 
-<a name="260" href="#260">260</a>         g2.setFont( defaultFont );
+<a name="187" href="#187">187</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
+<a name="188" href="#188">188</a>     <em class="jxr_comment">///////Following fields are for automatic canvas/camera detection</em>
+<a name="189" href="#189">189</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
+<a name="190" href="#190">190</a>     <em class="jxr_comment">/*<em class="jxr_comment">/keep track of which nodes we've attached listeners to since no built in support in PNode*/</em></em>
+<a name="191" href="#191">191</a>     <strong class="jxr_keyword">private</strong> ArrayList listeningTo = <strong class="jxr_keyword">new</strong> ArrayList();
+<a name="192" href="#192">192</a> 
+<a name="193" href="#193">193</a>     <em class="jxr_comment">/*<em class="jxr_comment">The parent listener for camera/canvas changes*/</em></em>
+<a name="194" href="#194">194</a>     <strong class="jxr_keyword">private</strong> PropertyChangeListener parentListener = <strong class="jxr_keyword">new</strong> PropertyChangeListener() {
+<a name="195" href="#195">195</a>         <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> propertyChange( PropertyChangeEvent evt ) {
+<a name="196" href="#196">196</a>             PNode source = (PNode)evt.getSource();
+<a name="197" href="#197">197</a>             PNode parent = source.getParent();
+<a name="198" href="#198">198</a>             <strong class="jxr_keyword">if</strong>( parent != <strong class="jxr_keyword">null</strong> ) {
+<a name="199" href="#199">199</a>                 listenForCanvas( parent );
+<a name="200" href="#200">200</a>             }
+<a name="201" href="#201">201</a> 
+<a name="202" href="#202">202</a>         }
+<a name="203" href="#203">203</a>     };
+<a name="204" href="#204">204</a> 
+<a name="205" href="#205">205</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="206" href="#206">206</a> <em class="jxr_javadoccomment">     * Constructs a new visual component wrapper for the Swing component.</em>
+<a name="207" href="#207">207</a> <em class="jxr_javadoccomment">     *</em>
+<a name="208" href="#208">208</a> <em class="jxr_javadoccomment">     * @param component The swing component to be wrapped</em>
+<a name="209" href="#209">209</a> <em class="jxr_javadoccomment">     */</em>
+<a name="210" href="#210">210</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwing.html">PSwing</a>(JComponent component) {
+<a name="211" href="#211">211</a>         <strong class="jxr_keyword">this</strong>.component = component;
+<a name="212" href="#212">212</a>         component.putClientProperty( PSWING_PROPERTY, <strong class="jxr_keyword">this</strong> );
+<a name="213" href="#213">213</a>         init( component );
+<a name="214" href="#214">214</a>         component.revalidate();
+<a name="215" href="#215">215</a>         component.addPropertyChangeListener( <strong class="jxr_keyword">new</strong> PropertyChangeListener() {
+<a name="216" href="#216">216</a>             <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> propertyChange( PropertyChangeEvent evt ) {
+<a name="217" href="#217">217</a>                 reshape();
+<a name="218" href="#218">218</a>             }
+<a name="219" href="#219">219</a>         } );
+<a name="220" href="#220">220</a>         reshape();
+<a name="221" href="#221">221</a>         listenForCanvas( <strong class="jxr_keyword">this</strong> );
+<a name="222" href="#222">222</a>     }
+<a name="223" href="#223">223</a> 
+<a name="224" href="#224">224</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="225" href="#225">225</a> <em class="jxr_javadoccomment">     * Deprecated constructor for application code still depending on this signature. </em>
+<a name="226" href="#226">226</a> <em class="jxr_javadoccomment">     * @param pSwingCanvas</em>
+<a name="227" href="#227">227</a> <em class="jxr_javadoccomment">     * @param component</em>
+<a name="228" href="#228">228</a> <em class="jxr_javadoccomment">     * @deprecated </em>
+<a name="229" href="#229">229</a> <em class="jxr_javadoccomment">     */</em>
+<a name="230" href="#230">230</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwing.html">PSwing</a>(<a href="../../../../../edu/umd/cs/piccolox/pswing/PSwingCanvas.html">PSwingCanvas</a> pSwingCanvas, JComponent component) {
+<a name="231" href="#231">231</a>         <strong class="jxr_keyword">this</strong>(component);
+<a name="232" href="#232">232</a>     }
+<a name="233" href="#233">233</a> 
+<a name="234" href="#234">234</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="235" href="#235">235</a> <em class="jxr_javadoccomment">     * Ensures the bounds of the underlying component are accurate, and sets the bounds of this PNode.</em>
+<a name="236" href="#236">236</a> <em class="jxr_javadoccomment">     */</em>
+<a name="237" href="#237">237</a>     <strong class="jxr_keyword">void</strong> reshape() {
+<a name="238" href="#238">238</a>         component.setBounds( 0, 0, component.getPreferredSize().width, component.getPreferredSize().height );
+<a name="239" href="#239">239</a>         setBounds( 0, 0, component.getPreferredSize().width, component.getPreferredSize().height );
+<a name="240" href="#240">240</a>     }
+<a name="241" href="#241">241</a> 
+<a name="242" href="#242">242</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="243" href="#243">243</a> <em class="jxr_javadoccomment">     * Determines if the Swing component should be rendered normally or</em>
+<a name="244" href="#244">244</a> <em class="jxr_javadoccomment">     * as a filled rectangle.</em>
+<a name="245" href="#245">245</a> <em class="jxr_javadoccomment">     * &lt;p/&gt;</em>
+<a name="246" href="#246">246</a> <em class="jxr_javadoccomment">     * The transform, clip, and composite will be set appropriately when this object</em>
+<a name="247" href="#247">247</a> <em class="jxr_javadoccomment">     * is rendered.  It is up to this object to restore the transform, clip, and composite of</em>
+<a name="248" href="#248">248</a> <em class="jxr_javadoccomment">     * the Graphics2D if this node changes any of them. However, the color, font, and stroke are</em>
+<a name="249" href="#249">249</a> <em class="jxr_javadoccomment">     * unspecified by Piccolo.  This object should set those things if they are used, but</em>
+<a name="250" href="#250">250</a> <em class="jxr_javadoccomment">     * they do not need to be restored.</em>
+<a name="251" href="#251">251</a> <em class="jxr_javadoccomment">     *</em>
+<a name="252" href="#252">252</a> <em class="jxr_javadoccomment">     * @param renderContext Contains information about current render.</em>
+<a name="253" href="#253">253</a> <em class="jxr_javadoccomment">     */</em>
+<a name="254" href="#254">254</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paint( PPaintContext renderContext ) {
+<a name="255" href="#255">255</a>         Graphics2D g2 = renderContext.getGraphics();
+<a name="256" href="#256">256</a> 
+<a name="257" href="#257">257</a>         <strong class="jxr_keyword">if</strong>( defaultStroke == <strong class="jxr_keyword">null</strong> ) {
+<a name="258" href="#258">258</a>             defaultStroke = <strong class="jxr_keyword">new</strong> BasicStroke();
+<a name="259" href="#259">259</a>         }
+<a name="260" href="#260">260</a>         g2.setStroke( defaultStroke );
 <a name="261" href="#261">261</a> 
-<a name="262" href="#262">262</a>         <strong class="jxr_keyword">if</strong>( component.getParent() == <strong class="jxr_keyword">null</strong> ) {
-<a name="263" href="#263">263</a> <em class="jxr_comment">//            pSwingCanvas.getSwingWrapper().add( component );</em>
-<a name="264" href="#264">264</a>             component.revalidate();
-<a name="265" href="#265">265</a>         }
-<a name="266" href="#266">266</a> 
-<a name="267" href="#267">267</a>         <strong class="jxr_keyword">if</strong>( shouldRenderGreek( renderContext ) ) {
-<a name="268" href="#268">268</a>             paintAsGreek( g2 );
-<a name="269" href="#269">269</a>         }
-<a name="270" href="#270">270</a>         <strong class="jxr_keyword">else</strong> {
-<a name="271" href="#271">271</a>             paint( g2 );
-<a name="272" href="#272">272</a>         }
-<a name="273" href="#273">273</a> 
-<a name="274" href="#274">274</a>     }
-<a name="275" href="#275">275</a> 
-<a name="276" href="#276">276</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> shouldRenderGreek( PPaintContext renderContext ) {
-<a name="277" href="#277">277</a>         <strong class="jxr_keyword">return</strong> ( renderContext.getScale() &lt; renderCutoff
-<a name="278" href="#278">278</a> <em class="jxr_comment">//                 &amp;&amp; pSwingCanvas.getInteracting()</em>
-<a name="279" href="#279">279</a>         ) ||
-<a name="280" href="#280">280</a>           minFontSize * renderContext.getScale() &lt; 0.5;
-<a name="281" href="#281">281</a>     }
-<a name="282" href="#282">282</a> 
-<a name="283" href="#283">283</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="284" href="#284">284</a> <em class="jxr_javadoccomment">     * Paints the Swing component as greek.</em>
-<a name="285" href="#285">285</a> <em class="jxr_javadoccomment">     *</em>
-<a name="286" href="#286">286</a> <em class="jxr_javadoccomment">     * @param g2 The graphics used to render the filled rectangle</em>
-<a name="287" href="#287">287</a> <em class="jxr_javadoccomment">     */</em>
-<a name="288" href="#288">288</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paintAsGreek( Graphics2D g2 ) {
-<a name="289" href="#289">289</a>         Color background = component.getBackground();
-<a name="290" href="#290">290</a>         Color foreground = component.getForeground();
-<a name="291" href="#291">291</a>         Rectangle2D rect = getBounds();
-<a name="292" href="#292">292</a> 
-<a name="293" href="#293">293</a>         <strong class="jxr_keyword">if</strong>( background != <strong class="jxr_keyword">null</strong> ) {
-<a name="294" href="#294">294</a>             g2.setColor( background );
-<a name="295" href="#295">295</a>         }
-<a name="296" href="#296">296</a>         g2.fill( rect );
-<a name="297" href="#297">297</a> 
-<a name="298" href="#298">298</a>         <strong class="jxr_keyword">if</strong>( foreground != <strong class="jxr_keyword">null</strong> ) {
-<a name="299" href="#299">299</a>             g2.setColor( foreground );
-<a name="300" href="#300">300</a>         }
-<a name="301" href="#301">301</a>         g2.draw( rect );
-<a name="302" href="#302">302</a>     }
+<a name="262" href="#262">262</a>         <strong class="jxr_keyword">if</strong>( defaultFont == <strong class="jxr_keyword">null</strong> ) {
+<a name="263" href="#263">263</a>             defaultFont = <strong class="jxr_keyword">new</strong> Font( <span class="jxr_string">"Serif"</span>, Font.PLAIN, 12 );
+<a name="264" href="#264">264</a>         }
+<a name="265" href="#265">265</a> 
+<a name="266" href="#266">266</a>         g2.setFont( defaultFont );
+<a name="267" href="#267">267</a> 
+<a name="268" href="#268">268</a>         <strong class="jxr_keyword">if</strong>( component.getParent() == <strong class="jxr_keyword">null</strong> ) {
+<a name="269" href="#269">269</a> <em class="jxr_comment">//            pSwingCanvas.getSwingWrapper().add( component );</em>
+<a name="270" href="#270">270</a>             component.revalidate();
+<a name="271" href="#271">271</a>         }
+<a name="272" href="#272">272</a> 
+<a name="273" href="#273">273</a>         <strong class="jxr_keyword">if</strong>( shouldRenderGreek( renderContext ) ) {
+<a name="274" href="#274">274</a>             paintAsGreek( g2 );
+<a name="275" href="#275">275</a>         }
+<a name="276" href="#276">276</a>         <strong class="jxr_keyword">else</strong> {
+<a name="277" href="#277">277</a>             paint( g2 );
+<a name="278" href="#278">278</a>         }
+<a name="279" href="#279">279</a> 
+<a name="280" href="#280">280</a>     }
+<a name="281" href="#281">281</a> 
+<a name="282" href="#282">282</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> shouldRenderGreek( PPaintContext renderContext ) {
+<a name="283" href="#283">283</a>         <strong class="jxr_keyword">return</strong> ( renderContext.getScale() &lt; renderCutoff
+<a name="284" href="#284">284</a> <em class="jxr_comment">//                 &amp;&amp; pSwingCanvas.getInteracting()</em>
+<a name="285" href="#285">285</a>         ) ||
+<a name="286" href="#286">286</a>           minFontSize * renderContext.getScale() &lt; 0.5;
+<a name="287" href="#287">287</a>     }
+<a name="288" href="#288">288</a> 
+<a name="289" href="#289">289</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="290" href="#290">290</a> <em class="jxr_javadoccomment">     * Paints the Swing component as greek.</em>
+<a name="291" href="#291">291</a> <em class="jxr_javadoccomment">     *</em>
+<a name="292" href="#292">292</a> <em class="jxr_javadoccomment">     * @param g2 The graphics used to render the filled rectangle</em>
+<a name="293" href="#293">293</a> <em class="jxr_javadoccomment">     */</em>
+<a name="294" href="#294">294</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paintAsGreek( Graphics2D g2 ) {
+<a name="295" href="#295">295</a>         Color background = component.getBackground();
+<a name="296" href="#296">296</a>         Color foreground = component.getForeground();
+<a name="297" href="#297">297</a>         Rectangle2D rect = getBounds();
+<a name="298" href="#298">298</a> 
+<a name="299" href="#299">299</a>         <strong class="jxr_keyword">if</strong>( background != <strong class="jxr_keyword">null</strong> ) {
+<a name="300" href="#300">300</a>             g2.setColor( background );
+<a name="301" href="#301">301</a>         }
+<a name="302" href="#302">302</a>         g2.fill( rect );
 <a name="303" href="#303">303</a> 
-<a name="304" href="#304">304</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="305" href="#305">305</a> <em class="jxr_javadoccomment">     * Remove from the SwingWrapper; throws an exception if no canvas is associated with this PSwing.</em>
-<a name="306" href="#306">306</a> <em class="jxr_javadoccomment">     */</em>
-<a name="307" href="#307">307</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> removeFromSwingWrapper() {
-<a name="308" href="#308">308</a>         <strong class="jxr_keyword">if</strong>( canvas != <strong class="jxr_keyword">null</strong> &amp;&amp; Arrays.asList( <strong class="jxr_keyword">this</strong>.canvas.getSwingWrapper().getComponents() ).contains( component ) ) {
-<a name="309" href="#309">309</a>             <strong class="jxr_keyword">this</strong>.canvas.getSwingWrapper().remove( component );
-<a name="310" href="#310">310</a>         }
-<a name="311" href="#311">311</a>     }
-<a name="312" href="#312">312</a> 
-<a name="313" href="#313">313</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="314" href="#314">314</a> <em class="jxr_javadoccomment">     * Renders to a buffered image, then draws that image to the</em>
-<a name="315" href="#315">315</a> <em class="jxr_javadoccomment">     * drawing surface associated with g2 (usually the screen).</em>
-<a name="316" href="#316">316</a> <em class="jxr_javadoccomment">     *</em>
-<a name="317" href="#317">317</a> <em class="jxr_javadoccomment">     * @param g2 graphics context for rendering the JComponent</em>
-<a name="318" href="#318">318</a> <em class="jxr_javadoccomment">     */</em>
-<a name="319" href="#319">319</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paint( Graphics2D g2 ) {
-<a name="320" href="#320">320</a>         <strong class="jxr_keyword">if</strong>( component.getBounds().isEmpty() ) {
-<a name="321" href="#321">321</a>             <em class="jxr_comment">// The component has not been initialized yet.</em>
-<a name="322" href="#322">322</a>             <strong class="jxr_keyword">return</strong>;
-<a name="323" href="#323">323</a>         }
-<a name="324" href="#324">324</a> 
-<a name="325" href="#325">325</a>         <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwingRepaintManager.html">PSwingRepaintManager</a> manager = (PSwingRepaintManager)RepaintManager.currentManager( component );
-<a name="326" href="#326">326</a>         manager.lockRepaint( component );
-<a name="327" href="#327">327</a> 
-<a name="328" href="#328">328</a>         Graphics2D bufferedGraphics = <strong class="jxr_keyword">null</strong>;
-<a name="329" href="#329">329</a>         <strong class="jxr_keyword">if</strong>( !isBufferValid() ) {
-<a name="330" href="#330">330</a>             <em class="jxr_comment">// Get the graphics context associated with a new buffered image.</em>
-<a name="331" href="#331">331</a>             <em class="jxr_comment">// Use TYPE_INT_ARGB_PRE so that transparent components look good on Windows.</em>
-<a name="332" href="#332">332</a>             buffer = <strong class="jxr_keyword">new</strong> BufferedImage( component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_ARGB_PRE );
-<a name="333" href="#333">333</a>             bufferedGraphics = buffer.createGraphics();
-<a name="334" href="#334">334</a>         }
-<a name="335" href="#335">335</a>         <strong class="jxr_keyword">else</strong> {
-<a name="336" href="#336">336</a>             <em class="jxr_comment">// Use the graphics context associated with the existing buffered image</em>
-<a name="337" href="#337">337</a>             bufferedGraphics = buffer.createGraphics();
-<a name="338" href="#338">338</a>             <em class="jxr_comment">// Clear the buffered image to prevent artifacts on Macintosh</em>
-<a name="339" href="#339">339</a>             bufferedGraphics.setBackground( BUFFER_BACKGROUND_COLOR );
-<a name="340" href="#340">340</a>             bufferedGraphics.clearRect( 0, 0, component.getWidth(), component.getHeight() );
-<a name="341" href="#341">341</a>         }
-<a name="342" href="#342">342</a> 
-<a name="343" href="#343">343</a>         <em class="jxr_comment">// Start with the rendering hints from the provided graphics context</em>
-<a name="344" href="#344">344</a>         bufferedGraphics.setRenderingHints( g2.getRenderingHints() );
-<a name="345" href="#345">345</a> 
-<a name="346" href="#346">346</a>         <em class="jxr_comment">//PSwing sometimes causes JComponent text to render with "..." when fractional font metrics are enabled.  These are now always disabled for the offscreen buffer.</em>
-<a name="347" href="#347">347</a>         bufferedGraphics.setRenderingHint( RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF );
+<a name="304" href="#304">304</a>         <strong class="jxr_keyword">if</strong>( foreground != <strong class="jxr_keyword">null</strong> ) {
+<a name="305" href="#305">305</a>             g2.setColor( foreground );
+<a name="306" href="#306">306</a>         }
+<a name="307" href="#307">307</a>         g2.draw( rect );
+<a name="308" href="#308">308</a>     }
+<a name="309" href="#309">309</a> 
+<a name="310" href="#310">310</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="311" href="#311">311</a> <em class="jxr_javadoccomment">     * Remove from the SwingWrapper; throws an exception if no canvas is associated with this PSwing.</em>
+<a name="312" href="#312">312</a> <em class="jxr_javadoccomment">     */</em>
+<a name="313" href="#313">313</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> removeFromSwingWrapper() {
+<a name="314" href="#314">314</a>         <strong class="jxr_keyword">if</strong>( canvas != <strong class="jxr_keyword">null</strong> &amp;&amp; Arrays.asList( <strong class="jxr_keyword">this</strong>.canvas.getSwingWrapper().getComponents() ).contains( component ) ) {
+<a name="315" href="#315">315</a>             <strong class="jxr_keyword">this</strong>.canvas.getSwingWrapper().remove( component );
+<a name="316" href="#316">316</a>         }
+<a name="317" href="#317">317</a>     }
+<a name="318" href="#318">318</a> 
+<a name="319" href="#319">319</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="320" href="#320">320</a> <em class="jxr_javadoccomment">     * Renders to a buffered image, then draws that image to the</em>
+<a name="321" href="#321">321</a> <em class="jxr_javadoccomment">     * drawing surface associated with g2 (usually the screen).</em>
+<a name="322" href="#322">322</a> <em class="jxr_javadoccomment">     *</em>
+<a name="323" href="#323">323</a> <em class="jxr_javadoccomment">     * @param g2 graphics context for rendering the JComponent</em>
+<a name="324" href="#324">324</a> <em class="jxr_javadoccomment">     */</em>
+<a name="325" href="#325">325</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paint( Graphics2D g2 ) {
+<a name="326" href="#326">326</a>         <strong class="jxr_keyword">if</strong>( component.getBounds().isEmpty() ) {
+<a name="327" href="#327">327</a>             <em class="jxr_comment">// The component has not been initialized yet.</em>
+<a name="328" href="#328">328</a>             <strong class="jxr_keyword">return</strong>;
+<a name="329" href="#329">329</a>         }
+<a name="330" href="#330">330</a> 
+<a name="331" href="#331">331</a>         <a href="../../../../../edu/umd/cs/piccolox/pswing/PSwingRepaintManager.html">PSwingRepaintManager</a> manager = (PSwingRepaintManager)RepaintManager.currentManager( component );
+<a name="332" href="#332">332</a>         manager.lockRepaint( component );
+<a name="333" href="#333">333</a> 
+<a name="334" href="#334">334</a>         Graphics2D bufferedGraphics = <strong class="jxr_keyword">null</strong>;
+<a name="335" href="#335">335</a>         <strong class="jxr_keyword">if</strong>( !isBufferValid() ) {
+<a name="336" href="#336">336</a>             <em class="jxr_comment">// Get the graphics context associated with a new buffered image.</em>
+<a name="337" href="#337">337</a>             <em class="jxr_comment">// Use TYPE_INT_ARGB_PRE so that transparent components look good on Windows.</em>
+<a name="338" href="#338">338</a>             buffer = <strong class="jxr_keyword">new</strong> BufferedImage( component.getWidth(), component.getHeight(), BufferedImage.TYPE_INT_ARGB_PRE );
+<a name="339" href="#339">339</a>             bufferedGraphics = buffer.createGraphics();
+<a name="340" href="#340">340</a>         }
+<a name="341" href="#341">341</a>         <strong class="jxr_keyword">else</strong> {
+<a name="342" href="#342">342</a>             <em class="jxr_comment">// Use the graphics context associated with the existing buffered image</em>
+<a name="343" href="#343">343</a>             bufferedGraphics = buffer.createGraphics();
+<a name="344" href="#344">344</a>             <em class="jxr_comment">// Clear the buffered image to prevent artifacts on Macintosh</em>
+<a name="345" href="#345">345</a>             bufferedGraphics.setBackground( BUFFER_BACKGROUND_COLOR );
+<a name="346" href="#346">346</a>             bufferedGraphics.clearRect( 0, 0, component.getWidth(), component.getHeight() );
+<a name="347" href="#347">347</a>         }
 <a name="348" href="#348">348</a> 
-<a name="349" href="#349">349</a>         <em class="jxr_comment">// Draw the component to the buffer</em>
-<a name="350" href="#350">350</a>         component.paint( bufferedGraphics );
+<a name="349" href="#349">349</a>         <em class="jxr_comment">// Start with the rendering hints from the provided graphics context</em>
+<a name="350" href="#350">350</a>         bufferedGraphics.setRenderingHints( g2.getRenderingHints() );
 <a name="351" href="#351">351</a> 
-<a name="352" href="#352">352</a>         <em class="jxr_comment">// Draw the buffer to g2's associated drawing surface</em>
-<a name="353" href="#353">353</a>         g2.drawRenderedImage( buffer, IDENTITY_TRANSFORM );
+<a name="352" href="#352">352</a>         <em class="jxr_comment">//PSwing sometimes causes JComponent text to render with "..." when fractional font metrics are enabled.  These are now always disabled for the offscreen buffer.</em>
+<a name="353" href="#353">353</a>         bufferedGraphics.setRenderingHint( RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_OFF );
 <a name="354" href="#354">354</a> 
-<a name="355" href="#355">355</a>         manager.unlockRepaint( component );
-<a name="356" href="#356">356</a>     }
+<a name="355" href="#355">355</a>         <em class="jxr_comment">// Draw the component to the buffer</em>
+<a name="356" href="#356">356</a>         component.paint( bufferedGraphics );
 <a name="357" href="#357">357</a> 
-<a name="358" href="#358">358</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="359" href="#359">359</a> <em class="jxr_javadoccomment">     * Tells whether the buffer for the image of the Swing components</em>
-<a name="360" href="#360">360</a> <em class="jxr_javadoccomment">     * is currently valid.</em>
-<a name="361" href="#361">361</a> <em class="jxr_javadoccomment">     *</em>
-<a name="362" href="#362">362</a> <em class="jxr_javadoccomment">     * @return true if the buffer is currently valid</em>
-<a name="363" href="#363">363</a> <em class="jxr_javadoccomment">     */</em>
-<a name="364" href="#364">364</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> isBufferValid() {
-<a name="365" href="#365">365</a>         <strong class="jxr_keyword">return</strong> !( buffer == <strong class="jxr_keyword">null</strong> || buffer.getWidth() != component.getWidth() || buffer.getHeight() != component.getHeight() );
-<a name="366" href="#366">366</a>     }
-<a name="367" href="#367">367</a> 
-<a name="368" href="#368">368</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="369" href="#369">369</a> <em class="jxr_javadoccomment">     * Repaints the specified portion of this visual component</em>
-<a name="370" href="#370">370</a> <em class="jxr_javadoccomment">     * Note that the input parameter may be modified as a result of this call.</em>
-<a name="371" href="#371">371</a> <em class="jxr_javadoccomment">     *</em>
-<a name="372" href="#372">372</a> <em class="jxr_javadoccomment">     * @param repaintBounds</em>
-<a name="373" href="#373">373</a> <em class="jxr_javadoccomment">     */</em>
-<a name="374" href="#374">374</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> repaint( PBounds repaintBounds ) {
-<a name="375" href="#375">375</a>         Shape sh = getTransform().createTransformedShape( repaintBounds );
-<a name="376" href="#376">376</a>         TEMP_REPAINT_BOUNDS2.setRect( sh.getBounds2D() );
-<a name="377" href="#377">377</a>         repaintFrom( TEMP_REPAINT_BOUNDS2, <strong class="jxr_keyword">this</strong> );
-<a name="378" href="#378">378</a>     }
-<a name="379" href="#379">379</a> 
-<a name="380" href="#380">380</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="381" href="#381">381</a> <em class="jxr_javadoccomment">     * Sets the Swing component's bounds to its preferred bounds</em>
-<a name="382" href="#382">382</a> <em class="jxr_javadoccomment">     * unless it already is set to its preferred size.  Also</em>
-<a name="383" href="#383">383</a> <em class="jxr_javadoccomment">     * updates the visual components copy of these bounds</em>
-<a name="384" href="#384">384</a> <em class="jxr_javadoccomment">     */</em>
-<a name="385" href="#385">385</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> computeBounds() {
-<a name="386" href="#386">386</a>         reshape();
-<a name="387" href="#387">387</a> <em class="jxr_comment">//        if( !component.getBounds().isEmpty() ) {</em>
-<a name="388" href="#388">388</a> <em class="jxr_comment">//            Dimension d = component.getPreferredSize();</em>
-<a name="389" href="#389">389</a> <em class="jxr_comment">//            getBoundsReference().setRect( 0, 0, d.getWidth(), d.getHeight() );</em>
-<a name="390" href="#390">390</a> <em class="jxr_comment">//            if( !component.getSize().equals( d ) ) {</em>
-<a name="391" href="#391">391</a> <em class="jxr_comment">//                component.setBounds( 0, 0, (int)d.getWidth(), (int)d.getHeight() );</em>
-<a name="392" href="#392">392</a> <em class="jxr_comment">//            }</em>
-<a name="393" href="#393">393</a> <em class="jxr_comment">//        }</em>
-<a name="394" href="#394">394</a>     }
-<a name="395" href="#395">395</a> 
-<a name="396" href="#396">396</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="397" href="#397">397</a> <em class="jxr_javadoccomment">     * Returns the Swing component that this visual component wraps</em>
-<a name="398" href="#398">398</a> <em class="jxr_javadoccomment">     *</em>
-<a name="399" href="#399">399</a> <em class="jxr_javadoccomment">     * @return The Swing component that this visual component wraps</em>
-<a name="400" href="#400">400</a> <em class="jxr_javadoccomment">     */</em>
-<a name="401" href="#401">401</a>     <strong class="jxr_keyword">public</strong> JComponent getComponent() {
-<a name="402" href="#402">402</a>         <strong class="jxr_keyword">return</strong> component;
-<a name="403" href="#403">403</a>     }
-<a name="404" href="#404">404</a> 
-<a name="405" href="#405">405</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="406" href="#406">406</a> <em class="jxr_javadoccomment">     * We need to turn off double buffering of Swing components within</em>
-<a name="407" href="#407">407</a> <em class="jxr_javadoccomment">     * Piccolo since all components contained within a native container</em>
-<a name="408" href="#408">408</a> <em class="jxr_javadoccomment">     * use the same buffer for double buffering.  With normal Swing</em>
-<a name="409" href="#409">409</a> <em class="jxr_javadoccomment">     * widgets this is fine, but for Swing components within Piccolo this</em>
-<a name="410" href="#410">410</a> <em class="jxr_javadoccomment">     * causes problems.  This function recurses the component tree</em>
-<a name="411" href="#411">411</a> <em class="jxr_javadoccomment">     * rooted at c, and turns off any double buffering in use.  It also</em>
-<a name="412" href="#412">412</a> <em class="jxr_javadoccomment">     * updates the minimum font size based on the font size of c and adds</em>
-<a name="413" href="#413">413</a> <em class="jxr_javadoccomment">     * a property change listener to listen for changes to the font.</em>
-<a name="414" href="#414">414</a> <em class="jxr_javadoccomment">     *</em>
-<a name="415" href="#415">415</a> <em class="jxr_javadoccomment">     * @param c The Component to be recursively unDoubleBuffered</em>
-<a name="416" href="#416">416</a> <em class="jxr_javadoccomment">     */</em>
-<a name="417" href="#417">417</a>     <strong class="jxr_keyword">void</strong> init( Component c ) {
-<a name="418" href="#418">418</a>         Component[] children = <strong class="jxr_keyword">null</strong>;
-<a name="419" href="#419">419</a>         <strong class="jxr_keyword">if</strong>( c instanceof Container ) {
-<a name="420" href="#420">420</a>             children = ( (Container)c ).getComponents();
-<a name="421" href="#421">421</a>         }
-<a name="422" href="#422">422</a> 
-<a name="423" href="#423">423</a>         <strong class="jxr_keyword">if</strong>( c.getFont() != <strong class="jxr_keyword">null</strong> ) {
-<a name="424" href="#424">424</a>             minFontSize = Math.min( minFontSize, c.getFont().getSize() );
-<a name="425" href="#425">425</a>         }
-<a name="426" href="#426">426</a> 
-<a name="427" href="#427">427</a>         <strong class="jxr_keyword">if</strong>( children != <strong class="jxr_keyword">null</strong> ) {
-<a name="428" href="#428">428</a>             <strong class="jxr_keyword">for</strong>( <strong class="jxr_keyword">int</strong> j = 0; j &lt; children.length; j++ ) {
-<a name="429" href="#429">429</a>                 init( children[j] );
-<a name="430" href="#430">430</a>             }
+<a name="358" href="#358">358</a>         <em class="jxr_comment">// Draw the buffer to g2's associated drawing surface</em>
+<a name="359" href="#359">359</a>         g2.drawRenderedImage( buffer, IDENTITY_TRANSFORM );
+<a name="360" href="#360">360</a> 
+<a name="361" href="#361">361</a>         manager.unlockRepaint( component );
+<a name="362" href="#362">362</a>     }
+<a name="363" href="#363">363</a> 
+<a name="364" href="#364">364</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="365" href="#365">365</a> <em class="jxr_javadoccomment">     * Tells whether the buffer for the image of the Swing components</em>
+<a name="366" href="#366">366</a> <em class="jxr_javadoccomment">     * is currently valid.</em>
+<a name="367" href="#367">367</a> <em class="jxr_javadoccomment">     *</em>
+<a name="368" href="#368">368</a> <em class="jxr_javadoccomment">     * @return true if the buffer is currently valid</em>
+<a name="369" href="#369">369</a> <em class="jxr_javadoccomment">     */</em>
+<a name="370" href="#370">370</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> isBufferValid() {
+<a name="371" href="#371">371</a>         <strong class="jxr_keyword">return</strong> !( buffer == <strong class="jxr_keyword">null</strong> || buffer.getWidth() != component.getWidth() || buffer.getHeight() != component.getHeight() );
+<a name="372" href="#372">372</a>     }
+<a name="373" href="#373">373</a> 
+<a name="374" href="#374">374</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="375" href="#375">375</a> <em class="jxr_javadoccomment">     * Repaints the specified portion of this visual component</em>
+<a name="376" href="#376">376</a> <em class="jxr_javadoccomment">     * Note that the input parameter may be modified as a result of this call.</em>
+<a name="377" href="#377">377</a> <em class="jxr_javadoccomment">     *</em>
+<a name="378" href="#378">378</a> <em class="jxr_javadoccomment">     * @param repaintBounds</em>
+<a name="379" href="#379">379</a> <em class="jxr_javadoccomment">     */</em>
+<a name="380" href="#380">380</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> repaint( PBounds repaintBounds ) {
+<a name="381" href="#381">381</a>         Shape sh = getTransform().createTransformedShape( repaintBounds );
+<a name="382" href="#382">382</a>         TEMP_REPAINT_BOUNDS2.setRect( sh.getBounds2D() );
+<a name="383" href="#383">383</a>         repaintFrom( TEMP_REPAINT_BOUNDS2, <strong class="jxr_keyword">this</strong> );
+<a name="384" href="#384">384</a>     }
+<a name="385" href="#385">385</a> 
+<a name="386" href="#386">386</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="387" href="#387">387</a> <em class="jxr_javadoccomment">     * Sets the Swing component's bounds to its preferred bounds</em>
+<a name="388" href="#388">388</a> <em class="jxr_javadoccomment">     * unless it already is set to its preferred size.  Also</em>
+<a name="389" href="#389">389</a> <em class="jxr_javadoccomment">     * updates the visual components copy of these bounds</em>
+<a name="390" href="#390">390</a> <em class="jxr_javadoccomment">     */</em>
+<a name="391" href="#391">391</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> computeBounds() {
+<a name="392" href="#392">392</a>         reshape();
+<a name="393" href="#393">393</a> <em class="jxr_comment">//        if( !component.getBounds().isEmpty() ) {</em>
+<a name="394" href="#394">394</a> <em class="jxr_comment">//            Dimension d = component.getPreferredSize();</em>
+<a name="395" href="#395">395</a> <em class="jxr_comment">//            getBoundsReference().setRect( 0, 0, d.getWidth(), d.getHeight() );</em>
+<a name="396" href="#396">396</a> <em class="jxr_comment">//            if( !component.getSize().equals( d ) ) {</em>
+<a name="397" href="#397">397</a> <em class="jxr_comment">//                component.setBounds( 0, 0, (int)d.getWidth(), (int)d.getHeight() );</em>
+<a name="398" href="#398">398</a> <em class="jxr_comment">//            }</em>
+<a name="399" href="#399">399</a> <em class="jxr_comment">//        }</em>
+<a name="400" href="#400">400</a>     }
+<a name="401" href="#401">401</a> 
+<a name="402" href="#402">402</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="403" href="#403">403</a> <em class="jxr_javadoccomment">     * Returns the Swing component that this visual component wraps</em>
+<a name="404" href="#404">404</a> <em class="jxr_javadoccomment">     *</em>
+<a name="405" href="#405">405</a> <em class="jxr_javadoccomment">     * @return The Swing component that this visual component wraps</em>
+<a name="406" href="#406">406</a> <em class="jxr_javadoccomment">     */</em>
+<a name="407" href="#407">407</a>     <strong class="jxr_keyword">public</strong> JComponent getComponent() {
+<a name="408" href="#408">408</a>         <strong class="jxr_keyword">return</strong> component;
+<a name="409" href="#409">409</a>     }
+<a name="410" href="#410">410</a> 
+<a name="411" href="#411">411</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="412" href="#412">412</a> <em class="jxr_javadoccomment">     * We need to turn off double buffering of Swing components within</em>
+<a name="413" href="#413">413</a> <em class="jxr_javadoccomment">     * Piccolo since all components contained within a native container</em>
+<a name="414" href="#414">414</a> <em class="jxr_javadoccomment">     * use the same buffer for double buffering.  With normal Swing</em>
+<a name="415" href="#415">415</a> <em class="jxr_javadoccomment">     * widgets this is fine, but for Swing components within Piccolo this</em>
+<a name="416" href="#416">416</a> <em class="jxr_javadoccomment">     * causes problems.  This function recurses the component tree</em>
+<a name="417" href="#417">417</a> <em class="jxr_javadoccomment">     * rooted at c, and turns off any double buffering in use.  It also</em>
+<a name="418" href="#418">418</a> <em class="jxr_javadoccomment">     * updates the minimum font size based on the font size of c and adds</em>
+<a name="419" href="#419">419</a> <em class="jxr_javadoccomment">     * a property change listener to listen for changes to the font.</em>
+<a name="420" href="#420">420</a> <em class="jxr_javadoccomment">     *</em>
+<a name="421" href="#421">421</a> <em class="jxr_javadoccomment">     * @param c The Component to be recursively unDoubleBuffered</em>
+<a name="422" href="#422">422</a> <em class="jxr_javadoccomment">     */</em>
+<a name="423" href="#423">423</a>     <strong class="jxr_keyword">void</strong> init( Component c ) {
+<a name="424" href="#424">424</a>         Component[] children = <strong class="jxr_keyword">null</strong>;
+<a name="425" href="#425">425</a>         <strong class="jxr_keyword">if</strong>( c instanceof Container ) {
+<a name="426" href="#426">426</a>             children = ( (Container)c ).getComponents();
+<a name="427" href="#427">427</a>         }
+<a name="428" href="#428">428</a> 
+<a name="429" href="#429">429</a>         <strong class="jxr_keyword">if</strong>( c.getFont() != <strong class="jxr_keyword">null</strong> ) {
+<a name="430" href="#430">430</a>             minFontSize = Math.min( minFontSize, c.getFont().getSize() );
 <a name="431" href="#431">431</a>         }
 <a name="432" href="#432">432</a> 
-<a name="433" href="#433">433</a>         <strong class="jxr_keyword">if</strong>( c instanceof JComponent ) {
-<a name="434" href="#434">434</a>             ( (JComponent)c ).setDoubleBuffered( false );
-<a name="435" href="#435">435</a>             c.addPropertyChangeListener( <span class="jxr_string">"font"</span>, <strong class="jxr_keyword">this</strong> );
-<a name="436" href="#436">436</a>             c.addComponentListener( <strong class="jxr_keyword">new</strong> ComponentAdapter() {
-<a name="437" href="#437">437</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> componentResized( ComponentEvent e ) {
-<a name="438" href="#438">438</a>                     computeBounds();
-<a name="439" href="#439">439</a>                 }
-<a name="440" href="#440">440</a> 
-<a name="441" href="#441">441</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> componentShown( ComponentEvent e ) {
-<a name="442" href="#442">442</a>                     computeBounds();
-<a name="443" href="#443">443</a>                 }
-<a name="444" href="#444">444</a>             } );
-<a name="445" href="#445">445</a>         }
-<a name="446" href="#446">446</a>     }
-<a name="447" href="#447">447</a> 
-<a name="448" href="#448">448</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="449" href="#449">449</a> <em class="jxr_javadoccomment">     * Listens for changes in font on components rooted at this PSwing</em>
-<a name="450" href="#450">450</a> <em class="jxr_javadoccomment">     */</em>
-<a name="451" href="#451">451</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> propertyChange( PropertyChangeEvent evt ) {
-<a name="452" href="#452">452</a>         <strong class="jxr_keyword">if</strong>( component.isAncestorOf( (Component)evt.getSource() ) &amp;&amp;
-<a name="453" href="#453">453</a>             ( (Component)evt.getSource() ).getFont() != <strong class="jxr_keyword">null</strong> ) {
-<a name="454" href="#454">454</a>             minFontSize = Math.min( minFontSize, ( (Component)evt.getSource() ).getFont().getSize() );
-<a name="455" href="#455">455</a>         }
-<a name="456" href="#456">456</a>     }
-<a name="457" href="#457">457</a> 
-<a name="458" href="#458">458</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> readObject( ObjectInputStream in ) <strong class="jxr_keyword">throws</strong> IOException, ClassNotFoundException {
-<a name="459" href="#459">459</a>         in.defaultReadObject();
-<a name="460" href="#460">460</a>         init( component );
-<a name="461" href="#461">461</a>     }
-<a name="462" href="#462">462</a> 
-<a name="463" href="#463">463</a>         <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
-<a name="464" href="#464">464</a>     <em class="jxr_comment">///////Start methods for automatic canvas detection</em>
-<a name="465" href="#465">465</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
-<a name="466" href="#466">466</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="467" href="#467">467</a> <em class="jxr_javadoccomment">     * Attaches a listener to the specified node and all its parents to listen</em>
-<a name="468" href="#468">468</a> <em class="jxr_javadoccomment">     * for a change in the PSwingCanvas.  Only PROPERTY_PARENT listeners are added</em>
-<a name="469" href="#469">469</a> <em class="jxr_javadoccomment">     * so this code wouldn't handle if a PLayer were viewed by a different PCamera</em>
-<a name="470" href="#470">470</a> <em class="jxr_javadoccomment">     * since that constitutes a child change.</em>
-<a name="471" href="#471">471</a> <em class="jxr_javadoccomment">     * @param node The child node at which to begin a parent-based traversal for adding listeners.</em>
-<a name="472" href="#472">472</a> <em class="jxr_javadoccomment">     */</em>
-<a name="473" href="#473">473</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> listenForCanvas( PNode node ) {
-<a name="474" href="#474">474</a>         <em class="jxr_comment">//need to get the full tree for this node</em>
-<a name="475" href="#475">475</a>         PNode p = node;
-<a name="476" href="#476">476</a>         <strong class="jxr_keyword">while</strong>( p != <strong class="jxr_keyword">null</strong> ) {
-<a name="477" href="#477">477</a>             listenToNode( p );
-<a name="478" href="#478">478</a> 
-<a name="479" href="#479">479</a>             PNode parent = p;
-<a name="480" href="#480">480</a> <em class="jxr_comment">//            System.out.println( "parent = " + parent.getClass() );</em>
-<a name="481" href="#481">481</a>             <strong class="jxr_keyword">if</strong>( parent instanceof PLayer ) {
-<a name="482" href="#482">482</a>                 PLayer player = (PLayer)parent;
-<a name="483" href="#483">483</a> <em class="jxr_comment">//                System.out.println( "Found player: with " + player.getCameraCount() + " cameras" );</em>
-<a name="484" href="#484">484</a>                 <strong class="jxr_keyword">for</strong>( <strong class="jxr_keyword">int</strong> i = 0; i &lt; player.getCameraCount(); i++ ) {
-<a name="485" href="#485">485</a>                     PCamera cam = player.getCamera( i );
-<a name="486" href="#486">486</a>                     <strong class="jxr_keyword">if</strong>( cam.getComponent() instanceof PSwingCanvas ) {
-<a name="487" href="#487">487</a>                         updateCanvas( (PSwingCanvas)cam.getComponent() );
-<a name="488" href="#488">488</a>                         <strong class="jxr_keyword">break</strong>;
-<a name="489" href="#489">489</a>                     }
-<a name="490" href="#490">490</a>                 }
-<a name="491" href="#491">491</a>             }
-<a name="492" href="#492">492</a>             p = p.getParent();
-<a name="493" href="#493">493</a>         }
-<a name="494" href="#494">494</a>     }
-<a name="495" href="#495">495</a> 
-<a name="496" href="#496">496</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="497" href="#497">497</a> <em class="jxr_javadoccomment">     * Attach a listener to the specified node, if one has not already been attached.</em>
-<a name="498" href="#498">498</a> <em class="jxr_javadoccomment">     * @param node the node to listen to for parent/pcamera/pcanvas changes</em>
-<a name="499" href="#499">499</a> <em class="jxr_javadoccomment">     */</em>
-<a name="500" href="#500">500</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> listenToNode( PNode node ) {
-<a name="501" href="#501">501</a> <em class="jxr_comment">//        System.out.println( "listeningTo.size() = " + listeningTo.size() );</em>
-<a name="502" href="#502">502</a>         <strong class="jxr_keyword">if</strong>( !listeningTo( node ) ) {
-<a name="503" href="#503">503</a>             listeningTo.add( node );
-<a name="504" href="#504">504</a>             node.addPropertyChangeListener( PNode.PROPERTY_PARENT, parentListener );
-<a name="505" href="#505">505</a>         }
-<a name="506" href="#506">506</a>     }
-<a name="507" href="#507">507</a> 
-<a name="508" href="#508">508</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="509" href="#509">509</a> <em class="jxr_javadoccomment">     * Determine whether this PSwing is already listening to the specified node for camera/canvas changes.</em>
-<a name="510" href="#510">510</a> <em class="jxr_javadoccomment">     * @param node the node to check</em>
-<a name="511" href="#511">511</a> <em class="jxr_javadoccomment">     * @return true if this PSwing is already listening to the specified node for camera/canvas changes</em>
-<a name="512" href="#512">512</a> <em class="jxr_javadoccomment">     */</em>
-<a name="513" href="#513">513</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> listeningTo( PNode node ) {
-<a name="514" href="#514">514</a>         <strong class="jxr_keyword">for</strong>( <strong class="jxr_keyword">int</strong> i = 0; i &lt; listeningTo.size(); i++ ) {
-<a name="515" href="#515">515</a>             PNode pNode = (PNode)listeningTo.get( i );
-<a name="516" href="#516">516</a>             <strong class="jxr_keyword">if</strong>( pNode == node ) {
-<a name="517" href="#517">517</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
-<a name="518" href="#518">518</a>             }
-<a name="519" href="#519">519</a>         }
-<a name="520" href="#520">520</a>         <strong class="jxr_keyword">return</strong> false;
-<a name="521" href="#521">521</a>     }
-<a name="522" href="#522">522</a> 
-<a name="523" href="#523">523</a>     <em class="jxr_javadoccomment">/**</em>
-<a name="524" href="#524">524</a> <em class="jxr_javadoccomment">     * Removes this PSwing from previous PSwingCanvas (if any), and ensure that this PSwing is attached to the new PSwingCanvas.</em>
-<a name="525" href="#525">525</a> <em class="jxr_javadoccomment">     * @param newCanvas the new PSwingCanvas (may be null)</em>
-<a name="526" href="#526">526</a> <em class="jxr_javadoccomment">     */</em>
-<a name="527" href="#527">527</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> updateCanvas( PSwingCanvas newCanvas ) {
-<a name="528" href="#528">528</a>         <strong class="jxr_keyword">if</strong>( newCanvas != canvas ) {
-<a name="529" href="#529">529</a>             <strong class="jxr_keyword">if</strong>( canvas != <strong class="jxr_keyword">null</strong> ) {
-<a name="530" href="#530">530</a>                 canvas.removePSwing( <strong class="jxr_keyword">this</strong> );
-<a name="531" href="#531">531</a>             }
-<a name="532" href="#532">532</a>             <strong class="jxr_keyword">if</strong>( newCanvas != <strong class="jxr_keyword">null</strong> ) {
-<a name="533" href="#533">533</a>                 canvas = newCanvas;
-<a name="534" href="#534">534</a>                 canvas.addPSwing( <strong class="jxr_keyword">this</strong> );
-<a name="535" href="#535">535</a>                 reshape();
-<a name="536" href="#536">536</a>                 repaint();
-<a name="537" href="#537">537</a>                 canvas.invalidate();
-<a name="538" href="#538">538</a>                 canvas.revalidate();
-<a name="539" href="#539">539</a>                 canvas.repaint();
-<a name="540" href="#540">540</a>             }
-<a name="541" href="#541">541</a>         }
-<a name="542" href="#542">542</a>     }
-<a name="543" href="#543">543</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
-<a name="544" href="#544">544</a>     <em class="jxr_comment">///////End methods for automatic canvas detection</em>
-<a name="545" href="#545">545</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
-<a name="546" href="#546">546</a> }
+<a name="433" href="#433">433</a>         <strong class="jxr_keyword">if</strong>( children != <strong class="jxr_keyword">null</strong> ) {
+<a name="434" href="#434">434</a>             <strong class="jxr_keyword">for</strong>( <strong class="jxr_keyword">int</strong> j = 0; j &lt; children.length; j++ ) {
+<a name="435" href="#435">435</a>                 init( children[j] );
+<a name="436" href="#436">436</a>             }
+<a name="437" href="#437">437</a>         }
+<a name="438" href="#438">438</a> 
+<a name="439" href="#439">439</a>         <strong class="jxr_keyword">if</strong>( c instanceof JComponent ) {
+<a name="440" href="#440">440</a>             ( (JComponent)c ).setDoubleBuffered( false );
+<a name="441" href="#441">441</a>             c.addPropertyChangeListener( <span class="jxr_string">"font"</span>, <strong class="jxr_keyword">this</strong> );
+<a name="442" href="#442">442</a>             c.addComponentListener( <strong class="jxr_keyword">new</strong> ComponentAdapter() {
+<a name="443" href="#443">443</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> componentResized( ComponentEvent e ) {
+<a name="444" href="#444">444</a>                     computeBounds();
+<a name="445" href="#445">445</a>                 }
+<a name="446" href="#446">446</a> 
+<a name="447" href="#447">447</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> componentShown( ComponentEvent e ) {
+<a name="448" href="#448">448</a>                     computeBounds();
+<a name="449" href="#449">449</a>                 }
+<a name="450" href="#450">450</a>             } );
+<a name="451" href="#451">451</a>         }
+<a name="452" href="#452">452</a>     }
+<a name="453" href="#453">453</a> 
+<a name="454" href="#454">454</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="455" href="#455">455</a> <em class="jxr_javadoccomment">     * Listens for changes in font on components rooted at this PSwing</em>
+<a name="456" href="#456">456</a> <em class="jxr_javadoccomment">     */</em>
+<a name="457" href="#457">457</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> propertyChange( PropertyChangeEvent evt ) {
+<a name="458" href="#458">458</a>         <strong class="jxr_keyword">if</strong>( component.isAncestorOf( (Component)evt.getSource() ) &amp;&amp;
+<a name="459" href="#459">459</a>             ( (Component)evt.getSource() ).getFont() != <strong class="jxr_keyword">null</strong> ) {
+<a name="460" href="#460">460</a>             minFontSize = Math.min( minFontSize, ( (Component)evt.getSource() ).getFont().getSize() );
+<a name="461" href="#461">461</a>         }
+<a name="462" href="#462">462</a>     }
+<a name="463" href="#463">463</a> 
+<a name="464" href="#464">464</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> readObject( ObjectInputStream in ) <strong class="jxr_keyword">throws</strong> IOException, ClassNotFoundException {
+<a name="465" href="#465">465</a>         in.defaultReadObject();
+<a name="466" href="#466">466</a>         init( component );
+<a name="467" href="#467">467</a>     }
+<a name="468" href="#468">468</a> 
+<a name="469" href="#469">469</a>         <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
+<a name="470" href="#470">470</a>     <em class="jxr_comment">///////Start methods for automatic canvas detection</em>
+<a name="471" href="#471">471</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
+<a name="472" href="#472">472</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="473" href="#473">473</a> <em class="jxr_javadoccomment">     * Attaches a listener to the specified node and all its parents to listen</em>
+<a name="474" href="#474">474</a> <em class="jxr_javadoccomment">     * for a change in the PSwingCanvas.  Only PROPERTY_PARENT listeners are added</em>
+<a name="475" href="#475">475</a> <em class="jxr_javadoccomment">     * so this code wouldn't handle if a PLayer were viewed by a different PCamera</em>
+<a name="476" href="#476">476</a> <em class="jxr_javadoccomment">     * since that constitutes a child change.</em>
+<a name="477" href="#477">477</a> <em class="jxr_javadoccomment">     * @param node The child node at which to begin a parent-based traversal for adding listeners.</em>
+<a name="478" href="#478">478</a> <em class="jxr_javadoccomment">     */</em>
+<a name="479" href="#479">479</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> listenForCanvas( PNode node ) {
+<a name="480" href="#480">480</a>         <em class="jxr_comment">//need to get the full tree for this node</em>
+<a name="481" href="#481">481</a>         PNode p = node;
+<a name="482" href="#482">482</a>         <strong class="jxr_keyword">while</strong>( p != <strong class="jxr_keyword">null</strong> ) {
+<a name="483" href="#483">483</a>             listenToNode( p );
+<a name="484" href="#484">484</a> 
+<a name="485" href="#485">485</a>             PNode parent = p;
+<a name="486" href="#486">486</a> <em class="jxr_comment">//            System.out.println( "parent = " + parent.getClass() );</em>
+<a name="487" href="#487">487</a>             <strong class="jxr_keyword">if</strong>( parent instanceof PLayer ) {
+<a name="488" href="#488">488</a>                 PLayer player = (PLayer)parent;
+<a name="489" href="#489">489</a> <em class="jxr_comment">//                System.out.println( "Found player: with " + player.getCameraCount() + " cameras" );</em>
+<a name="490" href="#490">490</a>                 <strong class="jxr_keyword">for</strong>( <strong class="jxr_keyword">int</strong> i = 0; i &lt; player.getCameraCount(); i++ ) {
+<a name="491" href="#491">491</a>                     PCamera cam = player.getCamera( i );
+<a name="492" href="#492">492</a>                     <strong class="jxr_keyword">if</strong>( cam.getComponent() instanceof PSwingCanvas ) {
+<a name="493" href="#493">493</a>                         updateCanvas( (PSwingCanvas)cam.getComponent() );
+<a name="494" href="#494">494</a>                         <strong class="jxr_keyword">break</strong>;
+<a name="495" href="#495">495</a>                     }
+<a name="496" href="#496">496</a>                 }
+<a name="497" href="#497">497</a>             }
+<a name="498" href="#498">498</a>             p = p.getParent();
+<a name="499" href="#499">499</a>         }
+<a name="500" href="#500">500</a>     }
+<a name="501" href="#501">501</a> 
+<a name="502" href="#502">502</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="503" href="#503">503</a> <em class="jxr_javadoccomment">     * Attach a listener to the specified node, if one has not already been attached.</em>
+<a name="504" href="#504">504</a> <em class="jxr_javadoccomment">     * @param node the node to listen to for parent/pcamera/pcanvas changes</em>
+<a name="505" href="#505">505</a> <em class="jxr_javadoccomment">     */</em>
+<a name="506" href="#506">506</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> listenToNode( PNode node ) {
+<a name="507" href="#507">507</a> <em class="jxr_comment">//        System.out.println( "listeningTo.size() = " + listeningTo.size() );</em>
+<a name="508" href="#508">508</a>         <strong class="jxr_keyword">if</strong>( !listeningTo( node ) ) {
+<a name="509" href="#509">509</a>             listeningTo.add( node );
+<a name="510" href="#510">510</a>             node.addPropertyChangeListener( PNode.PROPERTY_PARENT, parentListener );
+<a name="511" href="#511">511</a>         }
+<a name="512" href="#512">512</a>     }
+<a name="513" href="#513">513</a> 
+<a name="514" href="#514">514</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="515" href="#515">515</a> <em class="jxr_javadoccomment">     * Determine whether this PSwing is already listening to the specified node for camera/canvas changes.</em>
+<a name="516" href="#516">516</a> <em class="jxr_javadoccomment">     * @param node the node to check</em>
+<a name="517" href="#517">517</a> <em class="jxr_javadoccomment">     * @return true if this PSwing is already listening to the specified node for camera/canvas changes</em>
+<a name="518" href="#518">518</a> <em class="jxr_javadoccomment">     */</em>
+<a name="519" href="#519">519</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> listeningTo( PNode node ) {
+<a name="520" href="#520">520</a>         <strong class="jxr_keyword">for</strong>( <strong class="jxr_keyword">int</strong> i = 0; i &lt; listeningTo.size(); i++ ) {
+<a name="521" href="#521">521</a>             PNode pNode = (PNode)listeningTo.get( i );
+<a name="522" href="#522">522</a>             <strong class="jxr_keyword">if</strong>( pNode == node ) {
+<a name="523" href="#523">523</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a name="524" href="#524">524</a>             }
+<a name="525" href="#525">525</a>         }
+<a name="526" href="#526">526</a>         <strong class="jxr_keyword">return</strong> false;
+<a name="527" href="#527">527</a>     }
+<a name="528" href="#528">528</a> 
+<a name="529" href="#529">529</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="530" href="#530">530</a> <em class="jxr_javadoccomment">     * Removes this PSwing from previous PSwingCanvas (if any), and ensure that this PSwing is attached to the new PSwingCanvas.</em>
+<a name="531" href="#531">531</a> <em class="jxr_javadoccomment">     * @param newCanvas the new PSwingCanvas (may be null)</em>
+<a name="532" href="#532">532</a> <em class="jxr_javadoccomment">     */</em>
+<a name="533" href="#533">533</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> updateCanvas( PSwingCanvas newCanvas ) {
+<a name="534" href="#534">534</a>         <strong class="jxr_keyword">if</strong>( newCanvas != canvas ) {
+<a name="535" href="#535">535</a>             <strong class="jxr_keyword">if</strong>( canvas != <strong class="jxr_keyword">null</strong> ) {
+<a name="536" href="#536">536</a>                 canvas.removePSwing( <strong class="jxr_keyword">this</strong> );
+<a name="537" href="#537">537</a>             }
+<a name="538" href="#538">538</a>             <strong class="jxr_keyword">if</strong>( newCanvas != <strong class="jxr_keyword">null</strong> ) {
+<a name="539" href="#539">539</a>                 canvas = newCanvas;
+<a name="540" href="#540">540</a>                 canvas.addPSwing( <strong class="jxr_keyword">this</strong> );
+<a name="541" href="#541">541</a>                 reshape();
+<a name="542" href="#542">542</a>                 repaint();
+<a name="543" href="#543">543</a>                 canvas.invalidate();
+<a name="544" href="#544">544</a>                 canvas.revalidate();
+<a name="545" href="#545">545</a>                 canvas.repaint();
+<a name="546" href="#546">546</a>             }
+<a name="547" href="#547">547</a>         }
+<a name="548" href="#548">548</a>     }
+<a name="549" href="#549">549</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
+<a name="550" href="#550">550</a>     <em class="jxr_comment">///////End methods for automatic canvas detection</em>
+<a name="551" href="#551">551</a>     <em class="jxr_comment">////////////////////////////////////////////////////////////</em>
+<a name="552" href="#552">552</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

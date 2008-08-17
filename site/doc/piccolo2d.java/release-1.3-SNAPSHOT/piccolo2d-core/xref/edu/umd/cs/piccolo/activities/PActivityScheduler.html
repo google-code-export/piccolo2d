@@ -51,136 +51,139 @@
 <a name="41" href="#41">41</a>  
 <a name="42" href="#42">42</a>  <em class="jxr_javadoccomment">/**</em>
 <a name="43" href="#43">43</a>  <em class="jxr_javadoccomment"> * &lt;b&gt;PActivityScheduler&lt;/b&gt; is responsible for maintaining a list of</em>
-<a name="44" href="#44">44</a>  <em class="jxr_javadoccomment"> * activities. It is given a chance to process these activities from </em>
-<a name="45" href="#45">45</a>  <em class="jxr_javadoccomment"> * the PRoot's processInputs() method. Most users will not need to use</em>
-<a name="46" href="#46">46</a>  <em class="jxr_javadoccomment"> * the PActivityScheduler directly, instead you should look at:</em>
+<a name="44" href="#44">44</a>  <em class="jxr_javadoccomment"> * activities. It is given a chance to process these activities from the PRoot's</em>
+<a name="45" href="#45">45</a>  <em class="jxr_javadoccomment"> * processInputs() method. Most users will not need to use the</em>
+<a name="46" href="#46">46</a>  <em class="jxr_javadoccomment"> * PActivityScheduler directly, instead you should look at:</em>
 <a name="47" href="#47">47</a>  <em class="jxr_javadoccomment"> * &lt;ul&gt;</em>
-<a name="48" href="#48">48</a>  <em class="jxr_javadoccomment"> * &lt;li&gt;PNode.addActivity - to schedule a new activity 		</em>
-<a name="49" href="#49">49</a>  <em class="jxr_javadoccomment"> * &lt;li&gt;PActivity.terminate - to terminate a running activity 		</em>
+<a name="48" href="#48">48</a>  <em class="jxr_javadoccomment"> * &lt;li&gt;PNode.addActivity - to schedule a new activity</em>
+<a name="49" href="#49">49</a>  <em class="jxr_javadoccomment"> * &lt;li&gt;PActivity.terminate - to terminate a running activity</em>
 <a name="50" href="#50">50</a>  <em class="jxr_javadoccomment"> * &lt;li&gt;PRoot.processInputs - already calls processActivities for you.</em>
 <a name="51" href="#51">51</a>  <em class="jxr_javadoccomment"> * &lt;/ul&gt;</em>
-<a name="52" href="#52">52</a>  <em class="jxr_javadoccomment"> * @version 1.0</em>
-<a name="53" href="#53">53</a>  <em class="jxr_javadoccomment"> * @author Jesse Grosjean</em>
-<a name="54" href="#54">54</a>  <em class="jxr_javadoccomment"> */</em>
-<a name="55" href="#55">55</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../edu/umd/cs/piccolo/activities/PActivityScheduler.html">PActivityScheduler</a> {
-<a name="56" href="#56">56</a>  		
-<a name="57" href="#57">57</a>  	<strong class="jxr_keyword">private</strong> <a href="../../../../../edu/umd/cs/piccolo/PRoot.html">PRoot</a> root;
-<a name="58" href="#58">58</a>  	<strong class="jxr_keyword">private</strong> List activities;
-<a name="59" href="#59">59</a>  	<strong class="jxr_keyword">private</strong> Timer activityTimer;
-<a name="60" href="#60">60</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> activitiesChanged;
-<a name="61" href="#61">61</a>  	<strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> animating;	
-<a name="62" href="#62">62</a>  	<strong class="jxr_keyword">private</strong> ArrayList processingActivities;
-<a name="63" href="#63">63</a>  
-<a name="64" href="#64">64</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolo/activities/PActivityScheduler.html">PActivityScheduler</a>(<a href="../../../../../edu/umd/cs/piccolo/PRoot.html">PRoot</a> rootNode) {
-<a name="65" href="#65">65</a>  		root = rootNode;
-<a name="66" href="#66">66</a>  		activities = <strong class="jxr_keyword">new</strong> ArrayList();
-<a name="67" href="#67">67</a>  		processingActivities = <strong class="jxr_keyword">new</strong> ArrayList();
-<a name="68" href="#68">68</a>  	}
-<a name="69" href="#69">69</a>  		
-<a name="70" href="#70">70</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolo/PRoot.html">PRoot</a> getRoot() {
-<a name="71" href="#71">71</a>  		<strong class="jxr_keyword">return</strong> root;
-<a name="72" href="#72">72</a>  	}
-<a name="73" href="#73">73</a>  	
-<a name="74" href="#74">74</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> addActivity(<a href="../../../../../edu/umd/cs/piccolo/activities/PActivity.html">PActivity</a> activity) {
-<a name="75" href="#75">75</a>  		addActivity(activity, false);
-<a name="76" href="#76">76</a>  	}
-<a name="77" href="#77">77</a>  
-<a name="78" href="#78">78</a>  	<em class="jxr_javadoccomment">/**</em>
-<a name="79" href="#79">79</a>  <em class="jxr_javadoccomment">	 * Add this activity to the scheduler. Sometimes it's useful to make sure</em>
-<a name="80" href="#80">80</a>  <em class="jxr_javadoccomment">	 * that an activity is run after all other activities have been run. To do</em>
-<a name="81" href="#81">81</a>  <em class="jxr_javadoccomment">	 * this set processLast to true when adding the activity.</em>
-<a name="82" href="#82">82</a>  <em class="jxr_javadoccomment">	 */</em>
-<a name="83" href="#83">83</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> addActivity(<a href="../../../../../edu/umd/cs/piccolo/activities/PActivity.html">PActivity</a> activity, <strong class="jxr_keyword">boolean</strong> processLast) {
-<a name="84" href="#84">84</a>  		<strong class="jxr_keyword">if</strong> (activities.contains(activity)) <strong class="jxr_keyword">return</strong>;
-<a name="85" href="#85">85</a>  
-<a name="86" href="#86">86</a>  		activitiesChanged = <strong class="jxr_keyword">true</strong>;
-<a name="87" href="#87">87</a>  		
-<a name="88" href="#88">88</a>  		<strong class="jxr_keyword">if</strong> (processLast) {
-<a name="89" href="#89">89</a>  			activities.add(0, activity);
-<a name="90" href="#90">90</a>  		} <strong class="jxr_keyword">else</strong> {
-<a name="91" href="#91">91</a>  			activities.add(activity);
-<a name="92" href="#92">92</a>  		}
-<a name="93" href="#93">93</a>  
-<a name="94" href="#94">94</a>  		activity.setActivityScheduler(<strong class="jxr_keyword">this</strong>);
-<a name="95" href="#95">95</a>  
-<a name="96" href="#96">96</a>  		<strong class="jxr_keyword">if</strong> (!getActivityTimer().isRunning()) {
-<a name="97" href="#97">97</a>  			startActivityTimer();
-<a name="98" href="#98">98</a>  		}		
-<a name="99" href="#99">99</a>  	}
-<a name="100" href="#100">100</a> 		
-<a name="101" href="#101">101</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> removeActivity(<a href="../../../../../edu/umd/cs/piccolo/activities/PActivity.html">PActivity</a> activity) {
-<a name="102" href="#102">102</a> 		<strong class="jxr_keyword">if</strong> (!activities.contains(activity)) <strong class="jxr_keyword">return</strong>;
+<a name="52" href="#52">52</a>  <em class="jxr_javadoccomment"> * </em>
+<a name="53" href="#53">53</a>  <em class="jxr_javadoccomment"> * @version 1.0</em>
+<a name="54" href="#54">54</a>  <em class="jxr_javadoccomment"> * @author Jesse Grosjean</em>
+<a name="55" href="#55">55</a>  <em class="jxr_javadoccomment"> */</em>
+<a name="56" href="#56">56</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../edu/umd/cs/piccolo/activities/PActivityScheduler.html">PActivityScheduler</a> {
+<a name="57" href="#57">57</a>  
+<a name="58" href="#58">58</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../edu/umd/cs/piccolo/PRoot.html">PRoot</a> root;
+<a name="59" href="#59">59</a>      <strong class="jxr_keyword">private</strong> List activities;
+<a name="60" href="#60">60</a>      <strong class="jxr_keyword">private</strong> Timer activityTimer;
+<a name="61" href="#61">61</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> activitiesChanged;
+<a name="62" href="#62">62</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> animating;
+<a name="63" href="#63">63</a>      <strong class="jxr_keyword">private</strong> ArrayList processingActivities;
+<a name="64" href="#64">64</a>  
+<a name="65" href="#65">65</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolo/activities/PActivityScheduler.html">PActivityScheduler</a>(<a href="../../../../../edu/umd/cs/piccolo/PRoot.html">PRoot</a> rootNode) {
+<a name="66" href="#66">66</a>          root = rootNode;
+<a name="67" href="#67">67</a>          activities = <strong class="jxr_keyword">new</strong> ArrayList();
+<a name="68" href="#68">68</a>          processingActivities = <strong class="jxr_keyword">new</strong> ArrayList();
+<a name="69" href="#69">69</a>      }
+<a name="70" href="#70">70</a>  
+<a name="71" href="#71">71</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolo/PRoot.html">PRoot</a> getRoot() {
+<a name="72" href="#72">72</a>          <strong class="jxr_keyword">return</strong> root;
+<a name="73" href="#73">73</a>      }
+<a name="74" href="#74">74</a>  
+<a name="75" href="#75">75</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> addActivity(<a href="../../../../../edu/umd/cs/piccolo/activities/PActivity.html">PActivity</a> activity) {
+<a name="76" href="#76">76</a>          addActivity(activity, false);
+<a name="77" href="#77">77</a>      }
+<a name="78" href="#78">78</a>  
+<a name="79" href="#79">79</a>      <em class="jxr_javadoccomment">/**</em>
+<a name="80" href="#80">80</a>  <em class="jxr_javadoccomment">     * Add this activity to the scheduler. Sometimes it's useful to make sure</em>
+<a name="81" href="#81">81</a>  <em class="jxr_javadoccomment">     * that an activity is run after all other activities have been run. To do</em>
+<a name="82" href="#82">82</a>  <em class="jxr_javadoccomment">     * this set processLast to true when adding the activity.</em>
+<a name="83" href="#83">83</a>  <em class="jxr_javadoccomment">     */</em>
+<a name="84" href="#84">84</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> addActivity(<a href="../../../../../edu/umd/cs/piccolo/activities/PActivity.html">PActivity</a> activity, <strong class="jxr_keyword">boolean</strong> processLast) {
+<a name="85" href="#85">85</a>          <strong class="jxr_keyword">if</strong> (activities.contains(activity))
+<a name="86" href="#86">86</a>              <strong class="jxr_keyword">return</strong>;
+<a name="87" href="#87">87</a>  
+<a name="88" href="#88">88</a>          activitiesChanged = <strong class="jxr_keyword">true</strong>;
+<a name="89" href="#89">89</a>  
+<a name="90" href="#90">90</a>          <strong class="jxr_keyword">if</strong> (processLast) {
+<a name="91" href="#91">91</a>              activities.add(0, activity);
+<a name="92" href="#92">92</a>          }
+<a name="93" href="#93">93</a>          <strong class="jxr_keyword">else</strong> {
+<a name="94" href="#94">94</a>              activities.add(activity);
+<a name="95" href="#95">95</a>          }
+<a name="96" href="#96">96</a>  
+<a name="97" href="#97">97</a>          activity.setActivityScheduler(<strong class="jxr_keyword">this</strong>);
+<a name="98" href="#98">98</a>  
+<a name="99" href="#99">99</a>          <strong class="jxr_keyword">if</strong> (!getActivityTimer().isRunning()) {
+<a name="100" href="#100">100</a>             startActivityTimer();
+<a name="101" href="#101">101</a>         }
+<a name="102" href="#102">102</a>     }
 <a name="103" href="#103">103</a> 
-<a name="104" href="#104">104</a> 		activitiesChanged = <strong class="jxr_keyword">true</strong>;
-<a name="105" href="#105">105</a> 		activities.remove(activity);
-<a name="106" href="#106">106</a> 
-<a name="107" href="#107">107</a> 		<strong class="jxr_keyword">if</strong> (activities.size() == 0) {
-<a name="108" href="#108">108</a> 			stopActivityTimer();
-<a name="109" href="#109">109</a> 		}					
-<a name="110" href="#110">110</a> 	}
-<a name="111" href="#111">111</a> 
-<a name="112" href="#112">112</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> removeAllActivities() {		
-<a name="113" href="#113">113</a> 		activitiesChanged = <strong class="jxr_keyword">true</strong>;	
-<a name="114" href="#114">114</a> 		activities.clear();
-<a name="115" href="#115">115</a> 		stopActivityTimer();
-<a name="116" href="#116">116</a> 	}
-<a name="117" href="#117">117</a> 
-<a name="118" href="#118">118</a> 	<strong class="jxr_keyword">public</strong> List getActivitiesReference() {
-<a name="119" href="#119">119</a> 		<strong class="jxr_keyword">return</strong> activities;
-<a name="120" href="#120">120</a> 	}
-<a name="121" href="#121">121</a> 	
-<a name="122" href="#122">122</a> 	<em class="jxr_javadoccomment">/**</em>
-<a name="123" href="#123">123</a> <em class="jxr_javadoccomment">	 * Process all scheduled activities for the given time. Each activity</em>
-<a name="124" href="#124">124</a> <em class="jxr_javadoccomment">	 * is given one "step", equivalent to one frame of animation.</em>
-<a name="125" href="#125">125</a> <em class="jxr_javadoccomment">	 */</em>	
-<a name="126" href="#126">126</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> processActivities(<strong class="jxr_keyword">long</strong> currentTime) {
-<a name="127" href="#127">127</a> 		<strong class="jxr_keyword">int</strong> size = activities.size();		
-<a name="128" href="#128">128</a> 		<strong class="jxr_keyword">if</strong> (size &gt; 0) {
-<a name="129" href="#129">129</a> 			processingActivities.clear();
-<a name="130" href="#130">130</a> 			processingActivities.addAll(activities);
-<a name="131" href="#131">131</a> 			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = size - 1; i &gt;= 0; i--) {
-<a name="132" href="#132">132</a> 				PActivity each = (PActivity) processingActivities.get(i);
-<a name="133" href="#133">133</a> 				each.processStep(currentTime);
-<a name="134" href="#134">134</a> 			}
-<a name="135" href="#135">135</a> 		}		
-<a name="136" href="#136">136</a> 	}
-<a name="137" href="#137">137</a> 		
-<a name="138" href="#138">138</a> 	<em class="jxr_javadoccomment">/**</em>
-<a name="139" href="#139">139</a> <em class="jxr_javadoccomment">	 * Return true if any of the scheduled activities return true to</em>
-<a name="140" href="#140">140</a> <em class="jxr_javadoccomment">	 * the message isAnimation();</em>
-<a name="141" href="#141">141</a> <em class="jxr_javadoccomment">	 */</em>
-<a name="142" href="#142">142</a> 	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> getAnimating() {
-<a name="143" href="#143">143</a> 		<strong class="jxr_keyword">if</strong> (activitiesChanged) {
-<a name="144" href="#144">144</a> 			animating = false;
-<a name="145" href="#145">145</a> 			<strong class="jxr_keyword">for</strong>(<strong class="jxr_keyword">int</strong> i=0; i&lt;activities.size(); i++) {
-<a name="146" href="#146">146</a> 				PActivity each = (PActivity) activities.get(i);
-<a name="147" href="#147">147</a> 				animating |= each.isAnimation();
-<a name="148" href="#148">148</a> 			}	
-<a name="149" href="#149">149</a> 			activitiesChanged = false;
-<a name="150" href="#150">150</a> 		}
-<a name="151" href="#151">151</a> 		<strong class="jxr_keyword">return</strong> animating;
-<a name="152" href="#152">152</a> 	}
-<a name="153" href="#153">153</a> 			
-<a name="154" href="#154">154</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> startActivityTimer() {
-<a name="155" href="#155">155</a> 		getActivityTimer().start();
-<a name="156" href="#156">156</a> 	}
-<a name="157" href="#157">157</a> 	
-<a name="158" href="#158">158</a> 	<strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> stopActivityTimer() {
-<a name="159" href="#159">159</a> 		getActivityTimer().stop();
-<a name="160" href="#160">160</a> 	}
-<a name="161" href="#161">161</a> 		
-<a name="162" href="#162">162</a> 	<strong class="jxr_keyword">protected</strong> Timer getActivityTimer() {
-<a name="163" href="#163">163</a> 		<strong class="jxr_keyword">if</strong> (activityTimer == <strong class="jxr_keyword">null</strong>) {
-<a name="164" href="#164">164</a> 			activityTimer = root.createTimer(PUtil.ACTIVITY_SCHEDULER_FRAME_DELAY, <strong class="jxr_keyword">new</strong> ActionListener() {
-<a name="165" href="#165">165</a> 				<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> actionPerformed(ActionEvent e) {
-<a name="166" href="#166">166</a> 					root.processInputs();
-<a name="167" href="#167">167</a> 				}
-<a name="168" href="#168">168</a> 			});
-<a name="169" href="#169">169</a> 		}
-<a name="170" href="#170">170</a> 		<strong class="jxr_keyword">return</strong> activityTimer;
-<a name="171" href="#171">171</a> 	}
-<a name="172" href="#172">172</a> }
-<a name="173" href="#173">173</a> 
+<a name="104" href="#104">104</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> removeActivity(<a href="../../../../../edu/umd/cs/piccolo/activities/PActivity.html">PActivity</a> activity) {
+<a name="105" href="#105">105</a>         <strong class="jxr_keyword">if</strong> (!activities.contains(activity))
+<a name="106" href="#106">106</a>             <strong class="jxr_keyword">return</strong>;
+<a name="107" href="#107">107</a> 
+<a name="108" href="#108">108</a>         activitiesChanged = <strong class="jxr_keyword">true</strong>;
+<a name="109" href="#109">109</a>         activities.remove(activity);
+<a name="110" href="#110">110</a> 
+<a name="111" href="#111">111</a>         <strong class="jxr_keyword">if</strong> (activities.size() == 0) {
+<a name="112" href="#112">112</a>             stopActivityTimer();
+<a name="113" href="#113">113</a>         }
+<a name="114" href="#114">114</a>     }
+<a name="115" href="#115">115</a> 
+<a name="116" href="#116">116</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> removeAllActivities() {
+<a name="117" href="#117">117</a>         activitiesChanged = <strong class="jxr_keyword">true</strong>;
+<a name="118" href="#118">118</a>         activities.clear();
+<a name="119" href="#119">119</a>         stopActivityTimer();
+<a name="120" href="#120">120</a>     }
+<a name="121" href="#121">121</a> 
+<a name="122" href="#122">122</a>     <strong class="jxr_keyword">public</strong> List getActivitiesReference() {
+<a name="123" href="#123">123</a>         <strong class="jxr_keyword">return</strong> activities;
+<a name="124" href="#124">124</a>     }
+<a name="125" href="#125">125</a> 
+<a name="126" href="#126">126</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="127" href="#127">127</a> <em class="jxr_javadoccomment">     * Process all scheduled activities for the given time. Each activity is</em>
+<a name="128" href="#128">128</a> <em class="jxr_javadoccomment">     * given one "step", equivalent to one frame of animation.</em>
+<a name="129" href="#129">129</a> <em class="jxr_javadoccomment">     */</em>
+<a name="130" href="#130">130</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> processActivities(<strong class="jxr_keyword">long</strong> currentTime) {
+<a name="131" href="#131">131</a>         <strong class="jxr_keyword">int</strong> size = activities.size();
+<a name="132" href="#132">132</a>         <strong class="jxr_keyword">if</strong> (size &gt; 0) {
+<a name="133" href="#133">133</a>             processingActivities.clear();
+<a name="134" href="#134">134</a>             processingActivities.addAll(activities);
+<a name="135" href="#135">135</a>             <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = size - 1; i &gt;= 0; i--) {
+<a name="136" href="#136">136</a>                 <a href="../../../../../edu/umd/cs/piccolo/activities/PActivity.html">PActivity</a> each = (PActivity) processingActivities.get(i);
+<a name="137" href="#137">137</a>                 each.processStep(currentTime);
+<a name="138" href="#138">138</a>             }
+<a name="139" href="#139">139</a>         }
+<a name="140" href="#140">140</a>     }
+<a name="141" href="#141">141</a> 
+<a name="142" href="#142">142</a>     <em class="jxr_javadoccomment">/**</em>
+<a name="143" href="#143">143</a> <em class="jxr_javadoccomment">     * Return true if any of the scheduled activities return true to the message</em>
+<a name="144" href="#144">144</a> <em class="jxr_javadoccomment">     * isAnimation();</em>
+<a name="145" href="#145">145</a> <em class="jxr_javadoccomment">     */</em>
+<a name="146" href="#146">146</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> getAnimating() {
+<a name="147" href="#147">147</a>         <strong class="jxr_keyword">if</strong> (activitiesChanged) {
+<a name="148" href="#148">148</a>             animating = false;
+<a name="149" href="#149">149</a>             <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; activities.size(); i++) {
+<a name="150" href="#150">150</a>                 <a href="../../../../../edu/umd/cs/piccolo/activities/PActivity.html">PActivity</a> each = (PActivity) activities.get(i);
+<a name="151" href="#151">151</a>                 animating |= each.isAnimation();
+<a name="152" href="#152">152</a>             }
+<a name="153" href="#153">153</a>             activitiesChanged = false;
+<a name="154" href="#154">154</a>         }
+<a name="155" href="#155">155</a>         <strong class="jxr_keyword">return</strong> animating;
+<a name="156" href="#156">156</a>     }
+<a name="157" href="#157">157</a> 
+<a name="158" href="#158">158</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> startActivityTimer() {
+<a name="159" href="#159">159</a>         getActivityTimer().start();
+<a name="160" href="#160">160</a>     }
+<a name="161" href="#161">161</a> 
+<a name="162" href="#162">162</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> stopActivityTimer() {
+<a name="163" href="#163">163</a>         getActivityTimer().stop();
+<a name="164" href="#164">164</a>     }
+<a name="165" href="#165">165</a> 
+<a name="166" href="#166">166</a>     <strong class="jxr_keyword">protected</strong> Timer getActivityTimer() {
+<a name="167" href="#167">167</a>         <strong class="jxr_keyword">if</strong> (activityTimer == <strong class="jxr_keyword">null</strong>) {
+<a name="168" href="#168">168</a>             activityTimer = root.createTimer(PUtil.ACTIVITY_SCHEDULER_FRAME_DELAY, <strong class="jxr_keyword">new</strong> ActionListener() {
+<a name="169" href="#169">169</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> actionPerformed(ActionEvent e) {
+<a name="170" href="#170">170</a>                     root.processInputs();
+<a name="171" href="#171">171</a>                 }
+<a name="172" href="#172">172</a>             });
+<a name="173" href="#173">173</a>         }
+<a name="174" href="#174">174</a>         <strong class="jxr_keyword">return</strong> activityTimer;
+<a name="175" href="#175">175</a>     }
+<a name="176" href="#176">176</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

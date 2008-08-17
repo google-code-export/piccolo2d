@@ -9,91 +9,97 @@
 <div id="overview"><a href="../../../../../../apidocs/edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">View Javadoc</a></div><pre>
 
 <a name="1" href="#1">1</a>   <strong class="jxr_keyword">package</strong> edu.umd.cs.piccolo.examples;
-<a name="2" href="#2">2</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
-<a name="3" href="#3">3</a>   
-<a name="4" href="#4">4</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.PCanvas;
-<a name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.PNode;
-<a name="6" href="#6">6</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.event.PBasicInputEventHandler;
-<a name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.event.PInputEvent;
-<a name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.nodes.PPath;
-<a name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolox.PFrame;
-<a name="10" href="#10">10</a>  
-<a name="11" href="#11">11</a>  <em class="jxr_javadoccomment">/**</em>
-<a name="12" href="#12">12</a>  <em class="jxr_javadoccomment"> * This example shows how a node can get the keyboard focus.</em>
-<a name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> */</em>
-<a name="14" href="#14">14</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">KeyEventFocusExample</a> <strong class="jxr_keyword">extends</strong> PFrame {
-<a name="15" href="#15">15</a>  
-<a name="16" href="#16">16</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">KeyEventFocusExample</a>() {
-<a name="17" href="#17">17</a>  		<strong class="jxr_keyword">this</strong>(<strong class="jxr_keyword">null</strong>);
-<a name="18" href="#18">18</a>  	}
-<a name="19" href="#19">19</a>  
-<a name="20" href="#20">20</a>  	<strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">KeyEventFocusExample</a>(PCanvas aCanvas) {
-<a name="21" href="#21">21</a>  		<strong class="jxr_keyword">super</strong>(<span class="jxr_string">"KeyEventFocusExample"</span>, false, aCanvas);
-<a name="22" href="#22">22</a>  	}
-<a name="23" href="#23">23</a>  	
-<a name="24" href="#24">24</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> initialize() {		
-<a name="25" href="#25">25</a>  		<em class="jxr_comment">// Create a green and red node and add them to canvas layer.</em>
-<a name="26" href="#26">26</a>  		PCanvas canvas = getCanvas();
-<a name="27" href="#27">27</a>  		PNode nodeGreen = PPath.createRectangle(0, 0, 100, 100);
-<a name="28" href="#28">28</a>  		PNode nodeRed = PPath.createRectangle(0, 0, 100, 100);
-<a name="29" href="#29">29</a>  		nodeRed.translate(200, 0);
-<a name="30" href="#30">30</a>  		nodeGreen.setPaint(Color.green);
-<a name="31" href="#31">31</a>  		nodeRed.setPaint(Color.red);
-<a name="32" href="#32">32</a>  		canvas.getLayer().addChild(nodeGreen);
-<a name="33" href="#33">33</a>  		canvas.getLayer().addChild(nodeRed);
-<a name="34" href="#34">34</a>  		
-<a name="35" href="#35">35</a>  		<em class="jxr_comment">// Add an event handler to the green node the prints "green mousepressed"</em>
-<a name="36" href="#36">36</a>  		<em class="jxr_comment">// when the mouse is pressed on the green node, and "green keypressed" when</em>
-<a name="37" href="#37">37</a>  		<em class="jxr_comment">// the key is pressed and the event listener has keyboard focus.</em>
-<a name="38" href="#38">38</a>  		nodeGreen.addInputEventListener(<strong class="jxr_keyword">new</strong> PBasicInputEventHandler() {
-<a name="39" href="#39">39</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyPressed(PInputEvent event) {
-<a name="40" href="#40">40</a>  				System.out.println(<span class="jxr_string">"green keypressed"</span>);
-<a name="41" href="#41">41</a>  			}
-<a name="42" href="#42">42</a>  
-<a name="43" href="#43">43</a>  			<em class="jxr_comment">// Key board focus is managed by the PInputManager, accessible from</em>
-<a name="44" href="#44">44</a>  			<em class="jxr_comment">// the root object, or from an incoming PInputEvent. In this case when</em>
-<a name="45" href="#45">45</a>  			<em class="jxr_comment">// the mouse is pressed in the green node, then the event handler associated</em>
-<a name="46" href="#46">46</a>  			<em class="jxr_comment">// with it will set the keyfocus to itself. Now it will receive key events</em>
-<a name="47" href="#47">47</a>  			<em class="jxr_comment">// until someone else gets the focus.</em>
-<a name="48" href="#48">48</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> mousePressed(PInputEvent event) {
-<a name="49" href="#49">49</a>  				event.getInputManager().setKeyboardFocus(event.getPath());
-<a name="50" href="#50">50</a>  				System.out.println(<span class="jxr_string">"green mousepressed"</span>);
-<a name="51" href="#51">51</a>  			}
-<a name="52" href="#52">52</a>  			
-<a name="53" href="#53">53</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyboardFocusGained(PInputEvent event) {
-<a name="54" href="#54">54</a>  				System.out.println(<span class="jxr_string">"green focus gained"</span>);
-<a name="55" href="#55">55</a>  			}
-<a name="56" href="#56">56</a>  
-<a name="57" href="#57">57</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyboardFocusLost(PInputEvent event) {
-<a name="58" href="#58">58</a>  				System.out.println(<span class="jxr_string">"green focus lost"</span>);
-<a name="59" href="#59">59</a>  			}
-<a name="60" href="#60">60</a>  		});
-<a name="61" href="#61">61</a>  		
-<a name="62" href="#62">62</a>  		<em class="jxr_comment">// do the same thing with the red node.</em>
-<a name="63" href="#63">63</a>  		nodeRed.addInputEventListener(<strong class="jxr_keyword">new</strong> PBasicInputEventHandler() {
-<a name="64" href="#64">64</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyPressed(PInputEvent event) {
-<a name="65" href="#65">65</a>  				System.out.println(<span class="jxr_string">"red keypressed"</span>);
-<a name="66" href="#66">66</a>  			}
+<a name="2" href="#2">2</a>   
+<a name="3" href="#3">3</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
+<a name="4" href="#4">4</a>   
+<a name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.PCanvas;
+<a name="6" href="#6">6</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.PNode;
+<a name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.event.PBasicInputEventHandler;
+<a name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.event.PInputEvent;
+<a name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolo.nodes.PPath;
+<a name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> edu.umd.cs.piccolox.PFrame;
+<a name="11" href="#11">11</a>  
+<a name="12" href="#12">12</a>  <em class="jxr_javadoccomment">/**</em>
+<a name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> * This example shows how a node can get the keyboard focus.</em>
+<a name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> */</em>
+<a name="15" href="#15">15</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">KeyEventFocusExample</a> <strong class="jxr_keyword">extends</strong> PFrame {
+<a name="16" href="#16">16</a>  
+<a name="17" href="#17">17</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">KeyEventFocusExample</a>() {
+<a name="18" href="#18">18</a>          <strong class="jxr_keyword">this</strong>(<strong class="jxr_keyword">null</strong>);
+<a name="19" href="#19">19</a>      }
+<a name="20" href="#20">20</a>  
+<a name="21" href="#21">21</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../../edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">KeyEventFocusExample</a>(PCanvas aCanvas) {
+<a name="22" href="#22">22</a>          <strong class="jxr_keyword">super</strong>(<span class="jxr_string">"KeyEventFocusExample"</span>, false, aCanvas);
+<a name="23" href="#23">23</a>      }
+<a name="24" href="#24">24</a>  
+<a name="25" href="#25">25</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> initialize() {
+<a name="26" href="#26">26</a>          <em class="jxr_comment">// Create a green and red node and add them to canvas layer.</em>
+<a name="27" href="#27">27</a>          PCanvas canvas = getCanvas();
+<a name="28" href="#28">28</a>          PNode nodeGreen = PPath.createRectangle(0, 0, 100, 100);
+<a name="29" href="#29">29</a>          PNode nodeRed = PPath.createRectangle(0, 0, 100, 100);
+<a name="30" href="#30">30</a>          nodeRed.translate(200, 0);
+<a name="31" href="#31">31</a>          nodeGreen.setPaint(Color.green);
+<a name="32" href="#32">32</a>          nodeRed.setPaint(Color.red);
+<a name="33" href="#33">33</a>          canvas.getLayer().addChild(nodeGreen);
+<a name="34" href="#34">34</a>          canvas.getLayer().addChild(nodeRed);
+<a name="35" href="#35">35</a>  
+<a name="36" href="#36">36</a>          <em class="jxr_comment">// Add an event handler to the green node the prints</em>
+<a name="37" href="#37">37</a>          <em class="jxr_comment">// "green mousepressed"</em>
+<a name="38" href="#38">38</a>          <em class="jxr_comment">// when the mouse is pressed on the green node, and "green keypressed"</em>
+<a name="39" href="#39">39</a>          <em class="jxr_comment">// when</em>
+<a name="40" href="#40">40</a>          <em class="jxr_comment">// the key is pressed and the event listener has keyboard focus.</em>
+<a name="41" href="#41">41</a>          nodeGreen.addInputEventListener(<strong class="jxr_keyword">new</strong> PBasicInputEventHandler() {
+<a name="42" href="#42">42</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyPressed(PInputEvent event) {
+<a name="43" href="#43">43</a>                  System.out.println(<span class="jxr_string">"green keypressed"</span>);
+<a name="44" href="#44">44</a>              }
+<a name="45" href="#45">45</a>  
+<a name="46" href="#46">46</a>              <em class="jxr_comment">// Key board focus is managed by the PInputManager, accessible from</em>
+<a name="47" href="#47">47</a>              <em class="jxr_comment">// the root object, or from an incoming PInputEvent. In this case</em>
+<a name="48" href="#48">48</a>              <em class="jxr_comment">// when</em>
+<a name="49" href="#49">49</a>              <em class="jxr_comment">// the mouse is pressed in the green node, then the event handler</em>
+<a name="50" href="#50">50</a>              <em class="jxr_comment">// associated</em>
+<a name="51" href="#51">51</a>              <em class="jxr_comment">// with it will set the keyfocus to itself. Now it will receive key</em>
+<a name="52" href="#52">52</a>              <em class="jxr_comment">// events</em>
+<a name="53" href="#53">53</a>              <em class="jxr_comment">// until someone else gets the focus.</em>
+<a name="54" href="#54">54</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> mousePressed(PInputEvent event) {
+<a name="55" href="#55">55</a>                  event.getInputManager().setKeyboardFocus(event.getPath());
+<a name="56" href="#56">56</a>                  System.out.println(<span class="jxr_string">"green mousepressed"</span>);
+<a name="57" href="#57">57</a>              }
+<a name="58" href="#58">58</a>  
+<a name="59" href="#59">59</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyboardFocusGained(PInputEvent event) {
+<a name="60" href="#60">60</a>                  System.out.println(<span class="jxr_string">"green focus gained"</span>);
+<a name="61" href="#61">61</a>              }
+<a name="62" href="#62">62</a>  
+<a name="63" href="#63">63</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyboardFocusLost(PInputEvent event) {
+<a name="64" href="#64">64</a>                  System.out.println(<span class="jxr_string">"green focus lost"</span>);
+<a name="65" href="#65">65</a>              }
+<a name="66" href="#66">66</a>          });
 <a name="67" href="#67">67</a>  
-<a name="68" href="#68">68</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> mousePressed(PInputEvent event) {
-<a name="69" href="#69">69</a>  				event.getInputManager().setKeyboardFocus(event.getPath());
-<a name="70" href="#70">70</a>  				System.out.println(<span class="jxr_string">"red mousepressed"</span>);
-<a name="71" href="#71">71</a>  			}
-<a name="72" href="#72">72</a>  
-<a name="73" href="#73">73</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyboardFocusGained(PInputEvent event) {
-<a name="74" href="#74">74</a>  				System.out.println(<span class="jxr_string">"red focus gained"</span>);
-<a name="75" href="#75">75</a>  			}
-<a name="76" href="#76">76</a>  
-<a name="77" href="#77">77</a>  			<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyboardFocusLost(PInputEvent event) {
-<a name="78" href="#78">78</a>  				System.out.println(<span class="jxr_string">"red focus lost"</span>);
-<a name="79" href="#79">79</a>  			}
-<a name="80" href="#80">80</a>  		});		
-<a name="81" href="#81">81</a>  	}
+<a name="68" href="#68">68</a>          <em class="jxr_comment">// do the same thing with the red node.</em>
+<a name="69" href="#69">69</a>          nodeRed.addInputEventListener(<strong class="jxr_keyword">new</strong> PBasicInputEventHandler() {
+<a name="70" href="#70">70</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyPressed(PInputEvent event) {
+<a name="71" href="#71">71</a>                  System.out.println(<span class="jxr_string">"red keypressed"</span>);
+<a name="72" href="#72">72</a>              }
+<a name="73" href="#73">73</a>  
+<a name="74" href="#74">74</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> mousePressed(PInputEvent event) {
+<a name="75" href="#75">75</a>                  event.getInputManager().setKeyboardFocus(event.getPath());
+<a name="76" href="#76">76</a>                  System.out.println(<span class="jxr_string">"red mousepressed"</span>);
+<a name="77" href="#77">77</a>              }
+<a name="78" href="#78">78</a>  
+<a name="79" href="#79">79</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyboardFocusGained(PInputEvent event) {
+<a name="80" href="#80">80</a>                  System.out.println(<span class="jxr_string">"red focus gained"</span>);
+<a name="81" href="#81">81</a>              }
 <a name="82" href="#82">82</a>  
-<a name="83" href="#83">83</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
-<a name="84" href="#84">84</a>  		<strong class="jxr_keyword">new</strong> <a href="../../../../../edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">KeyEventFocusExample</a>();
-<a name="85" href="#85">85</a>  	}
-<a name="86" href="#86">86</a>  }
+<a name="83" href="#83">83</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> keyboardFocusLost(PInputEvent event) {
+<a name="84" href="#84">84</a>                  System.out.println(<span class="jxr_string">"red focus lost"</span>);
+<a name="85" href="#85">85</a>              }
+<a name="86" href="#86">86</a>          });
+<a name="87" href="#87">87</a>      }
+<a name="88" href="#88">88</a>  
+<a name="89" href="#89">89</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> main(String[] args) {
+<a name="90" href="#90">90</a>          <strong class="jxr_keyword">new</strong> <a href="../../../../../edu/umd/cs/piccolo/examples/KeyEventFocusExample.html">KeyEventFocusExample</a>();
+<a name="91" href="#91">91</a>      }
+<a name="92" href="#92">92</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

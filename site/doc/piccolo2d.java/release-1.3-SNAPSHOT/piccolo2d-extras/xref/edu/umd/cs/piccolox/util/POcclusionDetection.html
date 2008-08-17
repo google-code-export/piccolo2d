@@ -50,49 +50,50 @@
 <a name="40" href="#40">40</a>  <em class="jxr_javadoccomment"> */</em>
 <a name="41" href="#41">41</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../edu/umd/cs/piccolox/util/POcclusionDetection.html">POcclusionDetection</a> {
 <a name="42" href="#42">42</a>  
-<a name="43" href="#43">43</a>  	<em class="jxr_javadoccomment">/**</em>
-<a name="44" href="#44">44</a>  <em class="jxr_javadoccomment">	 * Traverse from the bottom right of the scene graph (top visible node)</em>
-<a name="45" href="#45">45</a>  <em class="jxr_javadoccomment">	 * up the tree determining which parent nodes are occluded by their children</em>
-<a name="46" href="#46">46</a>  <em class="jxr_javadoccomment">	 * nodes. Note that this is only detecting a subset of occlusions (parent, child), </em>
-<a name="47" href="#47">47</a>  <em class="jxr_javadoccomment">	 * others such as overlapping siblings or cousins are not detected.</em>
-<a name="48" href="#48">48</a>  <em class="jxr_javadoccomment">	 */</em>
-<a name="49" href="#49">49</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> detectOccusions(PNode n, PBounds parentBounds) {
-<a name="50" href="#50">50</a>  		detectOcclusions(n, <strong class="jxr_keyword">new</strong> PPickPath(<strong class="jxr_keyword">null</strong>, parentBounds));
-<a name="51" href="#51">51</a>  	}
+<a name="43" href="#43">43</a>      <em class="jxr_javadoccomment">/**</em>
+<a name="44" href="#44">44</a>  <em class="jxr_javadoccomment">     * Traverse from the bottom right of the scene graph (top visible node) up</em>
+<a name="45" href="#45">45</a>  <em class="jxr_javadoccomment">     * the tree determining which parent nodes are occluded by their children</em>
+<a name="46" href="#46">46</a>  <em class="jxr_javadoccomment">     * nodes. Note that this is only detecting a subset of occlusions (parent,</em>
+<a name="47" href="#47">47</a>  <em class="jxr_javadoccomment">     * child), others such as overlapping siblings or cousins are not detected.</em>
+<a name="48" href="#48">48</a>  <em class="jxr_javadoccomment">     */</em>
+<a name="49" href="#49">49</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> detectOccusions(PNode n, PBounds parentBounds) {
+<a name="50" href="#50">50</a>          detectOcclusions(n, <strong class="jxr_keyword">new</strong> PPickPath(<strong class="jxr_keyword">null</strong>, parentBounds));
+<a name="51" href="#51">51</a>      }
 <a name="52" href="#52">52</a>  
-<a name="53" href="#53">53</a>  	<strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> detectOcclusions(PNode n, PPickPath pickPath) {
-<a name="54" href="#54">54</a>  		<strong class="jxr_keyword">if</strong> (n.fullIntersects(pickPath.getPickBounds())) {
-<a name="55" href="#55">55</a>  			pickPath.pushTransform(n.getTransformReference(false));
-<a name="56" href="#56">56</a>  		
-<a name="57" href="#57">57</a>  			<strong class="jxr_keyword">int</strong> count = n.getChildrenCount();
-<a name="58" href="#58">58</a>  			<strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = count - 1; i &gt;= 0; i--) {
-<a name="59" href="#59">59</a>  				PNode each = (PNode) n.getChild(i);
-<a name="60" href="#60">60</a>  				<strong class="jxr_keyword">if</strong> (n.getOccluded()) {
-<a name="61" href="#61">61</a>  					<em class="jxr_comment">// if n has been occuded by a previous decendent then</em>
-<a name="62" href="#62">62</a>  					<em class="jxr_comment">// this child must also be occuded</em>
-<a name="63" href="#63">63</a>  					each.setOccluded(<strong class="jxr_keyword">true</strong>);
-<a name="64" href="#64">64</a>  				} <strong class="jxr_keyword">else</strong> {
-<a name="65" href="#65">65</a>  					<em class="jxr_comment">// see if child each occludes n</em>
-<a name="66" href="#66">66</a>  					detectOcclusions(each, pickPath);
-<a name="67" href="#67">67</a>  				}
-<a name="68" href="#68">68</a>  			}
-<a name="69" href="#69">69</a>  
-<a name="70" href="#70">70</a>  			<em class="jxr_comment">// see if n occudes it's parents		</em>
-<a name="71" href="#71">71</a>  			<strong class="jxr_keyword">if</strong> (!n.getOccluded()) {
-<a name="72" href="#72">72</a>  				<strong class="jxr_keyword">if</strong> (n.intersects(pickPath.getPickBounds())) {
-<a name="73" href="#73">73</a>  					<strong class="jxr_keyword">if</strong> (n.isOpaque(pickPath.getPickBounds())) {
-<a name="74" href="#74">74</a>  						PNode p = n.getParent();
-<a name="75" href="#75">75</a>  						<strong class="jxr_keyword">while</strong> (p != <strong class="jxr_keyword">null</strong> &amp;&amp; !p.getOccluded()) {
-<a name="76" href="#76">76</a>  							p.setOccluded(<strong class="jxr_keyword">true</strong>);
-<a name="77" href="#77">77</a>  						}
-<a name="78" href="#78">78</a>  					}
-<a name="79" href="#79">79</a>  				}
-<a name="80" href="#80">80</a>  			}
-<a name="81" href="#81">81</a>  	
-<a name="82" href="#82">82</a>  			pickPath.popTransform(n.getTransformReference(false));
-<a name="83" href="#83">83</a>  		}				
-<a name="84" href="#84">84</a>  	}
-<a name="85" href="#85">85</a>  }
+<a name="53" href="#53">53</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> detectOcclusions(PNode n, PPickPath pickPath) {
+<a name="54" href="#54">54</a>          <strong class="jxr_keyword">if</strong> (n.fullIntersects(pickPath.getPickBounds())) {
+<a name="55" href="#55">55</a>              pickPath.pushTransform(n.getTransformReference(false));
+<a name="56" href="#56">56</a>  
+<a name="57" href="#57">57</a>              <strong class="jxr_keyword">int</strong> count = n.getChildrenCount();
+<a name="58" href="#58">58</a>              <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = count - 1; i &gt;= 0; i--) {
+<a name="59" href="#59">59</a>                  PNode each = (PNode) n.getChild(i);
+<a name="60" href="#60">60</a>                  <strong class="jxr_keyword">if</strong> (n.getOccluded()) {
+<a name="61" href="#61">61</a>                      <em class="jxr_comment">// if n has been occuded by a previous decendent then</em>
+<a name="62" href="#62">62</a>                      <em class="jxr_comment">// this child must also be occuded</em>
+<a name="63" href="#63">63</a>                      each.setOccluded(<strong class="jxr_keyword">true</strong>);
+<a name="64" href="#64">64</a>                  }
+<a name="65" href="#65">65</a>                  <strong class="jxr_keyword">else</strong> {
+<a name="66" href="#66">66</a>                      <em class="jxr_comment">// see if child each occludes n</em>
+<a name="67" href="#67">67</a>                      detectOcclusions(each, pickPath);
+<a name="68" href="#68">68</a>                  }
+<a name="69" href="#69">69</a>              }
+<a name="70" href="#70">70</a>  
+<a name="71" href="#71">71</a>              <em class="jxr_comment">// see if n occudes it's parents</em>
+<a name="72" href="#72">72</a>              <strong class="jxr_keyword">if</strong> (!n.getOccluded()) {
+<a name="73" href="#73">73</a>                  <strong class="jxr_keyword">if</strong> (n.intersects(pickPath.getPickBounds())) {
+<a name="74" href="#74">74</a>                      <strong class="jxr_keyword">if</strong> (n.isOpaque(pickPath.getPickBounds())) {
+<a name="75" href="#75">75</a>                          PNode p = n.getParent();
+<a name="76" href="#76">76</a>                          <strong class="jxr_keyword">while</strong> (p != <strong class="jxr_keyword">null</strong> &amp;&amp; !p.getOccluded()) {
+<a name="77" href="#77">77</a>                              p.setOccluded(<strong class="jxr_keyword">true</strong>);
+<a name="78" href="#78">78</a>                          }
+<a name="79" href="#79">79</a>                      }
+<a name="80" href="#80">80</a>                  }
+<a name="81" href="#81">81</a>              }
+<a name="82" href="#82">82</a>  
+<a name="83" href="#83">83</a>              pickPath.popTransform(n.getTransformReference(false));
+<a name="84" href="#84">84</a>          }
+<a name="85" href="#85">85</a>      }
+<a name="86" href="#86">86</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

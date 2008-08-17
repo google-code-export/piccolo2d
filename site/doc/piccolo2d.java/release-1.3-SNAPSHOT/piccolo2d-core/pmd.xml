@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.2" timestamp="2008-07-31T03:46:29.745">
-<file name="/home/m/work/piccolo2d/piccolo2d.java/core/src/main/java/edu/umd/cs/piccolo/PNode.java">
-<violation beginline="2558" endline="2560" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo" class="PNode" method="fullPick" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<pmd version="4.2.2" timestamp="2008-08-17T23:34:29.137">
+<file name="/home/m/work/piccolo2d/piccolo2d.java.git/core/src/main/java/edu/umd/cs/piccolo/PNode.java">
+<violation beginline="2650" endline="2652" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo" class="PNode" method="fullPick" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
-<violation beginline="2573" endline="2575" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo" class="PNode" method="fullPick" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
-These nested if statements could be combined
-</violation>
-</file>
-<file name="/home/m/work/piccolo2d/piccolo2d.java/core/src/main/java/edu/umd/cs/piccolo/event/PDragSequenceEventHandler.java">
-<violation beginline="210" endline="212" begincolumn="25" endcolumn="25" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.event" class="PDragSequenceEventHandler" method="mousePressed" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<violation beginline="2665" endline="2667" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo" class="PNode" method="fullPick" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
 </file>
-<file name="/home/m/work/piccolo2d/piccolo2d.java/core/src/main/java/edu/umd/cs/piccolo/util/PBounds.java">
-<violation beginline="230" endline="238" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.util" class="PBounds" method="deltaRequiredToContain" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
-These nested if statements could be combined
-</violation>
-<violation beginline="242" endline="250" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.util" class="PBounds" method="deltaRequiredToContain" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<file name="/home/m/work/piccolo2d/piccolo2d.java.git/core/src/main/java/edu/umd/cs/piccolo/event/PDragSequenceEventHandler.java">
+<violation beginline="213" endline="215" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.event" class="PDragSequenceEventHandler" method="mousePressed" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
 </file>
-<file name="/home/m/work/piccolo2d/piccolo2d.java/core/src/main/java/edu/umd/cs/piccolo/util/PDebug.java">
-<violation beginline="104" endline="110" begincolumn="25" endcolumn="25" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.util" class="PDebug" method="endProcessingOutput" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<file name="/home/m/work/piccolo2d/piccolo2d.java.git/core/src/main/java/edu/umd/cs/piccolo/util/PBounds.java">
+<violation beginline="232" endline="241" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.util" class="PBounds" method="deltaRequiredToContain" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
-<violation beginline="114" endline="116" begincolumn="25" endcolumn="25" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.util" class="PDebug" method="endProcessingOutput" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+<violation beginline="245" endline="254" begincolumn="17" endcolumn="17" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.util" class="PBounds" method="deltaRequiredToContain" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/home/m/work/piccolo2d/piccolo2d.java.git/core/src/main/java/edu/umd/cs/piccolo/util/PDebug.java">
+<violation beginline="106" endline="112" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.util" class="PDebug" method="endProcessingOutput" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation beginline="116" endline="118" begincolumn="13" endcolumn="13" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="edu.umd.cs.piccolo.util" class="PDebug" method="endProcessingOutput" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
 These nested if statements could be combined
 </violation>
 </file>
