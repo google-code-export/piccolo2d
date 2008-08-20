@@ -31,7 +31,7 @@ There was some idea to build svg support into [http://www.cs.umd.edu/hcil/jazz/d
 
 = Obstacles =
 
- * css: cascading & node matching logic
+ * css: cascading & node matching logic. http://www.w3.org/Style/CSS/SAC/ and http://today.java.net/pub/a/today/2003/10/14/swingcss.html 
  * svg path parsing is challenging - see the [http://www.w3.org/TR/SVG11/paths.html#PathDataBNF grammar] that has to be turned into a parser that ideally requires no additional runtime dependencies ([http://research.cs.queensu.ca/~thurston/ragel/ ragel], [http://groups.google.com/group/ragel-users ragel-users group]?)
  * graceful failure for unexpected svg features?
  * fatal failure for invalid svg (validating parser? sax?)
