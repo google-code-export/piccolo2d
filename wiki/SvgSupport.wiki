@@ -3,6 +3,8 @@
 
 This idea came up on the [http://groups.google.com/group/piccolo2d-dev/browse_thread/thread/df17f5cb0edfefe8 piccolo2d-dev maillist].
 
+See also issue#61
+
 = Motivation =
 Piccolo2d is a scenegraph ZUI toolkit, [http://en.wikipedia.org/wiki/Scalable_Vector_Graphics svg] is a 2d vector graphics description language. Both share the idea of a scene graph and the grouping and transformation concepts also look similar at a first glance.
 
