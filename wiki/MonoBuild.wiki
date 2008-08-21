@@ -6,12 +6,12 @@ See http://code.google.com/p/piccolo2d/issues/detail?id=60
 = Development Enviroment =
 
  * [http://www.gentoo.org/ gentoo linux]
+ * dev-util/git 1.5.6.4
+ * dev-util/monodevelop 1.0
+ * dev-dotnet/nant 0.85
  * dev-lang/mono 1.9.1
  * dev-util/mono-tools 1.2.1
  * dev-util/monodoc 1.9
- * dev-dotnet/nant 0.85
- * dev-util/git 1.5.6.4
- * dev-util/monodevelop 1.0
 
 Building monodevelop 1.0 required (on a stable amd64) the following `/etc/portage/package.keywords`:
 {{{
@@ -23,4 +23,9 @@ dev-lang/mono ~amd64
 dev-dotnet/libgdiplus ~amd64
 dev-dotnet/gtksourceview-sharp ~amd64
 dev-dotnet/gtk-sharp ~amd64
+}}}
+
+The installation:
+{{{
+$ emerge nant monodevelop
 }}}
