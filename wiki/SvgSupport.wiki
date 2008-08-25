@@ -23,18 +23,43 @@ There was some idea to build svg support into [http://www.cs.umd.edu/hcil/jazz/d
 
 = Concepts =
 
+ * keep it as lean as possible (<100K ?)
+ * do NOT add any more runtime/build requirements
  * use a factory/strategy to parse the svg input
  * add a css manager class
- * create a scenegraph (PNode) using out-of-the-box PNode, PShape, PText, PImage classes
+ * create a scenegraph ([http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PNode.html PNode]) using out-of-the-box [http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PNode.html PNode], [http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PPath.html PPath], [http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PText.html PText], [http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PImage.html PImage] classes
  * attach node id, css classes etc. as attributes.
  * nice to have: trigger node refreshs on css changes at runtime
+
+= Steps =
+Aim for for [http://www.w3.org/TR/SVGMobile/#sec-overview SVG 1.1 Tiny]. At the moment I develop this in a [http://www.mro.name/piccolo2d.java.git git repository] that sits on top of the [https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk piccolo2d.java/trunk]. I'll create a branch as soon as I know how to safely "svn switch" a git repository.
+
+ # Proof a concept
+  # Sax Parser to read the svg xml
+  # The followwing [http://www.w3.org/TR/SVG11/shapes.html Basic Shapes] with styling via attributes (no CSS, no "style" attribute)
+   # [http://www.w3.org/TR/SVG11/shapes.html#RectElement <rect />]
+   # [http://www.w3.org/TR/SVG11/shapes.html#CircleElement <circle />]
+ # CSS, step I:
+  # [http://www.w3.org/TR/SVG11/styling.html#StyleAttribute "style" attribute]
+ # Complete the basic shape module
+   # [http://www.w3.org/TR/SVG11/shapes.html#EllipseElement <ellipse />]
+   # [http://www.w3.org/TR/SVG11/shapes.html#LineElement <line />]
+   # [http://www.w3.org/TR/SVG11/shapes.html#PolylineElement <polyline />]
+   # [http://www.w3.org/TR/SVG11/shapes.html#PolygonElement <polygon />]
+   # [http://www.w3.org/TR/SVG11/paths.html#PathElement <path />] without [http://www.w3.org/TR/SVG11/paths.html#PathDataEllipticalArcCommands elliptical arcs]
+ # CSS, step II:
+  # [http://www.w3.org/TR/SVG11/styling.html#StyleElement "style" element]
+ # [http://www.w3.org/TR/SVG11/struct.html#UseElement <use />] Element
+ # [http://www.w3.org/TR/SVG11/text.html#basic-text-mod Basic Text]
+ # [http://www.w3.org/TR/SVG11/struct.html#ImageElement Images]
+ # evtl. [http://www.w3.org/TR/SVG11/fonts.html#basic-font-mod Basic Font]
 
 = Obstacles =
 
  * css: cascading & node matching logic. http://www.w3.org/Style/CSS/SAC/ and http://today.java.net/pub/a/today/2003/10/14/swingcss.html 
  * svg path parsing is challenging - see the [http://www.w3.org/TR/SVG11/paths.html#PathDataBNF grammar] that has to be turned into a parser that ideally requires no additional runtime dependencies ([http://research.cs.queensu.ca/~thurston/ragel/ ragel], [http://groups.google.com/group/ragel-users ragel-users group]?). And it looks a bit fishy: http://lists.w3.org/Archives/Public/www-svg/2008Aug/0052.html. There is already a [https://lib2geom.svn.sourceforge.net/svnroot/lib2geom/lib2geom/trunk/src/2geom/svg-path-parser.rl ragel grammar] from another project. Plus there's some math involved to add svg segments to a GeneralPath, see [http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/ext/awt/geom/ExtendedGeneralPath.html Batik ExtendedGeneralPath]
  * graceful failure for unexpected svg features?
- * fatal failure for invalid svg (validating parser? sax?)
+ * fatal failure for invalid svg (validating parser?)
 
 = Links =
  * http://www.elementengine.com/
