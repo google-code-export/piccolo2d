@@ -16,7 +16,7 @@ There was some idea to build svg support into [http://www.cs.umd.edu/hcil/jazz/d
 
 = Requirements =
 
- * parse svg xml (e.g. using the super-lightweight [http://repo1.maven.org/maven2/xpp3/xpp3/1.1.3.3_min/ XPP3 min] xml pull parser.
+ * parse svg xml (e.g. using the super-lightweight [http://repo1.maven.org/maven2/xpp3/xpp3/1.1.3.3_min/ XPP3 min] xml pull parser).
  * parse css and build up a hierarchy.
  * parse svg paths and convert to generalpaths (shapes)
  * look up nodes in a piccolo2d scenegraph according to their ID (tree search)
@@ -24,19 +24,18 @@ There was some idea to build svg support into [http://www.cs.umd.edu/hcil/jazz/d
 = Concepts =
 
  * keep it as lean as possible (<100K ?)
- * do NOT add any more runtime/build requirements
+ * do NOT add any new runtime/build requirements
  * use a factory/strategy to parse the svg input
  * add a css manager class
  * create a scenegraph ([http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PNode.html PNode]) using out-of-the-box [http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PNode.html PNode], [http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PPath.html PPath], [http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PText.html PText], [http://www.piccolo2d.org/doc/piccolo2d.java/release-1.2.1/apidocs/edu/umd/cs/piccolo/PImage.html PImage] classes
  * attach node id, css classes etc. as attributes.
- * nice to have: trigger node refreshs on css changes at runtime
 
 = Steps =
-Aim for for [http://www.w3.org/TR/SVGMobile/#sec-overview SVG 1.1 Tiny]. At the moment I develop this in a [http://www.mro.name/piccolo2d.java.git git repository] that sits on top of the [https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk piccolo2d.java/trunk]. I'll create a branch as soon as I know how to safely "svn switch" a git repository.
+Aim for for [http://www.w3.org/TR/SVGMobile/#sec-overview SVG 1.1 Tiny] and use the examples from the specification as test input. At the moment I develop this in a [http://www.mro.name/piccolo2d.java.git git repository] that sits on top of the [http://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk piccolo2d.java/trunk]. I'll create a branch as soon as I know how to safely "svn switch" a git repository.
 
  # Proof a concept
   # Sax Parser to read the svg xml
-  # The followwing [http://www.w3.org/TR/SVG11/shapes.html Basic Shapes] with styling via attributes (no CSS, no "style" attribute)
+  # The following [http://www.w3.org/TR/SVG11/shapes.html Basic Shapes] with styling via attributes (no CSS, no "style" attribute)
    # [http://www.w3.org/TR/SVG11/shapes.html#RectElement <rect />]
    # [http://www.w3.org/TR/SVG11/shapes.html#CircleElement <circle />]
  # CSS, step I:
