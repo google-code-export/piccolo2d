@@ -1,0 +1,7 @@
+Options -Indexes
+
+RewriteEngine on
+RedirectMatch 403 /\.svn.*$
+
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
