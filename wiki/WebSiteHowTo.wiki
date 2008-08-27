@@ -11,7 +11,7 @@ Domain owner is http://code.google.com/u/willismorse/
 
 = Content =
 == Template ==
-The content was adapted from http://www.cs.umd.edu/hcil/jazz/ with friendly permission.
+The content was adapted from http://www.cs.umd.edu/hcil/jazz/ with friendly permission during #42.
 
 == Version Management ==
 
