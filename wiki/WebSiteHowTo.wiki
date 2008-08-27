@@ -1,0 +1,38 @@
+#summary End-User Website Howto
+#labels Phase-Implementation
+
+= Introduction =
+
+The End-User website is available at http://www.piccolo2d.org
+
+= Domain =
+
+Domain owner is http://code.google.com/u/willismorse/
+
+= Content =
+== Template ==
+The content was adapted from http://www.cs.umd.edu/hcil/jazz/ with friendly permission.
+
+== Version Management ==
+
+The *complete* website content is versioned in the project's svn repository: http://piccolo2d.googlecode.com/svn/site
+
+*Caution*: The site contains a huge number of documentation html pages (.Net and Javadoc, maven reports).
+
+Publishing a (unchanged but newly generated) set of maven reports consumes *10 MB* of svn repository space and the commit takes *over 1 hour*.
+
+Maybe we pick a git hosting solution for the website content in the future. 
+
+== Staging area ==
+
+The svn repository serves as a staging area. Therefore the svn:mime-type of all files must be set correctly. The script http://piccolo2d.googlecode.com/svn/site/tools/svn-mime-types.sh helps.
+
+== Deployment ==
+
+The content at www.piccolo2d.org is served from a checked out working copy backed with http://piccolo2d.googlecode.com/svn/site
+
+A cron job (at piccolo2d.org) keeps the site up-to-date by running a "svn update" every 4 hours, namely a [http://en.wikibooks.org/wiki/Guide_to_UNIX/Explanations/Scheduling_Jobs#Crontab_format crontab] pattern of
+{{{
+* 3,7,11,15,19,23 * * *
+}}}
+(UTC Time)
