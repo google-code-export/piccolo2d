@@ -10,6 +10,7 @@ The End-User website is available at http://www.piccolo2d.org
 Domain owner is http://code.google.com/u/willismorse/
 
 = Content =
+
 == Template ==
 The content was adapted from http://www.cs.umd.edu/hcil/jazz/ with friendly permission during issue 42.
 
@@ -33,6 +34,14 @@ The content at www.piccolo2d.org is served from a checked out working copy backe
 
 A cron job (at piccolo2d.org) keeps the site up-to-date by running a "svn update" every 4 hours, namely a [http://en.wikibooks.org/wiki/Guide_to_UNIX/Explanations/Scheduling_Jobs#Crontab_format crontab] pattern of
 {{{
-* 3,7,11,15,19,23 * * *
+0 3,7,11,15,19,23 * * *
 }}}
 (UTC Time)
+
+= Tools =
+
+Alongside the website come some [http://piccolo2d.googlecode.com/svn/site/tools/README.txt tools] to inject the navigation into the static html pages and ensure consistently indented xhtml strict.
+
+The injection into a single html page is done by [http://piccolo2d.googlecode.com/svn/site/tools/inject_navigation.rb a ruby script] that uses this [http://piccolo2d.googlecode.com/svn/site/tools/navigation.txt navigation data].
+
+Other tools set the [http://piccolo2d.googlecode.com/svn/site/tools/svn-mime-types.sh svn:mime-type property] or [http://piccolo2d.googlecode.com/svn/site/tools/giftopng.sh convert images from gif to png].
