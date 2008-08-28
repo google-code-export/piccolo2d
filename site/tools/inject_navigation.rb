@@ -18,7 +18,13 @@ class NavigationInjector < Navigation
 	# [dsts] either a relative path to a single file or an array of such.
 	def inject dsts
 		dsts = [dsts] if !dsts.kind_of? Array
-		dsts.each {|dst| inject_single dst}
+		dsts.each do |dst|
+			begin
+				inject_single dst
+			rescue Exception => e
+				$stderr.puts "Warning: #{e}"
+			end
+		end
 	end
 
 private
