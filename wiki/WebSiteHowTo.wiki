@@ -11,6 +11,14 @@ Domain owner is http://code.google.com/u/willismorse/
 
 = Content =
 
+All pages are [http://www.w3.org/TR/xhtml1/ xhtml strict], layout and formatting is done exclusively via [http://www.w3.org/TR/CSS21/ CSS]. All links within the website are relative, all downloads refer to the google code downloads section.
+
+[http://www.useit.com/alertbox/screen_resolution.html Liquid layout] ensures excellent readability with a very wide range of monitor resolutions and browser window dimensions.
+
+Javascript is used only where it brings significant benefit, namely to switch the code samples for Java and .Net.
+
+Every page has a feedback link to ease error reporting.
+
 == Template ==
 The content was adapted from http://www.cs.umd.edu/hcil/jazz/ with friendly permission during issue 42.
 
@@ -18,21 +26,21 @@ The content was adapted from http://www.cs.umd.edu/hcil/jazz/ with friendly perm
 
 The *complete* website content is versioned in the project's svn repository: http://piccolo2d.googlecode.com/svn/site
 
-*Caution*: The site contains a huge number of documentation html pages (.Net and Javadoc, maven reports).
+*Caution*: The site contains a huge number of documentation html pages (>7000 files for .Net and Javadoc, maven reports, etc.).
 
 Publishing a (unchanged but newly generated) set of maven reports consumes *10 MB* of svn repository space and the commit takes *over 1 hour*.
 
-Maybe we pick a git hosting solution for the website content in the future. 
+Maybe we pick a git hosting solution for versioning the website content in the future. 
 
 == Staging area ==
 
-The svn repository serves as a staging area. Therefore the svn:mime-type of all files must be set correctly. The script http://piccolo2d.googlecode.com/svn/site/tools/svn-mime-types.sh helps.
+The svn repository also serves as a staging area. Therefore the svn:mime-type of all files must be set correctly. The script http://piccolo2d.googlecode.com/svn/site/tools/svn-mime-types.sh helps to do that.
 
 == Deployment ==
 
 The content at www.piccolo2d.org is served from a checked out working copy backed with http://piccolo2d.googlecode.com/svn/site
 
-A cron job (at piccolo2d.org) keeps the site up-to-date by running a "svn update" every 4 hours, namely a [http://en.wikibooks.org/wiki/Guide_to_UNIX/Explanations/Scheduling_Jobs#Crontab_format crontab] pattern of
+A [http://en.wikipedia.org/wiki/Cron cron job] (at piccolo2d.org) keeps the site up-to-date by running a "svn update" every 4 hours, namely a [http://en.wikibooks.org/wiki/Guide_to_UNIX/Explanations/Scheduling_Jobs#Crontab_format crontab] pattern of
 {{{
 0 3,7,11,15,19,23 * * *
 }}}
@@ -40,8 +48,8 @@ A cron job (at piccolo2d.org) keeps the site up-to-date by running a "svn update
 
 = Tools =
 
-Alongside the website come some [http://piccolo2d.googlecode.com/svn/site/tools/README.txt tools] to inject the navigation into the static html pages and ensure consistently indented xhtml strict.
+Alongside the website come some [http://piccolo2d.googlecode.com/svn/site/tools/README.txt tools] to inject navigation into the static html pages and ensure consistently indented xhtml strict.
 
-The injection into a single html page is done by [http://piccolo2d.googlecode.com/svn/site/tools/inject_navigation.rb a ruby script] that uses this [http://piccolo2d.googlecode.com/svn/site/tools/navigation.txt navigation data].
+The injection into a single html page is done [http://piccolo2d.googlecode.com/svn/site/tools/inject_navigation.rb by a ruby script] that uses this [http://piccolo2d.googlecode.com/svn/site/tools/navigation.txt navigation data].
 
 Other tools set the [http://piccolo2d.googlecode.com/svn/site/tools/svn-mime-types.sh svn:mime-type property] or [http://piccolo2d.googlecode.com/svn/site/tools/giftopng.sh convert images from gif to png].
