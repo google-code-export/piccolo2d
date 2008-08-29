@@ -59,8 +59,10 @@ As I develop this in a local git repo and merge to svn, a fineer-grained commit 
 
 = Obstacles =
 
- * css: cascading & node matching logic. http://www.w3.org/Style/CSS/SAC/ and http://today.java.net/pub/a/today/2003/10/14/swingcss.html 
- * svg path parsing is challenging - see the [http://www.w3.org/TR/SVG11/paths.html#PathDataBNF grammar] that has to be turned into a parser that ideally requires no additional runtime dependencies ([http://research.cs.queensu.ca/~thurston/ragel/ ragel], [http://groups.google.com/group/ragel-users ragel-users group]?). And it looks a bit fishy: http://lists.w3.org/Archives/Public/www-svg/2008Aug/0052.html. There is already a [https://lib2geom.svn.sourceforge.net/svnroot/lib2geom/lib2geom/trunk/src/2geom/svg-path-parser.rl ragel grammar] from another project. Plus there's some math involved to add svg segments to a GeneralPath, see [http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/ext/awt/geom/ExtendedGeneralPath.html Batik ExtendedGeneralPath]
+ * css parsing: more than rudimentary support is a terrible lot of code. See http://www.w3.org/Style/CSS/SAC/, http://cssparser.sourceforge.net/ and http://today.java.net/pub/a/today/2003/10/14/swingcss.html 
+ * the "path" element arcs require complex code. See [http://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/ext/awt/geom/ExtendedGeneralPath.html Batik ExtendedGeneralPath]
+ * the "use" element requires cloning and re-application of the CSS on every node. The PNode.clone() implementation is rather slow.
+ * the "text" element will be only rudimentary (no text along a path, rotated glyphs etc.)
  * graceful failure for unexpected svg features?
  * fatal failure for invalid svg (validating parser?)
 
