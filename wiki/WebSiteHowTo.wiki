@@ -50,6 +50,6 @@ A [http://en.wikipedia.org/wiki/Cron cron job] (at piccolo2d.org) keeps the site
 
 Alongside the website come some [http://piccolo2d.googlecode.com/svn/site/tools/README.txt tools] to inject navigation into the static html pages and ensure consistently indented xhtml strict.
 
-The injection into a single html page is done [http://piccolo2d.googlecode.com/svn/site/tools/inject_navigation.rb by a ruby script] that uses this [http://piccolo2d.googlecode.com/svn/site/tools/navigation.txt navigation data].
+The navigation injection into a single html page is done [http://piccolo2d.googlecode.com/svn/site/tools/inject_navigation.rb by a ruby script] that uses this [http://piccolo2d.googlecode.com/svn/site/tools/navigation.txt navigation data].
 
 Other tools set the [http://piccolo2d.googlecode.com/svn/site/tools/svn-mime-types.sh svn:mime-type property] or [http://piccolo2d.googlecode.com/svn/site/tools/giftopng.sh convert images from gif to png].
