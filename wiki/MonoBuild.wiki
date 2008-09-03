@@ -3,7 +3,7 @@
 
 See http://code.google.com/p/piccolo2d/issues/detail?id=60
 
-= Development Enviroment =
+===Setup Mono on Gentoo Linux===
 
  * [http://www.gentoo.org/ gentoo linux]
  * dev-util/git 1.5.6.4
@@ -29,3 +29,79 @@ The installation:
 {{{
 $ emerge nant monodevelop
 }}}
+
+
+===Setup Mono for VMware===
+
+Download the Mono development VMware image from:
+
+http://www.go-mono.com/mono-downloads
+
+Follow the VMware image installation/configuration instructions at:
+
+http://mono-project.com/VMware_Image
+
+Specifically, update to the latest Mono release:
+
+  # Open a command line and login as root (you shouldn't need to type a password):
+{{{
+$ sudo -s
+}}}
+  # List the updates available in the mono repo:
+{{{
+$ zypper -r lu -r mono
+}}}
+  # Install the updates from the mono repo:
+{{{
+$ zypper -r up -r mono
+}}}
+
+
+===Setup Mono on Windows===
+
+Download the Mono for Windows, Gtk#, and XSP installer from
+
+http://www.go-mono.com/mono-downloads
+
+Mono on Windows is currently missing mono-tools, per the installer release notes:
+
+{{{
+1.2.x:
+ -Library version updates: 
+   glib -> 2.12.3
+   gtk -> 2.10.3
+   gnome -> 2.16
+   libglade -> 2.6
+   glade -> 3
+ -Removed mono-tools since it depends on gtkhtml-sharp2, which has 
+  not been shipped on win32 yet
+}}}
+
+Download and install Cygwin
+
+http://www.cygwin.com/
+
+Confirm Mono is installed
+
+{{{
+$ mono --version
+Mono JIT compiler version 1.9.1 (tarball)
+Copyright (C) 2002-2007 Novell, Inc and Contributors. www.mono-project.com
+        TLS:           normal
+        GC:            Included Boehm (with typed GC)
+        SIGSEGV:       normal
+        Notification:  Thread + polling
+        Architecture:  x86
+        Disabled:      none
+
+$ nant -v
+NAnt 0.86 (Build 0.86.2898.0; beta1; 12/08/2007)
+Copyright (C) 2001-2007 Gerry Shaw
+http://nant.sourceforge.net
+}}}
+
+===Setup Mono on Mac OSX===
+
+Download the Mono, Cocoa#, Gtk#, !MonoDevelop installer from
+
+http://www.go-mono.com/mono-downloads
