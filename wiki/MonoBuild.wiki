@@ -37,9 +37,11 @@ Download the Mono development VMware image from:
 
 http://www.go-mono.com/mono-downloads
 
+
 Follow the VMware image installation/configuration instructions at:
 
 http://mono-project.com/VMware_Image
+
 
 Specifically, update to the latest Mono release:
 
@@ -57,11 +59,36 @@ $ zypper -r up -r mono
 }}}
 
 
+Verify Mono is installed
+
+{{{
+linux@linux:~> mono --version
+Mono JIT compiler version 1.9.1 (tarball)
+Copyright (C) 2002-2007 Novell, Inc and Contributors. www.mono-project.com
+        TLS:           __thread
+        GC:            Included Boehm (with typed GC)
+        SIGSEGV:       normal
+        Notifications: epoll
+        Architecture:  x86
+        Disabled:      none
+
+linux@linux:~> nant -v
+NAnt 0.86 (Build 0.86.2898.0; beta1; 12/8/2007)
+Copyright (C) 2001-2007 Gerry Shaw
+http://nant.sourceforge.net
+}}}
+
 ===Setup Mono on Windows===
+
+Download and install Cygwin
+
+http://www.cygwin.com/
+
 
 Download the Mono for Windows, Gtk#, and XSP installer from
 
 http://www.go-mono.com/mono-downloads
+
 
 Mono on Windows is currently missing mono-tools, per the installer release notes:
 
@@ -77,11 +104,8 @@ Mono on Windows is currently missing mono-tools, per the installer release notes
   not been shipped on win32 yet
 }}}
 
-Download and install Cygwin
 
-http://www.cygwin.com/
-
-Confirm Mono is installed
+Verify Mono is installed
 
 {{{
 $ mono --version
