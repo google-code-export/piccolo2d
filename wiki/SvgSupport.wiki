@@ -7,6 +7,8 @@ TODO: insert the [http://groups.google.com/group/piccolo2d-dev/browse_thread/thr
 
 See also issue#61
 
+And have a look at http://wiki.svg.org/JSR_226 and http://wiki.svg.org/JSR_287
+
 = Motivation =
 Piccolo2d is a scenegraph ZUI toolkit, [http://en.wikipedia.org/wiki/Scalable_Vector_Graphics svg] is a 2d vector graphics description language. Both share the idea of a scene graph and the grouping and transformation concepts also look similar at a first glance.
 
