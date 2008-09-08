@@ -129,3 +129,23 @@ http://nant.sourceforge.net
 Download the Mono, Cocoa#, Gtk#, !MonoDevelop installer from
 
 http://www.go-mono.com/mono-downloads
+
+
+Verify Mono is installed
+
+{{{
+$ mono --version
+Mono JIT compiler version 1.9.1 (tarball)
+Copyright (C) 2002-2007 Novell, Inc and Contributors. www.mono-project.com
+	TLS:           normal
+	GC:            Included Boehm (with typed GC)
+	SIGSEGV:       normal
+	Notification:  Thread + polling
+	Architecture:  ppc
+	Disabled:      none
+
+$ nant -version
+NAnt 0.86 (Build 0.86.2898.0; beta1; 12/8/2007)
+Copyright (C) 2001-2007 Gerry Shaw
+http://nant.sourceforge.net
+}}}
