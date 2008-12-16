@@ -256,20 +256,20 @@
         </li>
       </ol>
       <h3>
-        3.3. Subclass PFrame
+        3.3. Subclass JFrame
       </h3>
       <p class='preamble'>
-        Next we will subclass the Piccolo2D class PFrame.
+        Next we will subclass the standard Swing class JFrame.
       </p>
       <ol>
         <li>
           Select your "Hello World" project and then choose File &gt; New &gt; Class.
         </li>
         <li>
-          Name the new class "HelloWorld".
+          Name the new class "HelloWorldExample".
         </li>
         <li>
-          Choose the Superclass edu.umd.cs.piccolox.PFrame.
+          Choose the Superclass javax.swing.JFrame.
         </li>
         <li>
           Check the box labeled "public static void main(String[] args)" so that a main method will
@@ -287,31 +287,47 @@
       </p>
       <ol>
         <li>
-          At the top of the screen add the following import statement so that we can use the PText
-          class. 
+          At the top of the screen add the following import statements so that we can use the
+          PCanvas and PText classes. 
           <pre>
+import javax.swing.JFrame;
+
+import edu.umd.cs.piccolo.PCanvas;
 import edu.umd.cs.piccolo.nodes.PText;
 </pre>
         </li>
         <li>
-          PFrame will call the "initialize" method when it is created. This is a good place to add
-          our Piccolo2D nodes, so override this method like this: 
+          The contructor is used to initialize and wire up piccolo2d, so create one like this: 
           <pre>
-        public void initialize() {      
-                PText text = new PText("Hello World");
-                getCanvas().getLayer().addChild(text);
+        private HelloWorldExample() {
+                final PCanvas canvas = new PCanvas();
+                final PText text = new PText("Hello World");
+                canvas.getLayer().addChild(text);
+                add(canvas);
+
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                setSize(600, 400);
+                setVisible(true);
         }
-</pre>Last of all override main method so that a new instance of your "HelloWorld" class gets
-created by main. The final code should look like this: 
+</pre>Last of all override main method so that a new instance of your "HelloWorldExample" class
+gets created by main. The final code should look like this: 
           <pre>
+import javax.swing.JFrame;
+
+import edu.umd.cs.piccolo.PCanvas;
 import edu.umd.cs.piccolo.nodes.PText;
-import edu.umd.cs.piccolox.PFrame;
 
 public class HelloWorldExample extends PFrame {
         
-        public void initialize() {      
-                PText text = new PText("Hello World");
-                getCanvas().getLayer().addChild(text);
+        private HelloWorldExample() {
+                final PCanvas canvas = new PCanvas();
+                final PText text = new PText("Hello World");
+                canvas.getLayer().addChild(text);
+                add(canvas);
+
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                setSize(600, 400);
+                setVisible(true);
         }
 
         public static void main(String[] args) {
@@ -331,7 +347,7 @@ node to the main layer of the canvas.&nbsp; Zooming and panning are there for fr
       </p>
       <ol>
         <li>
-          Right-click on your "HelloWorld" class and choose Run As &gt; Java Application
+          Right-click on your "HelloWorldExample" class and choose Run As &gt; Java Application
         </li>
         <li>
           You should see the text "Hello World"
