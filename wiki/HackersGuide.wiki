@@ -5,7 +5,9 @@
 
 This guidelines are heavily inspired by http://subversion.tigris.org/hacking.html
 
-If you'd like to have a table of contents, vote for http://code.google.com/p/support/issues/detail?id=116
+<wiki:toc/>
+
+(If you like this table of contents, say thank you at http://code.google.com/p/support/issues/detail?id=116)
 
 = Participating in the community =
 
@@ -66,6 +68,8 @@ Source code conventions are enforced using the Checkstyle plug-in.  Project-spec
 {{{
 piccolo2d.java/core/src/build/conf/checkstyle.xml
 }}}
+
+
 
 The maven site build creates a Checkstyle Results report.
 
