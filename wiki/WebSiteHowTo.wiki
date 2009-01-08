@@ -34,7 +34,7 @@ Maybe we pick a git hosting solution for versioning the website content in the f
 
 == Staging area ==
 
-The svn repository also serves as a staging area. Therefore the svn:mime-type of all files must be set correctly. The script http://piccolo2d.googlecode.com/svn/site/tools/svn-mime-types.sh helps to do that.
+The [http://piccolo2d.googlecode.com/svn/site svn repository] also serves as a staging area. Therefore the svn:mime-type of all files must be set correctly. The script http://piccolo2d.googlecode.com/svn/site/tools/svn-mime-types.sh helps to do that.
 
 == Deployment ==
 
