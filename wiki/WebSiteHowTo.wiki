@@ -1,6 +1,8 @@
 #summary End-User Website Howto
 #labels Phase-Implementation
 
+<wiki:toc />
+
 = Introduction =
 
 The End-User website is available at http://www.piccolo2d.org
