@@ -5,7 +5,7 @@ This idea came up on the [http://groups.google.com/group/piccolo2d-dev/browse_th
 
 TODO: insert the [http://groups.google.com/group/piccolo2d-dev/browse_thread/thread/eab6481afdb09d3b options Michael mentioned] and the example from the comment below.
 
-See also issue#61
+See also issue#61 issue#81
 
 And have a look at http://wiki.svg.org/JSR_226 and http://wiki.svg.org/JSR_287
 
