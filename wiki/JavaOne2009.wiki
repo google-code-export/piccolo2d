@@ -20,7 +20,7 @@ This session tried to answer the following questions:
 
 The session will be particularly valuable to Piccolo2D users and Java desktop technology developers.
 
-Download the presentation at [http://piccolo2d.googlecode.com/files/Piccolo2D_JavaOne_2009_BOF-4787.odp].
+Download the presentation at [http://piccolo2d.googlecode.com/files/Piccolo2D_JavaOne_2009_BOF-4787.odp] (or [http://piccolo2d.googlecode.com/files/Piccolo2D_JavaOne_2009_BOF-4787.odp PDF version]).
 
 = Feedback from Attendees =
 
