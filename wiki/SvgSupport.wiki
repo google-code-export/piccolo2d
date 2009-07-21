@@ -39,7 +39,7 @@ There was some idea to build svg support into [http://www.piccolo2d.org/download
 = Steps =
 Aim for for [http://www.w3.org/TR/SVGMobile/#sec-overview SVG 1.1 Tiny] and use the examples from the specification as test input. Development happens in the [http://piccolo2d.googlecode.com/svn/piccolo2d.java/branches/svg svg branch].
 
-As I develop this in a local git repo and merge to svn, a fineer-grained commit history can be obtained from the [http://github.com/mro/piccolo2d.java/ git://github.com/mro/piccolo2d.java.git] repository.
+As I develop this in a local git repo and merge to svn, a finer-grained commit history can be obtained from the [http://github.com/mro/piccolo2d.java/ git://github.com/mro/piccolo2d.java.git] repository.
 
  # Proof a concept
   # Sax Parser to read the svg xml
