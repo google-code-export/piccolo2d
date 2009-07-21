@@ -1,6 +1,8 @@
 #summary Rough Paper: History, Requirements, Concepts, Obstacles
 #labels Phase-Requirements
 
+<wiki:toc />
+
 This idea came up on the [http://groups.google.com/group/piccolo2d-dev/browse_thread/thread/df17f5cb0edfefe8 piccolo2d-dev maillist].
 
 TODO: insert the [http://groups.google.com/group/piccolo2d-dev/browse_thread/thread/eab6481afdb09d3b options Michael mentioned] and the example from the comment below.
@@ -37,7 +39,7 @@ There was some idea to build svg support into [http://www.cs.umd.edu/hcil/jazz/d
 = Steps =
 Aim for for [http://www.w3.org/TR/SVGMobile/#sec-overview SVG 1.1 Tiny] and use the examples from the specification as test input. Development happens in the [http://piccolo2d.googlecode.com/svn/piccolo2d.java/branches/svg svg branch].
 
-As I develop this in a local git repo and merge to svn, a fineer-grained commit history can be obtained from the [http://www.mro.name/piccolo2d.java.git git repository].
+As I develop this in a local git repo and merge to svn, a fineer-grained commit history can be obtained from the [http://github.com/mro/piccolo2d.java/ git://github.com/mro/piccolo2d.java.git repository].
 
  # Proof a concept
   # Sax Parser to read the svg xml
