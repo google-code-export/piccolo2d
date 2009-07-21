@@ -124,7 +124,7 @@ end
 
 if ARGV.length < 1 || ARGV[0] == '--help' || ARGV[0] == '-help' || ARGV[0] == '-?'
 	puts <<END_OF_HELP
-Inject navigation into html pages.
+Inject navigation from tools/navigation.txt into html pages.
 
 Usage:
 	1) cd to the root of the website
