@@ -3,7 +3,7 @@
 
 <wiki:toc />
 
-[http://piccolo2d.googlecode.com/svn/site/README.txt Jumpstart]
+For the impatient website editor: [http://piccolo2d.googlecode.com/svn/site/README.txt Jumpstart]
 
 = Introduction =
 
