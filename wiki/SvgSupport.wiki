@@ -1,5 +1,5 @@
 #summary Rough Paper: History, Requirements, Concepts, Obstacles
-#labels Phase-Requirements,Deprecated
+#labels Phase-Requirements
 
 <wiki:toc />
 
