@@ -7,7 +7,8 @@ see also issue#43
 
 in approximately this order:
   # fix remaing showstopper issue#63
-  # package release binaries (jar, sources, javadocs)
+  # package release candidate binaries (jar, sources, javadocs)
+  # without veto after 1 week's time go on with:
   # upload to repo1.maven.org (see issue#62)
   # integrate javadocs into http://piccolo2d.googlecode.com/svn/site/download.html
   # write http://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk/ReleaseNotes.txt
