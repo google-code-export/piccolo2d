@@ -5,6 +5,7 @@ see also issue#43
 
 = Todos Release 1.3 (Java) =
 
+in approximately this order:
   # fix remaing showstopper issue#63
   # package release binaries (jar, sources, javadocs)
   # upload to repo1.maven.org (see issue#62)
@@ -13,4 +14,4 @@ see also issue#43
   # write [http://groups.google.com/group/piccolo2d-announce/browse_thread/thread/2a04eb810571ce00 announcement mail]
 
 == Optional ==
-  # make examples webstartable? (be inspired by [http://www.jcurl.org/jws/org/jcurl/demo/tactics/0.7-SNAPSHOT/launch.jnlp demo jnlp] [http://svn.berlios.de/wsvn/jcurl/trunk/java-core/webstart/tactics/pom.xml pom / svn])
+  * make examples webstartable? (be inspired by [http://www.jcurl.org/jws/org/jcurl/demo/tactics/0.7-SNAPSHOT/launch.jnlp demo jnlp] [http://svn.berlios.de/wsvn/jcurl/trunk/java-core/webstart/tactics/pom.xml pom / svn])
