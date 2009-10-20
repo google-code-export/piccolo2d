@@ -16,7 +16,8 @@ http://www.piccolo2d.org/layout.css
 **********************************************************/
 
 body {
-	font-size: 110%;
+	font-size: 100%;
+  font-family: Arial, Verdana, Geneva, Helvetica, sans-serif;
 }
 
 h1 {
@@ -37,7 +38,7 @@ pre {
 	margin: 0.5em;
 	padding: 0.5em; 
 	font-family: 'Courier New', Courier, monospace;
-	font-size: 75%;
+	font-size: 100%;
 }
 code {
 	font-family : 'Courier New', Courier, monospace;
@@ -89,17 +90,34 @@ p.image {
 	padding: 0.25em;
 	position: relative;
 	z-index: 10;
+  
+  /* a little less saturation than atom blue */
+  background-color: #aecde3;
+  border: 1px solid #69c;
 }
 
 #navigation ul {
 	margin: 0;
 	padding: 0 1em;
+  font-size: 120%;
+}
+
+#navigation ul ul {
+  padding-left: 1em;
+  font-size: 90%;
+  line-height: 130%;
 }
 #navigation ul li {
 	list-style: none;
     	margin: 0;
 	padding: 0;
 }
+
+#navigation .header {  
+  margin: 0 0 2em 0;  
+  padding: 0 1em;
+}
+
 
 #main {
 	margin: 0;
@@ -114,6 +132,10 @@ p.image {
 	margin: 0 -0.5em 0.25em -0.5em;
 	padding: 0.5em 0.5em 0.25em 0.5em;
 	position: relative;
+}
+
+#main-head h1 {
+  margin-top: 0; 
 }
 
 /**********************************************************
@@ -186,11 +208,19 @@ http://www.piccolo2d.org/color-logo.css
 body {
 	color: black;
 	/* atom grey */
-	background-color: #b5b5b5;
+	background-color: #eeeeee;
+}
+
+a {
+  text-decoration: none; 
+}
+a:hover {
+  text-decoration: underline; 
 }
 
 em {
-	color: blue;
+	color: #333;
+  font-weight: bold;
 }
 
 .selected {
@@ -198,19 +228,25 @@ em {
 	color: black;
 }
 
-#navigation {
-	/* a little less saturation than atom blue */
-	background-color: #aecde3;
-}
-
 #main {
 	/* a little less saturation than atom blue */
 	background-color: #aecde3;
+  /*background-color: #dddddd;*/
+  border: 1px solid #69c;
+}
+
+#main a {
+  text-decoration: underline; 
+}
+
+#main {
+  line-height: 1.25em; 
 }
 
 #main-head {
-	/* atom blue */
-	background-color: #8abee3;
+	/* atom blue */	
+  background-color: #8abee3;
+  border-bottom: 1px solid #69c;
 }
 
 .snippet {
@@ -218,3 +254,27 @@ em {
 	background-color: #82b3d6;
 }
 
+table#impressions {
+  clear: both;
+  float: right;;  
+}
+table#impressions td {
+  padding: 1em; 
+}
+
+
+.bugreport {  
+  margin-bottom: 0;  
+  position: relative;
+  padding: 0 1em;
+  top: 2em;
+  text-align: right;
+}
+
+.bugreport a {
+    
+}
+
+.validators {
+  display: none;
+}

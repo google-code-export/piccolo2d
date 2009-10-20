@@ -73,7 +73,7 @@ by the script #{__FILE__}
 
 DO NOT EDIT IT MANUALLY!!!	
 -->
-<p>
+<p class="header">
 	<a href='#{prefix}index.html'><img src='#{prefix}images/Piccolo2D-Logo-small.png' alt='Piccolo2D Logo' /></a>
 </p>
 END_OF_NAVIGATION_HEAD
@@ -88,19 +88,22 @@ END_OF_NAVIGATION_HEAD
 			end
 		end
 		div << <<END_OF_NAVIGATION_FOOT
+<!--
 <p>
 	<img src='#{prefix}images/giny-small.png' alt='a nice graph' />
 </p>
-<p>
+-->
+<p class='bugreport'>
+<a href='http://code.google.com/p/piccolo2d/issues/entry?template=User%20defect%20report'>Found a Typo?</a>
+</p>
+
+<p class="validators">
 	<a href='http://validator.w3.org/check/referer'><img src='http://www.w3.org/Icons/valid-xhtml10-blue'
 	alt='Valid XHTML 1.0!' style='border:0;width:88px;height:31px' /></a>
 	<a href='http://jigsaw.w3.org/css-validator/check/referer'><img src='http://www.w3.org/Icons/valid-css-blue'
 	alt='Valid CSS1!' style='border:0;width:88px;height:31px' /></a>
-	</p>
-<p class='bugreport'>
-	<a href='http://code.google.com/p/piccolo2d/issues/entry?template=User%20defect%20report'>I
-	found an error!</a>
 </p>
+
 </div>
 END_OF_NAVIGATION_FOOT
 		# parse
