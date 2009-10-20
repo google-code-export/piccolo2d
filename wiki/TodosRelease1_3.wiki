@@ -18,5 +18,206 @@ in approximately this order:
   # write http://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk/ReleaseNotes.txt 
   # write [http://groups.google.com/group/piccolo2d-announce/browse_thread/thread/2a04eb810571ce00 announcement mail]
 
+
+== Issues ==
+
+The following issues must be resolved before the 1.3 release.
+
+Issue 126
+
+<br/>
+The following issues need to be triaged -- are they showstoppers for the 1.3 release?
+
+Issue 41
+
+Issue 63
+
+Issue 134
+
+Issue 135
+
+Issue 136
+
+
+<br/>
+The following issues are currently awaiting comment.  Without feedback before the 1.3 release, they will have their version re-assigned to 1.4 or 2.0.
+
+Issue 10
+
+Issue 16
+
+Issue 18
+
+Issue 19
+
+Issue 24
+
+Issue 26
+
+Issue 27
+
+Issue 30
+
+Issue 31
+
+Issue 33
+
+
+<br/>
+The following New issues have not yet been reviewed, Accepted, and assigned to a version.
+
+Issue 122
+
+Issue 131
+
+Issue 133
+
+
+<br/>
+The following issues were Fixed but not Verified since version 1.2.1.  These should be marked as Verified before the 1.3 release, ideally by the original submitter, and then listed in the release notes.  Developers, please verify those issues fixed by other developers!
+
+Issue 9
+
+Issue 14
+
+Issue 15
+
+Issue 17
+
+Issue 20
+
+Issue 22
+
+Issue 23
+
+Issue 25
+
+Issue 32
+
+Issue 59
+
+Issue 64
+
+Issue 66
+
+Issue 67
+
+Issue 69
+
+Issue 70
+
+Issue 71
+
+Issue 74
+
+Issue 79
+
+Issue 83
+
+Issue 88
+
+Issue 90
+
+Issue 99
+
+Issue 101
+
+Issue 104
+
+Issue 106
+
+Issue 109
+
+Issue 110
+
+Issue 111
+
+Issue 123
+
+Issue 124
+
+Issue 125
+
+Issue 127
+
+Issue 128
+
+Issue 132
+
+Issue 137
+
+Issue 138
+
+<br/>
+Query: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone:1.3%20status=Fixed&sort=status&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3,status=Fixed]
+
+
+<br/>
+The following issues were Fixed and Verified since version 1.2.1.  These should be listed in the release notes.
+
+Issue 2
+
+Issue 6
+
+Issue 8
+
+Issue 13
+
+Issue 21
+
+Issue 28
+
+Issue 29
+
+Issue 38
+
+Issue 42
+
+Issue 44
+
+Issue 46
+
+Issue 47
+
+Issue 49
+
+Issue 51
+
+Issue 52
+
+Issue 56
+
+Issue 68
+
+Issue 73
+
+Issue 82
+
+Issue 89
+
+Issue 93
+
+Issue 94
+
+Issue 95
+
+Issue 96
+
+Issue 97
+
+Issue 98
+
+Issue 100
+
+Issue 108
+
+Issue 113
+
+Issue 116
+
+<br/>
+Query: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone%3A1.3+status%3DVerified&sort=id+status&colspec=ID+Type+Status+Priority+Milestone+Owner+Toolkit+Component+Summary&x=status&y=milestone&cells=tiles Milestone:1.3,status=Verified]
+
+
 == Optional ==
-  * make examples webstartable? (be inspired by [http://www.jcurl.org/jws/org/jcurl/demo/tactics/0.7-SNAPSHOT/launch.jnlp demo jnlp] [http://svn.berlios.de/wsvn/jcurl/trunk/java-core/webstart/tactics/pom.xml pom / svn])
+  * make examples webstartable? (be inspired by [http://www.jcurl.org/jws/org/jcurl/demo/tactics/0.7-SNAPSHOT/launch.jnlp demo jnlp] [http://svn.berlios.de/wsvn/jcurl/trunk/java-core/webstart/tactics/pom.xml pom / svn]), see Issue 139
