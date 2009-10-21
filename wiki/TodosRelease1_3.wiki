@@ -72,6 +72,7 @@ Issue 131
 
 Issue 133
 
+Issue 141
 
 <br/>
 The following issues were Fixed but not Verified since version 1.2.1.  These should be marked as Verified before the 1.3 release, ideally by the original submitter, and then listed in the release notes.  Developers, please verify those issues fixed by other developers!
