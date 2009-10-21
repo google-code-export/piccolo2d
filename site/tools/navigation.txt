@@ -9,9 +9,10 @@
 # $3 link text
 index.html Piccolo2D Home
 	play/index.html Play
-		play/applet/fisheyecalendar.html Fisheye&nbsp;Calendar
-		play/applet/grapheditor.html Graph&nbsp;Editor
-		play/applet/presentation.html Presentation&nbsp;Tool
+		play/java/fisheyecalendar.html Java&nbsp;Fisheye&nbsp;Calendar           		
+		play/dotnet/fisheyecalendar.html .NET&nbsp;Fisheye&nbsp;Calendar
+		play/dotnet/grapheditor.html .NET&nbsp;Graph&nbsp;Editor
+		play/dotnet/presentation.html .NET&nbsp;Presentation&nbsp;Tool
 	learn/index.html Learn
 		learn/about.html About&nbsp;Piccolo2D
 		learn/patterns.html Piccolo2D&nbsp;Patterns
