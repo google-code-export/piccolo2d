@@ -32,8 +32,6 @@ The following issues need to be triaged -- are they showstoppers for the 1.3 rel
 
 Issue 41
 
-Issue 63
-
 Issue 134
 
 Issue 135
@@ -188,6 +186,8 @@ Issue 51
 Issue 52
 
 Issue 56
+
+Issue 63
 
 Issue 68
 
