@@ -216,7 +216,9 @@ Query: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone%3A1.3+s
 
  # Graphs or tables showing decreases in FindBugs, PMD, and Checkstyle error/warnings since 1.2.1.  Simply comparing 1.2.1 and 1.3 release tags would be sufficient, trend graphs would be cool
 
- # Graph or table showing increase in unit test coverage since 1.2.1.
+ # Graph or table showing increase in unit test coverage since 1.2.1
+
+ # [http://clirr.sf.net Clirr] report showing API changes from 1.2.1 to 1.3
 
  # List of new examples
 
