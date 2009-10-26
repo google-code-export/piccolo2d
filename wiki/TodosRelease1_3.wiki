@@ -27,14 +27,7 @@ The following issues must be resolved before the 1.3 release.
 
 Issue 126
 
-<br/>
-The following issues need to be triaged -- are they showstoppers for the 1.3 release?
-
-Issue 41
-
-Issue 88
-
-Issue 106
+Issue 133
 
 
 <br/>
@@ -52,8 +45,6 @@ Issue 24
 
 Issue 26
 
-Issue 27
-
 Issue 30
 
 Issue 31
@@ -67,10 +58,6 @@ The following New issues have not yet been reviewed, Accepted, and assigned to a
 Issue 122
 
 Issue 131
-
-Issue 133
-
-Issue 142
 
 
 <br/>
@@ -86,27 +73,21 @@ Issue 20
 
 Issue 22
 
-Issue 23
-
 Issue 25
 
-Issue 59
-
-Issue 64
-
-Issue 67
-
-Issue 69
+Issue 27
 
 Issue 74
 
 Issue 79
 
-Issue 90
+Issue 88
 
 Issue 99
 
 Issue 101
+
+Issue 106
 
 Issue 109
 
@@ -121,8 +102,6 @@ Issue 125
 Issue 127
 
 Issue 128
-
-Issue 132
 
 Issue 137
 
@@ -146,6 +125,8 @@ Issue 9
 Issue 13
 
 Issue 21
+
+Issue 23
 
 Issue 28
 
@@ -171,11 +152,19 @@ Issue 52
 
 Issue 56
 
+Issue 59
+
 Issue 63
+
+Issue 64
 
 Issue 66
 
+Issue 67
+
 Issue 68
+
+Issue 69
 
 Issue 70
 
@@ -185,9 +174,9 @@ Issue 73
 
 Issue 82
 
-Issue 83
-
 Issue 89
+
+Issue 90
 
 Issue 93
 
@@ -207,14 +196,31 @@ Issue 104
 
 Issue 108
 
-Issue 104
+Issue 110
 
 Issue 113
 
 Issue 116
 
+Issue 132
+
+Issue 142
+
 <br/>
 Query: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone%3A1.3+status%3DVerified&sort=id+status&colspec=ID+Type+Status+Priority+Milestone+Owner+Toolkit+Component+Summary&x=status&y=milestone&cells=tiles Milestone:1.3,status=Verified]
+
+
+== For the Release Notes ==
+
+ # One or two sentence description of each Enhancement fixed and verified since 1.2.1.  Refer to the list of verified issues
+
+ # Graphs or tables showing decreases in FindBugs, PMD, and Checkstyle error/warnings since 1.2.1.  Simply comparing 1.2.1 and 1.3 release tags would be sufficient, trend graphs would be cool
+
+ # Graph or table showing increase in unit test coverage since 1.2.1.
+
+ # List of new examples
+
+ # List of developers & contributors, refer to parent pom
 
 
 == Optional ==
