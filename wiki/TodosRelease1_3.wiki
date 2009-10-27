@@ -27,6 +27,8 @@ The following issues must be resolved before the 1.3 release.
 
 Issue 126
 
+Issue 143
+
 
 <br/>
 The following New issues have not yet been reviewed, Accepted, and assigned to a version.
