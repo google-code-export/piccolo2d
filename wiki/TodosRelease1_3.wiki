@@ -3,6 +3,8 @@
 
 see also issue#43
 
+<wiki:toc />
+
 = Todos Release 1.3 (Java) =
 
 in approximately this order:
