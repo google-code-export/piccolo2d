@@ -193,7 +193,7 @@ Query: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone%3A1.3+s
 
 == For the Release Notes ==
 
- * One or two sentence description of each Enhancement fixed and verified since 1.2.1.  Refer to the [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone:1.3%20status=Verified&sort=+component+-type+-summary&colspec=Type%20Component%20Summary list of verified issues]
+ * One or two sentence description of each Enhancement fixed and verified since 1.2.1.  Refer to the [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone:1.3%20status=Verified&sort=+component+-type+-summary&colspec=ID%20Type%20Component%20Summary list of verified issues]
 
  * Graphs or tables showing decreases in FindBugs, PMD, and Checkstyle error/warnings since 1.2.1.  Simply comparing 1.2.1 and 1.3 release tags would be sufficient, trend graphs would be cool
 
