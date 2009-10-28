@@ -1,0 +1,13 @@
+#summary Release checklist.
+
+= Introduction =
+
+Placeholder for the Piccolo2D project release checklist.
+
+
+= References =
+
+ * Apache Commons [http://commons.apache.org/releases/prepare.html Preparations for a Release]
+ * Apache Commons [http://commons.apache.org/releases/prepare.html Cutting the Release]
+ * Apache Commons commons-parent [http://svn.apache.org/viewvc/commons/proper/commons-parent/trunk/pom.xml?view=annotate pom.xml]
+ * Maven [http://maven.apache.org/plugins/maven-release-plugin/ Release Plugin]
