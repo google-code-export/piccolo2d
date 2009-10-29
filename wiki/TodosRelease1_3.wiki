@@ -30,9 +30,6 @@ The following issues must be resolved before the 1.3 release.
 
 Issue 126
 
-Issue 143
-
-
 <br/>
 The following New issues have not yet been reviewed, Accepted, and assigned to a version.
 
@@ -188,6 +185,8 @@ Issue 116
 Issue 132
 
 Issue 142
+
+Issue 143
 
 <br/>
 Query: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone%3A1.3+status%3DVerified&sort=id+status&colspec=ID+Type+Status+Priority+Milestone+Owner+Toolkit+Component+Summary&x=status&y=milestone&cells=tiles Milestone:1.3,status=Verified]
