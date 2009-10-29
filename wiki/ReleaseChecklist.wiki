@@ -93,6 +93,22 @@ Create release tag in subversion
 $ svn cp -m "creating 1.3-beta release tag" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/tags/release-1.3-beta
 }}}
 
+<br/>
+After final release tag:
+
+<br/>
+Update version in parent pom.xml file on svn trunk to {$next-version}-SNAPSHOT
+
+parent/pom.xml:
+{{{
+  <version>1.4-SNAPSHOT</version>
+}}}
+
+and commit
+
+{{{
+$ svn commit -m "updating version to 1.4-SNAPSHOT" parent/pom.xml
+}}}
 
 
 = References =
