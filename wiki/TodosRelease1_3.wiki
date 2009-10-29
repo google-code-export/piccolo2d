@@ -59,6 +59,8 @@ Issue 74
 
 Issue 79
 
+Issue 83
+
 Issue 88
 
 Issue 99
@@ -86,6 +88,8 @@ Issue 133
 Issue 137
 
 Issue 138
+
+Issue 144
 
 <br/>
 Query: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone:1.3%20status=Fixed&sort=status&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3,status=Fixed]
