@@ -12,7 +12,7 @@ in approximately this order:
   # decide that source code style and javadoc fixing is good enough
   # decide that unit test coverage is good enough
   # create release checklist for release manager to follow, see ReleaseChecklist
-  # stepwise package and [http://groups.google.com/group/piccolo2d-announce/browse_thread/thread/2a04eb810571ce00 announce] binaries: jar, sources, javadocs
+  # stepwise code cleanup, build, package and [http://groups.google.com/group/piccolo2d-announce/browse_thread/thread/2a04eb810571ce00 announce] binaries: jar, sources, javadocs
     # alpha
     # beta
     # release candidate(s)
