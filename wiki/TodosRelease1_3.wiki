@@ -28,6 +28,8 @@ in approximately this order:
 
 The following issues must be resolved before the 1.3 release.
 
+Issue 126
+
 Issue 144
 
 
@@ -62,19 +64,13 @@ Issue 79
 
 Issue 83
 
-Issue 88
-
 Issue 99
-
-Issue 106
 
 Issue 109
 
 Issue 124
 
 Issue 125
-
-Issue 126
 
 Issue 127
 
@@ -149,6 +145,8 @@ Issue 73
 
 Issue 82
 
+Issue 88
+
 Issue 89
 
 Issue 90
@@ -170,6 +168,8 @@ Issue 100
 Issue 101
 
 Issue 104
+
+Issue 106
 
 Issue 108
 
