@@ -212,5 +212,18 @@ Query: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone%3A1.3+s
  * List of developers & contributors, refer to parent pom
 
 
+== Uploading to Maven Central Repository ==
+
+This is going to be a problem.  We cannot use the manual upload process since we have a multi-module project with a parent pom.  We will need to set up a maven repository that will need to provide rsync over ssh access to maven central.
+
+There is such a repository on google-code
+
+http://code.google.com/p/google-maven-repository/
+
+However, it is currently only available to Google company projects, see
+
+http://code.google.com/p/support/issues/detail?id=1226
+
+
 == Optional ==
   * make examples webstartable? (be inspired by [http://www.jcurl.org/jws/org/jcurl/demo/tactics/0.7-SNAPSHOT/launch.jnlp demo jnlp] [http://svn.berlios.de/wsvn/jcurl/trunk/java-core/webstart/tactics/pom.xml pom / svn]), see Issue 139
