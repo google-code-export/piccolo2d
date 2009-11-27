@@ -1,8 +1,9 @@
 #summary How to build Piccolo2D SWT on MacOSX
 
-= Introduction =
+Platform-specific build instructions:
+<wiki:toc/>
 
-== MacOSX 10.6.x, Apple JDK 1.6.x, x86_64 ==
+= MacOSX 10.6.x, Apple JDK 1.6.x, x86_64 =
 
 The Piccolo2D build will initially fail on Intel Macs (x86_64) with MacOSX 10.6.x and Apple JDK 1.6.x due to the platform specific SWT dependency.  The failure can be resolved by editing swt/pom.xml to select the correct profile, downloading the correct version of SWT, and installing swt.jar manually into the local maven repository.
 
@@ -290,9 +291,9 @@ Tests run: 38, Failures: 0, Errors: 0, Skipped: 0
 }}}
 
 
-== MacOSX 10.5.x, Apple JDK 1.5.x, x86_64 ==
+= MacOSX 10.5.x, Apple JDK 1.5.x, x86_64 =
 
-The Piccolo2D build works fine with on Intel Macs (x86_64) with MacOSX 10.5.x and Apple JDK 1.5.x.
+The Piccolo2D build works fine on Intel Macs (x86_64) with MacOSX 10.5.x and Apple JDK 1.5.x.
 
 Running the SWT examples requires the {{{-XstartOnFirstThread}}} JDK command line option or the java process will hang.
 
@@ -415,7 +416,7 @@ Downloading: http://repo1.maven.org/maven2/org/eclipse/swt/carbon/macosx/3.3.0-v
 [INFO] ------------------------------------------------------------------------
 }}}
 
-== MacOSX 10.5.x, Apple JDK 1.5.x, ppc ==
+= MacOSX 10.5.x, Apple JDK 1.5.x, ppc =
 
 The Piccolo2D build works fine with on PowerPC Macs (ppc) with MacOSX 10.5.x and Apple JDK 1.5.x.
 
