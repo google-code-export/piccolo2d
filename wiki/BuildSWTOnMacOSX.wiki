@@ -1,8 +1,6 @@
-#summary One-sentence summary of this page.
+#summary How to build SWT on MacOSX
 
 = Introduction =
-
-Add your content here.
 
 == MacOSX 10.6.x, Apple JDK 1.6.x, x86_64 ==
 
