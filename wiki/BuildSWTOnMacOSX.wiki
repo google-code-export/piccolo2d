@@ -258,7 +258,7 @@ Downloading: http://repo1.maven.org/maven2/org/eclipse/swt/cocoa/macosx/3.5.1/ma
 [INFO] [compiler:testCompile]
 [INFO] Nothing to compile - all classes are up to date
 [INFO] [surefire:test]
-[INFO] Surefire report directory: /Users/sheuer/Downloads/piccolo2d.java/swt/target/surefire-reports
+[INFO] Surefire report directory: swt/target/surefire-reports
 
 -------------------------------------------------------
  T E S T S
