@@ -1,4 +1,4 @@
-#summary How to build SWT on MacOSX
+#summary How to build Piccolo2D SWT on MacOSX
 
 = Introduction =
 
