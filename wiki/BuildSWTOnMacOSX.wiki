@@ -136,7 +136,87 @@ Tests run: 38, Failures: 0, Errors: 25, Skipped: 0
 [INFO] There are test failures.
 }}}
 
-Edit swt/pom.xml, disable the macosx_carbon profile and enable the macosx_cocoa_intel profile.  This must be done manually as currently maven does not support profile activation with a combination of {{{<os>}}} and {{{<jdk>}}} settings.
+Edit swt/pom.xml, disable the macosx_carbon profile and enable the macosx_cocoa_intel profile.  This must be done manually as maven currently does not support profile activation with a combination of {{{<os>}}} and {{{<jdk>}}} settings.
+
+Profile macosx_carbon activated
+{{{
+<!--
+
+    disable this profile to build on mac osx, jdk 1.6, x86_64
+
+-->
+    <profile>
+      <id>macosx_carbon</id>
+      <activation>
+        <os>
+          <name>mac os x</name>
+        </os>
+      </activation>
+      <properties>
+        <swt.groupId>org.eclipse.swt.carbon</swt.groupId>
+        <swt.artifactId>macosx</swt.artifactId>
+      </properties>
+    </profile>
+<!--
+
+    enable this profile to build on mac osx, jdk 1.6, x86_64
+      set MAVEN_OPTS="-Dd64", or unit tests will fail
+
+    <profile>
+      <id>macosx_cocoa_intel</id>
+      <activation>
+        <os>
+          <name>mac os x</name>
+          <arch>x86_64</arch>
+        </os>
+      </activation>
+      <properties>
+        <swt.groupId>org.eclipse.swt.cocoa</swt.groupId>
+        <swt.artifactId>macosx</swt.artifactId>
+      </properties>
+    </profile>
+-->
+}}}
+
+Profile macosx_cocoa_intel activated:
+{{{
+<!--
+
+    disable this profile to build on mac osx, jdk 1.6, x86_64
+
+    <profile>
+      <id>macosx_carbon</id>
+      <activation>
+        <os>
+          <name>mac os x</name>
+        </os>
+      </activation>
+      <properties>
+        <swt.groupId>org.eclipse.swt.carbon</swt.groupId>
+        <swt.artifactId>macosx</swt.artifactId>
+      </properties>
+    </profile>
+-->
+<!--
+
+    enable this profile to build on mac osx, jdk 1.6, x86_64
+      set MAVEN_OPTS="-Dd64", or unit tests will fail
+
+-->
+    <profile>
+      <id>macosx_cocoa_intel</id>
+      <activation>
+        <os>
+          <name>mac os x</name>
+          <arch>x86_64</arch>
+        </os>
+      </activation>
+      <properties>
+        <swt.groupId>org.eclipse.swt.cocoa</swt.groupId>
+        <swt.artifactId>macosx</swt.artifactId>
+      </properties>
+    </profile>
+}}}
 
 Maven must also be configured to run the JDK in 64-bit mode
 
