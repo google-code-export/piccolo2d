@@ -30,8 +30,6 @@ The following issues must be resolved before the 1.3 release.
 
 Issue 126
 
-Issue 148
-
 Issue 150
 
 <br/>
