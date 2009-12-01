@@ -16,7 +16,7 @@ No Fixed issues exist with the current release milestone (all closed issues shou
 
 
 <br/>
-For each of {alpha?, beta, rc1, rc2, ...} release candidates:
+For each of {beta, rc1, rc2, ...} release candidates:
 
 Clean checkout of trunk from subversion
 
@@ -35,7 +35,7 @@ parent/pom.xml:
 
 
 <br/>
-Builds and all tests pass on all platforms
+Working directory builds and all tests pass on all platforms
 {{{
 $ mvn install
 }}}
@@ -74,7 +74,7 @@ All source files have the Piccolo2D license header
 Class file format of all jar files matches the minimum required JDK version, currently 1.4
 
 <br/>
-Write release notes
+Update release notes and readme as necessary
 
 <br/>
 Create binary, source, and javadoc release artifacts
@@ -85,6 +85,13 @@ TODO
 Create new downloads on Google Code
 
 TODO
+
+<br/>
+Commit release candidate changes to trunk
+
+{{{
+$ svn commit -m "updating version to 1.3-beta" .
+}}}
 
 <br/>
 Create release tag in subversion
