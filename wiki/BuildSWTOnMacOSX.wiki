@@ -136,7 +136,7 @@ Tests run: 38, Failures: 0, Errors: 25, Skipped: 0
 [INFO] There are test failures.
 }}}
 
-Edit swt/pom.xml, disable the macosx_carbon profile and enable the macosx_cocoa_intel profile.  This must be done manually as maven currently does not support profile activation with a combination of {{{<os>}}} and {{{<jdk>}}} settings.
+Edit swt/pom.xml, disable the macosx_carbon profile and enable the macosx_cocoa_intel profile.  This must be done manually as maven currently does not appear to support profile activation with a combination of {{{<os>}}} and {{{<jdk>}}} settings.
 
 Profile macosx_carbon activated
 {{{
