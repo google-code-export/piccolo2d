@@ -114,6 +114,51 @@ http://code.google.com/p/piccolo2d/downloads/list
 
 Click [http://code.google.com/p/piccolo2d/downloads/entry New download] link and upload binary zip, binary tar.gz, source zip, and source tar.gz files.  Refer to previous uploads for what the metadata should look like.
 
+====For release candidate versions====
+
+Send a VOTE email to the dev and user mailing lists,
+
+{{{
+Subject: [VOTE] Release Piccolo2D.Java ${version}
+
+This is a vote for releasing Piccolo2D.Java ${version} based on release
+candidate ${rc} (version ${rc-version}).
+
+${rc-version} is available from the downloads page:
+
+http://code.google.com/p/piccolo2d/downloads/list?can=2&q=${rc-version}
+
+---------------
+[ ] +1  I support this release
+[ ] +0
+[ ] -0
+[ ] -1  I oppose this release because...
+----------------
+
+Votes from Piccolo2D project committers are binding, however votes
+from other contributors and users are welcomed.  The vote must receive
+at least three +1 binding votes and no -1 binding votes.
+
+Vote will close at ${date}.
+
+On behalf of the Piccolo2D developers,
+
+  ${developer}
+}}}
+
+After the vote is complete, send a RESULT email to the dev and user mailing lists,
+
+{{{
+Subject: [RESULT] Release Piccolo2D.Java ${version}
+
+The following people voted on release ${rc-version}:
+
+Bob +1
+Sue +1
+Sam +0
+Sandy +1 (non-binding)
+}}}
+
 ===After final release tag:===
 
 <br/>
