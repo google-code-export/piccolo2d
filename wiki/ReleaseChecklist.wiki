@@ -16,7 +16,7 @@ No Fixed issues exist with the current release milestone (all closed issues shou
 
 
 <br/>
-For each of {beta, rc1, rc2, ...} release candidates:
+===For each of {beta, rc1, rc2, ...} release candidates:===
 
 Clean checkout of trunk from subversion
 
@@ -77,16 +77,6 @@ Class file format of all jar files matches the minimum required JDK version, cur
 Update release notes and readme as necessary
 
 <br/>
-Create binary, source, and javadoc release artifacts
-
-TODO
-
-<br/>
-Create new downloads on Google Code
-
-TODO
-
-<br/>
 Commit release candidate changes to trunk
 
 {{{
@@ -100,8 +90,31 @@ Create release tag in subversion
 $ svn cp -m "creating 1.3-beta release tag" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/tags/release-1.3-beta
 }}}
 
-<br/>
-After final release tag:
+====Create binary, source, and javadoc release artifacts====
+
+To create binary zip and binary tar.gz files, update the VERSION shell variable and call
+
+{{{
+$ ./create-bin.sh
+}}}
+
+To create source zip and source tar.gz files, update the VERSION shell variable and call
+
+{{{
+$ ./create-src.sh
+}}}
+
+These scripts are currently attached to Issue 146 and will probably live in svn shortly.
+
+====Create new downloads on Google Code====
+
+Visit
+
+http://code.google.com/p/piccolo2d/downloads/list
+
+Click [http://code.google.com/p/piccolo2d/downloads/entry New download] link and upload binary zip, binary tar.gz, source zip, and source tar.gz files.  Refer to previous uploads for what the metadata should look like.
+
+===After final release tag:===
 
 <br/>
 Update version in parent pom.xml file on svn trunk to {$next-version}-SNAPSHOT
