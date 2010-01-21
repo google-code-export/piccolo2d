@@ -5,6 +5,8 @@
 
 Development branch: TODO
 
+Issues / Tickets: [http://code.google.com/p/piccolo2d/issues/list?can=1&q=label%3AMilestone-2.0&colspec=ID+Type+Status+Priority+Milestone+Owner+Toolkit+Component+Summary&x=owner&y=status&mode=grid&cells=tiles|Issue in a grid]
+
 == Package structure ==
 
 Goal: eliminiate circular (intra-jar) dependencies.
