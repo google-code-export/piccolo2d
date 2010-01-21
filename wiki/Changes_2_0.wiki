@@ -17,3 +17,5 @@ Goal: eliminiate circular (intra-jar) dependencies.
 == Property Change Handling ==
 
 The Bubbling up of Property Changes uses bitwise comparison to determine if it should be dispatched up the hierarchy. Since the default is to not bubble up, this seems to be adding a whole lot of code to the core for something that's rarely used.
+
+mro: Let's see how awt, swing, swt (and Cocoa touch) do it an pick the best ideas.
