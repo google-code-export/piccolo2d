@@ -1,0 +1,12 @@
+#summary Discuss architectural changes for 2.0
+#labels 2.0,Phase-Design
+
+= Changes 2.0 = 
+
+Development branch: TODO
+
+== Package structure ==
+
+Goal: eliminiate circular (intra-jar) dependencies.
+
+== Event Subsystem ==
