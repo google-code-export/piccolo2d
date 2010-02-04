@@ -67,7 +67,7 @@ Real name: John Q. Developer
 Email address: johnq@dev.org
 Comment: CODE SIGNING KEY
 You selected this USER-ID:
-    &quot;John Q. Developer (CODE SIGNING KEY) &lt;johnq@dev.org&gt;&quot;
+    "John Q. Developer (CODE SIGNING KEY) <johnq@dev.org>"
 
 Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? O
 You need a Passphrase to protect your secret key.
