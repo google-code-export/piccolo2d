@@ -114,6 +114,9 @@ http://code.google.com/p/piccolo2d/downloads/list
 
 Click [http://code.google.com/p/piccolo2d/downloads/entry New download] link and upload binary zip, binary tar.gz, source zip, and source tar.gz files.  Refer to previous uploads for what the metadata should look like.
 
+Deprecate earlier failed release candidate version downloads, if any.
+
+
 ====For release candidate versions====
 
 Send a VOTE email to the dev and user mailing lists,
@@ -161,8 +164,21 @@ Sandy +1 (non-binding)
 
 ===After final release tag:===
 
+Create release branch in subversion
+
+{{{
+$ svn cp -m "creating 1.3 release branch" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/branches/release-1.3
+}}}
+
+
 <br/>
-Update version in parent pom.xml file on svn trunk to {$next-version}-SNAPSHOT
+Create bundle(s) for upload to maven central repository
+
+*TODO*
+
+
+<br/>
+Update version in parent pom.xml file on svn trunk to ${next-version}-SNAPSHOT
 
 parent/pom.xml:
 {{{
