@@ -1,7 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" href="../PInputManager.html" title="&lt;TABLE&gt;" alt="" coords="97,12,199,47"/>
-<area shape="rect" href="./PInputEventListener.html" title="&lt;TABLE&gt;" alt="" coords="84,107,212,144"/>
-<area shape="rect" href="./PDragSequenceEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="16,306,200,330"/>
-<area shape="rect" href="./PInputEventFilter.html" title="&lt;TABLE&gt;" alt="" coords="245,306,355,330"/>
-<area shape="rect" href="./PBasicInputEventHandler.html" title="&lt;TABLE&gt;" alt="" coords="125,210,283,234"/>
-</map>
