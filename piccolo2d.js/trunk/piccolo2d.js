@@ -287,7 +287,6 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
       
             this.transform = new PTransform();
             this.visible = true;
-            this.invalidPaint = true;
 
             if (params) {
                 this.fillStyle = params.fillStyle || null;
@@ -295,6 +294,13 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             } else {
                 this.bounds = new PBounds();
                 this.fillStyle = null;
+            }
+        },
+
+        invalidatePaint: function() {
+            var root = this.getRoot();
+            if (root) {
+                root.invalidPaint = true;
             }
         },
 
@@ -331,19 +337,22 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         scale: function (ratio) {
             this.transform.scale(ratio);
             this.fullBounds = null;
-            
+            this.invalidatePaint();
+
             return this;
         },
 
         translate: function (dx, dy) {
             this.transform.translate(dx, dy);
             this.fullBounds = null;
+            this.invalidatePaint();
 
             return this;
         },
 
         rotate: function (theta) {
             this.transform.rotate(theta);
+            this.invalidatePaint();
 
             return this;
         },
@@ -352,6 +361,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             this.children.push(child);
             this.fullBounds = null;
             child.parent = this;
+            this.invalidatePaint();
 
             return this;
         },
@@ -360,6 +370,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             child.parent = null;
             this.fullBounds = null;
             this.children = this.children.remove(child);
+            this.invalidatePaint();
 
             return this;
         },
@@ -367,6 +378,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         setTransform: function (transform) {
             this.transform = transform;
             this.fullBounds = null;
+            this.invalidatePaint();
 
             return this;
         },
@@ -451,6 +463,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
     PRoot = PNode.extend({
         init: function (args) {
             this._super(args);
+
+            this.invalidPaint = true;
 
             this.scheduler = new PActivityScheduler(50);
         },
@@ -559,10 +573,14 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 this.layers.push(layer);
                 layer.addCamera(this);
             }
+
+            this.invalidatePaint();
         },
 
         removeLayer: function (layer) {
             this.layers = this.layers.remove(layer);
+
+            this.invalidatePaint();
         },
 
         getPickedNodes: function (x, y) {
@@ -602,6 +620,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         setViewTransform: function (transform) {
             this.viewTransform = transform;
+
+            this.invalidatePaint();
         }
 
     });
@@ -618,6 +638,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
             var _pCanvas = this;
             this.canvas = canvas;
+
             this.root =  root || new PRoot();
             this.camera = new PCamera();
             this.camera.bounds = new PBounds(0, 0, canvas.width, canvas.height);
@@ -703,13 +724,18 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         },
 
         paint: function () {
-            var ctx = this.canvas.getContext('2d');
-            ctx.font = "16pt Helvetica";
-            ctx.fillStyle = this.fillStyle || "rgb(255,255,255)";
-            
-            ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+            var root = this.camera.getRoot();
+            if (root.invalidPaint) {              
+                var ctx = this.canvas.getContext('2d');
+                ctx.font = "16pt Helvetica";
+                ctx.fillStyle = this.fillStyle || "rgb(255,255,255)";
 
-            this.camera.fullPaint(ctx);
+                ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+                this.camera.fullPaint(ctx);
+
+                root.invalidPaint = false;
+            }
         },
 
         getPickedNodes: function (x, y) {
