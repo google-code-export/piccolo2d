@@ -270,12 +270,7 @@
           var n = new PNode();
           ok(n.transform.equals(new PTransform()), "transform is identity");
         });
-
-        test("paint is invalid by default", function() {
-          var n = new PNode();
-          ok(n.invalidPaint, "invalid");
-        });
-
+        
         test("fills rect when bounds and fillStyle are good", function() {
           var n = new PNode({
             bounds: new PBounds(0, 0, 20, 20),
@@ -471,6 +466,12 @@
           var root = new PRoot();
          
           same(root.getRoot(), root, "returned itself");
+        });
+        
+        test("invalid paint by default", function() {
+          var root = new PRoot();
+         
+          ok(root.invalidPaint, "invalid paint");
         });
       }
 
