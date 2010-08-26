@@ -166,6 +166,14 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             values[5] = -(m[0] * m[5] - m[1] * m[4]) / det;
 
             return new PTransform(values);
+        },
+        
+        getScale: function() {
+            var p = new PPoint(0,1);
+            var tp = this.transform(p);
+            tp.x -= this.values[4];
+            tp.y -= this.values[5];          
+            return Math.sqrt(tp.x * tp.x + tp.y * tp.y); 
         }
     });
 
@@ -476,11 +484,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         },
         
         getScale: function() {
-          var p = new PPoint(0,1);
-          var tp = this.transform.transform(p);
-          tp.x -= this.transform.values[4];
-          tp.y -= this.transform.values[5];          
-          return Math.sqrt(tp.x * tp.x + tp.y * tp.y);
+          return this.transform.getScale();
         }
     });
 
@@ -512,7 +516,11 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
         },
 
-        paint: function (ctx) {                      
+        paint: function (ctx) {
+            if (this.globalFullBounds.height / ctx.displayScale  < 3) { 
+                return;
+            }
+            
             if (this.fillStyle) {
                 ctx.fillStyle = this.fillStyle;
             } else {
@@ -594,6 +602,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
             this.viewTransform.applyTo(ctx);
             var viewInverse = this.viewTransform.getInverse();
+            ctx.displayScale = viewInverse.getScale();
             ctx.clipBounds = viewInverse.transform(this.bounds);
             
             for (var i = 0; i < this.layers.length; i += 1) {
@@ -659,7 +668,6 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
             this.invalidatePaint();
         }
-
     });
 
     PCanvas = Class.extend({
