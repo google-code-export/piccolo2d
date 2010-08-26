@@ -498,7 +498,21 @@
           var ctx = mock("fillText");
           t.paint(ctx);
           same(ctx.calls.fillText[0], ["Hello", 0, 0]);
-        })
+        });
+        
+        test("FullBounds are empty when text is empty", function() {
+          var t = new PText("");
+          var bounds = t.getFullBounds();
+          equal(bounds.width, 0, "Bounds should have no weight when text is empty");
+          equal(bounds.height, 0, "Bounds should have no height when text is empty");
+        });
+        
+        test("FullBounds not empty when text is not empty", function() {
+          var t = new PText("Hello");
+          var bounds = t.getFullBounds();
+          ok(bounds.width != 0, "Bounds should have width when text is not empty");
+          ok(bounds.height != 0, "Bounds should have height when text is not empty");
+        });
       }
 
       function testPImage() {

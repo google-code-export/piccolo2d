@@ -57,13 +57,13 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
           if (this.highlighted) {
             ctx.fillStyle = "rgb(0,0,255)";
             ctx.lineWidth = 10;
-            ctx.strokeRect(0, 0, this.bounds.width, this.bounds.height);
+            ctx.strokeRect(0, 0, this.bounds.width, this.bounds.height);            
           }
         }
       })
 
       for (var x=0; x<10; x++) {
-        for (var y=0; y<10; y++) {
+        for (var y=0; y<10; y++) {          
           layer.addChild(new ZoomNode({
             fillStyle: "rgb("+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+")",
             bounds: new PBounds(0,0, 100, 100),
@@ -81,10 +81,12 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         mouseout: function(event) {
           event.pickedNodes[0].highlighted = false;
+          event.pickedNodes[0].invalidatePaint();
         },
 
         mouseover: function(event) {
           event.pickedNodes[0].highlighted = true;
+          event.pickedNodes[0].invalidatePaint();
         }
       });
     }

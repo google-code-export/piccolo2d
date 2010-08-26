@@ -59,7 +59,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         abs = Math.abs,
         sin = Math.sin,
         cos = Math.cos;
-
+            
     PTransform = Class.extend({
         init: function (values) {
             this.values = values || [1, 0, 0, 1, 0, 0];
@@ -275,6 +275,13 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
 
             return x >= this.x && x < this.x + this.width && y >= this.y && y < this.y + this.height;
+        },
+        
+        intersects: function(bounds) {
+            return !(bounds.x + bounds.width < this.x
+                || bounds.x > this.x + this.width 
+                || bounds.y + bounds.height < this.y 
+                || bounds.y > this.y + this.height); 
         }
     });
 
@@ -284,6 +291,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             this.children = [];
             this.listeners = [];
             this.fullBounds = null;
+            this.globalFullBounds = null;
       
             this.transform = new PTransform();
             this.visible = true;
@@ -314,29 +322,29 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         paintAfterChildren: function (ctx) {
         },
 
-        fullPaint: function (ctx) {
-            if (!this.visible) { //TODO: fullIntersects(paintContext.getLocalClip())) {
-                return;
+        fullPaint: function (ctx) {    
+            var inViewport = !ctx.clipBounds || ctx.clipBounds.intersects(this.getGlobalFullBounds());               
+            if (this.visible && inViewport) {
+              ctx.save();
+  
+              this.transform.applyTo(ctx);
+  
+              this.paint(ctx);
+  
+              for (var i = 0; i < this.children.length; i += 1) {
+                  this.children[i].fullPaint(ctx);
+              }
+  
+              this.paintAfterChildren(ctx);
+  
+              ctx.restore();
             }
-            
-            ctx.save();
-
-            this.transform.applyTo(ctx);
-
-            this.paint(ctx);
-
-            for (var i = 0; i < this.children.length; i += 1) {
-                this.children[i].fullPaint(ctx);
-            }
-
-            this.paintAfterChildren(ctx);
-
-            ctx.restore();
         },
 
         scale: function (ratio) {
             this.transform.scale(ratio);
             this.fullBounds = null;
+            this.globalFullBounds = null;
             this.invalidatePaint();
 
             return this;
@@ -345,6 +353,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         translate: function (dx, dy) {
             this.transform.translate(dx, dy);
             this.fullBounds = null;
+            this.globalFullBounds = null;
             this.invalidatePaint();
 
             return this;
@@ -360,6 +369,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         addChild: function (child) {
             this.children.push(child);
             this.fullBounds = null;
+            this.globalFullBounds = null;
             child.parent = this;
             this.invalidatePaint();
 
@@ -369,6 +379,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         removeChild: function (child) {
             child.parent = null;
             this.fullBounds = null;
+            this.globalFullBounds = null;
             this.children = this.children.remove(child);
             this.invalidatePaint();
 
@@ -378,6 +389,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         setTransform: function (transform) {
             this.transform = transform;
             this.fullBounds = null;
+            this.globalFullBounds = null;
             this.invalidatePaint();
 
             return this;
@@ -414,23 +426,27 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         },
 
         getGlobalFullBounds: function () {
-            var fullBounds = this.getFullBounds(),
-                currentNode = this,
-                tl = new PPoint(fullBounds.x, fullBounds.y),
-                br = new PPoint(fullBounds.x + fullBounds.width, fullBounds.y + fullBounds.height);
-
-            while (currentNode.parent) {
-                tl = currentNode.transform.transform(tl);
-                br = currentNode.transform.transform(br);
-                currentNode = currentNode.parent;
+            if (!this.globalFullBounds) {
+                var fullBounds = this.getFullBounds(),
+                    currentNode = this,
+                    tl = new PPoint(fullBounds.x, fullBounds.y),
+                    br = new PPoint(fullBounds.x + fullBounds.width, fullBounds.y + fullBounds.height);
+    
+                while (currentNode.parent) {
+                    tl = currentNode.transform.transform(tl);
+                    br = currentNode.transform.transform(br);
+                    currentNode = currentNode.parent;
+                }
+    
+                this.globalFullBounds = new PBounds(
+                    min(tl.x, br.x),
+                    min(tl.y, br.y),
+                    abs(tl.x - br.x),
+                    abs(tl.y - br.y)
+                    );
             }
-
-            return new PBounds(
-                min(tl.x, br.x),
-                min(tl.y, br.y),
-                abs(tl.x - br.x),
-                abs(tl.y - br.y)
-                );
+            
+            return this.globalFullBounds;
         },
 
         getGlobalTransform: function () {
@@ -475,10 +491,11 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
     });
 
     PText = PNode.extend({
-        init: function (arg) {
+        init: function (arg) {                     
             if (typeof arg === "string") {
                 this._super();
                 this.text = arg;
+                this.recomputeBounds();
             } else if (arg) {
                 this.text = arg.text;
                 this._super(arg);
@@ -487,7 +504,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
         },
 
-        paint: function (ctx) {
+        paint: function (ctx) {                      
             if (this.fillStyle) {
                 ctx.fillStyle = this.fillStyle;
             } else {
@@ -495,9 +512,18 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
             ctx.textBaseline = "top";
             ctx.fillText(this.text, this.bounds.x, this.bounds.y);
+        },
+        
+        recomputeBounds: function() {
+          var metric = PText.hiddenContext.measureText(this.text);
+          this.bounds.width = metric.width;
+          this.bounds.height = this.text ? PText.fontSize : 0; 
         }
     });
-
+    PText.hiddenContext = document.createElement("canvas").getContext("2d");   
+    PText.fontSize = 20;    
+    
+    
     PImage = PNode.extend({
         init: function (arg) {
             if (typeof arg === "string") {
@@ -559,7 +585,9 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             ctx.save();
 
             this.viewTransform.applyTo(ctx);
-
+            var viewInverse = this.viewTransform.getInverse();
+            ctx.clipBounds = viewInverse.transform(this.bounds);
+            
             for (var i = 0; i < this.layers.length; i += 1) {
                 this.layers[i].fullPaint(ctx);
             }
@@ -636,8 +664,10 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 throw "Canvas provided to Piccolo is invalid!";
             }
 
-            var _pCanvas = this;
+            var _pCanvas = this;                                   
+            
             this.canvas = canvas;
+            canvas.font = PText.fontSize + "px Arial";
 
             this.root =  root || new PRoot();
             this.camera = new PCamera();
@@ -726,7 +756,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         paint: function () {
             var root = this.camera.getRoot();
             if (root.invalidPaint) {              
-                var ctx = this.canvas.getContext('2d');
+                var ctx = this.canvas.getContext('2d');                               
+                
                 ctx.font = "16pt Helvetica";
                 ctx.fillStyle = this.fillStyle || "rgb(255,255,255)";
 
