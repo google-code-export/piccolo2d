@@ -117,7 +117,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
                     var currentDay = 0;
                     while (currentDay < daysInMonth) {
                         var dayLabel = currentDay < 0 ? "" : (currentDay + 1);
-                        var tasks = ["Testing 1, 2, 3", "Testing Again", "Kilroy was here", "Random again", "Testing 1, 2, 3", "Testing Again", "Kilroy was here", "Random again"];
+                        var tasks = ["Woot", "Eat more fish", "Testing 1, 2, 3", "Testing Again", "Kilroy was here", "Random again", "Testing 1, 2, 3", "Testing Again", "Kilroy was here", "Random again"];
                         this.addChild(new Day(dayLabel, tasks).translate(columnNumber*columnWidth, currentY).scale(0.2));
                         currentDay += 1;
                         columnNumber += 1;
@@ -187,9 +187,10 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             });
         }
     </script>
+    <script type="text/javascript" src="examples.js"></script>
     <h1>Calendar Example</h1>
     <p>Benchmarking example mostly.</p>
     
-    <p># of nodes being rendered is <strong>4123</strong> = 365 * 11 + 12 * (2 + 7)!</p>
+    <p><strong id="totalNodeCount">????</strong> total nodes in the scene.</p>
 </body>
 </html>

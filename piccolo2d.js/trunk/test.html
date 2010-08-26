@@ -495,9 +495,20 @@
 
         test("draws text on graphics context", function() {
           var t = new PText("Hello");
-          var ctx = mock("fillText");
+          var ctx = mock("fillText", "save", "restore", "transform");          
+          ctx.clipBounds = new PBounds(0, 0, 100, 100);          
+          ctx.displayScale = 1;
           t.paint(ctx);
           same(ctx.calls.fillText[0], ["Hello", 0, 0]);
+        });
+        
+        test("does not draw text when too small", function() {
+          var t = new PText("Hello");
+          var ctx = mock("fillText", "save", "restore", "transform");          
+          ctx.clipBounds = new PBounds(0, 0, 100, 100);          
+          ctx.displayScale = 0.01;
+          t.paint(ctx);
+          equal(ctx.calls.fillText.length, 0,  "fillText should not have been called");
         });
         
         test("FullBounds are empty when text is empty", function() {

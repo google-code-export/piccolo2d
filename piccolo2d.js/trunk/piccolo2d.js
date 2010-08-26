@@ -516,8 +516,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
         },
 
-        paint: function (ctx) {
-            if (this.globalFullBounds.height / ctx.displayScale  < 3) { 
+        paint: function (ctx) {          
+            if (this.getGlobalFullBounds().height * ctx.displayScale  < 3) { 
                 return;
             }
             
@@ -601,8 +601,9 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             ctx.save();
 
             this.viewTransform.applyTo(ctx);
+            ctx.displayScale = this.viewTransform.getScale();
+            
             var viewInverse = this.viewTransform.getInverse();
-            ctx.displayScale = viewInverse.getScale();
             ctx.clipBounds = viewInverse.transform(this.bounds);
             
             for (var i = 0; i < this.layers.length; i += 1) {
