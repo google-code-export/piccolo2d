@@ -430,7 +430,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 var fullBounds = this.getFullBounds(),
                     currentNode = this,
                     tl = new PPoint(fullBounds.x, fullBounds.y),
-                    br = new PPoint(fullBounds.x + fullBounds.width, fullBounds.y + fullBounds.height);
+                    br = new PPoint(fullBounds.x + fullBounds.width, fullBounds.y + fullBounds.height);                
     
                 while (currentNode.parent) {
                     tl = currentNode.transform.transform(tl);
@@ -473,6 +473,14 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             if (this.listeners.indexOf(listener) === -1) {
                 this.listeners.push(listener);
             }
+        },
+        
+        getScale: function() {
+          var p = new PPoint(0,1);
+          var tp = this.transform.transform(p);
+          tp.x -= this.transform.values[4];
+          tp.y -= this.transform.values[5];          
+          return Math.sqrt(tp.x * tp.x + tp.y * tp.y);
         }
     });
 
