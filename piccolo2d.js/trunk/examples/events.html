@@ -76,8 +76,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
           var clickedNode = event.pickedNodes[0];
           var globalTransform = clickedNode.getGlobalTransform();
           var focusBounds = clickedNode.getGlobalFullBounds();
-          var inverse = globalTransform.getInverse();
-          console.log(clickedNode.getScale());
+          var inverse = globalTransform.getInverse();          
           inverse.translate((camera.bounds.width-focusBounds.width/clickedNode.getScale())/2, (camera.bounds.height-focusBounds.height/clickedNode.getScale())/2);
                     
           camera.animateViewToTransform(inverse, 500);
