@@ -511,12 +511,13 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             } else if (arg) {
                 this.text = arg.text;
                 this._super(arg);
+                this.recomputeBounds();
             } else {
                 throw "Invalid argument for PText constructor";
             }
         },
 
-        paint: function (ctx) {          
+        paint: function (ctx) {                   
             if (this.getGlobalFullBounds().height * ctx.displayScale  < 3) { 
                 return;
             }
@@ -534,6 +535,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
           var metric = PText.hiddenContext.measureText(this.text);
           this.bounds.width = metric.width;
           this.bounds.height = this.text ? PText.fontSize : 0; 
+          this.fullBounds = null;
+          this.globalFullBounds = null;
         }
     });
     PText.hiddenContext = document.createElement("canvas").getContext("2d");   
@@ -744,6 +747,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
 
             function processMouseEvent(name, event) {
+                event.preventDefault();
+                
                 var offset = $(canvas).offset(),
                     x = event.pageX - offset.left,
                     y = event.pageY - offset.top,
