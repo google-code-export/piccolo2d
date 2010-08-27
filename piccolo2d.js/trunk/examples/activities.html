@@ -32,6 +32,15 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <link rel="stylesheet" href="examples.css" />
   </head>
   <body>
+  <div id="container">
+  <a href="index.html">Back to Examples List</a>
+  <h1>Activity Example</h1>
+  <p>This example contains:</p>
+  <ul>
+    <li><strong>1000</strong> Rectangles being scheduled every 1.5 seconds for 1 second.</li>
+    <li><strong id="totalNodeCount">???</strong> total nodes in the scene.</li>
+  </ul>
+  
   <canvas id="canvas" width="400" height="400">
     <p>No Canvas Support in this browser.</p>
   </canvas>
@@ -39,12 +48,9 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <script type="text/javascript" src="../lib/jquery-1.3.2.min.js"></script>
   <script type="text/javascript" src="../extends.js"></script>
   <script type="text/javascript" src="../piccolo2d.js"></script>
-  <script type="text/javascript">
-    // To deal with the case where firebug's console is not available'
-    if (typeof console == "undefined")
-      console = {log: function() {}};
-
-    // Example usage
+  <script type="text/javascript" src="examples.js"></script>
+  
+  <script type="text/javascript" id="example">
     var pCanvas = new PCanvas(document.getElementById('canvas'));
 
     with ({
@@ -58,9 +64,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
       })
       
       for (var i=0; i < 1000; i++) {
-        var randomColor = "rgb("+(Math.round(Math.random()*254)) + "," +(Math.round(Math.random()*254)) + "," +(Math.round(Math.random()*254)) +")";
         squareContainer.addChild(new PNode({
-          fillStyle: randomColor,
+          fillStyle: randomCSSColor(),
           bounds: new PBounds(0, 0, 10, 10)
         }));
       }
@@ -87,15 +92,7 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         }
       }));      
     }
-    
-    
   </script>
-  <script type="text/javascript" src="examples.js"></script>
-  <h1>Activity Example</h1>
-  <p>This example contains:</p>
-  <ul>
-    <li><strong>1000</strong> Rectangles being scheduled every 1.5 seconds for 1 second.</li>
-    <li><strong id="totalNodeCount">???</strong> total nodes in the scene.</li>
-  </ul>
+  </div>
 </body>
 </html>

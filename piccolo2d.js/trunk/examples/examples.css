@@ -1,9 +1,21 @@
 body {
   font-family: helvetica;
+  background-color: #ccc;
+}
+
+#container {
+  background-color: #fff;
+  width: 954px;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+h1 {
+  margin-top: 0; 
 }
 
 canvas {
-  float: right;
   border: 2px solid #666;
 }
 

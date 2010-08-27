@@ -28,6 +28,20 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 //This file is used by the examples for common tasks like counting total number of nodes in a scene, etc.
+        
+// To deal with the case where firebug's console is not available'
+if (typeof console === "undefined") {
+    console = {log: function() {}};
+}
+
+function randomCSSColor() {
+  var r = Math.round(Math.random()*255);
+  var g = Math.round(Math.random()*255);
+  var b = Math.round(Math.random()*255);
+  
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
+
 $(function() {
     function countNodes(node) {
        var result = 1;
@@ -42,4 +56,11 @@ $(function() {
     var nodeCount = countNodes(pCanvas.camera.layers[0]);
     
     $("#totalNodeCount").text(nodeCount);
+    $("<h2>Example's Source Code</h2>").appendTo($("#container"));
+    $("<pre name='code' class='javascript'>&nbsp;</pre>").html($("#example").html().replace("<", "&lt;").replace(">", "&gt;")).appendTo($("#container"));
+    $('<link href="sh/css/SyntaxHighlighter.css" rel="stylesheet" type="text/css">').appendTo($("head"));
+    $('<script type="text/javascript" src="sh/js/shCore.js"></script><script type="text/javascript" src="sh/js/shBrushJScript.js"></script>').appendTo($("body"));    
+    dp.SyntaxHighlighter.ClipboardSwf = '/flash/clipboard.swf';
+    dp.SyntaxHighlighter.HighlightAll('code');
+
 });
