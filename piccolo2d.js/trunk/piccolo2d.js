@@ -403,7 +403,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             this.transform = transform;
             
             if (this.parent) {
-              parent.invalidateBounds();
+              this.parent.invalidateBounds();
               this.globalFullBounds = null;
             }
             
