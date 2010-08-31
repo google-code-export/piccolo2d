@@ -351,7 +351,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         scale: function (ratio) {
             this.transform.scale(ratio);
-            this.invalidateBounds();
+            this.fullBounds = null;
+            this.globalFullBounds = null;
             this.invalidatePaint();
 
             return this;
@@ -359,7 +360,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         translate: function (dx, dy) {
             this.transform.translate(dx, dy);
-            this.invalidateBounds();
+            this.fullBounds = null;
+            this.globalFullBounds = null;
             this.invalidatePaint();
 
             return this;
@@ -368,14 +370,19 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         rotate: function (theta) {
             this.transform.rotate(theta);
             this.invalidatePaint();
+            if (this.parent) {
+              this.parent.invalidateBounds(); 
+              this.globalFullBounds = null;
+            }
 
             return this;
         },
 
         addChild: function (child) {
-            this.children.push(child);
-            this.invalidateBounds();
+            this.children.push(child);            
             child.parent = this;
+            
+            this.invalidateBounds();
             this.invalidatePaint();
 
             return this;
@@ -383,8 +390,10 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         removeChild: function (child) {
             child.parent = null;
-            this.invalidateBounds();
+            
             this.children = this.children.remove(child);
+            
+            this.invalidateBounds();
             this.invalidatePaint();
 
             return this;
@@ -393,7 +402,11 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         setTransform: function (transform) {
             this.transform = transform;
             
-            this.invalidateBounds();
+            if (this.parent) {
+              parent.invalidateBounds();
+              this.globalFullBounds = null;
+            }
+            
             this.invalidatePaint();
 
             return this;
@@ -417,17 +430,19 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                   this.layoutChildren(); 
                 }
                 
-                this.fullBounds = new PBounds(this.bounds);
-
+                var newFullBounds = new PBounds(this.bounds);
+                
                 var child, childFullBounds, tBounds;
 
-                for (var i = 0, n = this.children.length; i < n; i += 1) {
+                for (var i = 0; i < this.children.length; i += 1) {
                     child = this.children[i];
                     childFullBounds = child.getFullBounds();
                     tBounds = child.transform.transform(childFullBounds);
 
-                    this.fullBounds.add(tBounds);
+                    newFullBounds.add(tBounds);
                 }
+                
+                this.fullBounds = newFullBounds;
             }
 
             return this.fullBounds;
@@ -568,9 +583,9 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             this.image.onload = function () {                
                 _this.bounds.width = this.width;
                 _this.bounds.height = this.height;
-                console.log(_this.bounds.width);                
-                _this.loaded = true;
+
                 _this.invalidateBounds();
+                _this.loaded = true;
                 
                 _this.invalidatePaint();
             };
