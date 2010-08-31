@@ -28,24 +28,15 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <html>
   <head>
-    <title>Hierarchy Example - Piccolo2d.js</title>
+    <title>PImage Examples - Piccolo2d.js</title>
     <link rel="stylesheet" href="examples.css" />
   </head>
   <body>
   <div id="container">
   <a href="index.html">Back to Examples List</a>
   
-  <h1>Hierarchy Example</h1>
-  <p>Demonstrates rounding error involved at high magnifications.</p>
-  
-  <p>This example contains:</p>
-  <ul>
-    <li>30 300x300 squares nested within each other</li>
-    <li>Each child is 10% the size of its parent.</li>
-    <li>This scene contains <span id="totalNodeCount">???</span> Nodes</li>
-  </ul>
-  
-  <p>Camera Scale: <strong>x<span id="cameraScale">1</span></strong></p>
+  <h1>PImage Example</h1>
+  <p>Demonstrates the use of PImages.</p>
   <canvas id="canvas" width="954" height="400">
     <p>No Canvas Support in this browser.</p>
   </canvas>
@@ -54,46 +45,53 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <script type="text/javascript" src="../extends.js"></script>
   <script type="text/javascript" src="../piccolo2d.js"></script>
   <script type="text/javascript" src="examples.js"></script>
-  <script type="text/javascript" id="example">
+  <script type="text/javascript" id="example">   
     // Example usage
     var pCanvas = new PCanvas(document.getElementById('canvas'));
 
     with ({
       camera: pCanvas.camera,
-      layer : pCanvas.camera.layers[0],
-      scheduler: pCanvas.camera.getRoot().scheduler
-    }) {            
-      var parent = layer;
-      var displayScale = 1;
+      layer : pCanvas.camera.layers[0]
+    }) {                  
+      var WrappedHorizontalLayoutNode = PNode.extend({
+          layoutChildren: function() {
+              var currentX = 0;
+              var currentY = 0;
+              var rowHeight = 0;
+              var cols = 0;
+              for (var i=0, n=this.children.length; i < n; i++) {
+                this.children[i].translate(currentX, currentY);   
+                currentX += this.children[i].bounds.width + 10;
+                rowHeight = this.children[i].bounds.height;
+                
+                cols += 1;
+                cols %= 8;
+                if (cols == 0) {                  
+                   currentY += rowHeight + 10;
+                   currentX = 0;
+                   rowHeight = 0;
+                }
+                
+              }
+          }
+      });
       
-      for (var i=0; i<30; i++) {
-        var newChild = new PNode({
-          fillStyle: randomCSSColor(),
-          bounds: new PBounds(0, 0, 300, 300)
-        }).scale(0.1).translate(135, 135);
-        
-        newChild.displayScale = displayScale;
-        
-        displayScale *= 10;
-        
-        parent.addChild(newChild);
-        parent = newChild;
-      }
       
-      var lastNode = new PText("That's all folks");
-      lastNode.displayScale = displayScale;      
-      parent.addChild(lastNode);
+      var layout = new WrappedHorizontalLayoutNode();
+      layout.scale(0.5);
+      layer.addChild(layout);
       
-      layer.children[0].translate(-135, -135).scale(10);
+      for (var i = 0; i < 64; i++) {
+        layout.addChild(new PImage("http://www.piccolo2d.org/images/Piccolo2D-Logo-small.png"));
+      }          
+                
       
       layer.addListener({
         click: function(event) {
           var clickedNode = event.pickedNodes[0];
           var globalTransform = clickedNode.getGlobalTransform();
           var focusBounds = clickedNode.getGlobalFullBounds();
-          var inverse = globalTransform.getInverse();     
-                    
-          $("#cameraScale").text(""+(clickedNode.displayScale || 1));
+          var inverse = globalTransform.getInverse();                                   
           camera.animateViewToTransform(inverse, 500);
         }       
       });

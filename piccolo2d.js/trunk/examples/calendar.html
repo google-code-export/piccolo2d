@@ -51,6 +51,15 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <script type="text/javascript" id="example">
 var pCanvas = new PCanvas('canvas');
 
+// Contructs a date for the given details
+Date.build = function (year, month, day) {
+    var date = new Date();
+    date.setYear(year);
+    date.setMonth(month);   
+    date.setDate(day);
+    return date;
+}
+
 with ({
     camera: pCanvas.camera,
     layer : pCanvas.camera.layers[0]
@@ -58,8 +67,23 @@ with ({
     var monthWidth = 600;
     var columnWidth = 600/7;
 
-    pCanvas.fillStyle = "rgb(0, 0, 0)";
+    pCanvas.fillStyle = "rgb(30, 30, 30)";
 
+    var TaskList = PNode.extend({
+        init: function(tasks) {   
+            this._super();
+            for (var i=0; i < tasks.length; i++) {
+                this.addChild(new PText(tasks[i])); 
+            }
+        },
+        
+        layoutChildren: function () {
+            for (var i=0, n = this.children.length; i < n; i++) {
+              this.children[i].translate(0, 30 * i); 
+            }
+        }
+    });
+    
     var Day = PNode.extend({
         init: function (number, tasks) {
             this._super({
@@ -67,15 +91,10 @@ with ({
                 fillStyle: number ? "rgb(255, 255, 255)" : "rgb(200, 200, 200)"
             });
             
-            this.addChild(new PText("" + number).scale(5).translate(10, 10));
+            this.addChild(new PText("" + number).scale(5).translate(10, 10));            
             
-            
-            if (tasks) {
-              var taskNode = new PNode();
-              for (var i=0; i<tasks.length; i++) {
-                taskNode.addChild(new PText(tasks[i]).translate(0, 30 * i)); 
-              }
-              this.addChild(taskNode.translate(10, 130));
+            if (tasks) {     
+                this.addChild(new TaskList(tasks).translate(10, 130));
             }
         },
 
@@ -89,45 +108,33 @@ with ({
             this._super({
                 bounds: new PBounds(0, 0, monthWidth, 570),
                 fillStyle: "rgb(200, 200, 200)"
-            });
-
-            this.year = year;
-            this.month = month;
-
-            this.firstDay = new Date();
-            this.firstDay.setMonth(month);
-            this.firstDay.setYear(year);
-            this.firstDay.setDate(1);
-
-            this.lastDay = new Date();
-            this.lastDay.setMonth(month + 1);
-            this.lastDay.setYear(year);
-            this.lastDay.setDate(-1);
-
+            });            
+           
             this.addChild(new PText(Month.monthNames[month]).scale(2).translate(5, 5));
-
+                         
             var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            for (var i = 0; i < dayNames.length; i += 1) {
-                this.addChild(new PText(dayNames[i]).translate(i *columnWidth, 50).scale(0.7));
+            for (var i = 0; i < dayNames.length; i ++) {
+                this.addChild(new PText(dayNames[i]).translate(i * columnWidth, 50).scale(0.7));
             };
 
-            var dayOfWeek = this.firstDay.getDay();
-
+            this.firstDay = Date.build(month, year, 1)            
+            this.lastDay = Date.build(month + 1, year, -1)
+            
             var daysInMonth = this.lastDay.getDate() - this.firstDay.getDate();
-
-            var columnNumber = Math.abs(dayOfWeek);
+            
+            var columnNumber = Math.abs(this.firstDay.getDay());
             var currentY = 70;
-
             var currentDay = 0;
-            while (currentDay < daysInMonth) {
-                var dayLabel = currentDay < 0 ? "" : (currentDay + 1);
-                var tasks = ["Woot", "Eat more fish", "Testing 1, 2, 3", "Testing Again", "Kilroy was here", "Random again", "Testing 1, 2, 3", "Testing Again", "Kilroy was here", "Random again"];
-                this.addChild(new Day(dayLabel, tasks).translate(columnNumber*columnWidth, currentY).scale(0.2));
-                currentDay += 1;
-                columnNumber += 1;
+            
+            var tasks = ["Woot", "Eat more fish", "Testing 1, 2, 3", "Testing Again", "Kilroy was here"];
                 
-                if (columnNumber === 7) {
-                    columnNumber = 0;
+            while (currentDay++ < daysInMonth) {
+                var dayLabel = (currentDay < 0) ? "" : (currentDay + 1);
+                this.addChild(new Day(dayLabel, tasks).translate(columnNumber++ * columnWidth, currentY).scale(0.2));                
+                
+                columnNumber %= 7;
+                
+                if (columnNumber === 0) {     
                     currentY += 100;
                 }
             }
