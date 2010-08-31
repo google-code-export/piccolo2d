@@ -541,6 +541,17 @@
 
       function testPImage() {
         module("PImage");
+        
+        test("PImage may be created with a url", function() {
+          var img = new PImage("http://www.piccolo2d.org/images/Piccolo2D-Logo-small.png");
+          ok(img != null);
+        });
+        
+        test("PImage has empty bounds when created", function() {
+          var img = new PImage("http://www.piccolo2d.org/images/Piccolo2D-Logo-small.png");
+          equal(img.bounds.width, 0);
+          equal(img.bounds.height, 0);
+        });                
       }
 
       function testPLayer() {

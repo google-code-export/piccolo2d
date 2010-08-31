@@ -351,8 +351,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         scale: function (ratio) {
             this.transform.scale(ratio);
-            this.fullBounds = null;
-            this.globalFullBounds = null;
+            this.invalidateBounds();
             this.invalidatePaint();
 
             return this;
@@ -360,8 +359,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         translate: function (dx, dy) {
             this.transform.translate(dx, dy);
-            this.fullBounds = null;
-            this.globalFullBounds = null;
+            this.invalidateBounds();
             this.invalidatePaint();
 
             return this;
@@ -376,8 +374,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         addChild: function (child) {
             this.children.push(child);
-            this.fullBounds = null;
-            this.globalFullBounds = null;
+            this.invalidateBounds();
             child.parent = this;
             this.invalidatePaint();
 
@@ -386,8 +383,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         removeChild: function (child) {
             child.parent = null;
-            this.fullBounds = null;
-            this.globalFullBounds = null;
+            this.invalidateBounds();
             this.children = this.children.remove(child);
             this.invalidatePaint();
 
@@ -396,8 +392,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         setTransform: function (transform) {
             this.transform = transform;
-            this.fullBounds = null;
-            this.globalFullBounds = null;
+            
+            this.invalidateBounds();
             this.invalidatePaint();
 
             return this;
@@ -425,7 +421,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
                 var child, childFullBounds, tBounds;
 
-                for (var i = 0; i < this.children.length; i += 1) {
+                for (var i = 0, n = this.children.length; i < n; i += 1) {
                     child = this.children[i];
                     childFullBounds = child.getFullBounds();
                     tBounds = child.transform.transform(childFullBounds);
@@ -471,6 +467,15 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
 
             return t;
+        },
+        
+        invalidateBounds: function() {
+           this.fullBounds = null;
+           this.globalFullBounds = null;
+           
+           if (this.parent) {
+               this.parent.invalidateBounds(); 
+           } 
         },
 
         localToParent: function (target) {
@@ -539,8 +544,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
           var metric = PText.hiddenContext.measureText(this.text);
           this.bounds.width = metric.width;
           this.bounds.height = this.text ? PText.fontSize : 0; 
-          this.fullBounds = null;
-          this.globalFullBounds = null;
+          this.invalidateBounds();
         }
     });
     PText.hiddenContext = document.createElement("canvas").getContext("2d");   
@@ -549,6 +553,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
     
     PImage = PNode.extend({
         init: function (arg) {
+            var _this = this;
             if (typeof arg === "string") {
                 this.url = arg;
                 this._super();
@@ -560,8 +565,14 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             this.loaded = false;
 
             this.image = new Image();
-            this.image.onload = function () {
-                this.loaded = true;
+            this.image.onload = function () {                
+                _this.bounds.width = this.width;
+                _this.bounds.height = this.height;
+                console.log(_this.bounds.width);                
+                _this.loaded = true;
+                _this.invalidateBounds();
+                
+                _this.invalidatePaint();
             };
 
             this.image.src = this.url;
