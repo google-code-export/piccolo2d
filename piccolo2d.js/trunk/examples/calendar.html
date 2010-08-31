@@ -168,6 +168,15 @@ with ({
             } else {
                 newFocus = event.pickedNodes[0];
             }
+            
+            while (newFocus != null) {
+              if (newFocus instanceof Day) {
+                break;
+              } else if (newFocus instanceof Month) {
+                break; 
+              }
+              newFocus = newFocus.parent;
+            }
 
             if (this.lastFocus === newFocus) {
                 newFocus = this.logicalParentOf(newFocus);
