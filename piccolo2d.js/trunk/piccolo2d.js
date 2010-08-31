@@ -417,6 +417,10 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         getFullBounds: function () {
             if (!this.fullBounds) {
+                if (this.layoutChildren) {
+                  this.layoutChildren(); 
+                }
+                
                 this.fullBounds = new PBounds(this.bounds);
 
                 var child, childFullBounds, tBounds;

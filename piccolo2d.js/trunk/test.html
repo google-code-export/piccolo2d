@@ -452,6 +452,19 @@
           n.addListener(l);
           equal(n.listeners.length, 1);
         });
+        
+        test("Children are layed out when computing fullBounds", function() {
+            var layoutChildrenCalled = false;
+            var TestLayoutNode = PNode.extend({
+                layoutChildren: function() {
+                   layoutChildrenCalled = true;
+                }
+            }); 
+            
+            var testNode = new TestLayoutNode();
+            testNode.getFullBounds();
+            ok(layoutChildrenCalled, "layoutChildren was not called");
+        });
       }
 
       function testPRoot() {
