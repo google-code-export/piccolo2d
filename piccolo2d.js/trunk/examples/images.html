@@ -60,8 +60,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
               var rowHeight = 0;
               var cols = 0;
               for (var i=0, n=this.children.length; i < n; i++) {
-                this.children[i].translate(currentX, currentY);   
-                currentX += this.children[i].bounds.width + 10;
+                this.children[i].translate(currentX, currentY).scale(Math.pow(0.9, cols));   
+                currentX += (this.children[i].bounds.width + 10) * Math.pow(0.9, cols);
                 rowHeight = this.children[i].bounds.height;
                 
                 cols += 1;
