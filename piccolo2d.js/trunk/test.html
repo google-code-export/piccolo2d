@@ -537,6 +537,13 @@
           ok(bounds.width != 0, "Bounds should have width when text is not empty");
           ok(bounds.height != 0, "Bounds should have height when text is not empty");
         });
+        
+        test("FullBounds is correct", function() {
+          var t = new PText("Hello");
+          var bounds = t.getFullBounds();
+          equal(bounds.width, 43, "width of measured text is incorrect");
+          equal(bounds.height, 20, "height of measured text is incorrect");
+        });
       }
 
       function testPImage() {

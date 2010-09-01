@@ -556,14 +556,20 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         },
 
         recomputeBounds: function() {
-          var metric = PText.hiddenContext.measureText(this.text);
+          var metric = PText.hiddenContext.measureText(this.text);          
           this.bounds.width = metric.width;
           this.bounds.height = this.text ? PText.fontSize : 0;
           this.invalidateBounds();
         }
     });
-    PText.hiddenContext = document.createElement("canvas").getContext("2d");
+    
     PText.fontSize = 20;
+             
+    PText.hiddenContext = document.createElement("canvas").getContext("2d");
+    PText.hiddenContext.font = PText.fontSize + "px Arial";
+    PText.hiddenContext.textBaseline = "top";
+    
+ 
 
 
     PImage = PNode.extend({
