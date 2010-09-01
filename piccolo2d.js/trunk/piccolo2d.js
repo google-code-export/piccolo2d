@@ -27,7 +27,7 @@
  * TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
- 
+
 "use strict";
 
 Array.prototype.pushAll = function (x) {
@@ -44,13 +44,13 @@ Array.prototype.remove = function (x) {
             keepers.push(this[i]);
         }
     }
-  
+
     return keepers;
 };
 
 // Explicitly declaring classes introduced into the Global Scope
 var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
-    PNode, PText, PImage, PInterpolatingActivity, PViewTransformActivity, 
+    PNode, PText, PImage, PInterpolatingActivity, PViewTransformActivity,
     PTransformActivity, PLayer, PCanvas, PCamera;
 
 (function () {
@@ -59,7 +59,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         abs = Math.abs,
         sin = Math.sin,
         cos = Math.cos;
-            
+
     PTransform = Class.extend({
         init: function (values) {
             this.values = values || [1, 0, 0, 1, 0, 0];
@@ -167,13 +167,13 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
             return new PTransform(values);
         },
-        
+
         getScale: function() {
             var p = new PPoint(0,1);
             var tp = this.transform(p);
             tp.x -= this.values[4];
-            tp.y -= this.values[5];          
-            return Math.sqrt(tp.x * tp.x + tp.y * tp.y); 
+            tp.y -= this.values[5];
+            return Math.sqrt(tp.x * tp.x + tp.y * tp.y);
         }
     });
 
@@ -284,12 +284,12 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
             return x >= this.x && x < this.x + this.width && y >= this.y && y < this.y + this.height;
         },
-        
+
         intersects: function(bounds) {
             return !(bounds.x + bounds.width < this.x
-                || bounds.x > this.x + this.width 
-                || bounds.y + bounds.height < this.y 
-                || bounds.y > this.y + this.height); 
+                || bounds.x > this.x + this.width
+                || bounds.y + bounds.height < this.y
+                || bounds.y > this.y + this.height);
         }
     });
 
@@ -300,7 +300,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             this.listeners = [];
             this.fullBounds = null;
             this.globalFullBounds = null;
-      
+
             this.transform = new PTransform();
             this.visible = true;
 
@@ -330,22 +330,22 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         paintAfterChildren: function (ctx) {
         },
 
-        fullPaint: function (ctx) {    
-            var inViewport = !ctx.clipBounds || ctx.clipBounds.intersects(this.getGlobalFullBounds());               
+        fullPaint: function (ctx) {
+            var inViewport = !ctx.clipBounds || ctx.clipBounds.intersects(this.getGlobalFullBounds());
             if (this.visible && inViewport) {
-              ctx.save();
-  
-              this.transform.applyTo(ctx);
-  
-              this.paint(ctx);
-  
-              for (var i = 0; i < this.children.length; i += 1) {
-                  this.children[i].fullPaint(ctx);
-              }
-  
-              this.paintAfterChildren(ctx);
-  
-              ctx.restore();
+                ctx.save();
+
+                this.transform.applyTo(ctx);
+
+                this.paint(ctx);
+
+                for (var i = 0; i < this.children.length; i += 1) {
+                    this.children[i].fullPaint(ctx);
+                }
+
+                this.paintAfterChildren(ctx);
+
+                ctx.restore();
             }
         },
 
@@ -371,7 +371,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             this.transform.rotate(theta);
             this.invalidatePaint();
             if (this.parent) {
-              this.parent.invalidateBounds(); 
+              this.parent.invalidateBounds();
               this.globalFullBounds = null;
             }
 
@@ -379,9 +379,9 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         },
 
         addChild: function (child) {
-            this.children.push(child);            
+            this.children.push(child);
             child.parent = this;
-            
+
             this.invalidateBounds();
             this.invalidatePaint();
 
@@ -390,9 +390,9 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         removeChild: function (child) {
             child.parent = null;
-            
+
             this.children = this.children.remove(child);
-            
+
             this.invalidateBounds();
             this.invalidatePaint();
 
@@ -401,12 +401,12 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         setTransform: function (transform) {
             this.transform = transform;
-            
+
             if (this.parent) {
               this.parent.invalidateBounds();
               this.globalFullBounds = null;
             }
-            
+
             this.invalidatePaint();
 
             return this;
@@ -427,11 +427,11 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
         getFullBounds: function () {
             if (!this.fullBounds) {
                 if (this.layoutChildren) {
-                  this.layoutChildren(); 
+                  this.layoutChildren();
                 }
-                
+
                 var newFullBounds = new PBounds(this.bounds);
-                
+
                 var child, childFullBounds, tBounds;
 
                 for (var i = 0; i < this.children.length; i += 1) {
@@ -441,7 +441,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
                     newFullBounds.add(tBounds);
                 }
-                
+
                 this.fullBounds = newFullBounds;
             }
 
@@ -453,14 +453,14 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 var fullBounds = this.getFullBounds(),
                     currentNode = this,
                     tl = new PPoint(fullBounds.x, fullBounds.y),
-                    br = new PPoint(fullBounds.x + fullBounds.width, fullBounds.y + fullBounds.height);                
-    
+                    br = new PPoint(fullBounds.x + fullBounds.width, fullBounds.y + fullBounds.height);
+
                 while (currentNode.parent) {
                     tl = currentNode.transform.transform(tl);
                     br = currentNode.transform.transform(br);
                     currentNode = currentNode.parent;
                 }
-    
+
                 this.globalFullBounds = new PBounds(
                     min(tl.x, br.x),
                     min(tl.y, br.y),
@@ -468,7 +468,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                     abs(tl.y - br.y)
                     );
             }
-            
+
             return this.globalFullBounds;
         },
 
@@ -483,14 +483,14 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
             return t;
         },
-        
+
         invalidateBounds: function() {
            this.fullBounds = null;
            this.globalFullBounds = null;
-           
+
            if (this.parent) {
-               this.parent.invalidateBounds(); 
-           } 
+               this.parent.invalidateBounds();
+           }
         },
 
         localToParent: function (target) {
@@ -506,7 +506,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 this.listeners.push(listener);
             }
         },
-        
+
         getScale: function() {
           return this.transform.getScale();
         }
@@ -527,7 +527,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
     });
 
     PText = PNode.extend({
-        init: function (arg) {                     
+        init: function (arg) {
             if (typeof arg === "string") {
                 this._super();
                 this.text = arg;
@@ -541,11 +541,11 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
         },
 
-        paint: function (ctx) {                   
-            if (this.getGlobalFullBounds().height * ctx.displayScale  < 3) { 
+        paint: function (ctx) {
+            if (this.getGlobalFullBounds().height * ctx.displayScale  < 3) {
                 return;
             }
-            
+
             if (this.fillStyle) {
                 ctx.fillStyle = this.fillStyle;
             } else {
@@ -554,18 +554,18 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             ctx.textBaseline = "top";
             ctx.fillText(this.text, this.bounds.x, this.bounds.y);
         },
-        
+
         recomputeBounds: function() {
           var metric = PText.hiddenContext.measureText(this.text);
           this.bounds.width = metric.width;
-          this.bounds.height = this.text ? PText.fontSize : 0; 
+          this.bounds.height = this.text ? PText.fontSize : 0;
           this.invalidateBounds();
         }
     });
-    PText.hiddenContext = document.createElement("canvas").getContext("2d");   
-    PText.fontSize = 20;    
-    
-    
+    PText.hiddenContext = document.createElement("canvas").getContext("2d");
+    PText.fontSize = 20;
+
+
     PImage = PNode.extend({
         init: function (arg) {
             var _this = this;
@@ -580,13 +580,13 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             this.loaded = false;
 
             this.image = new Image();
-            this.image.onload = function () {                
+            this.image.onload = function () {
                 _this.bounds.width = this.width;
                 _this.bounds.height = this.height;
 
                 _this.invalidateBounds();
                 _this.loaded = true;
-                
+
                 _this.invalidatePaint();
             };
 
@@ -635,10 +635,10 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
             this.viewTransform.applyTo(ctx);
             ctx.displayScale = this.viewTransform.getScale();
-            
+
             var viewInverse = this.viewTransform.getInverse();
             ctx.clipBounds = viewInverse.transform(this.bounds);
-            
+
             for (var i = 0; i < this.layers.length; i += 1) {
                 this.layers[i].fullPaint(ctx);
             }
@@ -668,7 +668,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 globalPoint = viewInverse.transform(mousePoint),
                 pickedNodes = [],
                 layerPoint;
-                
+
             for (var i = 0; i < this.layers.length; i += 1) {
                 layerPoint = this.layers[i].transform.getInverse().transform(globalPoint);
                 pickedNodes.pushAll(this._getPickedNodes(this.layers[i], layerPoint));
@@ -714,8 +714,8 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 throw "Canvas provided to Piccolo is invalid!";
             }
 
-            var _pCanvas = this;                                   
-            
+            var _pCanvas = this;
+
             this.canvas = canvas;
             canvas.font = PText.fontSize + "px Arial";
 
@@ -778,7 +778,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
             function processMouseEvent(name, event) {
                 event.preventDefault();
-                
+
                 var offset = $(canvas).offset(),
                     x = event.pageX - offset.left,
                     y = event.pageY - offset.top,
@@ -790,9 +790,9 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 previousPickedNodes = newPickedNodes;
             }
 
-            //TODO: Remove jQuery dependence
+            //TODO: Remove  dependence
             var $canvas = $(canvas);
-            
+
             ["click", "mousemove", "mousedown", "mouseup"].forEach(function (name) {
                 $canvas[name](function (event) {
                     processMouseEvent(name, event);
@@ -807,9 +807,9 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         paint: function () {
             var root = this.camera.getRoot();
-            if (root.invalidPaint) {              
-                var ctx = this.canvas.getContext('2d');                               
-                
+            if (root.invalidPaint) {
+                var ctx = this.canvas.getContext('2d');
+
                 ctx.font = "16pt Helvetica";
                 ctx.fillStyle = this.fillStyle || "rgb(255,255,255)";
 
@@ -833,7 +833,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
                 if (options.init) {
                     options.init.call(this);
                 }
-        
+
                 if (options.started) {
                     this.started = options.started;
                 }
@@ -905,7 +905,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             var activity, keepers = [];
 
             this.globalTime = new Date().getTime();
-            
+
             for (var i = 0; i < this.activities.length; i += 1) {
                 activity = this.activities[i];
 
@@ -926,7 +926,7 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             }
 
             this.activities = keepers;
-      
+
             if (!this.activities) {
                 this._stop();
             }
