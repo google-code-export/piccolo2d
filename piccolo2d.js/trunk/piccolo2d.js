@@ -509,6 +509,32 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
 
         getScale: function() {
           return this.transform.getScale();
+        },
+        
+        moveToFront: function() {
+            if (this.parent && this.parent.children.length > 1) {
+                this.parent.children = this.parent.children.remove(this);
+                this.parent.children.push(this);
+                            
+                this.invalidatePaint();
+            }
+            return this;
+        },
+        
+        moveToBack: function() {
+            if (this.parent && this.parent.children.length > 1) {
+                var newSiblings = [this];
+                for (var i=0, n = this.parent.children.length; i<n; i++) {
+                    if (this.parent.children[i] != this) {
+                      newSiblings.push(this.parent.children[i]);   
+                    }
+                }
+              
+                this.parent.children = newSiblings;
+                            
+                this.invalidatePaint();
+            }
+            return this;
         }
     });
 
@@ -743,10 +769,10 @@ var PTransform, PBounds, PPoint, PActivity, PActivityScheduler, PRoot,
             function dispatchEvent(type, event, pickedNodes) {
                 var currentNode, listener;
 
-                for (var nodeIndex  = 0; nodeIndex < pickedNodes.length; nodeIndex += 1) {
+                for (var nodeIndex  = 0, pickedNodeCount = pickedNodes.length; nodeIndex < pickedNodeCount; nodeIndex += 1) {
                     currentNode = pickedNodes[nodeIndex];
                     while (currentNode) {
-                        for (var i = 0; i < currentNode.listeners.length; i += 1) {
+                        for (var i = 0, listenerCount = currentNode.listeners.length; i < listenerCount; i += 1) {
                             listener = currentNode.listeners[i];
                             if (listener[type]) {
                                 listener[type]({

@@ -465,6 +465,36 @@
             testNode.getFullBounds();
             ok(layoutChildrenCalled, "layoutChildren was not called");
         });
+        
+        test("Move to front places child node at end of its parent's children", function() {
+            var a = new PNode();
+            var b = new PNode();
+            var parent = new PNode();
+            parent.addChild(a);
+            parent.addChild(b);
+            a.moveToFront();
+            same(parent.children[1], a);
+        });
+        
+        test("Move to back places child node at front of its parent's children", function() {
+            var a = new PNode();
+            var b = new PNode();
+            var parent = new PNode();
+            parent.addChild(a);
+            parent.addChild(b);
+            b.moveToBack();
+            same(parent.children[0], b);
+        });
+        
+        test("Move to front does nothing if child has no parent", function() {
+            var a = new PNode();
+            a.moveToFront();
+        });
+        
+        test("Move to back does nothing if child has no parent", function() {
+            var a = new PNode();
+            a.moveToBack();
+        });
       }
 
       function testPRoot() {
