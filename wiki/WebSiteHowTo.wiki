@@ -34,7 +34,7 @@ The *complete* website content is versioned in the project's svn repository: htt
 
 Publishing a (unchanged but newly generated) set of maven reports consumes *10 MB* of svn repository space and the commit takes *over 1 hour*.
 
-Maybe we pick a git hosting solution for versioning the website content in the future. I cloned the site repo to a public git repo at http://github.com/mro/piccolo2d.site. Feel free to have a look, but expect a 35MB download. 
+Maybe we pick a git hosting solution for versioning the website content in the future. I cloned the site repo to a public git repo at http://github.com/mro/piccolo2d.site.git. Feel free to have a look, but expect a 35MB download. 
 
 == Staging area ==
 
