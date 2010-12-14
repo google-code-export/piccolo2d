@@ -6,13 +6,13 @@
 
 No Open issues exist with current release milestone
 
-[http://code.google.com/p/piccolo2d/issues/list?can=2&q=milestone=1.3&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3,Open issues]
+[http://code.google.com/p/piccolo2d/issues/list?can=2&q=milestone=1.3.1&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3,Open issues]
 
 
 <br/>
 No Fixed issues exist with the current release milestone (all closed issues should be in Duplicate, WontFix, or Verified status)
 
-[http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone:1.3%20status=Fixed&sort=status&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3,status=Fixed]
+[http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone:1.3.1%20status=Fixed&sort=status&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3,status=Fixed]
 
 
 <br/>
@@ -30,7 +30,7 @@ Update version in parent pom.xml file to {$version}-${release-candidate}
 
 parent/pom.xml:
 {{{
-  <version>1.3-beta</version>
+  <version>1.3.1-rc1</version>
 }}}
 
 
@@ -47,7 +47,7 @@ Examples run with jdk 1.4+ on all platforms
 {{{
 $ cd examples
 $ mvn assembly:assembly
-$ java -jar target/piccolo2d-examples-1.3-beta-jar-with-dependencies.jar
+$ java -jar target/piccolo2d-examples-1.3.1-rc1-jar-with-dependencies.jar
 }}}
 
 <br/>
@@ -56,15 +56,15 @@ SWT examples run with jdk 1.4+ on all platforms
 {{{
 $ cd ../swt-examples
 $ mvn assembly:assembly
-$ java -jar target/piccolo2d-swt-examples-1.3-beta-jar-with-dependencies.jar
+$ java -jar target/piccolo2d-swt-examples-1.3.1-beta-jar-with-dependencies.jar
 }}}
 
 <br/>
 Clirr report shows no ERRORs where binary compatibility is required
 
-For example, for minor release version 1.3, core must be binary compatible with the latest minor release version, 1.2.1.
+For example, for minor release version 1.3.1, core must be binary compatible with the latest minor release version, 1.3.
 {{{
-$ clirr.sh --old-version piccolo2d-core-1.2.1.jar --new-version piccolo2d-core-1.3-beta.jar --style text
+$ clirr.sh --old-version piccolo2d-core-1.3.jar --new-version piccolo2d-core-1.3.1-rc1.jar --style text
 }}}
 
 <br/>
@@ -80,14 +80,14 @@ Update release notes and readme as necessary
 Commit release candidate changes to trunk
 
 {{{
-$ svn commit -m "updating version to 1.3-beta" .
+$ svn commit -m "updating version to 1.3.1-rc1" .
 }}}
 
 <br/>
 Create release tag in subversion
 
 {{{
-$ svn cp -m "creating 1.3-beta release tag" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/tags/release-1.3-beta
+$ svn cp -m "creating 1.3.1-rc1 release tag" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/tags/release-1.3.1-rc1
 }}}
 
 ====Create binary, source, and javadoc release artifacts====
@@ -167,7 +167,7 @@ Sandy +1 (non-binding)
 Create release branch in subversion
 
 {{{
-$ svn cp -m "creating 1.3 release branch" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/branches/release-1.3
+$ svn cp -m "creating 1.3.1 release branch" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/branches/release-1.3.1
 }}}
 
 
