@@ -3,6 +3,14 @@
 
 = Upcoming =
 
+== Release 1.3.1 ==
+
+Next bug fix release.
+
+ * Flavor: piccolo2d.java only
+ * Schedule: ?
+ * Issues [http://code.google.com/p/piccolo2d/issues/list?sort=status+type+-priority+-id&can=1&q=label:Milestone-1.3.1 List] or [http://code.google.com/p/piccolo2d/issues/list?can=1&x=type&y=status&mode=grid&cells=tiles&q=label%3AMilestone-1.3.1 Grid] * Release Manager:  TBD.
+
 == Release 1.4 ==
 
 Next minor release.
