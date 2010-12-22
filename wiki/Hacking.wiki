@@ -24,7 +24,7 @@ $ svn commit -m "Issue 123 ; fixed blah blah..."
 <br/>
 Include the Revision # (either "revision 123" or "r123") as a comment in the Issue when you commit a fix against an issue.  This allows a reviewer to quickly find the diff and start the code review process if necessary.  A cut n' paste of the svn commit command gives you the "Committed revision 123" note at the bottom.
 
-(or use "Fixed Issue 123" in your svn commit message and this will automatically mark the issue as Fixed, check the Google Code docs for details)
+(or use "Fixes Issue 123." in your svn commit message and this will automatically mark the issue as Fixed, check the [http://code.google.com/p/support/wiki/IssueTracker#Integration_with_version_control Google Code docs] for details)
 
 
 <br/>
@@ -32,7 +32,7 @@ Fixed issues should be moved to Verified by either the original submitter or a d
 
 
 <br/>
-There is a checkstyle configuration and a matching Eclipse formatter configuration (though not all of us use Eclipse).  Try not to create too many new checkstyle errors, and try to commit formatting-only changes seperate from coding changes.
+There is a checkstyle configuration and a matching Eclipse formatter configuration (though not all of us use Eclipse).  Try not to create too many new checkstyle errors, and try to commit formatting-only changes separate from coding changes.
 
 
 <br/>
