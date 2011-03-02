@@ -1118,7 +1118,7 @@ aNode.FullPaint(aPaintContext);
       <dt>Local</dt>
 
       <dd>The local coordinate system is specific to a single node. This coordinate system exists
-      directly below that nodes transform. The base bounds of a node are kept in this local
+      directly below that node's transform. The base bounds of a node are kept in this local
       coordinate system, while the fullBounds of a node are stored in the local coordinate system
       of the nodes parent. (This means that the full bounds of a node have been transformed up
       through the node's transform, but are still below the node's parent's transform).</dd>
@@ -1153,7 +1153,7 @@ aNode.FullPaint(aPaintContext);
         <li>globalToLocal() - Transform down from global coordinate system into a node's local
         coordinates.</li>
 
-        <li>localToParent() - Transform up from a nodes local coordinate system into the node's
+        <li>localToParent() - Transform up from a node's local coordinate system into the node's
         parent's local coordinates.</li>
 
         <li>parentToLocal() - Transform down from a node's parent's local coordinate system into
@@ -1364,9 +1364,9 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
     and the geometry of other related nodes may also be effected.</p>
 
     <p>Maintaining bounds caches and updating layouts can become very expensive when manipulating a
-    large number of nodes. Because of this Piccolo2D uses a two stage incremental approach the
-    layout management. The two stages consist of; a damage stage where damage is recorded in bit
-    flags for each damaged node, and an incremental repair stage where the damage is repaired as is
+    large number of nodes. Because of this Piccolo2D uses a two stage incremental approach to
+    layout management. The two stages consist of a damage stage where damage is recorded in bit
+    flags for each damaged node and an incremental repair stage where the damage is repaired as is
     needed.</p>
 
     <p>The damage stage begins when some node geometry changes. When this happens the type of
@@ -1394,13 +1394,13 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
     <ol>
       <li>If the node's bounds have been invalidated, then validate them.</li>
 
-      <li>If the node's child bounds invalidated flag is set then all of the nodes children a
+      <li>If the node's child bounds invalidated flag is set then all of the nodes children are
       validated.</li>
 
       <li>Next layout the children. (by default, the layout method of <code>PNode</code> does
       nothing, but layout manager nodes would override it).</li>
 
-      <li>If the nodes full bounds invalidated flag is set then:
+      <li>If the node's full bounds invalidated flag is set then:
 
         <ol>
           <li>Record the node's old full bounds</li>
@@ -1442,9 +1442,9 @@ public void ConnectRectsWithLine(PPath rect1, PPath rect2,  PPath line) {
 
     <p>To do semantic zooming in Piccolo2D you should override the appropriate paint method, and
     then choose how the node renders itself based on the scale stored in the paint context
-    parameter. This example creates a new node that will paint its based bounds filed with a blue
-    color when viewed at a scale that is less then one, and with an orange color when the scale is
-    greater then one.</p>
+    parameter. This example creates a new node that will paint its based bounds filled with a blue
+    color when viewed at a scale that is less than one, and with an orange color when the scale is
+    greater than one.</p>
 
     <p class='toggle'><a href='javascript:void(0);' name='jlink11' class='toggle selected' id=
     'jlink11' onmousedown=
