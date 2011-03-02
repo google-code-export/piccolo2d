@@ -255,7 +255,7 @@ Canvas.AddInputEventListener(new PDragEventHandler());
     <ol>
       <li>
         <p>First we will use PNode directly.&nbsp; PNode is a concrete class and can be added to
-        the scene.&nbsp; By default, a PNode will just fill its bounds with its brush.&nbsp; Add
+        the scene.&nbsp; By default, a PNode will just fill its bounds with its paint.&nbsp; Add
         the following lines of code to the <code>initialize</code> method.</p>
 
         <p class='toggle'><a href='javascript:void(0);' name='jlink4' class='toggle selected' id=
@@ -269,11 +269,11 @@ Canvas.AddInputEventListener(new PDragEventHandler());
 // Create a node.
 PNode aNode = new PNode();
 
-// A node will not be visible until its bounds and brush are set.
+// A node will not be visible until its bounds and paint are set.
 aNode.setBounds(0, 0, 100, 80);
 aNode.setPaint(Color.RED);
 
-// A node needs to be a descendent of the root to be displayed.
+// A node needs to be a descendant of the root to be displayed.
 PLayer layer = getCanvas().getLayer();
 layer.addChild(aNode);
         
@@ -302,7 +302,7 @@ PNode aNode = new PNode();
 aNode.SetBounds(0, 0, 100, 80);
 aNode.Brush = Brushes.Red;
 
-// A node needs to be a descendent of the root to be displayed.
+// A node needs to be a descendant of the root to be displayed.
 PLayer layer = Canvas.Layer;
 layer.AddChild(aNode);
                                 
@@ -508,7 +508,7 @@ layer.AddChild(myCompositeFace);
           <pre class='snippet java' id='java7'>
 class ToggleShape extends PPath {
                 
-        private boolean fIsPressed = false;
+        private boolean isPressed = false;
 
         public ToggleShape() {
                 setPathToEllipse(0, 0, 100, 80);
@@ -516,19 +516,19 @@ class ToggleShape extends PPath {
                 addInputEventListener(new PBasicInputEventHandler() {
                         public void mousePressed(PInputEvent event) {
                                 super.mousePressed(event);
-                                fIsPressed = true;
+                                isPressed = true;
                                 repaint();
                         }
                         public void mouseReleased(PInputEvent event) {
                                 super.mouseReleased(event);
-                                fIsPressed = false;
+                                isPressed = false;
                                 repaint();
                         }
                 });
         }
         
         protected void paint(PPaintContext paintContext) {
-                if (fIsPressed) {
+                if (isPressed) {
                         Graphics2D g2 = paintContext.getGraphics();
                         g2.setPaint(getPaint());
                         g2.fill(getBoundsReference());
@@ -540,15 +540,7 @@ class ToggleShape extends PPath {
 </pre>
           <pre class='snippet csharp' id='csharp7'>
 class ToggleShape : PPath {
-        private bool fIsPressed = false;
-
-        public bool FIsPressed {
-                set {
-                        fIsPressed = value;
-                        InvalidatePaint();
-                }
-                get { return fIsPressed; }
-        }
+        private bool isPressed = false;
 
         public ToggleShape() {
                 this.AddEllipse(0, 0, 100, 80);
@@ -556,16 +548,18 @@ class ToggleShape : PPath {
 
         public override void OnMouseDown(PInputEventArgs e) {
                 base.OnMouseDown (e);
-                FIsPressed = true;
+                isPressed = true;
+                InvalidatePaint();
         }
 
         public override void OnMouseUp(PInputEventArgs e) {
                 base.OnMouseUp (e);
-                FIsPressed = false;
+                isPressed = false;
+                InvalidatePaint();
         }
 
         protected override void Paint(PPaintContext paintContext) {
-                if (fIsPressed) {
+                if (isPressed) {
                         Graphics g = paintContext.Graphics;
                         g.FillRectangle(this.Brush, this.Bounds);
                 }
@@ -578,8 +572,8 @@ class ToggleShape : PPath {
         </div>
 
         <p>In the constructor we use the <code>PPath</code> to create the ellipse.&nbsp; We store
-        the fIsPressed field to indicate whether or not the mouse is currently down over the
-        node.&nbsp; Notice that the set accessor for fIsPressed sets the value and then calls
+        the isPressed field to indicate whether or not the mouse is currently down over the
+        node.&nbsp; Notice that the on mouse up and on mouse down methods set the value and then call
         <code>InvalidatePaint()</code>.&nbsp; This method notifies the framework that the node
         needs to be repainted.&nbsp; Piccolo2D will then invalidate the child paint of all the
         ancestors of this node.&nbsp; Later the screen damage will be collected for all the nodes
@@ -589,7 +583,7 @@ class ToggleShape : PPath {
         bounds of the node.&nbsp; Otherwise, we will just use the base implementation, which will
         only fill the ellipse.</p>
 
-        <p>Finally, we also use event handlers to set fIsPressed to true when the mouse is down
+        <p>Finally, we also use event handlers to set isPressed to true when the mouse is down
         over the node, and back to false, when the mouse is released.&nbsp; For more about events,
         see the <a href='interaction.html'>Defining User Interaction</a> tutorial.</p>
       </li>
