@@ -40,7 +40,6 @@ Working directory builds and all tests pass on all platforms
 $ mvn install
 }}}
 
-
 <br/>
 Examples run with jdk 1.4+ on all platforms
 
@@ -49,6 +48,8 @@ $ cd examples
 $ mvn assembly:assembly
 $ java -jar target/piccolo2d-examples-1.3.1-rc1-jar-with-dependencies.jar
 }}}
+
+_Note: The maven assembly plugin is deprecating (see [http://maven.apache.org/plugins/maven-assembly-plugin/plugin-info.html here]) all goals (including assembly:assembly) except for assembly:single. However, mvn assembly:single failed to correctly build the assembly; likely having something to do with [http://jira.codehaus.org/browse/MASSEMBLY-94 this ticket]. The workaround is to use "mvn clean package assembly:single" or use mvn assembly:assembly so long as it is still available._
 
 <br/>
 SWT examples run with jdk 1.4+ on all platforms
