@@ -137,7 +137,7 @@ $ jar -cvf bundle.jar *.pom *.jar *.asc
           * Then manually stage/upload the bundle.jar through Nexus Sonatype UI.
         * More about signing artifacts with Maven GPG can be found [https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven here].
 
-  * Update version in parent pom.xml file on svn trunk to ${next-version}-SNAPSHOT
+  * After releasing, update version in pom.xml files on svn trunk to ${next-version}-SNAPSHOT
 parent/pom.xml:
 {{{
   <version>1.4-SNAPSHOT</version>
