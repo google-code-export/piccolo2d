@@ -67,6 +67,7 @@ $ ./create-src.sh
       * Visit http://code.google.com/p/piccolo2d/downloads/list
       * Click [http://code.google.com/p/piccolo2d/downloads/entry New download] link and upload binary zip, binary tar.gz, source zip, and source tar.gz files. Refer to previous uploads for what the metadata should look like.
       * Deprecate earlier failed release candidate version downloads, if any.
+    # Consider syncing release candidates to Maven Repository (follow same process as for a release, below) to encourage community usage of release candidates.
 
 ====For release candidate versions====
 
@@ -119,8 +120,20 @@ Sandy +1 (non-binding)
 $ svn cp -m "creating 1.3.1 release branch" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/branches/release-1.3.1
 }}}
   * Create bundle(s) for upload to maven central repository
-
-*TODO*
+    * The [https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide Sonatype OSS Guide] describes the full process of syncing open-source artifacts to the Maven central repository.
+      * See the section on [https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide#SonatypeOSSMavenRepositoryUsageGuide-7b.StageExistingArtifacts staging existing artifacts]. This is the easiest way to control the process; we've been wary to trust {{{mvn release}}} to perform the pom modifications and svn operations.
+        * If building and staging the artifacts by hand, for each module use 
+{{{
+mvn source:jar javadoc:jar gpg:sign
+}}} 
+          which will produced signed versions of source, javadoc and binaries in the target directory. Example: 
+{{{
+$ cd core
+$ mvn source:jar javadoc:jar gpg:sign
+$ cd target
+$ jar -cvf bundle.jar *.pom *.jar *.asc
+}}}
+          * Then manually stage/upload the bundle.jar through Nexus Sonatype UI.
 
   * Update version in parent pom.xml file on svn trunk to ${next-version}-SNAPSHOT
 parent/pom.xml:
@@ -132,6 +145,10 @@ and commit
 {{{
 $ svn commit -m "updating version to 1.4-SNAPSHOT" parent/pom.xml
 }}}
+
+===Update the website, wiki, and announce the release===
+
+*TODO*
 
 = References =
 
