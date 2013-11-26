@@ -3,10 +3,10 @@
 = Checklist =
 ===Verify Issues===
   # Verify that no Open issues exist with current release milestone:
-    * [http://code.google.com/p/piccolo2d/issues/list?can=2&q=milestone=1.3.1&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3.1,Open issues]
+    * [http://code.google.com/p/piccolo2d/issues/list?can=2&q=milestone=1.3.2&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Mi6lestone:1.3.2,Open issues]
   # Verify that no Fixed issues exist with the current release milestone
     * (All closed issues should be in Duplicate, WontFix, or Verified status
-    * [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone:1.3.1%20status=Fixed&sort=status&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3.1,status=Fixed]
+    * [http://code.google.com/p/piccolo2d/issues/list?can=1&q=Milestone:1.3.2%20status=Fixed&sort=status&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Toolkit%20Component%20Summary Milestone:1.3.2,status=Fixed]
 ===Release Candidates===
   * For each of {beta, rc1, rc2, ...} release candidates:
     # Clean checkout of trunk (or primary branch) from subversion:
@@ -17,29 +17,29 @@ $ cd piccolo2d.java-trunk
     # Update version in all pom.xml files to {$version}-${release-candidate}
       * `*`/pom.xml:
 {{{
-  <version>1.3.1-rc1</version>
+  <version>1.3.2-rc1</version>
 }}}
     # Verify that working directory builds and all tests pass on all platforms:
 {{{
 $ mvn install
 }}}
-    # Verify that the examples run with jdk 1.4+ on all platforms
+    # Verify that the examples run with the specified jdk version on all platforms
 {{{
 $ cd examples
 $ mvn assembly:assembly
-$ java -jar target/piccolo2d-examples-1.3.1-rc1-jar-with-dependencies.jar
+$ java -jar target/piccolo2d-examples-1.3.2-rc1-jar-with-dependencies.jar
 }}}
       * _Note: The maven assembly plugin is deprecating (see [http://maven.apache.org/plugins/maven-assembly-plugin/plugin-info.html here]) all goals (including assembly:assembly) except for assembly:single. However, mvn assembly:single currently fails to correctly build the assembly; likely having something to do with [http://jira.codehaus.org/browse/MASSEMBLY-94 this Maven ticket]. The workaround is to use run the clean and package phase at the same time as assembly:single (i.e., {{{mvn clean package assembly:single"}}}) or use mvn assembly:assembly so long as it is still available._
     # Verify that the SWT examples run with jdk 1.4+ on all platforms
 {{{
 $ cd ../swt-examples
 $ mvn assembly:assembly
-$ java -jar target/piccolo2d-swt-examples-1.3.1-beta-jar-with-dependencies.jar
+$ java -jar target/piccolo2d-swt-examples-1.3.2-beta-jar-with-dependencies.jar
 }}}
     # Verify that {{{clirr}}} report shows no ERRORs where binary compatibility is required
-      * For example, for minor release version 1.3.1, core must be binary compatible with the latest minor release version, 1.3.
+      * For example, for minor release version 1.3.2, core must be binary compatible with the latest minor release version, 1.3.
 {{{
-$ clirr.sh --old-version piccolo2d-core-1.3.jar --new-version piccolo2d-core-1.3.1-rc1.jar --style text
+$ clirr.sh --old-version piccolo2d-core-1.3.1.jar --new-version piccolo2d-core-1.3.2-rc1.jar --style text
 }}}
     # Verify that all source files have the Piccolo2D license header
     # Class file format of all jar files matches the minimum required JDK version, currently 1.4
@@ -47,11 +47,11 @@ $ clirr.sh --old-version piccolo2d-core-1.3.jar --new-version piccolo2d-core-1.3
     # Update release notes and readme as necessary
     # Commit release candidate changes to trunk
 {{{
-$ svn commit -m "updating version to 1.3.1-rc1" .
+$ svn commit -m "updating version to 1.3.2-rc1" .
 }}}
     # Create release tag in subversion
 {{{
-$ svn cp -m "creating 1.3.1-rc1 release tag" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/tags/release-1.3.1-rc1
+$ svn cp -m "creating 1.3.2-rc1 release tag" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/tags/release-1.3.1-rc1
 }}}
     # Create binary, source, and javadoc release artifacts
       * To create binary zip and binary tar.gz files, update the VERSION shell variable and call
@@ -117,7 +117,7 @@ Sandy +1 (non-binding)
 
   * Create release branch in subversion
 {{{
-$ svn cp -m "creating 1.3.1 release branch" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/branches/release-1.3.1
+$ svn cp -m "creating 1.3.2 release branch" https://piccolo2d.googlecode.com/svn/piccolo2d.java/trunk https://piccolo2d.googlecode.com/svn/piccolo2d.java/branches/release-1.3.2
 }}}
   * Create bundle(s) for upload to maven central repository
     * First, if you don't already have one, you'll need a PGP code signing key available from the MIT keyserver, see: [http://code.google.com/p/piccolo2d/wiki/OpenPGPConfiguration OpenPGPConfiguration]. You'll also need to sign up for an account with [https://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide#SonatypeOSSMavenRepositoryUsageGuide-2.Signup Sonatype] in order to stage artifacts that will be synced to Maven Central.
