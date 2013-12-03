@@ -1,4 +1,72 @@
 #labels Featured,Phase-Deploy
+=Piccolo2D 3.0 Release Notes=
+------------------
+
+Major changes:
+
+The minimum JDK version is now 1.6.
+
+JDK 1.6-only modules jdk16 and jdk16-examples have been merged to core and examples respectively.
+
+Piccolo2D.Java version 3.0 is _not_ binary compatible with version 1.3.x or version 2.x.
+
+
+Fixed and verified issues:
+
+|| Issue 166 ||    Refactor PNode.moveToBack() and related||
+|| Issue 190 ||    Move to version 1.6 as minimum JDK requirement for piccolo-core||
+|| Issue 252 ||    Merge build-related changes from trunk to branches/3.0-spike||
+
+
+=Piccolo2D 2.0 Release Notes=
+------------------
+
+Major changes:
+
+The root package name for Piccolo2D.Java is now org.piccolo2d to match the project domain name.
+
+The minimum JDK version is now 1.5.
+
+JDK 1.6-only code has been added to new modules jdk16 and jdk16-examples.
+
+Piccolo2D.Java version 2.0 is _not_ binary compatible with version 1.3.x.
+
+
+Fixed and verified issues:
+
+|| Issue 33 ||     PSwing components not visible in testing frameworks||
+|| Issue 37 ||     change namespaces to piccolo2d,||
+|| Issue 86 ||     inconsistencies of position method in PNode||
+|| Issue 135 ||    Constants are not constant in the core.||
+|| Issue 136 ||    PNotificationCenter is a singleton but isn't declared as final||
+|| Issue 152 ||    Refactor PPath to use Path2D on JDK 1.6+||
+|| Issue 153 ||    PArea, a wrapper for java.awt.geom.Area to allow Constructive Area Geometry (CAG) operations||
+|| Issue 172 ||    Add getRoot method to POffscreenCanvas||
+|| Issue 177 ||    When deleting a selected node using the keyboard DEL a selection change is not fired||
+|| Issue 180 ||    Drawing tears when dragging or resizing path nodes||
+|| Issue 186 ||    Create a new package org.piccolo2d.examples.bugs or .issues||
+|| Issue 236 ||    Add zoom event handler that responds to mouse wheel events     ||
+|| Issue 251 ||    Merge build-related changes from release-1.3 branch to trunk ||
+
+
+=Piccolo2D 1.3.2 Release Notes=
+------------------
+
+Fixed and verified issues:
+
+|| Issue 134 ||    PTransformActivity can throw null pointer exception   ||
+|| Issue 207 ||    Horizontal scrolling causes an exception   ||
+|| Issue 208 ||    Merge maven reporting plugin versions to parent pom   ||
+|| Issue 211 ||    Consider using Sonatype oss-parent-7.pom as the parent of parent/pom.xml   ||
+|| Issue 224 ||    Update maven-site-plugin version to 3.0, remove maven-3 profile             ||
+|| Issue 229 ||    Consider updating maven-checkstyle-plugin to version 2.8                     ||
+|| Issue 230 ||    Add link to Autocad DXF File Viewer on applications page                      ||
+|| Issue 231 ||    Mistake in java doc comment   ||
+|| Issue 235 ||    PSwingEventHandler doesn't dispatch events to nodes at extreme scales   ||
+|| Issue 242 ||    Typo in API docs       ||
+|| Issue 250 ||    Update junit dependency version to 4.11||
+
+
 =Piccolo2D 1.3.1 Release Notes=
 ------------------
 
