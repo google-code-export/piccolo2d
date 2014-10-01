@@ -7,11 +7,11 @@ For the impatient website editor: [http://piccolo2d.googlecode.com/svn/site/READ
 
 = Introduction =
 
-The End-User website is available at http://www.piccolo2d.org
+The End-User website is available at http://piccolo2d.mro.name (current refuge after piccolo2d.org got lost. See issue#248)
 
 = Domain =
 
-Domain owner is http://code.google.com/u/willismorse/
+Domain owner is https://code.google.com/u/102889966713065468455/
 
 = Content =
 
@@ -44,11 +44,11 @@ The [http://piccolo2d.googlecode.com/svn/site svn repository] also serves as a s
 
 The content at www.piccolo2d.org is served from a checked out working copy backed with http://piccolo2d.googlecode.com/svn/site
 
-A [http://en.wikipedia.org/wiki/Cron cron job] (at piccolo2d.org) keeps the site up-to-date by running a "svn update" every 4 hours, namely a [http://en.wikibooks.org/wiki/Guide_to_UNIX/Explanations/Scheduling_Jobs#Crontab_format crontab] pattern of
+A [http://en.wikipedia.org/wiki/Cron cron job] (at piccolo2d.mro.name) keeps the site up-to-date by running a mere "svn update" every 4 hours, namely a [http://en.wikibooks.org/wiki/Guide_to_UNIX/Explanations/Scheduling_Jobs#Crontab_format crontab] pattern of
 {{{
 0 3,7,11,15,19,23 * * *
 }}}
-(UTC Time)
+(CE(S)T Time)
 
 = Tools =
 
