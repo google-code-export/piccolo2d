@@ -42,7 +42,7 @@ The [http://piccolo2d.googlecode.com/svn/site svn repository] also serves as a s
 
 == Deployment ==
 
-The content at www.piccolo2d.org is served from a checked out working copy backed with http://piccolo2d.googlecode.com/svn/site
+The content at piccolo2d.mro.name is served from a checked out working copy backed with http://piccolo2d.googlecode.com/svn/site
 
 A [http://en.wikipedia.org/wiki/Cron cron job] (at piccolo2d.mro.name) keeps the site up-to-date by running a mere "svn update" every 4 hours, namely a [http://en.wikibooks.org/wiki/Guide_to_UNIX/Explanations/Scheduling_Jobs#Crontab_format crontab] pattern of
 {{{
