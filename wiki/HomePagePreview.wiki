@@ -1,6 +1,6 @@
-[http://www.piccolo2d.org/ http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo.png]
+[http://piccolo2d.mro.name/ http://piccolo2d.googlecode.com/svn/site/images/Piccolo2D-Logo.png]
 
-If you're interested in _using_ the structured 2D graphics toolkit Piccolo2D, see the [http://www.piccolo2d.org/ Piccolo2D Homepage]. This page here is about the development of the toolkit itself.
+If you're interested in _using_ the structured 2D graphics toolkit Piccolo2D, see the [http://piccolo2d.mro.name/ Piccolo2D Homepage (current refuge)]. This page here is about the development of the toolkit itself.
 
 = Welcome to Piccolo2D! =
 A revolutionary way to create robust, full-featured graphical applications in Java and C#, with striking visual effects such as _zooming_, _animation_ and _multiple representations_.
@@ -24,4 +24,16 @@ The .NET version is built on the .NET Framework and relies on the GDI+ API to do
 
 And best of all, Piccolo2D is _free_ and _open source!_
 
-Learn more at the [http://www.piccolo2d.org/ Piccolo2D Homepage].
+= How do I get it? =
+
+Google Code hosting no longer allows new downloads to be created, so all recent Piccolo2D.Java versions are available only through the [http://search.maven.org/#search|ga|1|g%3A%22org.piccolo2d%22 Maven Central repository] or via release tag in the subversion repository.
+
+The latest version of Piccolo2D.Java compatible with JDK versions 1.6 or newer is [http://search.maven.org/#search|ga|1|g%3A%22org.piccolo2d%22%20AND%20v%3A%223.0%22 3.0].  The svn release tag is [http://code.google.com/p/piccolo2d/source/browse#svn%2Fpiccolo2d.java%2Ftags%2Fpiccolo2d-complete-3.0 tags/piccolo2d-complete-3.0].
+
+The latest version of Piccolo2D.Java compatible with JDK versions 1.5 or newer is [http://search.maven.org/#search|ga|1|g%3A%22org.piccolo2d%22%20AND%20v%3A%222.0%22 2.0].  The svn release tag is [http://code.google.com/p/piccolo2d/source/browse#svn%2Fpiccolo2d.java%2Ftags%2Fpiccolo2d-complete-2.0 tags/piccolo2d-complete-2.0].
+
+The latest version of Piccolo2D.Java compatible with JDK versions 1.4 or newer is [http://search.maven.org/#search|ga|1|g%3A%22org.piccolo2d%22%20AND%20v%3A%221.3.2%22 1.3.2].  The svn release tag is [http://code.google.com/p/piccolo2d/source/browse#svn%2Fpiccolo2d.java%2Ftags%2Fpiccolo2d-complete-1.3.2 tags/piccolo2d-complete-1.3.2].
+
+<br/>
+
+Learn more at the [http://piccolo2d.mro.name/ Piccolo2D Homepage (current refuge)].
